@@ -17,5 +17,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             UI_Elements.initializerAddons(this);
         }
 
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

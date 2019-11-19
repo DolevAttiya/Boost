@@ -32,13 +32,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bioPanel = new System.Windows.Forms.Panel();
-            this.engagementPanel = new System.Windows.Forms.Panel();
-            this.topLikesPanel = new System.Windows.Forms.Panel();
-            this.bestTimesPanel = new System.Windows.Forms.Panel();
+            this.navbarSeparator = new System.Windows.Forms.Panel();
             this.footer = new System.Windows.Forms.Label();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnAnalytics = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.navbarProfilePic = new System.Windows.Forms.PictureBox();
+            this.btnUsername = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // logoPictureBox
@@ -53,52 +55,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
             // 
-            // panel1
+            // navbarSeparator
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.panel1.ForeColor = System.Drawing.Color.Transparent;
-            this.panel1.Location = new System.Drawing.Point(56, 62);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1021, 3);
-            this.panel1.TabIndex = 1;
-            // 
-            // bioPanel
-            // 
-            this.bioPanel.BackColor = System.Drawing.Color.White;
-            this.bioPanel.Location = new System.Drawing.Point(56, 89);
-            this.bioPanel.Name = "bioPanel";
-            this.bioPanel.Size = new System.Drawing.Size(250, 504);
-            this.bioPanel.TabIndex = 2;
-            // 
-            // engagementPanel
-            // 
-            this.engagementPanel.BackColor = System.Drawing.Color.White;
-            this.engagementPanel.Location = new System.Drawing.Point(329, 89);
-            this.engagementPanel.Name = "engagementPanel";
-            this.engagementPanel.Size = new System.Drawing.Size(748, 231);
-            this.engagementPanel.TabIndex = 3;
-            // 
-            // topLikesPanel
-            // 
-            this.topLikesPanel.BackColor = System.Drawing.Color.White;
-            this.topLikesPanel.Location = new System.Drawing.Point(329, 338);
-            this.topLikesPanel.Name = "topLikesPanel";
-            this.topLikesPanel.Size = new System.Drawing.Size(363, 255);
-            this.topLikesPanel.TabIndex = 4;
-            // 
-            // bestTimesPanel
-            // 
-            this.bestTimesPanel.BackColor = System.Drawing.Color.White;
-            this.bestTimesPanel.Location = new System.Drawing.Point(714, 338);
-            this.bestTimesPanel.Name = "bestTimesPanel";
-            this.bestTimesPanel.Size = new System.Drawing.Size(363, 255);
-            this.bestTimesPanel.TabIndex = 5;
+            this.navbarSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.navbarSeparator.ForeColor = System.Drawing.Color.Transparent;
+            this.navbarSeparator.Location = new System.Drawing.Point(56, 62);
+            this.navbarSeparator.Name = "navbarSeparator";
+            this.navbarSeparator.Size = new System.Drawing.Size(1021, 3);
+            this.navbarSeparator.TabIndex = 1;
             // 
             // footer
             // 
             this.footer.BackColor = System.Drawing.Color.Transparent;
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.footer.Font = new System.Drawing.Font("Pier Sans", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.footer.Location = new System.Drawing.Point(0, 598);
             this.footer.Name = "footer";
@@ -107,24 +77,96 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.footer.Text = "ALL RIGHTS RESERVED TO BOOST FOR FACEBOOK © 2019";
             this.footer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.Black;
+            this.btnDashboard.Location = new System.Drawing.Point(168, 20);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(104, 32);
+            this.btnDashboard.TabIndex = 7;
+            this.btnDashboard.Text = "DASHBOARD";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            // 
+            // btnAnalytics
+            // 
+            this.btnAnalytics.FlatAppearance.BorderSize = 0;
+            this.btnAnalytics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAnalytics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnalytics.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalytics.ForeColor = System.Drawing.Color.Black;
+            this.btnAnalytics.Location = new System.Drawing.Point(278, 20);
+            this.btnAnalytics.Name = "btnAnalytics";
+            this.btnAnalytics.Size = new System.Drawing.Size(104, 32);
+            this.btnAnalytics.TabIndex = 8;
+            this.btnAnalytics.Text = "ANALYTICS";
+            this.btnAnalytics.UseVisualStyleBackColor = true;
+            // 
+            // btnReports
+            // 
+            this.btnReports.FlatAppearance.BorderSize = 0;
+            this.btnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReports.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReports.ForeColor = System.Drawing.Color.Black;
+            this.btnReports.Location = new System.Drawing.Point(388, 20);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(104, 32);
+            this.btnReports.TabIndex = 9;
+            this.btnReports.Text = "REPORTS";
+            this.btnReports.UseVisualStyleBackColor = true;
+            // 
+            // navbarProfilePic
+            // 
+            this.navbarProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.navbarProfilePic.Location = new System.Drawing.Point(1046, 20);
+            this.navbarProfilePic.Name = "navbarProfilePic";
+            this.navbarProfilePic.Size = new System.Drawing.Size(31, 32);
+            this.navbarProfilePic.TabIndex = 10;
+            this.navbarProfilePic.TabStop = false;
+            this.navbarProfilePic.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // btnUsername
+            // 
+            this.btnUsername.FlatAppearance.BorderSize = 0;
+            this.btnUsername.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnUsername.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsername.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsername.ForeColor = System.Drawing.Color.Black;
+            this.btnUsername.Location = new System.Drawing.Point(936, 20);
+            this.btnUsername.Name = "btnUsername";
+            this.btnUsername.Size = new System.Drawing.Size(104, 32);
+            this.btnUsername.TabIndex = 11;
+            this.btnUsername.Text = "John Doe";
+            this.btnUsername.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
+            this.Controls.Add(this.btnUsername);
+            this.Controls.Add(this.navbarProfilePic);
+            this.Controls.Add(this.btnReports);
+            this.Controls.Add(this.btnAnalytics);
+            this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.footer);
-            this.Controls.Add(this.bestTimesPanel);
-            this.Controls.Add(this.topLikesPanel);
-            this.Controls.Add(this.engagementPanel);
-            this.Controls.Add(this.bioPanel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.navbarSeparator);
             this.Controls.Add(this.logoPictureBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Form1";
             this.Text = "Boost for Facebook";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,12 +176,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         #endregion
 
         private PictureBox logoPictureBox;
-        private Panel panel1;
-        private Panel bioPanel;
-        private Panel engagementPanel;
-        private Panel topLikesPanel;
-        private Panel bestTimesPanel;
+        private Panel navbarSeparator;
         private Label footer;
+        private Button btnDashboard;
+        private Button btnAnalytics;
+        private Button btnReports;
+        private PictureBox navbarProfilePic;
+        private Button btnUsername;
     }
 }
 
