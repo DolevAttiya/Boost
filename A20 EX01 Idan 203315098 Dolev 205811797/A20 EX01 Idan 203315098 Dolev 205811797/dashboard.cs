@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
-    public partial class Form1 : Form
+    public partial class dashboard : UserControl
     {
-        public Form1()
+        public dashboard()
         {
             InitializeComponent();
-            UI_Elements.initializerAddons(this);
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
