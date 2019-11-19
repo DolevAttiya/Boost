@@ -39,6 +39,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnReports = new System.Windows.Forms.Button();
             this.navbarProfilePic = new System.Windows.Forms.PictureBox();
             this.btnUsername = new System.Windows.Forms.Button();
+            this.login1 = new A20_EX01_Idan_203315098_Dolev_205811797.login();
+            this.dashboard2 = new A20_EX01_Idan_203315098_Dolev_205811797.dashboard();
             this.dashboard1 = new A20_EX01_Idan_203315098_Dolev_205811797.dashboard();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).BeginInit();
@@ -164,6 +166,24 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnUsername.Text = "John Doe";
             this.btnUsername.UseVisualStyleBackColor = false;
             // 
+            // login1
+            // 
+            this.login1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.login1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.login1.Location = new System.Drawing.Point(-8, -2);
+            this.login1.Name = "login1";
+            this.login1.Size = new System.Drawing.Size(1151, 650);
+            this.login1.TabIndex = 14;
+            // 
+            // dashboard2
+            // 
+            this.dashboard2.BackColor = System.Drawing.Color.Transparent;
+            this.dashboard2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dashboard2.Location = new System.Drawing.Point(87, 644);
+            this.dashboard2.Name = "dashboard2";
+            this.dashboard2.Size = new System.Drawing.Size(1021, 523);
+            this.dashboard2.TabIndex = 13;
+            // 
             // dashboard1
             // 
             this.dashboard1.BackColor = System.Drawing.Color.Transparent;
@@ -179,6 +199,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
+            this.Controls.Add(this.login1);
+            this.Controls.Add(this.dashboard2);
             this.Controls.Add(this.dashboard1);
             this.Controls.Add(this.btnUsername);
             this.Controls.Add(this.navbarProfilePic);
@@ -217,6 +239,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private PictureBox navbarProfilePic;
         private Button btnUsername;
         private dashboard dashboard1;
+        private dashboard dashboard2;
+        private login login1;
     }
 }
 
