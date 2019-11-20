@@ -14,17 +14,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         public Boost()
         {
             InitializeComponent();
+            dashboard1.BringToFront();
+            login1.BringToFront();
             UI_Elements.initializerAddons(this);
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
 
+        private void BtnDashboard_Click(object sender, EventArgs e)
+        {
+            dashboard1.BringToFront();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void BtnAnalytics_Click(object sender, EventArgs e)
         {
-
+            analytics1.BringToFront();
         }
     }
 }
