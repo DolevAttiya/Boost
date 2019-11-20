@@ -20,30 +20,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             i_Form.MinimizeBox = false;
             i_Form.FormBorderStyle = FormBorderStyle.FixedDialog;
             i_Form.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            //i_Form.ClientSize = new System.Drawing.Size(2108, 1242);
+            //i_Form.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            //i_Form.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            //i_Form.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            //i_Form.ClientSize = new System.Drawing.Size(1135, 638);
 
         }
 
-    //    public List<Button> navbarButtonSetter(Form i_Form, List<Object> Pages)
-    //    {
-    //        int startLocationX = 170, startLocationY = 30, buttonSpacing = 50,
-    //        buttonWidth = 100, buttonHeight = 25;
-
-    //        List<Button> navbarButtons = new List<Button>();
-
-    //        for (int i = 0; i < Pages.Count; i++)
-    //        {
-    //            Button button = new Button();
-    //            button.Location = new System.Drawing.Point(startLocationX, startLocationY);
-    //            button.Name = "button1";
-    //            button.Size = new System.Drawing.Size(75, 23);
-    //            button.TabIndex = 1;
-    //            button.Text = "button1";
-    //            button.UseVisualStyleBackColor = true;
-    //            navbarButtons.add(button);
-    //        }
-
-    //        return navbarButtons;
-    //    }
     }
 }

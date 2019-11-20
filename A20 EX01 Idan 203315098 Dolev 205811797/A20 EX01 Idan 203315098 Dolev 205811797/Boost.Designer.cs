@@ -41,7 +41,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.analytics1 = new A20_EX01_Idan_203315098_Dolev_205811797.analytics();
             this.dashboard1 = new A20_EX01_Idan_203315098_Dolev_205811797.dashboard();
-            this.login1 = new A20_EX01_Idan_203315098_Dolev_205811797.login();
             ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -184,15 +183,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.dashboard1.Name = "dashboard1";
             this.dashboard1.Size = new System.Drawing.Size(1021, 523);
             this.dashboard1.TabIndex = 12;
-            // 
-            // login1
-            // 
-            this.login1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.login1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.login1.Location = new System.Drawing.Point(-8, -30);
-            this.login1.Name = "login1";
-            this.login1.Size = new System.Drawing.Size(1151, 677);
-            this.login1.TabIndex = 14;
+            this.dashboard1.MinimumSize = this.dashboard1.Size;
+            this.dashboard1.MaximumSize = this.dashboard1.Size;
             // 
             // Boost
             // 
@@ -200,7 +192,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
-            this.Controls.Add(this.login1);
             this.Controls.Add(this.analytics1);
             this.Controls.Add(this.dashboard1);
             this.Controls.Add(this.btnUsername);
@@ -240,7 +231,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private Button btnUsername;
         private dashboard dashboard1;
         private analytics analytics1;
-        private login login1;
     }
 }
 

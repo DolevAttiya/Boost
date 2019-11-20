@@ -15,7 +15,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             InitializeComponent();
             dashboard1.BringToFront();
-            login1.BringToFront();
             UI_Elements.initializerAddons(this);
         }
 
@@ -28,6 +27,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private void BtnAnalytics_Click(object sender, EventArgs e)
         {
             analytics1.BringToFront();
+        }
+
+        private void Analytics1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,14 +16,5 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             InitializeComponent();
         }
 
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
