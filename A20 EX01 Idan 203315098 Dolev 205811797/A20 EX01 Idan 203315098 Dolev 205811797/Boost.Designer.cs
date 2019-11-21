@@ -39,9 +39,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnUsername = new System.Windows.Forms.Button();
             this.navbarProfilePic = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.Analytics();
-            this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.Dashboard();
             this.login = new A20_EX01_Idan_203315098_Dolev_205811797.Login(this);
+            this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.Dashboard();
+            this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.Analytics();
             ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -147,7 +147,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // navbarProfilePic
             // 
             this.navbarProfilePic.BackColor = System.Drawing.Color.Transparent;
-            //this.navbarProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.navbarProfilePic.Location = new System.Drawing.Point(1046, 20);
             this.navbarProfilePic.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.navbarProfilePic.Name = "navbarProfilePic";
@@ -160,60 +159,46 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.logoPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.logoPictureBox.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_navbar;
             this.logoPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.logoPictureBox.Location = new System.Drawing.Point(56, 20);
+            this.logoPictureBox.Location = new System.Drawing.Point(56, 18);
             this.logoPictureBox.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(74, 32);
+            this.logoPictureBox.Size = new System.Drawing.Size(94, 32);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 0;
             this.logoPictureBox.TabStop = false;
             // 
-            // analytics1
-            // 
-            this.analytics.BackColor = System.Drawing.Color.Transparent;
-            this.analytics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.analytics.Location = new System.Drawing.Point(56, 79);
-            this.analytics.Name = "analytics1";
-            this.analytics.Size = new System.Drawing.Size(1021, 523);
-            this.analytics.TabIndex = 13;
-            // 
-            // dashboard1
+            // dashboard
             // 
             this.dashboard.BackColor = System.Drawing.Color.Transparent;
             this.dashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.dashboard.Location = new System.Drawing.Point(56, 79);
             this.dashboard.MaximumSize = this.dashboard.Size;
             this.dashboard.MinimumSize = this.dashboard.Size;
-            this.dashboard.Name = "dashboard1";
+            this.dashboard.Name = "dashboard";
             this.dashboard.Size = new System.Drawing.Size(1021, 523);
             this.dashboard.TabIndex = 12;
             // 
-            // login1
+            // analytics
             // 
-            this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.login.Location = new System.Drawing.Point(-6, -5);
-            this.login.Name = "login1";
+            this.analytics.BackColor = System.Drawing.Color.Transparent;
+            this.analytics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.analytics.Location = new System.Drawing.Point(56, 79);
+            this.analytics.Name = "analytics";
+            this.analytics.Size = new System.Drawing.Size(1021, 523);
+            this.analytics.TabIndex = 13;
+            //
+            // login
+            // 
+            this.login.Location = new System.Drawing.Point(-5, -5);
+            this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(1141, 643);
-            this.login.TabIndex = 14;
-            // 
+            this.login.Visible = false;
             // Boost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
-            this.Controls.Add(this.login);
-            this.Controls.Add(this.analytics);
-            this.Controls.Add(this.dashboard);
-            this.Controls.Add(this.btnUsername);
-            this.Controls.Add(this.navbarProfilePic);
-            this.Controls.Add(this.btnReports);
-            this.Controls.Add(this.btnAnalytics);
-            this.Controls.Add(this.btnDashboard);
-            this.Controls.Add(this.footer);
-            this.Controls.Add(this.navbarSeparator);
-            this.Controls.Add(this.logoPictureBox);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -225,6 +210,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.Text = "Boost for Facebook";
             ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+            this.Controls.Add(this.analytics);
+            this.Controls.Add(this.dashboard);
+            this.Controls.Add(this.btnUsername);
+            this.Controls.Add(this.navbarProfilePic);
+            this.Controls.Add(this.btnReports);
+            this.Controls.Add(this.btnAnalytics);
+            this.Controls.Add(this.btnDashboard);
+            this.Controls.Add(this.footer);
+            this.Controls.Add(this.navbarSeparator);
+            this.Controls.Add(this.logoPictureBox);
+            this.Controls.Add(this.login);
             this.ResumeLayout(false);
 
         }

@@ -16,10 +16,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         Boost m_BoostForm;
 
-        public Login(Boost i_Form)
+        public Login(Boost i_BoostForm)
         {
-            m_BoostForm = i_Form;
             InitializeComponent();
+            m_BoostForm = i_BoostForm;
             pictureBoxFBLogin.MouseEnter += new EventHandler(PictureBoxFBLogin_MouseEnter);
             pictureBoxFBLogin.MouseLeave += new EventHandler(PictureBoxFBLogin_MouseLeave);
         }

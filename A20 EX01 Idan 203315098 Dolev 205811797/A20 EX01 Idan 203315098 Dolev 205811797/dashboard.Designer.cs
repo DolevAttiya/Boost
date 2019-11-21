@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panelUserBio = new System.Windows.Forms.Panel();
+            this.labelBio2 = new System.Windows.Forms.Label();
             this.labelBio1 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxBioProfilePic = new System.Windows.Forms.PictureBox();
@@ -36,20 +38,25 @@
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelBestTimes = new System.Windows.Forms.Panel();
             this.labelBestTimes = new System.Windows.Forms.Label();
-            this.panelTopLikes = new System.Windows.Forms.Panel();
-            this.labelTopLikes = new System.Windows.Forms.Label();
-            this.labelBio2 = new System.Windows.Forms.Label();
+            this.panelTopPosts = new System.Windows.Forms.Panel();
+            this.labelTopPosts = new System.Windows.Forms.Label();
+            this.labelBio3 = new System.Windows.Forms.Label();
+            this.labelLastPostTitle = new System.Windows.Forms.Label();
+            this.labelLastPostContent = new System.Windows.Forms.Label();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.panelEngagement.SuspendLayout();
             this.panelBestTimes.SuspendLayout();
-            this.panelTopLikes.SuspendLayout();
+            this.panelTopPosts.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelUserBio
             // 
             this.panelUserBio.AutoScroll = true;
             this.panelUserBio.BackColor = System.Drawing.Color.White;
+            this.panelUserBio.Controls.Add(this.labelLastPostContent);
+            this.panelUserBio.Controls.Add(this.labelLastPostTitle);
+            this.panelUserBio.Controls.Add(this.labelBio3);
             this.panelUserBio.Controls.Add(this.labelBio2);
             this.panelUserBio.Controls.Add(this.labelBio1);
             this.panelUserBio.Controls.Add(this.labelName);
@@ -61,7 +68,7 @@
             // 
             // labelBio2
             // 
-            this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
@@ -159,36 +166,76 @@
             this.labelBestTimes.TabIndex = 2;
             this.labelBestTimes.Text = "Best Time to Post";
             // 
-            // panelTopLikes
+            // panelTopPosts
             // 
-            this.panelTopLikes.AutoScroll = true;
-            this.panelTopLikes.BackColor = System.Drawing.Color.White;
-            this.panelTopLikes.Controls.Add(this.labelTopLikes);
-            this.panelTopLikes.Location = new System.Drawing.Point(272, 257);
-            this.panelTopLikes.Name = "panelTopLikes";
-            this.panelTopLikes.Size = new System.Drawing.Size(363, 266);
-            this.panelTopLikes.TabIndex = 3;
+            this.panelTopPosts.AutoScroll = true;
+            this.panelTopPosts.BackColor = System.Drawing.Color.White;
+            this.panelTopPosts.Controls.Add(this.labelTopPosts);
+            this.panelTopPosts.Location = new System.Drawing.Point(272, 257);
+            this.panelTopPosts.Name = "panelTopPosts";
+            this.panelTopPosts.Size = new System.Drawing.Size(363, 266);
+            this.panelTopPosts.TabIndex = 3;
             // 
-            // labelTopLikes
+            // labelTopPosts
             // 
-            this.labelTopLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelTopPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelTopLikes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelTopLikes.Location = new System.Drawing.Point(0, 0);
-            this.labelTopLikes.Name = "labelTopLikes";
-            this.labelTopLikes.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelTopLikes.Size = new System.Drawing.Size(363, 35);
-            this.labelTopLikes.TabIndex = 1;
-            this.labelTopLikes.Text = "Top Likes";
+            this.labelTopPosts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPosts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelTopPosts.Location = new System.Drawing.Point(0, 0);
+            this.labelTopPosts.Name = "labelTopPosts";
+            this.labelTopPosts.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.labelTopPosts.Size = new System.Drawing.Size(363, 35);
+            this.labelTopPosts.TabIndex = 1;
+            this.labelTopPosts.Text = "Top Posts";
+            // 
+            // labelBio3
+            // 
+            this.labelBio3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBio3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio3.Location = new System.Drawing.Point(27, 334);
+            this.labelBio3.Name = "labelBio3";
+            this.labelBio3.Size = new System.Drawing.Size(200, 28);
+            this.labelBio3.TabIndex = 4;
+            this.labelBio3.Text = "Detail 3";
+            this.labelBio3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelLastPostTitle
+            // 
+            this.labelLastPostTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLastPostTitle.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastPostTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostTitle.Location = new System.Drawing.Point(27, 362);
+            this.labelLastPostTitle.Name = "labelLastPostTitle";
+            this.labelLastPostTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.labelLastPostTitle.Size = new System.Drawing.Size(200, 43);
+            this.labelLastPostTitle.TabIndex = 5;
+            this.labelLastPostTitle.Text = "Last Post";
+            this.labelLastPostTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // labelLastPostContent
+            // 
+            this.labelLastPostContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLastPostContent.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastPostContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostContent.Location = new System.Drawing.Point(26, 405);
+            this.labelLastPostContent.Name = "labelLastPostContent";
+            this.labelLastPostContent.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.labelLastPostContent.Size = new System.Drawing.Size(200, 107);
+            this.labelLastPostContent.TabIndex = 6;
+            this.labelLastPostContent.Text = resources.GetString("labelLastPostContent.Text");
             // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.panelTopLikes);
+            this.Controls.Add(this.panelTopPosts);
             this.Controls.Add(this.panelBestTimes);
             this.Controls.Add(this.panelEngagement);
             this.Controls.Add(this.panelUserBio);
@@ -199,7 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).EndInit();
             this.panelEngagement.ResumeLayout(false);
             this.panelBestTimes.ResumeLayout(false);
-            this.panelTopLikes.ResumeLayout(false);
+            this.panelTopPosts.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -209,13 +256,16 @@
         private System.Windows.Forms.Panel panelUserBio;
         private System.Windows.Forms.Panel panelEngagement;
         private System.Windows.Forms.Panel panelBestTimes;
-        private System.Windows.Forms.Panel panelTopLikes;
+        private System.Windows.Forms.Panel panelTopPosts;
         public System.Windows.Forms.Label labelEngagement;
         public System.Windows.Forms.Label labelBestTimes;
-        public System.Windows.Forms.Label labelTopLikes;
+        public System.Windows.Forms.Label labelTopPosts;
         public System.Windows.Forms.PictureBox pictureBoxBioProfilePic;
         public System.Windows.Forms.Label labelName;
         public System.Windows.Forms.Label labelBio1;
         public System.Windows.Forms.Label labelBio2;
+        public System.Windows.Forms.Label labelBio3;
+        public System.Windows.Forms.Label labelLastPostTitle;
+        public System.Windows.Forms.Label labelLastPostContent;
     }
 }

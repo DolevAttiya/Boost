@@ -25,11 +25,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         private void Setup()
         {
+
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             dashboard.BringToFront();
-            login.BringToFront();
-            UI_Elements.initializerAddons(this);
-            
+            this.login.Visible = true;
+            login.BringToFront();            
         }
+
+        //private void loginPanelSetup()
+        //{
+        //    this.login.Location = new System.Drawing.Point(-5, -5);
+        //    this.login.Name = "login";
+        //    this.login.Size = new System.Drawing.Size(1141, 643);
+        //    this.login.Visible = false;
+        //}
 
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
@@ -81,14 +93,26 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             String name = m_LoggedInUser.Name; ;
 
             this.btnUsername.Text = name;
-            dashboard.labelName.Text = name;
-            dashboard.labelBio1.Text = "Hometown: " + m_LoggedInUser.Location.Name;
-
             this.navbarProfilePic.LoadAsync(m_LoggedInUser.PictureSmallURL);
             this.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 
+
+            dashboard.labelName.Text = name;
             dashboard.pictureBoxBioProfilePic.LoadAsync(m_LoggedInUser.PictureLargeURL);
             dashboard.pictureBoxBioProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            dashboard.labelBio1.Text = "Hometown: " + m_LoggedInUser.Hometown.Location.City;
+            dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.Count;
+            try
+            {
+                Post lastPost = m_LoggedInUser.Posts[m_LoggedInUser.Posts.Count];
+                dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();
+                dashboard.labelLastPostContent.Text = lastPost.Caption;
+            }
+            catch
+            {
+                dashboard.labelBio3.Text = "???";
+            }
+
 
         }
 
