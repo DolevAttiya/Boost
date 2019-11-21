@@ -117,35 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Mockup_Main copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mockup_Main copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fbLogin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fbLogin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo_login" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo_navbar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_navbar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pier" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\font\pier.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pier_bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\font\pier-bold.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pier_bold_italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\font\pier-bold-italic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pier_italic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\font\pier-italic.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pier_regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\font\pier-regular.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="fbLogin_rollover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fbLogin_rollover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

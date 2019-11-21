@@ -15,7 +15,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Boost());
         }
     }
 }
