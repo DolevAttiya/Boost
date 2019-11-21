@@ -83,6 +83,7 @@
     <Compile Include="Boost.Designer.cs">
       <DependentUpon>Boost.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses\IAnalysis.cs" />
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,5 +146,6 @@
   <ItemGroup>
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
