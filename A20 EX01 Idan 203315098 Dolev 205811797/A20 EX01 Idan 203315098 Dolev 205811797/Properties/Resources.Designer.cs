@@ -73,6 +73,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fbLogin_rollover {
+            get {
+                object obj = ResourceManager.GetObject("fbLogin_rollover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_login {
             get {
                 object obj = ResourceManager.GetObject("Logo_login", resourceCulture);

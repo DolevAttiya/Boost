@@ -39,8 +39,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnUsername = new System.Windows.Forms.Button();
             this.navbarProfilePic = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.analytics1 = new A20_EX01_Idan_203315098_Dolev_205811797.analytics();
-            this.dashboard1 = new A20_EX01_Idan_203315098_Dolev_205811797.dashboard();
+            this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.Analytics();
+            this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.Dashboard();
+            this.login = new A20_EX01_Idan_203315098_Dolev_205811797.Login(this);
             ((System.ComponentModel.ISupportInitialize)(this.navbarProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +146,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             // navbarProfilePic
             // 
-            this.navbarProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.navbarProfilePic.BackColor = System.Drawing.Color.Transparent;
+            //this.navbarProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.navbarProfilePic.Location = new System.Drawing.Point(1046, 20);
             this.navbarProfilePic.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.navbarProfilePic.Name = "navbarProfilePic";
@@ -168,23 +170,32 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             // analytics1
             // 
-            this.analytics1.BackColor = System.Drawing.Color.Transparent;
-            this.analytics1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.analytics1.Location = new System.Drawing.Point(56, 79);
-            this.analytics1.Name = "analytics1";
-            this.analytics1.Size = new System.Drawing.Size(1021, 523);
-            this.analytics1.TabIndex = 13;
+            this.analytics.BackColor = System.Drawing.Color.Transparent;
+            this.analytics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.analytics.Location = new System.Drawing.Point(56, 79);
+            this.analytics.Name = "analytics1";
+            this.analytics.Size = new System.Drawing.Size(1021, 523);
+            this.analytics.TabIndex = 13;
             // 
             // dashboard1
             // 
-            this.dashboard1.BackColor = System.Drawing.Color.Transparent;
-            this.dashboard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dashboard1.Location = new System.Drawing.Point(56, 79);
-            this.dashboard1.Name = "dashboard1";
-            this.dashboard1.Size = new System.Drawing.Size(1021, 523);
-            this.dashboard1.TabIndex = 12;
-            this.dashboard1.MinimumSize = this.dashboard1.Size;
-            this.dashboard1.MaximumSize = this.dashboard1.Size;
+            this.dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.dashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dashboard.Location = new System.Drawing.Point(56, 79);
+            this.dashboard.MaximumSize = this.dashboard.Size;
+            this.dashboard.MinimumSize = this.dashboard.Size;
+            this.dashboard.Name = "dashboard1";
+            this.dashboard.Size = new System.Drawing.Size(1021, 523);
+            this.dashboard.TabIndex = 12;
+            // 
+            // login1
+            // 
+            this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.login.Location = new System.Drawing.Point(-6, -5);
+            this.login.Name = "login1";
+            this.login.Size = new System.Drawing.Size(1141, 643);
+            this.login.TabIndex = 14;
             // 
             // Boost
             // 
@@ -192,8 +203,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
-            this.Controls.Add(this.analytics1);
-            this.Controls.Add(this.dashboard1);
+            this.Controls.Add(this.login);
+            this.Controls.Add(this.analytics);
+            this.Controls.Add(this.dashboard);
             this.Controls.Add(this.btnUsername);
             this.Controls.Add(this.navbarProfilePic);
             this.Controls.Add(this.btnReports);
@@ -221,16 +233,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         #endregion
 
-        private PictureBox logoPictureBox;
-        private Panel navbarSeparator;
-        private Label footer;
-        private Button btnDashboard;
-        private Button btnAnalytics;
-        private Button btnReports;
-        private PictureBox navbarProfilePic;
-        private Button btnUsername;
-        private dashboard dashboard1;
-        private analytics analytics1;
+        public PictureBox logoPictureBox;
+        public Panel navbarSeparator;
+        public Label footer;
+        public Button btnDashboard;
+        public Button btnAnalytics;
+        public Button btnReports;
+        public PictureBox navbarProfilePic;
+        public Button btnUsername;
+        public Dashboard dashboard;
+        public Analytics analytics;
+        public Login login;
     }
 }
 

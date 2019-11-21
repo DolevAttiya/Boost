@@ -1,6 +1,6 @@
 ﻿namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
-    partial class login
+    partial class Login
     {
         /// <summary> 
         /// Required designer variable.
@@ -77,6 +77,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private System.Windows.Forms.PictureBox pictureBoxFBLogin;
+        public System.Windows.Forms.PictureBox pictureBoxFBLogin;
     }
 }
