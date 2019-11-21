@@ -63,12 +63,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                 "user_posts",
                 "user_hometown");
 
-            m_LoggedInUser = result.LoggedInUser;
+            if (!string.IsNullOrEmpty(result.AccessToken))
+            {
+                m_LoggedInUser = result.LoggedInUser;
+                fetchUserData();
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
 
         }
 
 
-        public void fetchAndLoadData()
+        public void fetchUserData()
         {
             String name = m_LoggedInUser.Name; ;
 
