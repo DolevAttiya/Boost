@@ -31,18 +31,18 @@
             this.panelUserBio = new System.Windows.Forms.Panel();
             this.labelBio1 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.pictureBoxBioProfilePic = new System.Windows.Forms.PictureBox();
             this.panelEngagement = new System.Windows.Forms.Panel();
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelBestTimes = new System.Windows.Forms.Panel();
             this.labelBestTimes = new System.Windows.Forms.Label();
             this.panelTopLikes = new System.Windows.Forms.Panel();
             this.labelTopLikes = new System.Windows.Forms.Label();
-            this.pictureBoxBioProfilePic = new System.Windows.Forms.PictureBox();
             this.panelUserBio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.panelEngagement.SuspendLayout();
             this.panelBestTimes.SuspendLayout();
             this.panelTopLikes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUserBio
@@ -63,27 +63,39 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBio1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelBio1.Location = new System.Drawing.Point(27, 279);
             this.labelBio1.Name = "labelBio1";
-            this.labelBio1.Size = new System.Drawing.Size(200, 28);
+            this.labelBio1.Location = new System.Drawing.Point(this.labelName.Location.X, this.labelName.Bottom);
+            this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 28);
             this.labelBio1.TabIndex = 2;
             this.labelBio1.Text = "Detail 1";
             this.labelBio1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelName
             // 
-            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelName.Location = new System.Drawing.Point(27, 235);
+            this.labelName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            //this.labelName.Location = new System.Drawing.Point(64, 235);
+            this.labelName.Location = new System.Drawing.Point(this.pictureBoxBioProfilePic.Location.X, this.pictureBoxBioProfilePic.Bottom);
+            this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
+            this.labelName.MaximumSize = new System.Drawing.Size(250, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.labelName.Size = new System.Drawing.Size(200, 44);
+            this.labelName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 13);
+            this.labelName.Size = new System.Drawing.Size(123, 45);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "John Doe";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureBoxBioProfilePic
+            // 
+            this.pictureBoxBioProfilePic.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBioProfilePic.Location = new System.Drawing.Point(27, 25);
+            this.pictureBoxBioProfilePic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxBioProfilePic.Name = "pictureBoxBioProfilePic";
+            this.pictureBoxBioProfilePic.Size = new System.Drawing.Size(200, 208);
+            this.pictureBoxBioProfilePic.TabIndex = 0;
+            this.pictureBoxBioProfilePic.TabStop = false;
             // 
             // panelEngagement
             // 
@@ -110,6 +122,8 @@
             // 
             // panelBestTimes
             // 
+            this.panelBestTimes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelBestTimes.AutoScroll = true;
             this.panelBestTimes.BackColor = System.Drawing.Color.White;
             this.panelBestTimes.Controls.Add(this.labelBestTimes);
@@ -154,16 +168,6 @@
             this.labelTopLikes.TabIndex = 1;
             this.labelTopLikes.Text = "Top Likes";
             // 
-            // pictureBoxBioProfilePic
-            // 
-            this.pictureBoxBioProfilePic.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxBioProfilePic.Location = new System.Drawing.Point(27, 25);
-            this.pictureBoxBioProfilePic.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBoxBioProfilePic.Name = "pictureBoxBioProfilePic";
-            this.pictureBoxBioProfilePic.Size = new System.Drawing.Size(200, 208);
-            this.pictureBoxBioProfilePic.TabIndex = 0;
-            this.pictureBoxBioProfilePic.TabStop = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,10 +181,11 @@
             this.Name = "Dashboard";
             this.Size = new System.Drawing.Size(1021, 523);
             this.panelUserBio.ResumeLayout(false);
+            this.panelUserBio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).EndInit();
             this.panelEngagement.ResumeLayout(false);
             this.panelBestTimes.ResumeLayout(false);
             this.panelTopLikes.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }
