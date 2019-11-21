@@ -38,6 +38,7 @@
             this.labelBestTimes = new System.Windows.Forms.Label();
             this.panelTopLikes = new System.Windows.Forms.Panel();
             this.labelTopLikes = new System.Windows.Forms.Label();
+            this.labelBio2 = new System.Windows.Forms.Label();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.panelEngagement.SuspendLayout();
@@ -49,6 +50,7 @@
             // 
             this.panelUserBio.AutoScroll = true;
             this.panelUserBio.BackColor = System.Drawing.Color.White;
+            this.panelUserBio.Controls.Add(this.labelBio2);
             this.panelUserBio.Controls.Add(this.labelBio1);
             this.panelUserBio.Controls.Add(this.labelName);
             this.panelUserBio.Controls.Add(this.pictureBoxBioProfilePic);
@@ -57,15 +59,28 @@
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
             this.panelUserBio.TabIndex = 0;
             // 
+            // labelBio2
+            // 
+            this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelBio2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio2.Location = new System.Drawing.Point(27, 306);
+            this.labelBio2.Name = "labelBio2";
+            this.labelBio2.Size = new System.Drawing.Size(200, 28);
+            this.labelBio2.TabIndex = 3;
+            this.labelBio2.Text = "Detail 2";
+            this.labelBio2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // labelBio1
             // 
             this.labelBio1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBio1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio1.Location = new System.Drawing.Point(27, 278);
             this.labelBio1.Name = "labelBio1";
-            this.labelBio1.Location = new System.Drawing.Point(this.labelName.Location.X, this.labelName.Bottom);
-            this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 28);
+            this.labelBio1.Size = new System.Drawing.Size(200, 28);
             this.labelBio1.TabIndex = 2;
             this.labelBio1.Text = "Detail 1";
             this.labelBio1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -76,13 +91,12 @@
             this.labelName.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            //this.labelName.Location = new System.Drawing.Point(64, 235);
-            this.labelName.Location = new System.Drawing.Point(this.pictureBoxBioProfilePic.Location.X, this.pictureBoxBioProfilePic.Bottom);
-            this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
+            this.labelName.Location = new System.Drawing.Point(27, 233);
             this.labelName.MaximumSize = new System.Drawing.Size(250, 0);
+            this.labelName.MinimumSize = new System.Drawing.Size(200, 0);
             this.labelName.Name = "labelName";
             this.labelName.Padding = new System.Windows.Forms.Padding(0, 3, 0, 13);
-            this.labelName.Size = new System.Drawing.Size(123, 45);
+            this.labelName.Size = new System.Drawing.Size(200, 45);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "John Doe";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -91,7 +105,7 @@
             // 
             this.pictureBoxBioProfilePic.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBioProfilePic.Location = new System.Drawing.Point(27, 25);
-            this.pictureBoxBioProfilePic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxBioProfilePic.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxBioProfilePic.Name = "pictureBoxBioProfilePic";
             this.pictureBoxBioProfilePic.Size = new System.Drawing.Size(200, 208);
             this.pictureBoxBioProfilePic.TabIndex = 0;
@@ -202,5 +216,6 @@
         public System.Windows.Forms.PictureBox pictureBoxBioProfilePic;
         public System.Windows.Forms.Label labelName;
         public System.Windows.Forms.Label labelBio1;
+        public System.Windows.Forms.Label labelBio2;
     }
 }
