@@ -14,7 +14,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
     public partial class Login : UserControl
     {
 
-        Boost m_BoostForm;
+        private Boost m_BoostForm;
 
         public Login(Boost i_BoostForm)
         {
@@ -37,7 +37,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)
         {
-            m_BoostForm.fbLogin();
+            m_BoostForm.FacebookLogin();
             this.Visible = false;
 
         }
