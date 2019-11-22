@@ -83,6 +83,8 @@
     <Compile Include="Boost.Designer.cs">
       <DependentUpon>Boost.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses\Analysis.cs" />
+    <Compile Include="DataClasses\AnalysisHolder.cs" />
     <Compile Include="DataClasses\IAnalysis.cs" />
     <Compile Include="Login.cs">
       <SubType>UserControl</SubType>
