@@ -20,12 +20,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             InitializeComponent();
             Setup();
-     
+            
         }
 
         private void Setup()
         {
-
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -53,7 +52,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             analytics.BringToFront();
         }
 
-        public void fbLogin()
+        public void FacebookLogin()
         {
             LoginResult result = FacebookWrapper.FacebookService.Login("748532218946260",
                 "public_profile",
@@ -78,7 +77,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
                 m_LoggedInUser = result.LoggedInUser;
-                fetchUserData();
+                FetchUserData();
             }
             else
             {
@@ -88,7 +87,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         }
 
 
-        public void fetchUserData()
+        public void FetchUserData()
         {
             String name = m_LoggedInUser.Name; ;
 
@@ -100,18 +99,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.labelName.Text = name;
             dashboard.pictureBoxBioProfilePic.LoadAsync(m_LoggedInUser.PictureLargeURL);
             dashboard.pictureBoxBioProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            dashboard.labelBio1.Text = "Hometown: " + m_LoggedInUser.Hometown.Location.City;
-            dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.Count;
-            try
-            {
-                Post lastPost = m_LoggedInUser.Posts[m_LoggedInUser.Posts.Count];
-                dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();
-                dashboard.labelLastPostContent.Text = lastPost.Caption;
-            }
-            catch
-            {
-                dashboard.labelBio3.Text = "???";
-            }
+            //dashboard.labelBio1.Text = "Hometown: " + m_LoggedInUser.Hometown.Location.City;
+            //dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.
+            //Post lastPost = m_LoggedInUser.Posts[m_LoggedInUser.Posts.Count];
+            //dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();
+            //dashboard.labelLastPostContent.Text = lastPost.Caption;
 
 
         }

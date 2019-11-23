@@ -27,7 +27,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
             //labelBio1
             this.labelBio1.Location = new System.Drawing.Point(this.labelName.Location.X, this.labelName.Bottom);
-            this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 28);
+            this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 22);
             //labelBio2
             this.labelBio2.Location = new System.Drawing.Point(this.labelBio1.Location.X, this.labelBio1.Bottom);
             this.labelBio2.Size = new System.Drawing.Size(this.labelBio1.Width, this.labelBio1.Height);
@@ -38,9 +38,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.labelBio3.Size = new System.Drawing.Size(this.labelBio2.Width, this.labelBio2.Height);
             this.labelBio3.Padding = this.labelBio2.Padding;
             this.labelBio3.Margin = this.labelBio2.Margin;
-            //labelLastPost
+            //labelLastPostTltle
             this.labelLastPostTitle.Location = new System.Drawing.Point(this.labelBio3.Location.X, this.labelBio3.Bottom);
             this.labelLastPostTitle.Size = new System.Drawing.Size(this.labelBio3.Width, this.labelLastPostTitle.Height);
+            //labelLastPostContent
+            this.labelLastPostContent.Location = new System.Drawing.Point(this.labelLastPostTitle.Location.X, this.labelLastPostTitle.Bottom);
+            this.labelLastPostContent.Size = new System.Drawing.Size(this.labelLastPostTitle.Width, this.labelLastPostContent.Height);
 
 
 
