@@ -1,11 +1,9 @@
 ﻿namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 {
-    public interface IAnalysis
+    public interface  IAnalysis
     {
-        object CalcAnalysis();
+        IAnalysis CalculateAnalysis(eTimerSelector i_TimeToStrict);
 
-        void OrderBy(object i_Param);
-
-        void SynthesizeBy(object i_Param);
+        void AddByType(eTimerSelector i_TimeToStrict);
     }
 }

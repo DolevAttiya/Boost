@@ -95,12 +95,10 @@
     <Compile Include="Boost.Designer.cs">
       <DependentUpon>Boost.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataClasses\Analysis.cs" />
-    <Compile Include="DataClasses\AnalysisHolder.cs" />
+    <Compile Include="DataClasses\AnalysisCountWrapper.cs" />
+    <Compile Include="DataClasses\BoostEngine.cs" />
     <Compile Include="DataClasses\ETimerSelector.cs" />
     <Compile Include="DataClasses\IAnalysis.cs" />
-    <Compile Include="DataClasses\ITimeAnalysis.cs" />
-    <Compile Include="DataClasses\ITopFan.cs" />
     <Compile Include="DataClasses\TimeAnalysis.cs" />
     <Compile Include="DataClasses\TopFanAnalysis.cs" />
     <Compile Include="Login.cs">
