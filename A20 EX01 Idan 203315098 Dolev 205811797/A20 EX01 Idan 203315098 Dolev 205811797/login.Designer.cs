@@ -30,6 +30,7 @@
         {
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxFBLogin = new System.Windows.Forms.PictureBox();
+            this.labelLoginError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).BeginInit();
             this.SuspendLayout();
@@ -58,15 +59,29 @@
             this.pictureBoxFBLogin.TabStop = false;
             this.pictureBoxFBLogin.Click += new System.EventHandler(this.PictureBoxFBLogin_Click);
             // 
-            // login
+            // labelLoginError
+            // 
+            this.labelLoginError.BackColor = System.Drawing.Color.Transparent;
+            this.labelLoginError.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginError.ForeColor = System.Drawing.Color.Red;
+            this.labelLoginError.Location = new System.Drawing.Point(440, 381);
+            this.labelLoginError.Name = "labelLoginError";
+            this.labelLoginError.Size = new System.Drawing.Size(271, 26);
+            this.labelLoginError.TabIndex = 2;
+            this.labelLoginError.Text = "LOGIN FAILED! PLEASE TRY AGAIN!";
+            this.labelLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLoginError.Visible = false;
+            // 
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.labelLoginError);
             this.Controls.Add(this.pictureBoxFBLogin);
             this.Controls.Add(this.pictureBoxLogo);
-            this.Name = "login";
+            this.Name = "Login";
             this.Size = new System.Drawing.Size(1151, 677);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).EndInit();
@@ -78,5 +93,6 @@
 
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         public System.Windows.Forms.PictureBox pictureBoxFBLogin;
+        private System.Windows.Forms.Label labelLoginError;
     }
 }

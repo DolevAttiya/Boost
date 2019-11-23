@@ -109,55 +109,5 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pier {
-            get {
-                object obj = ResourceManager.GetObject("pier", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pier_bold {
-            get {
-                object obj = ResourceManager.GetObject("pier_bold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pier_bold_italic {
-            get {
-                object obj = ResourceManager.GetObject("pier_bold_italic", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pier_italic {
-            get {
-                object obj = ResourceManager.GetObject("pier_italic", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] pier_regular {
-            get {
-                object obj = ResourceManager.GetObject("pier_regular", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }
