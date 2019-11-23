@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
@@ -11,26 +7,26 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
     public abstract class Analysis
     {
-        public Analysis()
+        protected Analysis()
         {
             const int k_NumberDaysOfWeek = 7;
             const int k_NumberHoursADay = 24;
             const int k_MinutesAndSecond = 0;
             PhotosMatrix = new AnalysisHolder[k_NumberDaysOfWeek, k_NumberHoursADay];
             VideosMatrix = new AnalysisHolder[k_NumberDaysOfWeek, k_NumberHoursADay];
-            PostsMatrix = new AnalysisHolder[k_NumberDaysOfWeek, k_NumberHoursADay];
+            StatusMatrix = new AnalysisHolder[k_NumberDaysOfWeek, k_NumberHoursADay];
             CombinedAnalysisHolders = new AnalysisHolder[k_NumberDaysOfWeek, k_NumberHoursADay];
 
             for(int days = 0; days < k_NumberDaysOfWeek; days++)
             {
                 for(int hour = 0; hour < k_NumberHoursADay; hour++)
                 {
-
+                    // Created At that exact time in order to match the days of the week (Sunday - Saturday ) with the date: Sunday = 1 Monday= 2 etc.
                     PhotosMatrix[days, hour] = new AnalysisHolder(
                         new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
                     VideosMatrix[days, hour] = new AnalysisHolder(
                         new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
-                    PostsMatrix[days, hour] = new AnalysisHolder(
+                    StatusMatrix[days, hour] = new AnalysisHolder(
                         new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
                     CombinedAnalysisHolders[days, hour] = new AnalysisHolder(
                         new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
@@ -38,17 +34,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
             }
         }
 
-        public AnalysisHolder[,] PhotosMatrix { get; }
+        public AnalysisHolder[,] PhotosMatrix { get; private set; }
 
-        public AnalysisHolder[,] VideosMatrix { get; }
+        public AnalysisHolder[,] VideosMatrix { get; private set; }
 
-        public AnalysisHolder[,] PostsMatrix { get; }
+        public AnalysisHolder[,] StatusMatrix { get; private set; }
 
-        public AnalysisHolder[,] CombinedAnalysisHolders { get; }
+        public AnalysisHolder[,] CombinedAnalysisHolders { get; private set; }
 
-        public void AddLikesSchedule(TimerSelector i_Time)
+        public void AddLikesSchedule(eTimerSelector i_TimeToStrict)
         {
-            LoginResult result = FacebookWrapper.FacebookService.Login(
+             
+            LoginResult result = FacebookWrapper.FacebookService.Login( /*TODO*/
                 "748532218946260",
                 "public_profile",
                 "email",
@@ -69,49 +66,46 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
                 "user_posts",
                 "user_hometown");
 
-            User loggedInUser = result.LoggedInUser;
+            User loggedInUser = result.LoggedInUser; //TODO
             foreach(Post postToAnalysis in loggedInUser.Posts)
             {
-                if(postToAnalysis.CreatedTime != null)
+                postsParser(i_TimeToStrict, postToAnalysis, CombinedAnalysisHolders);
+                switch(postToAnalysis.Type)
                 {
-                    PostsMatrix[(int)postToAnalysis.CreatedTime.Value.DayOfWeek,
-                        postToAnalysis.CreatedTime.Value.Hour].AddLikes(postToAnalysis.LikedBy.Count);
-                    CombinedAnalysisHolders[(int)postToAnalysis.CreatedTime.Value.DayOfWeek,
-                        postToAnalysis.CreatedTime.Value.Hour].AddLikes(postToAnalysis.LikedBy.Count);
-                }
-            }
-
-            /*foreach (Album albumToAnalaysis in loggedInUser.Albums)
-            {
-                foreach(var VARIABLE in albumToAnalaysis.Pictures)
-                {
-                    
-                }
-                PostsArrayList[(int)postToAnalaysis.CreatedTime.Value.DayOfWeek,
-                        postToAnalaysis.CreatedTime.Value.Hour]
-                    .AddLikes(postToAnalaysis.LikedBy.Count);
-                CombinedAnalysisHolders[(int)postToAnalaysis.CreatedTime.Value.DayOfWeek,
-                        postToAnalaysis.CreatedTime.Value.Hour]
-                    .AddLikes(postToAnalaysis.LikedBy.Count);
-            }*/
-            foreach(Video videoToAnalysis in loggedInUser.Videos)
-            {
-                if(videoToAnalysis.CreatedTime != null)
-                {
-                    VideosMatrix[(int)videoToAnalysis.CreatedTime.Value.DayOfWeek,
-                        videoToAnalysis.CreatedTime.Value.Hour].AddLikes(videoToAnalysis.LikedBy.Count);
-                    CombinedAnalysisHolders[(int)videoToAnalysis.CreatedTime.Value.DayOfWeek,
-                        videoToAnalysis.CreatedTime.Value.Hour].AddLikes(videoToAnalysis.LikedBy.Count);
+                    case Post.eType.status:
+                        StatusMatrix = postsParser(i_TimeToStrict, postToAnalysis, StatusMatrix);// TODO
+                        break;
+                    case Post.eType.photo:
+                        PhotosMatrix = postsParser(i_TimeToStrict, postToAnalysis, PhotosMatrix);
+                        break;
+                    case Post.eType.video:
+                        VideosMatrix = postsParser(i_TimeToStrict, postToAnalysis, VideosMatrix);
+                        break;
                 }
             }
         }
-    }
 
-    public enum TimerSelector
-    {
-    Day = 7,
-    Month=31,
-    Year=365
+        private AnalysisHolder[,] postsParser(
+            eTimerSelector i_TimeSelector,
+            Post i_PostToAnalysis,
+            AnalysisHolder[,] io_MatrixToAnalysisHolders)
+        {
+            DateTime timeIndicator = DateTime.Now;
+            timeIndicator.AddDays((-1) * double.Parse(i_TimeSelector.ToString())); //TODO 
+            if(i_PostToAnalysis.CreatedTime != null)
+            {
+                if(timeIndicator.CompareTo(i_PostToAnalysis.CreatedTime.Value.Date) >= 0)
+                {
+                    io_MatrixToAnalysisHolders[(int)i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
+                        i_PostToAnalysis.CreatedTime.Value.Hour].AddLikes(i_PostToAnalysis.LikedBy.Count);
+                    CombinedAnalysisHolders[(int)i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
+                        i_PostToAnalysis.CreatedTime.Value.Hour].AddLikes(i_PostToAnalysis.LikedBy.Count);
+                }
+            }
+
+            return io_MatrixToAnalysisHolders;
+        }
+
     }
 }
     
