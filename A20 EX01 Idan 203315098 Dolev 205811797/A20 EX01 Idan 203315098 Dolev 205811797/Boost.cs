@@ -16,6 +16,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
     {
         public User m_LoggedInUser;
 
+        //UI Data Members
+        private List<Button> m_NavbarButtons = new List<Button>();
+
         public Boost()
         {
             InitializeComponent();
@@ -25,6 +28,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         private void Setup()
         {
+            m_NavbarButtons.Add(this.btnDashboard);
+            m_NavbarButtons.Add(this.btnAnalytics);
+            m_NavbarButtons.Add(this.btnReports);
+            m_NavbarButtons.Add(this.btnUsername);
+            foreach(Button button in m_NavbarButtons)
+            {
+                button.ForeColor = UI_Elements.color_NavbarButtonColor;
+            }
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -52,7 +63,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             analytics.BringToFront();
         }
 
-        public void FacebookLogin()
+        public void FacebookLogin(Label i_ErrorLabel)
         {
             LoginResult result = FacebookWrapper.FacebookService.Login("748532218946260",
                 "public_profile",
@@ -81,10 +92,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             }
             else
             {
-                MessageBox.Show(result.ErrorMessage);
+                i_ErrorLabel.Visible = true;
+                //MessageBox.Show(result.ErrorMessage);
             }
 
         }
+
+        //protected override void OnFormClosed(FormClosedEventArgs e)
+        //{
+        //    base.OnFormClosed(e);
+        //}
 
 
         public void FetchUserData()
@@ -99,7 +116,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.labelName.Text = name;
             dashboard.pictureBoxBioProfilePic.LoadAsync(m_LoggedInUser.PictureLargeURL);
             dashboard.pictureBoxBioProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            //dashboard.labelBio1.Text = "Hometown: " + m_LoggedInUser.Hometown.Location.City;
+            int photoCount = 0;
+            foreach(Post post in m_LoggedInUser.Posts)
+            {
+                if(post.Type == Post.eType.photo)
+                    photoCount++;
+            }
+            dashboard.labelBio1.Text = photoCount.ToString();
             //dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.
             //Post lastPost = m_LoggedInUser.Posts[m_LoggedInUser.Posts.Count];
             //dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();

@@ -71,6 +71,18 @@
     <Compile Include="Analytics.Designer.cs">
       <DependentUpon>Analytics.cs</DependentUpon>
     </Compile>
+    <Compile Include="BestTimes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BestTimes.Designer.cs">
+      <DependentUpon>BestTimes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BiggestFans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BiggestFans.Designer.cs">
+      <DependentUpon>BiggestFans.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +106,12 @@
     <Compile Include="UI_Elements.cs" />
     <EmbeddedResource Include="Analytics.resx">
       <DependentUpon>Analytics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BestTimes.resx">
+      <DependentUpon>BestTimes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BiggestFans.resx">
+      <DependentUpon>BiggestFans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -126,11 +144,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\font\pier-bold-italic.otf" />
-    <None Include="Resources\font\pier-bold.otf" />
-    <None Include="Resources\font\pier-italic.otf" />
-    <None Include="Resources\font\pier-regular.otf" />
-    <None Include="Resources\font\pier.otf" />
     <None Include="Resources\Mockup_Main copy.jpg" />
   </ItemGroup>
   <ItemGroup>
