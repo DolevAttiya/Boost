@@ -35,7 +35,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.footer = new System.Windows.Forms.Label();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnAnalytics = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
             this.btnUsername = new System.Windows.Forms.Button();
             this.navbarProfilePic = new System.Windows.Forms.PictureBox();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -108,23 +107,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnAnalytics.UseVisualStyleBackColor = false;
             this.btnAnalytics.Click += new System.EventHandler(this.BtnAnalytics_Click);
             // 
-            // btnReports
-            // 
-            this.btnReports.BackColor = System.Drawing.Color.Transparent;
-            this.btnReports.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReports.FlatAppearance.BorderSize = 0;
-            this.btnReports.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnReports.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReports.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReports.ForeColor = System.Drawing.Color.Black;
-            this.btnReports.Location = new System.Drawing.Point(425, 20);
-            this.btnReports.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(130, 32);
-            this.btnReports.TabIndex = 9;
-            this.btnReports.Text = "REPORTS";
-            this.btnReports.UseVisualStyleBackColor = false;
             // 
             // btnUsername
             // 
@@ -214,7 +196,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.Controls.Add(this.dashboard);
             this.Controls.Add(this.btnUsername);
             this.Controls.Add(this.navbarProfilePic);
-            this.Controls.Add(this.btnReports);
             this.Controls.Add(this.btnAnalytics);
             this.Controls.Add(this.btnDashboard);
             this.Controls.Add(this.footer);

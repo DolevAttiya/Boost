@@ -31,7 +31,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             m_NavbarButtons.Add(this.btnDashboard);
             m_NavbarButtons.Add(this.btnAnalytics);
-            m_NavbarButtons.Add(this.btnReports);
             m_NavbarButtons.Add(this.btnUsername);
             foreach(Button button in m_NavbarButtons)
             {
