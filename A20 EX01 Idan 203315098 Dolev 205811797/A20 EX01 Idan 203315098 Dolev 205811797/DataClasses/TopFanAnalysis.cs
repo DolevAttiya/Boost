@@ -7,53 +7,52 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
     public class TopFanAnalysis : IAnalysis
     {
 
-        private const int k_NumberOfTopFans = 10;
+        public Dictionary<User, int> PhotosDictionary { get; private set; }
 
-        public Dictionary<User, int> PhotosArray { get; private set; }
+        public Dictionary<User, int> VideosDictionary { get; private set; }
 
-        public Dictionary<User, int> VideosArray { get; private set; }
-
-        public Dictionary<User, int> StatusArray { get; private set; }
+        public Dictionary<User, int> StatusDictionary { get; private set; }
 
         public Dictionary<User, int> CombinedAnalysisHolders { get; private set; }
 
         public TopFanAnalysis()
         {
-            foreach(User friend in BoostEngine.LoggedInUser.Friends)
+            const int k_ZeroLikesYet = 0;
+
+            foreach (User friend in BoostEngine.LoggedInUser.Friends)
             {
                 if(friend != null)
                 {
-
-                    PhotosArray.Add(friend, 0);
-                    VideosArray.Add(friend, 0);
-                    StatusArray.Add(friend, 0);
-                    CombinedAnalysisHolders.Add(friend, 0);
+                    PhotosDictionary.Add(friend, k_ZeroLikesYet);
+                    VideosDictionary.Add(friend, k_ZeroLikesYet);
+                    StatusDictionary.Add(friend, k_ZeroLikesYet);
+                    CombinedAnalysisHolders.Add(friend, k_ZeroLikesYet);
                 }
             }
-
-
         }
-
 
         public IAnalysis CalculateAnalysis(eTimerSelector i_TimeToStrict)
         {
-            AddByType(i_TimeToStrict);
-
             TopFanAnalysis o_CalculatedTopFans = new TopFanAnalysis();
-            o_CalculatedTopFans.PhotosArray = calculator(this.PhotosArray);
-            o_CalculatedTopFans.VideosArray = calculator(this.VideosArray);
-            o_CalculatedTopFans.StatusArray = calculator(this.StatusArray);
+
+            AddByType(i_TimeToStrict);
+            o_CalculatedTopFans.PhotosDictionary = calculator(this.PhotosDictionary);
+            o_CalculatedTopFans.VideosDictionary = calculator(this.VideosDictionary);
+            o_CalculatedTopFans.StatusDictionary = calculator(this.StatusDictionary);
             o_CalculatedTopFans.CombinedAnalysisHolders = calculator(this.CombinedAnalysisHolders);
+
             return o_CalculatedTopFans;
         }
 
         private Dictionary<User, int> calculator(Dictionary<User, int> i_DictionarytoSort)
         {
-            int numberOfIterations = k_NumberOfTopFans;
+            int numberOfIterations = BoostEngine.k_TopNumber;
+            const int k_ZeroIterations = 0;
             Dictionary<User, int> o_SortedDictionary = new Dictionary<User, int>();
+
             foreach(KeyValuePair<User, int> itemToSort in i_DictionarytoSort.OrderBy(key => key.Value))
             {
-                if(numberOfIterations-- < 0)
+                if(numberOfIterations-- > k_ZeroIterations)
                 {
                     break;
                 }
@@ -66,12 +65,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
         public void AddByType(eTimerSelector i_TimeToStrict)
         {
-            foreach(Post postToAnalysis in BoostEngine.LoggedInUser.Posts)
+            const int k_OlderThanTimeToStrict = 0;
+
+            foreach (Post postToAnalysis in BoostEngine.LoggedInUser.Posts)
             {
                 CombinedAnalysisHolders = postsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
 
                 if(postToAnalysis.CreatedTime == null
-                   || i_TimeToStrict.CompareTo(postToAnalysis.CreatedTime.Value.Date) < 0)
+                   || i_TimeToStrict.CompareTo(postToAnalysis.CreatedTime.Value.Date) < k_OlderThanTimeToStrict)
                 {
                     break;
                 }
@@ -79,13 +80,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
                 switch(postToAnalysis.Type)
                 {
                     case Post.eType.status:
-                        StatusArray = postsParser(postToAnalysis, StatusArray); // TODO
+                        StatusDictionary = postsParser(postToAnalysis, StatusDictionary); // TODO
                         break;
                     case Post.eType.photo:
-                        PhotosArray = postsParser(postToAnalysis, PhotosArray); // TODO
+                        PhotosDictionary = postsParser(postToAnalysis, PhotosDictionary); // TODO
                         break;
                     case Post.eType.video:
-                        VideosArray = postsParser(postToAnalysis, VideosArray); // TODO
+                        VideosDictionary = postsParser(postToAnalysis, VideosDictionary); // TODO
                         break;
                 }
 
@@ -96,9 +97,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
             Post i_PostToAnalysis,
             Dictionary<User, int> io_ArrayToAnalysisHolders)
         {
-            foreach(Comment comment in i_PostToAnalysis.Comments)
+            foreach(User likedBy in i_PostToAnalysis.LikedBy)
             {
-                io_ArrayToAnalysisHolders[comment.From] += 1;
+                io_ArrayToAnalysisHolders[likedBy] += 1;
             }
 
             return io_ArrayToAnalysisHolders;

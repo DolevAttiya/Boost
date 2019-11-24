@@ -1,115 +1,114 @@
 ﻿using System;
-using FacebookWrapper;
+using System.Collections.Generic;
+using System.Linq;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 {
     class TimeAnalysis : IAnalysis
     {
-        private const int k_NumberDaysOfWeek = 7;
-        private const int k_NumberHoursADay = 24;
-        private const int k_MinutesAndSecond = 0;
-        
         public TimeAnalysis()
         {
-            
-            PhotosMatrix = new AnalysisCountWrapper<DateTime>[k_NumberDaysOfWeek, k_NumberHoursADay];
-            VideosMatrix = new AnalysisCountWrapper<DateTime>[k_NumberDaysOfWeek, k_NumberHoursADay];
-            StatusMatrix = new AnalysisCountWrapper<DateTime>[k_NumberDaysOfWeek, k_NumberHoursADay];
-            CombinedAnalysisHolders = new AnalysisCountWrapper<DateTime>[k_NumberDaysOfWeek, k_NumberHoursADay];
-
-            for (int days = 0; days < k_NumberDaysOfWeek; days++)
+            const int k_ZeroLikesYet = 0;
+            for(int days = 0; days < DayAndHour.k_NumberDaysOfWeek; days++)
             {
-                for (int hour = 0; hour < k_NumberHoursADay; hour++)
+                for(int hour = 0; hour < DayAndHour.k_NumberHoursADay; hour++)
                 {
+                    DayAndHour tempDayAndHour = new DayAndHour(DayOfWeek.Sunday + days, TimeSpan.FromHours(hour));
                     // Created At that exact time in order to match the days of the week (Sunday - Saturday ) with the date: Sunday = 1 Monday= 2 etc.
-                    PhotosMatrix[days, hour] = new AnalysisCountWrapper<DateTime>(
-                        new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
-                    VideosMatrix[days, hour] = new AnalysisCountWrapper<DateTime>(
-                        new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
-                    StatusMatrix[days, hour] = new AnalysisCountWrapper<DateTime>(
-                        new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
-                    CombinedAnalysisHolders[days, hour] = new AnalysisCountWrapper<DateTime>(
-                        new DateTime(2019, 9, days + 1, hour, k_MinutesAndSecond, k_MinutesAndSecond));
+                    PhotosDictionary.Add(tempDayAndHour, k_ZeroLikesYet);
+                    VideosDictionary.Add(tempDayAndHour, k_ZeroLikesYet);
+                    StatusDictionary.Add(tempDayAndHour, k_ZeroLikesYet);
+                    CombinedAnalysisHolders.Add(tempDayAndHour, k_ZeroLikesYet);
                 }
             }
         }
 
-        public AnalysisCountWrapper<DateTime>[,] PhotosMatrix { get; private set; }
+        public Dictionary<DayAndHour, int> PhotosDictionary { get; private set; }
 
-        public AnalysisCountWrapper<DateTime>[,] VideosMatrix { get; private set; }
+        public Dictionary<DayAndHour, int> VideosDictionary { get; private set; }
 
-        public AnalysisCountWrapper<DateTime>[,] StatusMatrix { get; private set; }
+        public Dictionary<DayAndHour, int> StatusDictionary { get; private set; }
 
-        public AnalysisCountWrapper<DateTime>[,] CombinedAnalysisHolders { get; private set; }
-
-        public IAnalysis CalculateAnalysis(eTimerSelector i_TimeToStrict)
-        {
-            throw new NotImplementedException();
-        }
+        public Dictionary<DayAndHour, int> CombinedAnalysisHolders { get; private set; }
 
         public void AddByType(eTimerSelector i_TimeToStrict)
         {
+            DateTime timeIndicator = DateTime.Now;
+            const int k_OlderThanTimeToStrict = 0;
 
-            LoginResult result = FacebookWrapper.FacebookService.Login( /*TODO*/
-                "748532218946260",
-                "public_profile",
-                "email",
-                "publish_to_groups",
-                "user_birthday",
-                "user_age_range",
-                "user_gender",
-                "user_link",
-                "user_tagged_places",
-                "user_videos",
-                "publish_to_groups",
-                "groups_access_member_info",
-                "user_friends",
-                "user_events",
-                "user_likes",
-                "user_location",
-                "user_photos",
-                "user_posts",
-                "user_hometown");
-
-            User loggedInUser = result.LoggedInUser; //TODO
-            foreach (Post postToAnalysis in loggedInUser.Posts)
+            timeIndicator.AddDays((-1) * double.Parse(i_TimeToStrict.ToString())); //TODO 
+            foreach(Post postToAnalysis in BoostEngine.LoggedInUser.Posts)
             {
-                postsParser(i_TimeToStrict, postToAnalysis, CombinedAnalysisHolders);
-                switch (postToAnalysis.Type)
+                try
+                {
+                    if(timeIndicator.CompareTo(postToAnalysis.CreatedTime.Value.Date) < k_OlderThanTimeToStrict)
+                    {
+                        break;
+                    }
+                }
+
+                catch(InvalidOperationException eOperation)
+                {
+
+                }
+
+                postsParser(postToAnalysis, CombinedAnalysisHolders);
+                switch(postToAnalysis.Type)
                 {
                     case Post.eType.status:
-                        StatusMatrix = postsParser(i_TimeToStrict, postToAnalysis, StatusMatrix);// TODO
+                        PhotosDictionary = postsParser(postToAnalysis, PhotosDictionary); // TODO
                         break;
                     case Post.eType.photo:
-                        PhotosMatrix = postsParser(i_TimeToStrict, postToAnalysis, PhotosMatrix);// TODO
+                        PhotosDictionary = postsParser(postToAnalysis, PhotosDictionary); // TODO
                         break;
                     case Post.eType.video:
-                        VideosMatrix = postsParser(i_TimeToStrict, postToAnalysis, VideosMatrix);// TODO
+                        VideosDictionary = postsParser(postToAnalysis, VideosDictionary); // TODO
                         break;
                 }
             }
         }
 
-        private AnalysisCountWrapper<DateTime>[,] postsParser(
-            eTimerSelector i_TimeSelector,
+        private Dictionary<DayAndHour, int> postsParser(
             Post i_PostToAnalysis,
-            AnalysisCountWrapper<DateTime>[,] io_MatrixToAnalysisHolders)
+            Dictionary<DayAndHour, int> io_DictionaryToAnalysis)
         {
-            DateTime timeIndicator = DateTime.Now;
-            timeIndicator.AddDays((-1) * double.Parse(i_TimeSelector.ToString())); //TODO 
-            if (i_PostToAnalysis.CreatedTime != null)
+            io_DictionaryToAnalysis[new DayAndHour(
+                i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
+                TimeSpan.FromHours(i_PostToAnalysis.CreatedTime.Value.Hour))] = i_PostToAnalysis.LikedBy.Count;
+
+            return io_DictionaryToAnalysis;
+        }
+
+        public IAnalysis CalculateAnalysis(eTimerSelector i_TimeToStrict)
+        {
+            AddByType(i_TimeToStrict);
+
+            TimeAnalysis o_CalculatedTopFans = new TimeAnalysis();
+            o_CalculatedTopFans.PhotosDictionary = calculator(this.PhotosDictionary);
+            o_CalculatedTopFans.VideosDictionary = calculator(this.VideosDictionary);
+            o_CalculatedTopFans.StatusDictionary = calculator(this.StatusDictionary);
+            o_CalculatedTopFans.CombinedAnalysisHolders = calculator(this.CombinedAnalysisHolders);
+            return o_CalculatedTopFans;
+        }
+
+        private Dictionary<DayAndHour, int> calculator(Dictionary<DayAndHour, int> i_DictionaryToSort)
+        {
+            int numberOfIterations = BoostEngine.k_TopNumber;
+            const int k_ZeroIterations = 0;
+
+            Dictionary<DayAndHour, int> o_SortedDictionary = new Dictionary<DayAndHour, int>();
+            foreach(KeyValuePair<DayAndHour, int> itemToSort in i_DictionaryToSort.OrderBy(key => key.Value))
             {
-                if (timeIndicator.CompareTo(i_PostToAnalysis.CreatedTime.Value.Date) >= 0)
+                if(numberOfIterations-- > k_ZeroIterations)
                 {
-                    io_MatrixToAnalysisHolders[(int)i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
-                        i_PostToAnalysis.CreatedTime.Value.Hour].AddAmount(i_PostToAnalysis.LikedBy.Count);
-                    CombinedAnalysisHolders[(int)i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
-                        i_PostToAnalysis.CreatedTime.Value.Hour].AddAmount(i_PostToAnalysis.LikedBy.Count);
+                    break;
                 }
+
+                o_SortedDictionary.Add(itemToSort.Key, itemToSort.Value);
             }
 
-            return io_MatrixToAnalysisHolders;
+            return o_SortedDictionary;
         }
     }
 }
