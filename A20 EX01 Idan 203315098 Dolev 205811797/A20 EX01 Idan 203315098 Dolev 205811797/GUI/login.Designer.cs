@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFBLogin = new System.Windows.Forms.PictureBox();
             this.labelLoginError = new System.Windows.Forms.Label();
+            this.labelLoading = new System.Windows.Forms.Label();
+            this.pictureBoxFBLogin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).BeginInit();
             this.SuspendLayout();
@@ -46,19 +47,6 @@
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // pictureBoxFBLogin
-            // 
-            this.pictureBoxFBLogin.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxFBLogin.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.fbLogin;
-            this.pictureBoxFBLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxFBLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxFBLogin.Location = new System.Drawing.Point(487, 321);
-            this.pictureBoxFBLogin.Name = "pictureBoxFBLogin";
-            this.pictureBoxFBLogin.Size = new System.Drawing.Size(177, 36);
-            this.pictureBoxFBLogin.TabIndex = 1;
-            this.pictureBoxFBLogin.TabStop = false;
-            this.pictureBoxFBLogin.Click += new System.EventHandler(this.PictureBoxFBLogin_Click);
-            // 
             // labelLoginError
             // 
             this.labelLoginError.BackColor = System.Drawing.Color.Transparent;
@@ -72,12 +60,39 @@
             this.labelLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoginError.Visible = false;
             // 
+            // labelLoading
+            // 
+            this.labelLoading.BackColor = System.Drawing.Color.Transparent;
+            this.labelLoading.Font = new System.Drawing.Font("Century Gothic", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoading.ForeColor = System.Drawing.Color.White;
+            this.labelLoading.Location = new System.Drawing.Point(440, 381);
+            this.labelLoading.Name = "labelLoading";
+            this.labelLoading.Size = new System.Drawing.Size(271, 26);
+            this.labelLoading.TabIndex = 3;
+            this.labelLoading.Text = "Loading...";
+            this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelLoading.Visible = false;
+            // 
+            // pictureBoxFBLogin
+            // 
+            this.pictureBoxFBLogin.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxFBLogin.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.fbLogin;
+            this.pictureBoxFBLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxFBLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxFBLogin.Location = new System.Drawing.Point(487, 321);
+            this.pictureBoxFBLogin.Name = "pictureBoxFBLogin";
+            this.pictureBoxFBLogin.Size = new System.Drawing.Size(177, 36);
+            this.pictureBoxFBLogin.TabIndex = 1;
+            this.pictureBoxFBLogin.TabStop = false;
+            this.pictureBoxFBLogin.Click += new System.EventHandler(this.PictureBoxFBLogin_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.labelLoading);
             this.Controls.Add(this.labelLoginError);
             this.Controls.Add(this.pictureBoxFBLogin);
             this.Controls.Add(this.pictureBoxLogo);
@@ -92,7 +107,8 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        public System.Windows.Forms.Label labelLoginError;
+        public System.Windows.Forms.Label labelLoading;
         public System.Windows.Forms.PictureBox pictureBoxFBLogin;
-        private System.Windows.Forms.Label labelLoginError;
     }
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
+using A20_EX01_Idan_203315098_Dolev_205811797.GUI;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
@@ -19,11 +20,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         //UI Data Members
         private List<Button> m_NavbarButtons = new List<Button>();
+        private AppSettings m_AppSettings;
+        private LoginResult m_LoginResult;
 
         public Boost()
         {
             InitializeComponent();
             Setup();
+
+            m_AppSettings = new AppSettings();
             
         }
 
@@ -45,14 +50,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             login.BringToFront();            
         }
 
-        //private void loginPanelSetup()
-        //{
-        //    this.login.Location = new System.Drawing.Point(-5, -5);
-        //    this.login.Name = "login";
-        //    this.login.Size = new System.Drawing.Size(1141, 643);
-        //    this.login.Visible = false;
-        //}
-
         private void BtnDashboard_Click(object sender, EventArgs e)
         {
             dashboard.BringToFront();
@@ -63,9 +60,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             analytics.BringToFront();
         }
 
-        public void FacebookLogin(Label i_ErrorLabel)
+
+        public void FacebookLogin()
         {
-            LoginResult result = FacebookService.Login("748532218946260",
+            this.login.labelLoading.Visible = true;
+
+            m_LoginResult = FacebookService.Login("748532218946260",
                 "public_profile",
                 "email",
                 "publish_to_groups",
@@ -86,14 +86,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                 "user_hometown");
 
 
-            if (!string.IsNullOrEmpty(result.AccessToken))
+
+            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                m_LoggedInUser = result.LoggedInUser;
+                m_LoggedInUser = m_LoginResult.LoggedInUser;
                 FetchUserData();
             }
             else
             {
-                i_ErrorLabel.Visible = true;
+                this.login.labelLoginError.BringToFront();
+                this.login.labelLoginError.Visible = true;
                 //MessageBox.Show(result.ErrorMessage);
             }
 
@@ -117,17 +119,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.labelName.Text = name;
             dashboard.pictureBoxBioProfilePic.LoadAsync(m_LoggedInUser.PictureLargeURL);
             dashboard.pictureBoxBioProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            int photoCount = 0;
-            foreach(Post post in m_LoggedInUser.Posts)
-            {
-                if(post.Type == Post.eType.photo)
-                    photoCount++;
-            }
-            dashboard.labelBio1.Text = photoCount.ToString();
-            //dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.
+
+            dashboard.labelBio1.Text = "Location: " + m_LoggedInUser.Location.Name;
+            dashboard.labelBio2.Text = "Friends using Boost: " + m_LoggedInUser.Friends.Count;
+            dashboard.labelBio3.Text = "Verified?: " + (m_LoggedInUser.Verfied == true ? "Yes" : "No")  ;
             int i = 0;
             Post lastPost = m_LoggedInUser.Posts[i];
-            //dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();
             while (lastPost.Message == null)
             {
                 lastPost = m_LoggedInUser.Posts[++i];
@@ -136,12 +133,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.labelLastPostDateTime.Text = "- " + lastPost.CreatedTime.ToString();
             dashboard.DashboardUpdate();
 
-            foreach (Post post in m_LoggedInUser.Posts)
-            {
-                dashboard.m_EngagementList.Add(new Engagement(post));
-            }
-            dashboard.EngagementChartSeup();
-
+            //foreach (Post post in m_LoggedInUser.Posts)
+            //{
+            //    dashboard.m_EngagementList.Add(new Engagement(post));
+            //}
+            //dashboard.ChartSetup();
         }
 
     }

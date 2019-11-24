@@ -93,6 +93,7 @@
     <Compile Include="GUI\Analytics.Designer.cs">
       <DependentUpon>Analytics.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\AppSettings.cs" />
     <Compile Include="GUI\BestTimes.cs">
       <SubType>UserControl</SubType>
     </Compile>

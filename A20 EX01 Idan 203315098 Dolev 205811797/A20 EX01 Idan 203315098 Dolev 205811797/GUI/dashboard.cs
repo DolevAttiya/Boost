@@ -20,15 +20,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
-            //this.chart1.Series["Engagement"].Points.AddXY("18/10/18", 30);
-            //this.chart1.Series["Engagement"].Points.AddXY("31/12/18", 20);
-            //this.chart1.Series["Engagement"].Points.AddXY("06/04/19", 50);
-            //this.chart1.Series["Engagement"].Points.AddXY("22/5/19", 200);
-            //this.chart1.Series["Engagement"].Points.AddXY("01/07/19", 45);
-            //this.chart1.Series["Engagement"].Points.AddXY("18/10/19", 100);
+            this.chart1.Series["Engagement"].Points.AddXY("31/12/18", 20);
+            this.chart1.Series["Engagement"].Points.AddXY("06/04/19", 50);
+            this.chart1.Series["Engagement"].Points.AddXY("22/5/19", 200);
+            this.chart1.Series["Engagement"].Points.AddXY("01/07/19", 45);
+            this.chart1.Series["Engagement"].Points.AddXY("18/10/19", 100);
         }
 
-        public void EngagementChartSeup()
+        public void ChartSetup()
         {
             this.chart1.Series["Engagement"].Points.Clear();
             for (int i = 0 ; i < k_EngagementChartCount ; i++)

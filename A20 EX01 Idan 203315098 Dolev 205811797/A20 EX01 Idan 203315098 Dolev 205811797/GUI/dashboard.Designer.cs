@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelUserBio = new System.Windows.Forms.Panel();
+            this.labelLastPostDateTime = new System.Windows.Forms.Label();
             this.labelLastPostContent = new System.Windows.Forms.Label();
             this.labelLastPostTitle = new System.Windows.Forms.Label();
             this.labelBio3 = new System.Windows.Forms.Label();
@@ -47,10 +48,9 @@
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelFriends = new System.Windows.Forms.Panel();
             this.chartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.labelFriends = new System.Windows.Forms.Label();
+            this.labelPlaceholder = new System.Windows.Forms.Label();
             this.panelTopPosts = new System.Windows.Forms.Panel();
             this.labelTopPosts = new System.Windows.Forms.Label();
-            this.labelLastPostDateTime = new System.Windows.Forms.Label();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.panelEngagement.SuspendLayout();
@@ -76,6 +76,23 @@
             this.panelUserBio.Name = "panelUserBio";
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
             this.panelUserBio.TabIndex = 0;
+            // 
+            // labelLastPostDateTime
+            // 
+            this.labelLastPostDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelLastPostDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelLastPostDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLastPostDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostDateTime.Location = new System.Drawing.Point(24, 492);
+            this.labelLastPostDateTime.Margin = new System.Windows.Forms.Padding(0);
+            this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(200, 30);
+            this.labelLastPostDateTime.MinimumSize = new System.Drawing.Size(200, 23);
+            this.labelLastPostDateTime.Name = "labelLastPostDateTime";
+            this.labelLastPostDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.labelLastPostDateTime.Size = new System.Drawing.Size(200, 25);
+            this.labelLastPostDateTime.TabIndex = 7;
+            this.labelLastPostDateTime.Text = "- Date Time";
             // 
             // labelLastPostContent
             // 
@@ -166,7 +183,7 @@
             // 
             // pictureBoxBioProfilePic
             // 
-            this.pictureBoxBioProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.pictureBoxBioProfilePic.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBioProfilePic.Location = new System.Drawing.Point(27, 19);
             this.pictureBoxBioProfilePic.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBoxBioProfilePic.Name = "pictureBoxBioProfilePic";
@@ -187,24 +204,24 @@
             // 
             // chart1
             // 
-            chartArea1.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisX.LineWidth = 2;
-            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea1.AxisY.LineWidth = 2;
-            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend2.Enabled = false;
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(13, 33);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Engagement";
-            this.chart1.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.IsValueShownAsLabel = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Engagement";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(726, 199);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -229,7 +246,7 @@
             this.panelFriends.AutoScroll = true;
             this.panelFriends.BackColor = System.Drawing.Color.White;
             this.panelFriends.Controls.Add(this.chartFriends);
-            this.panelFriends.Controls.Add(this.labelFriends);
+            this.panelFriends.Controls.Add(this.labelPlaceholder);
             this.panelFriends.Location = new System.Drawing.Point(658, 257);
             this.panelFriends.Name = "panelFriends";
             this.panelFriends.Size = new System.Drawing.Size(363, 266);
@@ -241,39 +258,41 @@
             this.chartFriends.BorderlineColor = System.Drawing.Color.Transparent;
             this.chartFriends.BorderlineWidth = 0;
             this.chartFriends.BorderSkin.BorderWidth = 0;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisX.LineWidth = 2;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.LineWidth = 2;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.Name = "ChartArea1";
-            this.chartFriends.ChartAreas.Add(chartArea2);
+            chartArea4.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisX.LineWidth = 2;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisY.LineWidth = 2;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.Name = "ChartArea1";
+            this.chartFriends.ChartAreas.Add(chartArea4);
             this.chartFriends.Location = new System.Drawing.Point(0, 33);
             this.chartFriends.Margin = new System.Windows.Forms.Padding(0);
+            this.chartFriends.MaximumSize = new System.Drawing.Size(360, 210);
+            this.chartFriends.MinimumSize = new System.Drawing.Size(360, 200);
             this.chartFriends.Name = "chartFriends";
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.IsValueShownAsLabel = true;
-            series2.Name = "Series1";
-            this.chartFriends.Series.Add(series2);
-            this.chartFriends.Size = new System.Drawing.Size(353, 230);
+            series4.BorderWidth = 2;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.IsValueShownAsLabel = true;
+            series4.Name = "Friends";
+            this.chartFriends.Series.Add(series4);
+            this.chartFriends.Size = new System.Drawing.Size(360, 210);
             this.chartFriends.TabIndex = 3;
             this.chartFriends.Text = "chart2";
             // 
-            // labelFriends
+            // labelPlaceholder
             // 
-            this.labelFriends.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelPlaceholder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelFriends.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFriends.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelFriends.Location = new System.Drawing.Point(0, 0);
-            this.labelFriends.Name = "labelFriends";
-            this.labelFriends.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelFriends.Size = new System.Drawing.Size(363, 35);
-            this.labelFriends.TabIndex = 2;
-            this.labelFriends.Text = "Friends";
+            this.labelPlaceholder.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlaceholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelPlaceholder.Location = new System.Drawing.Point(0, 0);
+            this.labelPlaceholder.Name = "labelPlaceholder";
+            this.labelPlaceholder.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.labelPlaceholder.Size = new System.Drawing.Size(363, 35);
+            this.labelPlaceholder.TabIndex = 2;
+            this.labelPlaceholder.Text = "Placeholder";
             // 
             // panelTopPosts
             // 
@@ -297,23 +316,6 @@
             this.labelTopPosts.Size = new System.Drawing.Size(363, 53);
             this.labelTopPosts.TabIndex = 1;
             this.labelTopPosts.Text = "Top Posts";
-            // 
-            // labelLastPostDateTime
-            // 
-            this.labelLastPostDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLastPostDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelLastPostDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastPostDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelLastPostDateTime.Location = new System.Drawing.Point(24, 492);
-            this.labelLastPostDateTime.Margin = new System.Windows.Forms.Padding(0);
-            this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(200, 30);
-            this.labelLastPostDateTime.MinimumSize = new System.Drawing.Size(200, 23);
-            this.labelLastPostDateTime.Name = "labelLastPostDateTime";
-            this.labelLastPostDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.labelLastPostDateTime.Size = new System.Drawing.Size(200, 25);
-            this.labelLastPostDateTime.TabIndex = 7;
-            this.labelLastPostDateTime.Text = "- Date Time";
             // 
             // Dashboard
             // 
@@ -346,7 +348,7 @@
         private System.Windows.Forms.Panel panelFriends;
         private System.Windows.Forms.Panel panelTopPosts;
         public System.Windows.Forms.Label labelEngagement;
-        public System.Windows.Forms.Label labelFriends;
+        public System.Windows.Forms.Label labelPlaceholder;
         public System.Windows.Forms.Label labelTopPosts;
         public System.Windows.Forms.PictureBox pictureBoxBioProfilePic;
         public System.Windows.Forms.Label labelName;
@@ -355,8 +357,8 @@
         public System.Windows.Forms.Label labelBio3;
         public System.Windows.Forms.Label labelLastPostTitle;
         public System.Windows.Forms.Label labelLastPostContent;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
         public System.Windows.Forms.Label labelLastPostDateTime;
     }
 }
