@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\Engagement.cs" />
+    <Compile Include="Engine\PostTime.cs" />
     <Compile Include="GUI\Analytics.cs">
       <SubType>UserControl</SubType>
     </Compile>

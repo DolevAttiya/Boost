@@ -50,7 +50,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(255,255,255);
             this.panel1.Controls.Add(this.biggestFans);
             this.panel1.Controls.Add(this.bestTimes);
             this.panel1.Location = new System.Drawing.Point(9, 81);
@@ -61,7 +61,7 @@
             // 
             // biggestFans
             // 
-            this.biggestFans.BackColor = System.Drawing.Color.White;
+            this.biggestFans.BackColor = System.Drawing.Color.Transparent;
             this.biggestFans.Location = new System.Drawing.Point(4, 4);
             this.biggestFans.Name = "biggestFans";
             this.biggestFans.Size = new System.Drawing.Size(1000, 430);
@@ -69,7 +69,7 @@
             // 
             // bestTimes
             // 
-            this.bestTimes.BackColor = System.Drawing.Color.White;
+            this.bestTimes.BackColor = System.Drawing.Color.Transparent;
             this.bestTimes.Location = new System.Drawing.Point(4, 4);
             this.bestTimes.Name = "bestTimes";
             this.bestTimes.Size = new System.Drawing.Size(1000, 430);
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonBestTimes;
         private System.Windows.Forms.Button buttonBiggestFans;
-        private BestTimes bestTimes;
-        private BiggestFans biggestFans;
+        public BestTimes bestTimes;
+        public BiggestFans biggestFans;
     }
 }
