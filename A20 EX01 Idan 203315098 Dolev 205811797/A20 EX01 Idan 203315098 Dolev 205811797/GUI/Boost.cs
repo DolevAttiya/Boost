@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
@@ -65,7 +66,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         public void FacebookLogin(Label i_ErrorLabel)
         {
-            LoginResult result = FacebookWrapper.FacebookService.Login("748532218946260",
+            LoginResult result = FacebookService.Login("748532218946260",
                 "public_profile",
                 "email",
                 "publish_to_groups",
@@ -84,6 +85,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                 "user_photos",
                 "user_posts",
                 "user_hometown");
+
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
@@ -124,10 +126,22 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             }
             dashboard.labelBio1.Text = photoCount.ToString();
             //dashboard.labelBio2.Text = "Friends: " + m_LoggedInUser.Friends.
-            //Post lastPost = m_LoggedInUser.Posts[m_LoggedInUser.Posts.Count];
+            int i = 0;
+            Post lastPost = m_LoggedInUser.Posts[i];
             //dashboard.labelBio3.Text = "Last Posted on: " + lastPost.CreatedTime.ToString();
-            //dashboard.labelLastPostContent.Text = lastPost.Caption;
+            while (lastPost.Message == null)
+            {
+                lastPost = m_LoggedInUser.Posts[++i];
+            }
+            dashboard.labelLastPostContent.Text = "\"" + lastPost.Message + "\"";
+            dashboard.labelLastPostDateTime.Text = "- " + lastPost.CreatedTime.ToString();
+            dashboard.DashboardUpdate();
 
+            foreach (Post post in m_LoggedInUser.Posts)
+            {
+                dashboard.m_EngagementList.Add(new Engagement(post));
+            }
+            dashboard.EngagementChartSeup();
 
         }
 

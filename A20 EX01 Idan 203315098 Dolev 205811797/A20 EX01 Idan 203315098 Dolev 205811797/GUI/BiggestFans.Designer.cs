@@ -35,7 +35,7 @@
             // 
             this.labelPlaceholder.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPlaceholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelPlaceholder.Location = new System.Drawing.Point(3, 2);
+            this.labelPlaceholder.Location = new System.Drawing.Point(3, 4);
             this.labelPlaceholder.Name = "labelPlaceholder";
             this.labelPlaceholder.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.labelPlaceholder.Size = new System.Drawing.Size(230, 39);

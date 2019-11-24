@@ -6,19 +6,39 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
     public partial class Dashboard : UserControl
     {
+
+        public List<Engagement> m_EngagementList;
+        private readonly int k_EngagementChartCount = 5;
+
         public Dashboard()
         {
+            m_EngagementList = new List<Engagement>();
             InitializeComponent();
-            dashboardSetup();
+            //this.chart1.Series["Engagement"].Points.AddXY("18/10/18", 30);
+            //this.chart1.Series["Engagement"].Points.AddXY("31/12/18", 20);
+            //this.chart1.Series["Engagement"].Points.AddXY("06/04/19", 50);
+            //this.chart1.Series["Engagement"].Points.AddXY("22/5/19", 200);
+            //this.chart1.Series["Engagement"].Points.AddXY("01/07/19", 45);
+            //this.chart1.Series["Engagement"].Points.AddXY("18/10/19", 100);
         }
 
-        private void dashboardSetup()
+        public void EngagementChartSeup()
+        {
+            this.chart1.Series["Engagement"].Points.Clear();
+            for (int i = 0 ; i < k_EngagementChartCount ; i++)
+            {
+                int index = k_EngagementChartCount - i -1;
+                this.chart1.Series["Engagement"].Points.AddXY(m_EngagementList[index].TimePosted.Date, m_EngagementList[index].LikeCount);
+            }
+        }
+
+        public void DashboardUpdate()
         {
             this.BackColor = System.Drawing.Color.Transparent;
             //Dynamic Label Positions
@@ -44,10 +64,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             //labelLastPostContent
             this.labelLastPostContent.Location = new System.Drawing.Point(this.labelLastPostTitle.Location.X, this.labelLastPostTitle.Bottom);
             this.labelLastPostContent.Size = new System.Drawing.Size(this.labelLastPostTitle.Width, this.labelLastPostContent.Height);
-
-
+            this.labelLastPostContent.AutoSize = true;
+            this.labelLastPostContent.MinimumSize = new System.Drawing.Size(this.labelLastPostContent.Width, 0);
+            this.labelLastPostContent.MaximumSize = new System.Drawing.Size(this.labelLastPostContent.Width, 171);
+            //labelLastPostDateTime
+            this.labelLastPostDateTime.Location = new System.Drawing.Point(this.labelLastPostContent.Location.X, this.labelLastPostContent.Bottom);
+            this.labelLastPostDateTime.Size = new System.Drawing.Size(this.labelLastPostContent.Width, this.labelLastPostDateTime.Height);
+            this.labelLastPostDateTime.MinimumSize = new System.Drawing.Size(this.labelLastPostDateTime.Width, 25);
+            this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(this.labelLastPostDateTime.Width, 30);
 
         }
-
     }
 }
