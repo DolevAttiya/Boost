@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelUserBio = new System.Windows.Forms.Panel();
             this.labelLastPostDateTime = new System.Windows.Forms.Label();
@@ -82,8 +84,8 @@
             this.labelLastPostDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLastPostDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelLastPostDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastPostDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostDateTime.Font = UI_Elements.font_Body;
+            this.labelLastPostDateTime.ForeColor = UI_Elements.color_Main;
             this.labelLastPostDateTime.Location = new System.Drawing.Point(24, 492);
             this.labelLastPostDateTime.Margin = new System.Windows.Forms.Padding(0);
             this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(200, 30);
@@ -100,8 +102,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelLastPostContent.AutoSize = true;
             this.labelLastPostContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelLastPostContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastPostContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostContent.Font = UI_Elements.font_BodyItalics;
+            this.labelLastPostContent.ForeColor = UI_Elements.color_Main;
             this.labelLastPostContent.Location = new System.Drawing.Point(26, 403);
             this.labelLastPostContent.MaximumSize = new System.Drawing.Size(200, 89);
             this.labelLastPostContent.MinimumSize = new System.Drawing.Size(200, 2);
@@ -115,8 +117,8 @@
             // 
             this.labelLastPostTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLastPostTitle.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastPostTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelLastPostTitle.Font = UI_Elements.font_Header2Underline;
+            this.labelLastPostTitle.ForeColor = UI_Elements.color_Main;
             this.labelLastPostTitle.Location = new System.Drawing.Point(27, 362);
             this.labelLastPostTitle.Name = "labelLastPostTitle";
             this.labelLastPostTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -129,8 +131,8 @@
             // 
             this.labelBio3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBio3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio3.Font = UI_Elements.font_Header3;
+            this.labelBio3.ForeColor = UI_Elements.color_Main;
             this.labelBio3.Location = new System.Drawing.Point(27, 334);
             this.labelBio3.Name = "labelBio3";
             this.labelBio3.Size = new System.Drawing.Size(200, 28);
@@ -142,8 +144,8 @@
             // 
             this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio2.Font = UI_Elements.font_Header3;
+            this.labelBio2.ForeColor = UI_Elements.color_Main;
             this.labelBio2.Location = new System.Drawing.Point(27, 306);
             this.labelBio2.Name = "labelBio2";
             this.labelBio2.Size = new System.Drawing.Size(200, 28);
@@ -155,8 +157,8 @@
             // 
             this.labelBio1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBio1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelBio1.Font = UI_Elements.font_Header3;
+            this.labelBio1.ForeColor = UI_Elements.color_Main;
             this.labelBio1.Location = new System.Drawing.Point(27, 278);
             this.labelBio1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBio1.Name = "labelBio1";
@@ -168,8 +170,8 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelName.Font = UI_Elements.font_Header1;
+            this.labelName.ForeColor = UI_Elements.color_Main;
             this.labelName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelName.Location = new System.Drawing.Point(27, 233);
             this.labelName.MaximumSize = new System.Drawing.Size(250, 0);
@@ -204,25 +206,53 @@
             // 
             // chart1
             // 
-            chartArea3.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea3.AxisX.LineWidth = 2;
-            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea3.AxisY.LineWidth = 2;
-            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(13, 33);
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisX.LineWidth = 2;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisY.LineWidth = 2;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 95F;
+            chartArea1.Position.Width = 85F;
+            chartArea1.Position.Y = 3F;
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.AutoFitMinFontSize = 8;
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend1.IsTextAutoFit = false;
+            legend1.MaximumAutoSize = 40F;
+            legend1.Name = "Legend1";
+            legend1.Position.Auto = false;
+            legend1.Position.Height = 28F;
+            legend1.Position.Width = 14F;
+            legend1.Position.X = 86F;
+            legend1.Position.Y = 15F;
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(13, 29);
             this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Photos";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series2.ChartArea = "ChartArea1";
+            series2.IsValueShownAsLabel = true;
+            series2.Legend = "Legend1";
+            series2.Name = "Videos";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series3.ChartArea = "ChartArea1";
             series3.IsValueShownAsLabel = true;
             series3.Legend = "Legend1";
-            series3.Name = "Engagement";
+            series3.Name = "Status";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.chart1.Series.Add(series1);
+            this.chart1.Series.Add(series2);
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(726, 199);
+            this.chart1.Size = new System.Drawing.Size(726, 208);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -258,14 +288,14 @@
             this.chartFriends.BorderlineColor = System.Drawing.Color.Transparent;
             this.chartFriends.BorderlineWidth = 0;
             this.chartFriends.BorderSkin.BorderWidth = 0;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea4.AxisX.LineWidth = 2;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea4.AxisY.LineWidth = 2;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea4.Name = "ChartArea1";
-            this.chartFriends.ChartAreas.Add(chartArea4);
+            chartArea2.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisX.LineWidth = 2;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea2.AxisY.LineWidth = 2;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea2.Name = "ChartArea1";
+            this.chartFriends.ChartAreas.Add(chartArea2);
             this.chartFriends.Location = new System.Drawing.Point(0, 33);
             this.chartFriends.Margin = new System.Windows.Forms.Padding(0);
             this.chartFriends.MaximumSize = new System.Drawing.Size(360, 210);

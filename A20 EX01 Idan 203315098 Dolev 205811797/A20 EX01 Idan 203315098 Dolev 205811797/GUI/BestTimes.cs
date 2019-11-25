@@ -13,17 +13,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 {
     public partial class BestTimes : UserControl
     {
-        private static readonly int k_NumOfDays = 7;
-        private static readonly int k_NumOfHours = 24;
-        private static readonly int k_CellWidth = 36;
-        private static readonly int k_CellHeight = 51;
-        public int[,] m_BestPostTimes = new int[k_NumOfDays, k_NumOfHours];
-        public Label[,] m_BestTimesGrid = new Label[k_NumOfDays+1, k_NumOfHours+1];
+        private static readonly int sk_NumOfDays = 7;
+        private static readonly int sk_NumOfHours = 24;
+        private readonly int k_GridAreaHeight;
+        private readonly int k_GridAreaWidth;
+        //private static readonly int k_CellWidth = 36;
+        //private static readonly int k_CellHeight = 51;
+        private int k_CellWidth;
+        private int k_CellHeight;
+        public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours];
+        public Label[,] m_BestTimesGrid = new Label[sk_NumOfDays+1, sk_NumOfHours+1];
         private int m_MaxTimeValue = 0;
         
         public BestTimes()
         {
             InitializeComponent();
+            k_GridAreaHeight = this.Size.Height - 40;
+            k_GridAreaWidth = this.Size.Width - 100;
         }
 
         public void PopulateBestTimes(FacebookObjectCollection<Post> i_Posts)
@@ -33,6 +39,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                 if(i_Posts[i].UpdateTime != null)
                 {
                     DateTime updateTime = i_Posts[i].UpdateTime.Value;
+                    Random rand = new Random();
 
                     int day = (int)Convert.ChangeType(updateTime.DayOfWeek, updateTime.DayOfWeek.GetTypeCode());
                     int hours = updateTime.TimeOfDay.Hours;
@@ -42,7 +49,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                         hours++;
                     }
                     
-                    m_BestPostTimes[day, hours] += 20;
+                    m_BestPostTimes[day, hours] += rand.Next(0,1000);
                     if(m_BestPostTimes[day, hours] > m_MaxTimeValue)
                     {
                         m_MaxTimeValue = m_BestPostTimes[day, hours];
@@ -54,16 +61,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         public void DrawBestTimesGrid()
         {
-            int startX = 2;
-            int startY = 15;
+            k_CellHeight = k_GridAreaHeight/(sk_NumOfDays + 1);
+            k_CellWidth = k_GridAreaWidth/(sk_NumOfHours + 1);
+            int startX = 5;
+            int startY = 45;
             int labelX = startX;
             int labelY = startY;
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
-            for (int i=0; i <= k_NumOfDays; i++)
+            for (int i=0; i <= sk_NumOfDays; i++)
             {
-                for (int j = 0; j <= k_NumOfHours; j++)
+                for (int j = 0; j <= sk_NumOfHours; j++)
                 {
                     int dayInt = i -1;
                     DayOfWeek day = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt);
@@ -110,11 +119,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                             m_BestTimesGrid[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
                             if(currentValue != 0)
                             {
-                                if(currentValue<= m_MaxTimeValue * 0.25)
+                                if(currentValue<= m_MaxTimeValue * 0.1)
                                 {
                                     m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.White;
                                 }
-                                else if (currentValue <= m_MaxTimeValue * 0.5)
+                                else if (currentValue <= m_MaxTimeValue * 0.25)
                                 {
                                     m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.FromArgb(232,200,20);
                                 }
@@ -127,13 +136,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                                     m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.FromArgb(217, 17, 17);
                                 }
 
-                                //m_BestTimesGrid[i, j].Text = m_BestPostTimes[dayInt, hours].ToString();
                             }
 
                         }
                     }
                     labelX += m_BestTimesGrid[i, j].Width+2;
-                    if (j == k_NumOfHours)
+                    if (j == sk_NumOfHours)
                     {
                         lastHeight = m_BestTimesGrid[i, j].Height+2;
                     }

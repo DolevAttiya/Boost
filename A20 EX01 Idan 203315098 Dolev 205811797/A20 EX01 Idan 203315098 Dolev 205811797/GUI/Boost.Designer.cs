@@ -59,7 +59,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             this.footer.BackColor = System.Drawing.Color.Transparent;
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.footer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer.Font = UI_Elements.font_Footer;
             this.footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.footer.Location = new System.Drawing.Point(0, 605);
             this.footer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -77,7 +77,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnDashboard.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.Font = UI_Elements.font_NavbarButton;
             this.btnDashboard.ForeColor = System.Drawing.Color.Black;
             this.btnDashboard.Location = new System.Drawing.Point(175, 20);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -96,7 +96,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnAnalytics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAnalytics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalytics.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnalytics.Font = UI_Elements.font_NavbarButton;
             this.btnAnalytics.ForeColor = System.Drawing.Color.Black;
             this.btnAnalytics.Location = new System.Drawing.Point(300, 20);
             this.btnAnalytics.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -116,7 +116,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnUsername.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUsername.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsername.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsername.Font = UI_Elements.font_NavbarButton;
             this.btnUsername.ForeColor = System.Drawing.Color.Black;
             this.btnUsername.Location = new System.Drawing.Point(936, 20);
             this.btnUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

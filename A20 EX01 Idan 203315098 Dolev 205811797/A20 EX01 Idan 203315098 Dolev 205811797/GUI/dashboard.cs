@@ -20,11 +20,21 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
-            this.chart1.Series["Engagement"].Points.AddXY("31/12/18", 20);
-            this.chart1.Series["Engagement"].Points.AddXY("06/04/19", 50);
-            this.chart1.Series["Engagement"].Points.AddXY("22/5/19", 200);
-            this.chart1.Series["Engagement"].Points.AddXY("01/07/19", 45);
-            this.chart1.Series["Engagement"].Points.AddXY("18/10/19", 100);
+            this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
+            this.chart1.Series["Photos"].Points.AddXY("06/04/19", 50);
+            this.chart1.Series["Photos"].Points.AddXY("22/5/19", 200);
+            this.chart1.Series["Photos"].Points.AddXY("01/07/19", 45);
+            this.chart1.Series["Photos"].Points.AddXY("18/10/19", 100);
+            this.chart1.Series["Videos"].Points.AddXY("22/5/19", 150);
+            this.chart1.Series["Videos"].Points.AddXY("01/07/19", 70);
+            this.chart1.Series["Videos"].Points.AddXY("18/10/19", 10);
+            this.chart1.Series["Status"].Points.AddXY("31/12/18", 300);
+            this.chart1.Series["Status"].Points.AddXY("06/04/19", 50);
+            this.chart1.Series["Status"].Points.AddXY("22/5/19", 35);
+            this.chart1.Series["Status"].Points.AddXY("01/07/19", 22);
+            this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
+            this.chart1.AlignDataPointsByAxisLabel();
+
         }
 
         public void ChartSetup()

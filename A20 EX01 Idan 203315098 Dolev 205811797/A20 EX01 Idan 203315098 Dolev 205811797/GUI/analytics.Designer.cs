@@ -39,8 +39,8 @@
             // 
             // labelAnalytics
             // 
-            this.labelAnalytics.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnalytics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelAnalytics.Font = UI_Elements.font_Header1;
+            this.labelAnalytics.ForeColor = UI_Elements.color_Main;
             this.labelAnalytics.Location = new System.Drawing.Point(0, 0);
             this.labelAnalytics.Name = "labelAnalytics";
             this.labelAnalytics.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -77,13 +77,13 @@
             // 
             // buttonBestTimes
             // 
-            this.buttonBestTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonBestTimes.BackColor = UI_Elements.color_Main;
+            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
+            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = UI_Elements.color_Rollover;
             this.buttonBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBestTimes.FlatAppearance.BorderSize = 0;
-            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
             this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBestTimes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBestTimes.Font = UI_Elements.font_Header2;
             this.buttonBestTimes.ForeColor = System.Drawing.Color.White;
             this.buttonBestTimes.Location = new System.Drawing.Point(9, 49);
             this.buttonBestTimes.Margin = new System.Windows.Forms.Padding(0);
@@ -96,13 +96,13 @@
             // 
             // buttonBiggestFans
             // 
-            this.buttonBiggestFans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonBiggestFans.BackColor = UI_Elements.color_Main;
+            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
+            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = UI_Elements.color_Rollover;
             this.buttonBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBiggestFans.FlatAppearance.BorderSize = 0;
-            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
             this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBiggestFans.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBiggestFans.Font = UI_Elements.font_Header2;
             this.buttonBiggestFans.ForeColor = System.Drawing.Color.White;
             this.buttonBiggestFans.Location = new System.Drawing.Point(230, 49);
             this.buttonBiggestFans.Margin = new System.Windows.Forms.Padding(0);
