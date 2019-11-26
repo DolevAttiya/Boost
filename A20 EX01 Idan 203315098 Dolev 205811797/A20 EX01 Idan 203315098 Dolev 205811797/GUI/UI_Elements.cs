@@ -26,9 +26,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         public static Color color_NavbarButtonColor = Color.FromArgb(65, 65, 65);
         public static Color color_Rollover = Color.FromArgb(89, 124, 194);
         //Best Times Heatmap Colors
-        public static Color color_BestTimesHigh;
-        public static Color color_BestTimesMedium;
-        public static Color color_BestTimesLow;
+        public static Color color_BestTimesLow = Color.FromArgb(232, 200, 20);
+        public static Color color_BestTimesMedium = Color.FromArgb(217, 117, 17);
+        public static Color color_BestTimesHigh = Color.FromArgb(217, 17, 17);
 
     }
 }

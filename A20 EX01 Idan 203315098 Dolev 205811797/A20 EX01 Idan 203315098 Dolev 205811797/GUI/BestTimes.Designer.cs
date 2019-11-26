@@ -28,105 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelHighColor = new System.Windows.Forms.Label();
+            this.labelHigh = new System.Windows.Forms.Label();
+            this.labelMedium = new System.Windows.Forms.Label();
+            this.labelMediumColor = new System.Windows.Forms.Label();
+            this.labelLow = new System.Windows.Forms.Label();
+            this.labelLowColor = new System.Windows.Forms.Label();
+            this.labelLikeCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // labelHighColor
             // 
-            this.label1.BackColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(99, 12);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = " ";
+            this.labelHighColor.BackColor = UI_Elements.color_BestTimesHigh;
+            this.labelHighColor.Location = new System.Drawing.Point(99, 12);
+            this.labelHighColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHighColor.Name = "labelHighColor";
+            this.labelHighColor.Size = new System.Drawing.Size(35, 13);
+            this.labelHighColor.TabIndex = 0;
+            this.labelHighColor.Text = " ";
             // 
-            // label2
+            // labelHigh
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(138, 10);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "High";
+            this.labelHigh.AutoSize = true;
+            this.labelHigh.BackColor = System.Drawing.Color.Transparent;
+            this.labelHigh.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHigh.Location = new System.Drawing.Point(138, 10);
+            this.labelHigh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelHigh.Name = "labelHigh";
+            this.labelHigh.Size = new System.Drawing.Size(38, 16);
+            this.labelHigh.TabIndex = 1;
+            this.labelHigh.Text = "High";
             // 
-            // label3
+            // labelMedium
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(229, 11);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Medium";
+            this.labelMedium.AutoSize = true;
+            this.labelMedium.BackColor = System.Drawing.Color.Transparent;
+            this.labelMedium.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedium.Location = new System.Drawing.Point(229, 11);
+            this.labelMedium.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMedium.Name = "labelMedium";
+            this.labelMedium.Size = new System.Drawing.Size(61, 16);
+            this.labelMedium.TabIndex = 3;
+            this.labelMedium.Text = "Medium";
             // 
-            // label4
+            // labelMediumColor
             // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(190, 13);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = " ";
+            this.labelMediumColor.BackColor = UI_Elements.color_BestTimesMedium;
+            this.labelMediumColor.Location = new System.Drawing.Point(190, 13);
+            this.labelMediumColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelMediumColor.Name = "labelMediumColor";
+            this.labelMediumColor.Size = new System.Drawing.Size(35, 13);
+            this.labelMediumColor.TabIndex = 2;
+            this.labelMediumColor.Text = " ";
             // 
-            // label5
+            // labelLow
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(339, 12);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 16);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Low";
+            this.labelLow.AutoSize = true;
+            this.labelLow.BackColor = System.Drawing.Color.Transparent;
+            this.labelLow.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLow.Location = new System.Drawing.Point(339, 12);
+            this.labelLow.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLow.Name = "labelLow";
+            this.labelLow.Size = new System.Drawing.Size(32, 16);
+            this.labelLow.TabIndex = 5;
+            this.labelLow.Text = "Low";
             // 
-            // label6
+            // labelLowColor
             // 
-            this.label6.BackColor = System.Drawing.Color.Yellow;
-            this.label6.Location = new System.Drawing.Point(300, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = " ";
+            this.labelLowColor.BackColor = UI_Elements.color_BestTimesLow;
+            this.labelLowColor.Location = new System.Drawing.Point(300, 14);
+            this.labelLowColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLowColor.Name = "labelLowColor";
+            this.labelLowColor.Size = new System.Drawing.Size(35, 13);
+            this.labelLowColor.TabIndex = 4;
+            this.labelLowColor.Text = " ";
             // 
-            // label7
+            // labelLikeCount
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(11, 11);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 16);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Like count:";
+            this.labelLikeCount.AutoSize = true;
+            this.labelLikeCount.BackColor = System.Drawing.Color.Transparent;
+            this.labelLikeCount.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLikeCount.Location = new System.Drawing.Point(11, 11);
+            this.labelLikeCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelLikeCount.Name = "labelLikeCount";
+            this.labelLikeCount.Size = new System.Drawing.Size(78, 16);
+            this.labelLikeCount.TabIndex = 6;
+            this.labelLikeCount.Text = "Like count:";
             // 
             // BestTimes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelLikeCount);
+            this.Controls.Add(this.labelLow);
+            this.Controls.Add(this.labelLowColor);
+            this.Controls.Add(this.labelMedium);
+            this.Controls.Add(this.labelMediumColor);
+            this.Controls.Add(this.labelHigh);
+            this.Controls.Add(this.labelHighColor);
             this.Name = "BestTimes";
             this.Size = new System.Drawing.Size(1000, 430);
             this.ResumeLayout(false);
@@ -136,12 +136,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelHighColor;
+        private System.Windows.Forms.Label labelHigh;
+        private System.Windows.Forms.Label labelMedium;
+        private System.Windows.Forms.Label labelMediumColor;
+        private System.Windows.Forms.Label labelLow;
+        private System.Windows.Forms.Label labelLowColor;
+        private System.Windows.Forms.Label labelLikeCount;
     }
 }

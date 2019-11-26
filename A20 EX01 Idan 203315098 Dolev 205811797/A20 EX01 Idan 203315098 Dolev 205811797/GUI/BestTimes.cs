@@ -125,15 +125,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                                 }
                                 else if (currentValue <= m_MaxTimeValue * 0.25)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.FromArgb(232,200,20);
+                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesLow;
                                 }
                                 else if (currentValue <= m_MaxTimeValue * 0.75)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.Orange;
+                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesMedium;
                                 }
                                 else
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.FromArgb(217, 17, 17);
+                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesHigh;
                                 }
 
                             }

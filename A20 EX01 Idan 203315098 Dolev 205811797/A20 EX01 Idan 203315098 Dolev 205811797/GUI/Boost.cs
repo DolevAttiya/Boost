@@ -129,8 +129,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             {
                 lastPost = m_LoggedInUser.Posts[++i];
             }
-            dashboard.labelLastPostContent.Text = "\"" + lastPost.Message + "\"";
-            dashboard.labelLastPostDateTime.Text = "- " + lastPost.CreatedTime.ToString();
+            dashboard.labelRecentActivityContent.Text = "\"" + lastPost.Message + "\"";
+            dashboard.labelRecentActivityDateTime.Text = "- " + lastPost.CreatedTime.ToString();
             dashboard.DashboardUpdate();
             analytics.bestTimes.PopulateBestTimes(m_LoggedInUser.Posts);
             analytics.bestTimes.DrawBestTimesGrid();

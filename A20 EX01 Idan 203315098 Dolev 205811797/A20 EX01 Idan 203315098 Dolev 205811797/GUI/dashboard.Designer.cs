@@ -37,9 +37,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelUserBio = new System.Windows.Forms.Panel();
-            this.labelLastPostDateTime = new System.Windows.Forms.Label();
-            this.labelLastPostContent = new System.Windows.Forms.Label();
-            this.labelLastPostTitle = new System.Windows.Forms.Label();
+            this.labelRecentActivityDateTime = new System.Windows.Forms.Label();
+            this.labelRecentActivityContent = new System.Windows.Forms.Label();
+            this.labelRecentActivityTitle = new System.Windows.Forms.Label();
             this.labelBio3 = new System.Windows.Forms.Label();
             this.labelBio2 = new System.Windows.Forms.Label();
             this.labelBio1 = new System.Windows.Forms.Label();
@@ -66,9 +66,9 @@
             // 
             this.panelUserBio.AutoScroll = true;
             this.panelUserBio.BackColor = System.Drawing.Color.White;
-            this.panelUserBio.Controls.Add(this.labelLastPostDateTime);
-            this.panelUserBio.Controls.Add(this.labelLastPostContent);
-            this.panelUserBio.Controls.Add(this.labelLastPostTitle);
+            this.panelUserBio.Controls.Add(this.labelRecentActivityDateTime);
+            this.panelUserBio.Controls.Add(this.labelRecentActivityContent);
+            this.panelUserBio.Controls.Add(this.labelRecentActivityTitle);
             this.panelUserBio.Controls.Add(this.labelBio3);
             this.panelUserBio.Controls.Add(this.labelBio2);
             this.panelUserBio.Controls.Add(this.labelBio1);
@@ -79,53 +79,53 @@
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
             this.panelUserBio.TabIndex = 0;
             // 
-            // labelLastPostDateTime
+            // labelRecentActivityDateTime
             // 
-            this.labelLastPostDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentActivityDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLastPostDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelLastPostDateTime.Font = UI_Elements.font_Body;
-            this.labelLastPostDateTime.ForeColor = UI_Elements.color_Main;
-            this.labelLastPostDateTime.Location = new System.Drawing.Point(24, 492);
-            this.labelLastPostDateTime.Margin = new System.Windows.Forms.Padding(0);
-            this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(200, 30);
-            this.labelLastPostDateTime.MinimumSize = new System.Drawing.Size(200, 23);
-            this.labelLastPostDateTime.Name = "labelLastPostDateTime";
-            this.labelLastPostDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.labelLastPostDateTime.Size = new System.Drawing.Size(200, 25);
-            this.labelLastPostDateTime.TabIndex = 7;
-            this.labelLastPostDateTime.Text = "- Date Time";
+            this.labelRecentActivityDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelRecentActivityDateTime.Font = UI_Elements.font_Body;
+            this.labelRecentActivityDateTime.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityDateTime.Location = new System.Drawing.Point(24, 492);
+            this.labelRecentActivityDateTime.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRecentActivityDateTime.MaximumSize = new System.Drawing.Size(200, 30);
+            this.labelRecentActivityDateTime.MinimumSize = new System.Drawing.Size(200, 23);
+            this.labelRecentActivityDateTime.Name = "labelRecentActivityDateTime";
+            this.labelRecentActivityDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.labelRecentActivityDateTime.Size = new System.Drawing.Size(200, 25);
+            this.labelRecentActivityDateTime.TabIndex = 7;
+            this.labelRecentActivityDateTime.Text = "- Date Time";
             // 
-            // labelLastPostContent
+            // labelRecentActivityContent
             // 
-            this.labelLastPostContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentActivityContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLastPostContent.AutoSize = true;
-            this.labelLastPostContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelLastPostContent.Font = UI_Elements.font_BodyItalics;
-            this.labelLastPostContent.ForeColor = UI_Elements.color_Main;
-            this.labelLastPostContent.Location = new System.Drawing.Point(26, 403);
-            this.labelLastPostContent.MaximumSize = new System.Drawing.Size(200, 89);
-            this.labelLastPostContent.MinimumSize = new System.Drawing.Size(200, 2);
-            this.labelLastPostContent.Name = "labelLastPostContent";
-            this.labelLastPostContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.labelLastPostContent.Size = new System.Drawing.Size(200, 89);
-            this.labelLastPostContent.TabIndex = 6;
-            this.labelLastPostContent.Text = resources.GetString("labelLastPostContent.Text");
+            this.labelRecentActivityContent.AutoSize = true;
+            this.labelRecentActivityContent.BackColor = System.Drawing.Color.Transparent;
+            this.labelRecentActivityContent.Font = UI_Elements.font_BodyItalics;
+            this.labelRecentActivityContent.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityContent.Location = new System.Drawing.Point(26, 403);
+            this.labelRecentActivityContent.MaximumSize = new System.Drawing.Size(200, 89);
+            this.labelRecentActivityContent.MinimumSize = new System.Drawing.Size(200, 2);
+            this.labelRecentActivityContent.Name = "labelRecentActivityContent";
+            this.labelRecentActivityContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.labelRecentActivityContent.Size = new System.Drawing.Size(200, 89);
+            this.labelRecentActivityContent.TabIndex = 6;
+            this.labelRecentActivityContent.Text = resources.GetString("labelRecentActivityContent.Text");
             // 
-            // labelLastPostTitle
+            // labelRecentActivityTitle
             // 
-            this.labelLastPostTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentActivityTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelLastPostTitle.Font = UI_Elements.font_Header2Underline;
-            this.labelLastPostTitle.ForeColor = UI_Elements.color_Main;
-            this.labelLastPostTitle.Location = new System.Drawing.Point(27, 362);
-            this.labelLastPostTitle.Name = "labelLastPostTitle";
-            this.labelLastPostTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.labelLastPostTitle.Size = new System.Drawing.Size(200, 41);
-            this.labelLastPostTitle.TabIndex = 5;
-            this.labelLastPostTitle.Text = "Last Post";
-            this.labelLastPostTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.labelRecentActivityTitle.Font = UI_Elements.font_Header2Underline;
+            this.labelRecentActivityTitle.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityTitle.Location = new System.Drawing.Point(27, 362);
+            this.labelRecentActivityTitle.Name = "labelRecentActivityTitle";
+            this.labelRecentActivityTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.labelRecentActivityTitle.Size = new System.Drawing.Size(200, 41);
+            this.labelRecentActivityTitle.TabIndex = 5;
+            this.labelRecentActivityTitle.Text = "Recent Activity";
+            this.labelRecentActivityTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // labelBio3
             // 
@@ -385,10 +385,10 @@
         public System.Windows.Forms.Label labelBio1;
         public System.Windows.Forms.Label labelBio2;
         public System.Windows.Forms.Label labelBio3;
-        public System.Windows.Forms.Label labelLastPostTitle;
-        public System.Windows.Forms.Label labelLastPostContent;
+        public System.Windows.Forms.Label labelRecentActivityTitle;
+        public System.Windows.Forms.Label labelRecentActivityContent;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
-        public System.Windows.Forms.Label labelLastPostDateTime;
+        public System.Windows.Forms.Label labelRecentActivityDateTime;
     }
 }

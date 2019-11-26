@@ -67,20 +67,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.labelBio3.Size = new System.Drawing.Size(this.labelBio2.Width, this.labelBio2.Height);
             this.labelBio3.Padding = this.labelBio2.Padding;
             this.labelBio3.Margin = this.labelBio2.Margin;
-            //labelLastPostTltle
-            this.labelLastPostTitle.Location = new System.Drawing.Point(this.labelBio3.Location.X, this.labelBio3.Bottom);
-            this.labelLastPostTitle.Size = new System.Drawing.Size(this.labelBio3.Width, this.labelLastPostTitle.Height);
-            //labelLastPostContent
-            this.labelLastPostContent.Location = new System.Drawing.Point(this.labelLastPostTitle.Location.X, this.labelLastPostTitle.Bottom);
-            this.labelLastPostContent.Size = new System.Drawing.Size(this.labelLastPostTitle.Width, this.labelLastPostContent.Height);
-            this.labelLastPostContent.AutoSize = true;
-            this.labelLastPostContent.MinimumSize = new System.Drawing.Size(this.labelLastPostContent.Width, 0);
-            this.labelLastPostContent.MaximumSize = new System.Drawing.Size(this.labelLastPostContent.Width, 171);
-            //labelLastPostDateTime
-            this.labelLastPostDateTime.Location = new System.Drawing.Point(this.labelLastPostContent.Location.X, this.labelLastPostContent.Bottom);
-            this.labelLastPostDateTime.Size = new System.Drawing.Size(this.labelLastPostContent.Width, this.labelLastPostDateTime.Height);
-            this.labelLastPostDateTime.MinimumSize = new System.Drawing.Size(this.labelLastPostDateTime.Width, 25);
-            this.labelLastPostDateTime.MaximumSize = new System.Drawing.Size(this.labelLastPostDateTime.Width, 30);
+            //labelRecentActivityTltle
+            this.labelRecentActivityTitle.Location = new System.Drawing.Point(this.labelBio3.Location.X, this.labelBio3.Bottom);
+            this.labelRecentActivityTitle.Size = new System.Drawing.Size(this.labelBio3.Width, this.labelRecentActivityTitle.Height);
+            //labelRecentActivityContent
+            this.labelRecentActivityContent.Location = new System.Drawing.Point(this.labelRecentActivityTitle.Location.X, this.labelRecentActivityTitle.Bottom);
+            this.labelRecentActivityContent.Size = new System.Drawing.Size(this.labelRecentActivityTitle.Width, this.labelRecentActivityContent.Height);
+            this.labelRecentActivityContent.AutoSize = true;
+            this.labelRecentActivityContent.MinimumSize = new System.Drawing.Size(this.labelRecentActivityContent.Width, 0);
+            this.labelRecentActivityContent.MaximumSize = new System.Drawing.Size(this.labelRecentActivityContent.Width, 171);
+            //labelRecentActivityDateTime
+            this.labelRecentActivityDateTime.Location = new System.Drawing.Point(this.labelRecentActivityContent.Location.X, this.labelRecentActivityContent.Bottom);
+            this.labelRecentActivityDateTime.Size = new System.Drawing.Size(this.labelRecentActivityContent.Width, this.labelRecentActivityDateTime.Height);
+            this.labelRecentActivityDateTime.MinimumSize = new System.Drawing.Size(this.labelRecentActivityDateTime.Width, 25);
+            this.labelRecentActivityDateTime.MaximumSize = new System.Drawing.Size(this.labelRecentActivityDateTime.Width, 30);
 
         }
     }
