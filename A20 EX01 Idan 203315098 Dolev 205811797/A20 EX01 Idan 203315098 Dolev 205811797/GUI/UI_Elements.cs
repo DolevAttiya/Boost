@@ -23,7 +23,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         //COLORS
         public static Color color_Main = Color.FromArgb(32, 52, 88);
         public static Color color_Secondary = Color.FromArgb(66, 103, 178);
-        public static Color color_BGColor = Color.FromArgb(215, 218, 224);
+        public static Color color_BGColor = Color.FromArgb(223, 226, 232);
         public static Color color_BGColor_OLD = Color.FromArgb(224, 224, 224); //TODO
         public static Color color_NavbarButtonColor = Color.FromArgb(65, 65, 65);
         public static Color color_TabRollover = Color.FromArgb(89, 124, 194);

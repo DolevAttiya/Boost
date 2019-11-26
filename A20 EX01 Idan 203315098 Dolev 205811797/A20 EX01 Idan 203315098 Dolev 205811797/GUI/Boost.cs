@@ -94,7 +94,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             this.login.labelLoading.Visible = true;
 
-            FacebookService.s_CollectionLimit = 200;
+            FacebookService.s_CollectionLimit = 50;
 
             m_LoginResult = FacebookService.Login("748532218946260",
                 "public_profile",
