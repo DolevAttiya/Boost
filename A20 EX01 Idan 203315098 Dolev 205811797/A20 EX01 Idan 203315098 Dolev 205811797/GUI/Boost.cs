@@ -46,6 +46,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.BackColor = UI_Elements.color_BGColor;
             dashboard.BringToFront();
             this.login.Visible = true;
             login.BringToFront();            
