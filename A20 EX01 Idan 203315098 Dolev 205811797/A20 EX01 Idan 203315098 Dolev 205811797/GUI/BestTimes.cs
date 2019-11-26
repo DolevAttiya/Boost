@@ -47,10 +47,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
                     if(i_Posts[i].UpdateTime.Value.TimeOfDay.Minutes>30)
                     {
                         hours++;
+                        if(hours == 24)
+                        {
+                            hours = 0;
+                        }
                     }
-                    
-                    m_BestPostTimes[day, hours] += rand.Next(0,1000);
-                    if(m_BestPostTimes[day, hours] > m_MaxTimeValue)
+
+                    m_BestPostTimes[day, hours] += i_Posts[i].LikedBy.Count;//TODO
+                    //m_BestPostTimes[day, hours] += rand.Next(0,1000);//TODO
+                    if (m_BestPostTimes[day, hours] > m_MaxTimeValue)
                     {
                         m_MaxTimeValue = m_BestPostTimes[day, hours];
                     }

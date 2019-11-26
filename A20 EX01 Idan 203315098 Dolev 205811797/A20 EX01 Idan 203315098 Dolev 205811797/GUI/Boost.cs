@@ -29,6 +29,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             Setup();
 
             m_AppSettings = new AppSettings();
+            this.login.AddLoginMethod(this);
             
         }
 
@@ -64,6 +65,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         public void FacebookLogin()
         {
             this.login.labelLoading.Visible = true;
+
+            FacebookService.s_CollectionLimit = 200;
 
             m_LoginResult = FacebookService.Login("748532218946260",
                 "public_profile",

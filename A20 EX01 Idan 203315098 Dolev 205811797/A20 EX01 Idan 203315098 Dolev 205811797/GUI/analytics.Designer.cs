@@ -79,7 +79,7 @@
             // 
             this.buttonBestTimes.BackColor = UI_Elements.color_Main;
             this.buttonBestTimes.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = UI_Elements.color_Rollover;
+            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.buttonBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBestTimes.FlatAppearance.BorderSize = 0;
             this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -98,7 +98,7 @@
             // 
             this.buttonBiggestFans.BackColor = UI_Elements.color_Main;
             this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = UI_Elements.color_Rollover;
+            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.buttonBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBiggestFans.FlatAppearance.BorderSize = 0;
             this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

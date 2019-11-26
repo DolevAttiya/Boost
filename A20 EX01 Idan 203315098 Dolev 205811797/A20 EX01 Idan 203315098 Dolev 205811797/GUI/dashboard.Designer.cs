@@ -111,7 +111,7 @@
             this.labelRecentActivityContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.labelRecentActivityContent.Size = new System.Drawing.Size(200, 89);
             this.labelRecentActivityContent.TabIndex = 6;
-            this.labelRecentActivityContent.Text = resources.GetString("labelRecentActivityContent.Text");
+            this.labelRecentActivityContent.Text = "Bla bla bla bla bla.";
             // 
             // labelRecentActivityTitle
             // 
