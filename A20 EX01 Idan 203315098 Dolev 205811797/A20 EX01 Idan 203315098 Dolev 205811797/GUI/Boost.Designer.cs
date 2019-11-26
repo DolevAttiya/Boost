@@ -77,7 +77,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnDashboard.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnDashboard.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = UI_Elements.font_NavbarButton;
+            this.btnDashboard.Font = UI_Elements.font_NavbarButtonDefault;
             this.btnDashboard.ForeColor = System.Drawing.Color.Black;
             this.btnDashboard.Location = new System.Drawing.Point(175, 20);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -86,7 +86,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnDashboard.TabIndex = 7;
             this.btnDashboard.Text = "DASHBOARD";
             this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.BtnDashboard_Click);
+            this.btnDashboard.Click += new System.EventHandler(this.NavbarButton_Click);
             // 
             // btnAnalytics
             // 
@@ -96,7 +96,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnAnalytics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnAnalytics.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.btnAnalytics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnalytics.Font = UI_Elements.font_NavbarButton;
+            this.btnAnalytics.Font = UI_Elements.font_NavbarButtonDefault;
             this.btnAnalytics.ForeColor = System.Drawing.Color.Black;
             this.btnAnalytics.Location = new System.Drawing.Point(300, 20);
             this.btnAnalytics.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -105,7 +105,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnAnalytics.TabIndex = 8;
             this.btnAnalytics.Text = "ANALYTICS";
             this.btnAnalytics.UseVisualStyleBackColor = false;
-            this.btnAnalytics.Click += new System.EventHandler(this.BtnAnalytics_Click);
+            this.btnAnalytics.Click += new System.EventHandler(this.NavbarButton_Click);
             // 
             // btnUsername
             // 
@@ -115,7 +115,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.btnUsername.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUsername.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.btnUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsername.Font = UI_Elements.font_NavbarButton;
+            this.btnUsername.Font = UI_Elements.font_NavbarButtonDefault;
             this.btnUsername.ForeColor = System.Drawing.Color.Black;
             this.btnUsername.Location = new System.Drawing.Point(936, 20);
             this.btnUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);

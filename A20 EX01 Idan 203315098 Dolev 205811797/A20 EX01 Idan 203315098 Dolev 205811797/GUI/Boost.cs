@@ -47,7 +47,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.BackColor = UI_Elements.color_BGColor;
-            dashboard.BringToFront();
+            switchPage(this.btnDashboard);
             this.login.Visible = true;
             login.BringToFront();            
         }
@@ -60,6 +60,33 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private void BtnAnalytics_Click(object sender, EventArgs e)
         {
             analytics.BringToFront();
+        }
+
+        private void NavbarButton_Click(object sender, EventArgs e)
+        {
+            switchPage((Button)sender);
+        }
+
+        private void switchPage(Button i_Button)
+        {
+
+            foreach(Button button in m_NavbarButtons)
+            {
+                button.Font = UI_Elements.font_NavbarButtonDefault;
+            }
+
+            switch (i_Button.Name)
+            {
+                case "btnDashboard":
+                    dashboard.BringToFront();
+                    break;
+                case "btnAnalytics":
+                    analytics.BringToFront();
+                    break;
+            }
+
+            i_Button.Font = UI_Elements.font_NavbarButtonSelected;
+
         }
 
 

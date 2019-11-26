@@ -11,7 +11,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         //FONTS
         public static string font_MainFontName = "Century Gothic";
-        public static Font font_NavbarButton = new System.Drawing.Font(font_MainFontName, 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        public static Font font_NavbarButtonDefault = new System.Drawing.Font(font_MainFontName, 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        public static Font font_NavbarButtonSelected = new System.Drawing.Font(font_MainFontName, 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         public static Font font_Header1 = new System.Drawing.Font(font_MainFontName, 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         public static Font font_Header2 = new System.Drawing.Font(font_MainFontName, 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         public static Font font_Header2Underline = new System.Drawing.Font(font_MainFontName, 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
