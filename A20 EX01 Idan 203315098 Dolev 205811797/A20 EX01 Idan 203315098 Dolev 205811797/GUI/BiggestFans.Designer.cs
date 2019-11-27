@@ -46,8 +46,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gradientPanel1.Controls.Add(this.label1);
             this.gradientPanel1.GradientAngle = 0F;
-            this.gradientPanel1.GradientColorA = UI_Elements.color_PanelColorA;
-            this.gradientPanel1.GradientColorB = UI_Elements.color_PanelColorB;
+            this.gradientPanel1.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(160)))), ((int)(((byte)(54)))));
+            this.gradientPanel1.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(200)))), ((int)(((byte)(75)))));
             this.gradientPanel1.Location = new System.Drawing.Point(18, 17);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(960, 100);

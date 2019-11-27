@@ -52,7 +52,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.BackColor = UI_Elements.color_BGColorA;
             this.navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
-            this.login.Visible = false;
+            this.login.Visible = true;
             login.BringToFront();            
         }
 
