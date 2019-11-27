@@ -2,8 +2,6 @@
 {
     public interface  IAnalysis
     {
-        IAnalysis CalculateAnalysis(eTimerSelector i_TimeToStrict);
-
-        void AddByType(eTimerSelector i_TimeToStrict);
+        IAnalysis CreateAnalysisByTimeStrict(eTimerSelector i_TimeToStrict);
     }
 }

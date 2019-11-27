@@ -95,6 +95,7 @@
     <Compile Include="Boost.Designer.cs">
       <DependentUpon>Boost.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataClasses\Analysis.cs" />
     <Compile Include="DataClasses\DayAndHour.cs" />
     <Compile Include="DataClasses\BoostEngine.cs" />
     <Compile Include="DataClasses\ETimerSelector.cs" />
