@@ -8,13 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797
+namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Dashboard : UserControl
     {
 
         public List<Engagement> m_EngagementList;
-        private readonly int k_EngagementChartCount = 5;
 
         public Dashboard()
         {

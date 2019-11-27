@@ -1,4 +1,4 @@
-﻿namespace A20_EX01_Idan_203315098_Dolev_205811797
+﻿namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class BestTimes
     {

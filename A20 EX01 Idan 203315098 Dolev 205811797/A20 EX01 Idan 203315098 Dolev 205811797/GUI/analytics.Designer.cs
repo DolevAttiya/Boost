@@ -1,7 +1,6 @@
-﻿using A20_EX01_Idan_203315098_Dolev_205811797.GUI;
-using System.Drawing;
+﻿using System.Drawing;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797
+namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class Analytics
     {
@@ -33,8 +32,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
             this.panel1 = new GradientPanel();
-            this.biggestFans = new A20_EX01_Idan_203315098_Dolev_205811797.BiggestFans();
-            this.bestTimes = new A20_EX01_Idan_203315098_Dolev_205811797.BestTimes();
+            this.biggestFans = new BiggestFans();
+            this.bestTimes = new BestTimes();
             this.buttonBestTimes = new System.Windows.Forms.Button();
             this.buttonBiggestFans = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();

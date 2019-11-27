@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797
+namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class Boost
     {
@@ -31,14 +31,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boost));
-            this.navbarSeparator = new System.Windows.Forms.Panel();
-            this.footer = new System.Windows.Forms.Label();
-            this.gradientPanelFooterLeft = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.gradientPanelFooterRight = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.navbar = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Navbar();
-            this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.Analytics();
-            this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.Dashboard();
-            this.login = new A20_EX01_Idan_203315098_Dolev_205811797.Login();
+            this.navbarSeparator = new Panel();
+            this.footer = new Label();
+            this.gradientPanelFooterLeft = new GradientPanel();
+            this.gradientPanelFooterRight = new GradientPanel();
+            this.navbar = new Navbar();
+            this.analytics = new Analytics();
+            this.dashboard = new Dashboard();
+            this.login = new Login();
             this.SuspendLayout();
             // 
             // navbarSeparator
@@ -55,8 +55,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             this.footer.BackColor = System.Drawing.Color.Transparent;
             this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.footer.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.footer.Font = UI_Elements.font_Footer;
+            this.footer.ForeColor = UI_Elements.color_Main;
             this.footer.Location = new System.Drawing.Point(0, 605);
             this.footer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.footer.Name = "footer";
@@ -68,8 +68,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // gradientPanelFooterLeft
             // 
             this.gradientPanelFooterLeft.GradientAngle = 0F;
-            this.gradientPanelFooterLeft.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterLeft.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.gradientPanelFooterLeft.GradientColorA = UI_Elements.color_Secondary;
+            this.gradientPanelFooterLeft.GradientColorB = UI_Elements.color_Secondary;
             this.gradientPanelFooterLeft.Location = new System.Drawing.Point(56, 620);
             this.gradientPanelFooterLeft.Margin = new System.Windows.Forms.Padding(0);
             this.gradientPanelFooterLeft.Name = "gradientPanelFooterLeft";
@@ -79,8 +79,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // gradientPanelFooterRight
             // 
             this.gradientPanelFooterRight.GradientAngle = 180F;
-            this.gradientPanelFooterRight.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterRight.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.gradientPanelFooterRight.GradientColorA = UI_Elements.color_Secondary;
+            this.gradientPanelFooterRight.GradientColorB = UI_Elements.color_Secondary;
             this.gradientPanelFooterRight.Location = new System.Drawing.Point(728, 620);
             this.gradientPanelFooterRight.Margin = new System.Windows.Forms.Padding(0);
             this.gradientPanelFooterRight.Name = "gradientPanelFooterRight";
@@ -118,7 +118,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             // login
             // 
-            this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.login.BackColor = UI_Elements.color_Main;
             this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.login.Location = new System.Drawing.Point(-5, -5);
             this.login.Name = "login";
@@ -130,7 +130,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(226)))), ((int)(((byte)(232)))));
+            this.BackColor = UI_Elements.color_BGColorA;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
             this.Controls.Add(this.gradientPanelFooterRight);
@@ -160,11 +160,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         public Panel navbarSeparator;
         public Label footer;
-        //public Button btnDashboard;
-        //public Button btnAnalytics;
-        //public PictureBox logoPictureBox;
-        //public PictureBox navbarProfilePic;
-        //public Button btnUsername;
         public Dashboard dashboard;
         public Analytics analytics;
         public Login login;

@@ -1,4 +1,4 @@
-﻿namespace A20_EX01_Idan_203315098_Dolev_205811797
+﻿namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class Login
     {
@@ -41,7 +41,7 @@
             // labelLoginError
             // 
             this.labelLoginError.BackColor = System.Drawing.Color.Transparent;
-            this.labelLoginError.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginError.Font = UI_Elements.font_Header2;
             this.labelLoginError.ForeColor = System.Drawing.Color.Red;
             this.labelLoginError.Location = new System.Drawing.Point(441, 379);
             this.labelLoginError.Name = "labelLoginError";
@@ -58,8 +58,8 @@
             this.gradientBG.Controls.Add(this.pictureBoxLogo);
             this.gradientBG.Controls.Add(this.labelLoginError);
             this.gradientBG.Controls.Add(this.pictureBoxFBLogin);
-            this.gradientBG.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.gradientBG.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(32)))), ((int)(((byte)(69)))));
+            this.gradientBG.GradientColorA = UI_Elements.color_Main;
+            this.gradientBG.GradientColorB = UI_Elements.color_Tertiary;
             this.gradientBG.Location = new System.Drawing.Point(0, 0);
             this.gradientBG.Name = "gradientBG";
             this.gradientBG.Size = new System.Drawing.Size(1148, 677);

@@ -10,9 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
-using A20_EX01_Idan_203315098_Dolev_205811797.GUI;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797
+namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Boost : Form
     {
@@ -53,7 +52,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.BackColor = UI_Elements.color_BGColorA;
             this.navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
-            this.login.Visible = true;
+            this.login.Visible = false;
             login.BringToFront();            
         }
 

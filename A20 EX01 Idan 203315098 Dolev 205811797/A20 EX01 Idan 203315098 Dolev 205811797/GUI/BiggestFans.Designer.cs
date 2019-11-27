@@ -1,4 +1,4 @@
-﻿namespace A20_EX01_Idan_203315098_Dolev_205811797
+﻿namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class BiggestFans
     {
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gradientPanel1 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanel1 = new GradientPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gradientPanel2 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.gradientPanel3 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanel2 = new GradientPanel();
+            this.gradientPanel3 = new GradientPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.gradientPanel1.SuspendLayout();
             this.gradientPanel2.SuspendLayout();
@@ -46,8 +46,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gradientPanel1.Controls.Add(this.label1);
             this.gradientPanel1.GradientAngle = 0F;
-            this.gradientPanel1.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(160)))), ((int)(((byte)(54)))));
-            this.gradientPanel1.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(200)))), ((int)(((byte)(75)))));
+            this.gradientPanel1.GradientColorA = UI_Elements.color_PanelColorA;
+            this.gradientPanel1.GradientColorB = UI_Elements.color_PanelColorB;
             this.gradientPanel1.Location = new System.Drawing.Point(18, 17);
             this.gradientPanel1.Name = "gradientPanel1";
             this.gradientPanel1.Size = new System.Drawing.Size(960, 100);
@@ -63,7 +63,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(960, 100);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Chris Jericho | Likes: X | Comments: Y";
+            this.label1.Text = "Jane Doe | Likes: X | Comments: Y";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
@@ -76,7 +76,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(960, 100);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Chris Jericho | Likes: X | Comments: Y";
+            this.label2.Text = "Jane Doe | Likes: X | Comments: Y";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gradientPanel2
@@ -117,7 +117,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(960, 100);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Chris Jericho | Likes: X | Comments: Y";
+            this.label3.Text = "Jane Doe | Likes: X | Comments: Y";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BiggestFans
