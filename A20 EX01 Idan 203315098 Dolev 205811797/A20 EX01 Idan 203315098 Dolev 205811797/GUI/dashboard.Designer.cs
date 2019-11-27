@@ -83,8 +83,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.panelTopPost.Controls.Add(this.labelTopPostLikes);
             this.panelTopPost.Controls.Add(this.labelTopPost);
             this.panelTopPost.GradientAngle = 90F;
-            this.panelTopPost.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelTopPost.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelTopPost.GradientColorA = System.Drawing.Color.White;
+            this.panelTopPost.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelTopPost.Location = new System.Drawing.Point(272, 257);
             this.panelTopPost.Name = "panelTopPost";
             this.panelTopPost.Size = new System.Drawing.Size(363, 266);
@@ -203,8 +203,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.panelFriends.Controls.Add(this.chartFriends);
             this.panelFriends.Controls.Add(this.labelFriends);
             this.panelFriends.GradientAngle = 90F;
-            this.panelFriends.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelFriends.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelFriends.GradientColorA = System.Drawing.Color.White;
+            this.panelFriends.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelFriends.Location = new System.Drawing.Point(658, 257);
             this.panelFriends.Name = "panelFriends";
             this.panelFriends.Size = new System.Drawing.Size(363, 266);
@@ -261,8 +261,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.panelEngagement.Controls.Add(this.chart1);
             this.panelEngagement.Controls.Add(this.labelEngagement);
             this.panelEngagement.GradientAngle = 90F;
-            this.panelEngagement.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelEngagement.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelEngagement.GradientColorA = System.Drawing.Color.White;
+            this.panelEngagement.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelEngagement.Location = new System.Drawing.Point(272, 0);
             this.panelEngagement.Name = "panelEngagement";
             this.panelEngagement.Size = new System.Drawing.Size(749, 239);
@@ -347,8 +347,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.panelUserBio.Controls.Add(this.labelName);
             this.panelUserBio.Controls.Add(this.pictureBoxBioProfilePic);
             this.panelUserBio.GradientAngle = 90F;
-            this.panelUserBio.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelUserBio.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelUserBio.GradientColorA = System.Drawing.Color.White;
+            this.panelUserBio.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelUserBio.Location = new System.Drawing.Point(0, 0);
             this.panelUserBio.Name = "panelUserBio";
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
@@ -398,7 +398,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(25, 361);
             this.labelRecentStatusUpdateTitle.Name = "labelRecentStatusUpdateTitle";
             this.labelRecentStatusUpdateTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 32);
+            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 42);
             this.labelRecentStatusUpdateTitle.TabIndex = 5;
             this.labelRecentStatusUpdateTitle.Text = "Recent Status Update";
             this.labelRecentStatusUpdateTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
