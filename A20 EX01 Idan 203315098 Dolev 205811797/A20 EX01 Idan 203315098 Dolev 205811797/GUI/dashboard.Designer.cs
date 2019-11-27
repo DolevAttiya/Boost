@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -50,7 +49,7 @@
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelFriends = new System.Windows.Forms.Panel();
             this.chartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.labelPlaceholder = new System.Windows.Forms.Label();
+            this.labelFriends = new System.Windows.Forms.Label();
             this.panelTopPosts = new System.Windows.Forms.Panel();
             this.labelTopPosts = new System.Windows.Forms.Label();
             this.panelUserBio.SuspendLayout();
@@ -84,8 +83,8 @@
             this.labelRecentActivityDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRecentActivityDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentActivityDateTime.Font = UI_Elements.font_Body;
-            this.labelRecentActivityDateTime.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentActivityDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentActivityDateTime.Location = new System.Drawing.Point(24, 492);
             this.labelRecentActivityDateTime.Margin = new System.Windows.Forms.Padding(0);
             this.labelRecentActivityDateTime.MaximumSize = new System.Drawing.Size(200, 30);
@@ -102,14 +101,14 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRecentActivityContent.AutoSize = true;
             this.labelRecentActivityContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentActivityContent.Font = UI_Elements.font_BodyItalics;
-            this.labelRecentActivityContent.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentActivityContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentActivityContent.Location = new System.Drawing.Point(26, 403);
             this.labelRecentActivityContent.MaximumSize = new System.Drawing.Size(200, 89);
             this.labelRecentActivityContent.MinimumSize = new System.Drawing.Size(200, 2);
             this.labelRecentActivityContent.Name = "labelRecentActivityContent";
             this.labelRecentActivityContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.labelRecentActivityContent.Size = new System.Drawing.Size(200, 89);
+            this.labelRecentActivityContent.Size = new System.Drawing.Size(200, 22);
             this.labelRecentActivityContent.TabIndex = 6;
             this.labelRecentActivityContent.Text = "Bla bla bla bla bla.";
             // 
@@ -117,8 +116,8 @@
             // 
             this.labelRecentActivityTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRecentActivityTitle.Font = UI_Elements.font_Header2Underline;
-            this.labelRecentActivityTitle.ForeColor = UI_Elements.color_Main;
+            this.labelRecentActivityTitle.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentActivityTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentActivityTitle.Location = new System.Drawing.Point(27, 362);
             this.labelRecentActivityTitle.Name = "labelRecentActivityTitle";
             this.labelRecentActivityTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -131,8 +130,8 @@
             // 
             this.labelBio3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio3.Font = UI_Elements.font_Header3;
-            this.labelBio3.ForeColor = UI_Elements.color_Main;
+            this.labelBio3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio3.Location = new System.Drawing.Point(27, 334);
             this.labelBio3.Name = "labelBio3";
             this.labelBio3.Size = new System.Drawing.Size(200, 28);
@@ -144,8 +143,8 @@
             // 
             this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio2.Font = UI_Elements.font_Header3;
-            this.labelBio2.ForeColor = UI_Elements.color_Main;
+            this.labelBio2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio2.Location = new System.Drawing.Point(27, 306);
             this.labelBio2.Name = "labelBio2";
             this.labelBio2.Size = new System.Drawing.Size(200, 28);
@@ -157,8 +156,8 @@
             // 
             this.labelBio1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelBio1.Font = UI_Elements.font_Header3;
-            this.labelBio1.ForeColor = UI_Elements.color_Main;
+            this.labelBio1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio1.Location = new System.Drawing.Point(27, 278);
             this.labelBio1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBio1.Name = "labelBio1";
@@ -170,8 +169,8 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Font = UI_Elements.font_Header1;
-            this.labelName.ForeColor = UI_Elements.color_Main;
+            this.labelName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelName.Location = new System.Drawing.Point(27, 233);
             this.labelName.MaximumSize = new System.Drawing.Size(250, 0);
@@ -276,7 +275,7 @@
             this.panelFriends.AutoScroll = true;
             this.panelFriends.BackColor = System.Drawing.Color.White;
             this.panelFriends.Controls.Add(this.chartFriends);
-            this.panelFriends.Controls.Add(this.labelPlaceholder);
+            this.panelFriends.Controls.Add(this.labelFriends);
             this.panelFriends.Location = new System.Drawing.Point(658, 257);
             this.panelFriends.Name = "panelFriends";
             this.panelFriends.Size = new System.Drawing.Size(363, 266);
@@ -296,9 +295,9 @@
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
             chartArea2.Name = "ChartArea1";
             this.chartFriends.ChartAreas.Add(chartArea2);
-            this.chartFriends.Location = new System.Drawing.Point(0, 33);
+            this.chartFriends.Location = new System.Drawing.Point(0, 28);
             this.chartFriends.Margin = new System.Windows.Forms.Padding(0);
-            this.chartFriends.MaximumSize = new System.Drawing.Size(360, 210);
+            this.chartFriends.MaximumSize = new System.Drawing.Size(360, 200);
             this.chartFriends.MinimumSize = new System.Drawing.Size(360, 200);
             this.chartFriends.Name = "chartFriends";
             series4.BorderWidth = 2;
@@ -307,22 +306,22 @@
             series4.IsValueShownAsLabel = true;
             series4.Name = "Friends";
             this.chartFriends.Series.Add(series4);
-            this.chartFriends.Size = new System.Drawing.Size(360, 210);
+            this.chartFriends.Size = new System.Drawing.Size(360, 200);
             this.chartFriends.TabIndex = 3;
             this.chartFriends.Text = "chart2";
             // 
-            // labelPlaceholder
+            // labelFriends
             // 
-            this.labelPlaceholder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelFriends.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelPlaceholder.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlaceholder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelPlaceholder.Location = new System.Drawing.Point(0, 0);
-            this.labelPlaceholder.Name = "labelPlaceholder";
-            this.labelPlaceholder.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelPlaceholder.Size = new System.Drawing.Size(363, 35);
-            this.labelPlaceholder.TabIndex = 2;
-            this.labelPlaceholder.Text = "Placeholder";
+            this.labelFriends.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFriends.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelFriends.Location = new System.Drawing.Point(0, 0);
+            this.labelFriends.Name = "labelFriends";
+            this.labelFriends.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.labelFriends.Size = new System.Drawing.Size(363, 35);
+            this.labelFriends.TabIndex = 2;
+            this.labelFriends.Text = "Friends";
             // 
             // panelTopPosts
             // 
@@ -378,7 +377,7 @@
         private System.Windows.Forms.Panel panelFriends;
         private System.Windows.Forms.Panel panelTopPosts;
         public System.Windows.Forms.Label labelEngagement;
-        public System.Windows.Forms.Label labelPlaceholder;
+        public System.Windows.Forms.Label labelFriends;
         public System.Windows.Forms.Label labelTopPosts;
         public System.Windows.Forms.PictureBox pictureBoxBioProfilePic;
         public System.Windows.Forms.Label labelName;

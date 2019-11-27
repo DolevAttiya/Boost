@@ -35,17 +35,25 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
             this.chart1.AlignDataPointsByAxisLabel();
 
+            this.chartFriends.Series["Friends"].Points.AddXY("10/10/19", 350);
+            this.chartFriends.Series["Friends"].Points.AddXY("15/10/19", 340);
+            this.chartFriends.Series["Friends"].Points.AddXY("10/11/19", 360);
+            this.chartFriends.ChartAreas[0].AxisY.Minimum = (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 > 0 ? (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 : 0;
+            this.chartFriends.ChartAreas[0].AxisY.Maximum = (this.chartFriends.Series[0].Points[(this.chartFriends.Series[0].Points.Count)-1].YValues[0]) + 200;
+            this.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+            this.chartFriends.AlignDataPointsByAxisLabel();
+
         }
 
-        public void ChartSetup()
-        {
-            this.chart1.Series["Engagement"].Points.Clear();
-            for (int i = 0 ; i < k_EngagementChartCount ; i++)
-            {
-                int index = k_EngagementChartCount - i -1;
-                this.chart1.Series["Engagement"].Points.AddXY(m_EngagementList[index].TimePosted.Date, m_EngagementList[index].LikeCount);
-            }
-        }
+        //public void ChartSetup()
+        //{
+        //    this.chart1.Series["Engagement"].Points.Clear();
+        //    for (int i = 0 ; i < k_EngagementChartCount ; i++)
+        //    {
+        //        int index = k_EngagementChartCount - i -1;
+        //        this.chart1.Series["Engagement"].Points.AddXY(m_EngagementList[index].TimePosted.Date, m_EngagementList[index].LikeCount);
+        //    }
+        //}
 
         public void DashboardUpdate()
         {

@@ -41,9 +41,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
 
         private void Setup()
         {
-            //m_NavbarButtons.Add(this.btnDashboard);
-            //m_NavbarButtons.Add(this.btnAnalytics);
-            //m_NavbarButtons.Add(this.btnUsername);
             foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
@@ -55,19 +52,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.BackColor = UI_Elements.color_BGColor;
             this.navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
-            this.login.Visible = true;
+            this.login.Visible = false;
             login.BringToFront();            
         }
-
-        //private void BtnDashboard_Click(object sender, EventArgs e)
-        //{
-        //    dashboard.BringToFront();
-        //}
-
-        //private void BtnAnalytics_Click(object sender, EventArgs e)
-        //{
-        //    analytics.BringToFront();
-        //}
 
         public void NavbarButton_Click(object sender, EventArgs e)
         {
@@ -166,11 +153,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.DashboardUpdate();
             analytics.bestTimes.PopulateBestTimes(m_LoggedInUser.Posts);
             analytics.bestTimes.DrawBestTimesGrid();
-            //foreach (Post post in m_LoggedInUser.Posts)
-            //{
-            //    dashboard.m_EngagementList.Add(new Engagement(post));
-            //}
-            //dashboard.ChartSetup();
         }
 
     }
