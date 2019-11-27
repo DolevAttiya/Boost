@@ -1,4 +1,6 @@
-﻿namespace A20_EX01_Idan_203315098_Dolev_205811797
+﻿using System.Drawing;
+
+namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     partial class Analytics
     {
@@ -29,9 +31,9 @@
         private void InitializeComponent()
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.biggestFans = new A20_EX01_Idan_203315098_Dolev_205811797.BiggestFans();
-            this.bestTimes = new A20_EX01_Idan_203315098_Dolev_205811797.BestTimes();
+            this.panel1 = new GradientPanel();
+            this.biggestFans = new BiggestFans();
+            this.bestTimes = new BestTimes();
             this.buttonBestTimes = new System.Windows.Forms.Button();
             this.buttonBiggestFans = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -39,56 +41,60 @@
             // 
             // labelAnalytics
             // 
-            this.labelAnalytics.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnalytics.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelAnalytics.Location = new System.Drawing.Point(0, 0);
+            this.labelAnalytics.Font = UI_Elements.font_Header1;
+            this.labelAnalytics.ForeColor = UI_Elements.color_Main;
+            this.labelAnalytics.Location = new  Point(0, 0);
             this.labelAnalytics.Name = "labelAnalytics";
             this.labelAnalytics.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelAnalytics.Size = new System.Drawing.Size(230, 39);
+            this.labelAnalytics.Size = new  Size(230, 39);
             this.labelAnalytics.TabIndex = 0;
             this.labelAnalytics.Text = "ANALYTICS";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor =  Color.FromArgb(255,255,255);
             this.panel1.Controls.Add(this.biggestFans);
             this.panel1.Controls.Add(this.bestTimes);
-            this.panel1.Location = new System.Drawing.Point(9, 81);
+            this.panel1.Location = new  Point(9, 81);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 434);
+            this.panel1.Size = new  Size(1005, 434);
             this.panel1.TabIndex = 1;
+            this.panel1.GradientAngle = 90F;
+            this.panel1.GradientColorA = UI_Elements.color_PanelColorA;
+            this.panel1.GradientColorB = UI_Elements.color_PanelColorB;
+
             // 
             // biggestFans
             // 
-            this.biggestFans.BackColor = System.Drawing.Color.White;
-            this.biggestFans.Location = new System.Drawing.Point(4, 4);
+            this.biggestFans.BackColor =  Color.Transparent;
+            this.biggestFans.Location = new  Point(4, 4);
             this.biggestFans.Name = "biggestFans";
-            this.biggestFans.Size = new System.Drawing.Size(1000, 430);
+            this.biggestFans.Size = new  Size(1000, 430);
             this.biggestFans.TabIndex = 1;
             // 
             // bestTimes
             // 
-            this.bestTimes.BackColor = System.Drawing.Color.White;
-            this.bestTimes.Location = new System.Drawing.Point(4, 4);
+            this.bestTimes.BackColor =  Color.Transparent;
+            this.bestTimes.Location = new  Point(4, 4);
             this.bestTimes.Name = "bestTimes";
-            this.bestTimes.Size = new System.Drawing.Size(1000, 430);
+            this.bestTimes.Size = new  Size(1000, 430);
             this.bestTimes.TabIndex = 0;
             // 
             // buttonBestTimes
             // 
-            this.buttonBestTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonBestTimes.BackColor = UI_Elements.color_Main;
+            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
+            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.buttonBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBestTimes.FlatAppearance.BorderSize = 0;
-            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
             this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBestTimes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBestTimes.ForeColor = System.Drawing.Color.White;
-            this.buttonBestTimes.Location = new System.Drawing.Point(9, 49);
+            this.buttonBestTimes.Font = UI_Elements.font_Header2;
+            this.buttonBestTimes.ForeColor =  Color.White;
+            this.buttonBestTimes.Location = new  Point(9, 49);
             this.buttonBestTimes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBestTimes.Name = "buttonBestTimes";
-            this.buttonBestTimes.Size = new System.Drawing.Size(221, 32);
+            this.buttonBestTimes.Size = new  Size(221, 32);
             this.buttonBestTimes.TabIndex = 2;
             this.buttonBestTimes.Text = "Best Times to Post";
             this.buttonBestTimes.UseVisualStyleBackColor = false;
@@ -96,18 +102,18 @@
             // 
             // buttonBiggestFans
             // 
-            this.buttonBiggestFans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonBiggestFans.BackColor = UI_Elements.color_Main;
+            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
+            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
             this.buttonBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBiggestFans.FlatAppearance.BorderSize = 0;
-            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
             this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBiggestFans.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBiggestFans.ForeColor = System.Drawing.Color.White;
-            this.buttonBiggestFans.Location = new System.Drawing.Point(230, 49);
+            this.buttonBiggestFans.Font = UI_Elements.font_Header2;
+            this.buttonBiggestFans.ForeColor =  Color.White;
+            this.buttonBiggestFans.Location = new  Point(230, 49);
             this.buttonBiggestFans.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBiggestFans.Name = "buttonBiggestFans";
-            this.buttonBiggestFans.Size = new System.Drawing.Size(221, 32);
+            this.buttonBiggestFans.Size = new  Size(221, 32);
             this.buttonBiggestFans.TabIndex = 3;
             this.buttonBiggestFans.Text = "Biggest Fans";
             this.buttonBiggestFans.UseVisualStyleBackColor = false;
@@ -115,16 +121,16 @@
             // 
             // Analytics
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new  SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor =  SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.buttonBiggestFans);
             this.Controls.Add(this.buttonBestTimes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelAnalytics);
             this.Name = "Analytics";
-            this.Size = new System.Drawing.Size(1021, 523);
+            this.Size = new  Size(1021, 523);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -133,10 +139,10 @@
         #endregion
 
         private System.Windows.Forms.Label labelAnalytics;
-        private System.Windows.Forms.Panel panel1;
+        private GradientPanel panel1;
         private System.Windows.Forms.Button buttonBestTimes;
         private System.Windows.Forms.Button buttonBiggestFans;
-        private BestTimes bestTimes;
-        private BiggestFans biggestFans;
+        public BestTimes bestTimes;
+        public BiggestFans biggestFans;
     }
 }

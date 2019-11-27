@@ -47,10 +47,31 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net40\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -65,69 +86,81 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analytics.cs">
+    <Compile Include="Engine\Engagement.cs" />
+    <Compile Include="Engine\PostTime.cs" />
+    <Compile Include="GUI\Analytics.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Analytics.Designer.cs">
+    <Compile Include="GUI\Analytics.Designer.cs">
       <DependentUpon>Analytics.cs</DependentUpon>
     </Compile>
-    <Compile Include="BestTimes.cs">
+    <Compile Include="GUI\AppSettings.cs" />
+    <Compile Include="GUI\BestTimes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BestTimes.Designer.cs">
+    <Compile Include="GUI\BestTimes.Designer.cs">
       <DependentUpon>BestTimes.cs</DependentUpon>
     </Compile>
-    <Compile Include="BiggestFans.cs">
+    <Compile Include="GUI\BiggestFans.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="BiggestFans.Designer.cs">
+    <Compile Include="GUI\BiggestFans.Designer.cs">
       <DependentUpon>BiggestFans.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Boost.cs">
+    <Compile Include="GUI\GradientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Boost.Designer.cs">
-      <DependentUpon>Boost.cs</DependentUpon>
+    <Compile Include="GUI\GradientPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DataClasses\Analysis.cs" />
-    <Compile Include="DataClasses\DayAndHour.cs" />
-    <Compile Include="DataClasses\BoostEngine.cs" />
-    <Compile Include="DataClasses\ETimerSelector.cs" />
-    <Compile Include="DataClasses\IAnalysis.cs" />
-    <Compile Include="DataClasses\TimeAnalysis.cs" />
-    <Compile Include="DataClasses\TopFanAnalysis.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="GUI\Dashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="GUI\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Boost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Boost.Designer.cs">
+      <DependentUpon>Boost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="GUI\Navbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Navbar.Designer.cs">
+      <DependentUpon>Navbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launcher\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI_Elements.cs" />
-    <EmbeddedResource Include="Analytics.resx">
+    <Compile Include="GUI\UI_Elements.cs" />
+    <EmbeddedResource Include="GUI\Analytics.resx">
       <DependentUpon>Analytics.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="BestTimes.resx">
+    <EmbeddedResource Include="GUI\BestTimes.resx">
       <DependentUpon>BestTimes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BiggestFans.resx">
+    <EmbeddedResource Include="GUI\BiggestFans.resx">
       <DependentUpon>BiggestFans.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="GUI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Boost.resx">
+    <EmbeddedResource Include="GUI\Boost.resx">
       <DependentUpon>Boost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="GUI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Navbar.resx">
+      <DependentUpon>Navbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
