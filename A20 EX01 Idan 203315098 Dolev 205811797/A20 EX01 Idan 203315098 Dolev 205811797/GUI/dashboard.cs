@@ -58,7 +58,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         public void DashboardUpdate()
         {
             this.BackColor = System.Drawing.Color.Transparent;
-            //Dynamic Label Positions
+            ////Dynamic Label Positions
+            ///Bio Panel
             //labelName
             this.labelName.Location = new System.Drawing.Point(this.pictureBoxBioProfilePic.Location.X, this.pictureBoxBioProfilePic.Bottom);
             this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
@@ -75,20 +76,40 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.labelBio3.Size = new System.Drawing.Size(this.labelBio2.Width, this.labelBio2.Height);
             this.labelBio3.Padding = this.labelBio2.Padding;
             this.labelBio3.Margin = this.labelBio2.Margin;
-            //labelRecentActivityTltle
-            this.labelRecentActivityTitle.Location = new System.Drawing.Point(this.labelBio3.Location.X, this.labelBio3.Bottom);
-            this.labelRecentActivityTitle.Size = new System.Drawing.Size(this.labelBio3.Width, this.labelRecentActivityTitle.Height);
-            //labelRecentActivityContent
-            this.labelRecentActivityContent.Location = new System.Drawing.Point(this.labelRecentActivityTitle.Location.X, this.labelRecentActivityTitle.Bottom);
-            this.labelRecentActivityContent.Size = new System.Drawing.Size(this.labelRecentActivityTitle.Width, this.labelRecentActivityContent.Height);
-            this.labelRecentActivityContent.AutoSize = true;
-            this.labelRecentActivityContent.MinimumSize = new System.Drawing.Size(this.labelRecentActivityContent.Width, 0);
-            this.labelRecentActivityContent.MaximumSize = new System.Drawing.Size(this.labelRecentActivityContent.Width, 171);
-            //labelRecentActivityDateTime
-            this.labelRecentActivityDateTime.Location = new System.Drawing.Point(this.labelRecentActivityContent.Location.X, this.labelRecentActivityContent.Bottom);
-            this.labelRecentActivityDateTime.Size = new System.Drawing.Size(this.labelRecentActivityContent.Width, this.labelRecentActivityDateTime.Height);
-            this.labelRecentActivityDateTime.MinimumSize = new System.Drawing.Size(this.labelRecentActivityDateTime.Width, 25);
-            this.labelRecentActivityDateTime.MaximumSize = new System.Drawing.Size(this.labelRecentActivityDateTime.Width, 30);
+            //labelRecentStatusUpdateTltle
+            this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(this.labelBio3.Location.X, this.labelBio3.Bottom);
+            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(this.labelBio3.Width, this.labelRecentStatusUpdateTitle.Height);
+            //labelRecentStatusUpdateContent
+            this.labelRecentStatusUpdateContent.Location = new System.Drawing.Point(this.labelRecentStatusUpdateTitle.Location.X, this.labelRecentStatusUpdateTitle.Bottom);
+            this.labelRecentStatusUpdateContent.Size = new System.Drawing.Size(this.labelRecentStatusUpdateTitle.Width, this.labelRecentStatusUpdateContent.Height);
+            this.labelRecentStatusUpdateContent.AutoSize = true;
+            this.labelRecentStatusUpdateContent.MinimumSize = new System.Drawing.Size(this.labelRecentStatusUpdateContent.Width, 0);
+            this.labelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(this.labelRecentStatusUpdateContent.Width, 171);
+            //labelRecentStatusUpdateDateTime
+            this.labelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(this.labelRecentStatusUpdateContent.Location.X, this.labelRecentStatusUpdateContent.Bottom);
+            this.labelRecentStatusUpdateDateTime.Size = new System.Drawing.Size(this.labelRecentStatusUpdateContent.Width, this.labelRecentStatusUpdateDateTime.Height);
+            this.labelRecentStatusUpdateDateTime.MinimumSize = new System.Drawing.Size(this.labelRecentStatusUpdateDateTime.Width, 25);
+            this.labelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(this.labelRecentStatusUpdateDateTime.Width, 30);
+            ///TopPost Panel
+            //pictureBoxTopPost
+            this.pictureBoxTopPost.Location = new System.Drawing.Point(this.pictureBoxTopPost.Location.X, this.labelTopPostLikes.Top);
+            //labelTopPostComments
+            this.labelTopPostComments.Location = new System.Drawing.Point(this.labelTopPostLikes.Location.X, this.labelTopPostLikes.Bottom);
+            this.labelTopPostComments.Size = new System.Drawing.Size(this.labelTopPostLikes.Width, this.labelTopPostLikes.Height);
+            //labelTopPostCaptionTitle
+            this.labelTopPostCaptionTitle.Location = new System.Drawing.Point(this.labelTopPostComments.Location.X, this.labelTopPostComments.Bottom);
+            this.labelTopPostCaptionTitle.Size = new System.Drawing.Size(this.labelTopPostComments.Width, this.labelTopPostCaptionTitle.Height);
+            //labelTopPostCaptionContent
+            this.labelTopPostCaptionContent.Location = new System.Drawing.Point(this.labelTopPostCaptionTitle.Location.X, this.labelTopPostCaptionTitle.Bottom);
+            this.labelTopPostCaptionContent.Size = new System.Drawing.Size(this.labelTopPostCaptionTitle.Width, this.labelTopPostCaptionContent.Height);
+            this.labelTopPostCaptionContent.AutoSize = true;
+            this.labelTopPostCaptionContent.MinimumSize = new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 0);
+            this.labelTopPostCaptionContent.MaximumSize = new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 171);
+            //labelTopPostCaptionDateTime
+            this.labelTopPostCaptionDateTime.Location = new System.Drawing.Point(this.labelTopPostCaptionContent.Location.X, this.labelTopPostCaptionContent.Bottom);
+            this.labelTopPostCaptionDateTime.Size = new System.Drawing.Size(this.labelTopPostCaptionContent.Width, this.labelTopPostCaptionDateTime.Height);
+            this.labelTopPostCaptionDateTime.MinimumSize = new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 25);
+            this.labelTopPostCaptionDateTime.MaximumSize = new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 30);
 
         }
     }

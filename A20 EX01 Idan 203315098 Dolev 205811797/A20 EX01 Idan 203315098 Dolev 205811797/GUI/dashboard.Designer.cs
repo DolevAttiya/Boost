@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelUserBio = new System.Windows.Forms.Panel();
-            this.labelRecentActivityDateTime = new System.Windows.Forms.Label();
-            this.labelRecentActivityContent = new System.Windows.Forms.Label();
-            this.labelRecentActivityTitle = new System.Windows.Forms.Label();
+            this.labelRecentStatusUpdateDateTime = new System.Windows.Forms.Label();
+            this.labelRecentStatusUpdateContent = new System.Windows.Forms.Label();
+            this.labelRecentStatusUpdateTitle = new System.Windows.Forms.Label();
             this.labelBio3 = new System.Windows.Forms.Label();
             this.labelBio2 = new System.Windows.Forms.Label();
             this.labelBio1 = new System.Windows.Forms.Label();
@@ -51,13 +51,13 @@
             this.chartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelFriends = new System.Windows.Forms.Label();
             this.panelTopPost = new System.Windows.Forms.Panel();
-            this.labelTopPost = new System.Windows.Forms.Label();
-            this.labelTopPostLikes = new System.Windows.Forms.Label();
-            this.labelTopPostComments = new System.Windows.Forms.Label();
-            this.labelTopPostShares = new System.Windows.Forms.Label();
+            this.pictureBoxTopPost = new System.Windows.Forms.PictureBox();
             this.labelTopPostCaptionDateTime = new System.Windows.Forms.Label();
             this.labelTopPostCaptionContent = new System.Windows.Forms.Label();
             this.labelTopPostCaptionTitle = new System.Windows.Forms.Label();
+            this.labelTopPostComments = new System.Windows.Forms.Label();
+            this.labelTopPostLikes = new System.Windows.Forms.Label();
+            this.labelTopPost = new System.Windows.Forms.Label();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
             this.panelEngagement.SuspendLayout();
@@ -65,15 +65,16 @@
             this.panelFriends.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).BeginInit();
             this.panelTopPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopPost)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUserBio
             // 
             this.panelUserBio.AutoScroll = true;
             this.panelUserBio.BackColor = System.Drawing.Color.White;
-            this.panelUserBio.Controls.Add(this.labelRecentActivityDateTime);
-            this.panelUserBio.Controls.Add(this.labelRecentActivityContent);
-            this.panelUserBio.Controls.Add(this.labelRecentActivityTitle);
+            this.panelUserBio.Controls.Add(this.labelRecentStatusUpdateDateTime);
+            this.panelUserBio.Controls.Add(this.labelRecentStatusUpdateContent);
+            this.panelUserBio.Controls.Add(this.labelRecentStatusUpdateTitle);
             this.panelUserBio.Controls.Add(this.labelBio3);
             this.panelUserBio.Controls.Add(this.labelBio2);
             this.panelUserBio.Controls.Add(this.labelBio1);
@@ -84,53 +85,53 @@
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
             this.panelUserBio.TabIndex = 0;
             // 
-            // labelRecentActivityDateTime
+            // labelRecentStatusUpdateDateTime
             // 
-            this.labelRecentActivityDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentStatusUpdateDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRecentActivityDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentActivityDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecentActivityDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelRecentActivityDateTime.Location = new System.Drawing.Point(24, 492);
-            this.labelRecentActivityDateTime.Margin = new System.Windows.Forms.Padding(0);
-            this.labelRecentActivityDateTime.MaximumSize = new System.Drawing.Size(200, 30);
-            this.labelRecentActivityDateTime.MinimumSize = new System.Drawing.Size(200, 23);
-            this.labelRecentActivityDateTime.Name = "labelRecentActivityDateTime";
-            this.labelRecentActivityDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.labelRecentActivityDateTime.Size = new System.Drawing.Size(200, 25);
-            this.labelRecentActivityDateTime.TabIndex = 7;
-            this.labelRecentActivityDateTime.Text = "- Date Time";
+            this.labelRecentStatusUpdateDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.labelRecentStatusUpdateDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(24, 492);
+            this.labelRecentStatusUpdateDateTime.Margin = new System.Windows.Forms.Padding(0);
+            this.labelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(200, 30);
+            this.labelRecentStatusUpdateDateTime.MinimumSize = new System.Drawing.Size(200, 23);
+            this.labelRecentStatusUpdateDateTime.Name = "labelRecentStatusUpdateDateTime";
+            this.labelRecentStatusUpdateDateTime.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.labelRecentStatusUpdateDateTime.Size = new System.Drawing.Size(200, 25);
+            this.labelRecentStatusUpdateDateTime.TabIndex = 7;
+            this.labelRecentStatusUpdateDateTime.Text = "- Date Time";
             // 
-            // labelRecentActivityContent
+            // labelRecentStatusUpdateContent
             // 
-            this.labelRecentActivityContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentStatusUpdateContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRecentActivityContent.AutoSize = true;
-            this.labelRecentActivityContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentActivityContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecentActivityContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelRecentActivityContent.Location = new System.Drawing.Point(26, 403);
-            this.labelRecentActivityContent.MaximumSize = new System.Drawing.Size(200, 89);
-            this.labelRecentActivityContent.MinimumSize = new System.Drawing.Size(200, 2);
-            this.labelRecentActivityContent.Name = "labelRecentActivityContent";
-            this.labelRecentActivityContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.labelRecentActivityContent.Size = new System.Drawing.Size(200, 22);
-            this.labelRecentActivityContent.TabIndex = 6;
-            this.labelRecentActivityContent.Text = "Bla bla bla bla bla.";
+            this.labelRecentStatusUpdateContent.AutoSize = true;
+            this.labelRecentStatusUpdateContent.BackColor = System.Drawing.Color.Transparent;
+            this.labelRecentStatusUpdateContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelRecentStatusUpdateContent.Location = new System.Drawing.Point(26, 403);
+            this.labelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(200, 89);
+            this.labelRecentStatusUpdateContent.MinimumSize = new System.Drawing.Size(200, 2);
+            this.labelRecentStatusUpdateContent.Name = "labelRecentStatusUpdateContent";
+            this.labelRecentStatusUpdateContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.labelRecentStatusUpdateContent.Size = new System.Drawing.Size(200, 22);
+            this.labelRecentStatusUpdateContent.TabIndex = 6;
+            this.labelRecentStatusUpdateContent.Text = "Bla bla bla bla bla.";
             // 
-            // labelRecentActivityTitle
+            // labelRecentStatusUpdateTitle
             // 
-            this.labelRecentActivityTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.labelRecentStatusUpdateTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelRecentActivityTitle.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecentActivityTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelRecentActivityTitle.Location = new System.Drawing.Point(27, 362);
-            this.labelRecentActivityTitle.Name = "labelRecentActivityTitle";
-            this.labelRecentActivityTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.labelRecentActivityTitle.Size = new System.Drawing.Size(200, 41);
-            this.labelRecentActivityTitle.TabIndex = 5;
-            this.labelRecentActivityTitle.Text = "Recent Activity";
-            this.labelRecentActivityTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.labelRecentStatusUpdateTitle.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(27, 362);
+            this.labelRecentStatusUpdateTitle.Name = "labelRecentStatusUpdateTitle";
+            this.labelRecentStatusUpdateTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
+            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 41);
+            this.labelRecentStatusUpdateTitle.TabIndex = 5;
+            this.labelRecentStatusUpdateTitle.Text = "Recent Status Update";
+            this.labelRecentStatusUpdateTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // labelBio3
             // 
@@ -212,51 +213,51 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea5.AxisX.LineWidth = 2;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea5.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea5.AxisY.LineWidth = 2;
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea5.BackColor = System.Drawing.Color.Transparent;
-            chartArea5.Name = "ChartArea1";
-            chartArea5.Position.Auto = false;
-            chartArea5.Position.Height = 95F;
-            chartArea5.Position.Width = 85F;
-            chartArea5.Position.Y = 3F;
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend3.AutoFitMinFontSize = 8;
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend3.IsTextAutoFit = false;
-            legend3.MaximumAutoSize = 40F;
-            legend3.Name = "Legend1";
-            legend3.Position.Auto = false;
-            legend3.Position.Height = 28F;
-            legend3.Position.Width = 14F;
-            legend3.Position.X = 86F;
-            legend3.Position.Y = 15F;
-            this.chart1.Legends.Add(legend3);
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 95F;
+            chartArea3.Position.Width = 85F;
+            chartArea3.Position.Y = 3F;
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend2.AutoFitMinFontSize = 8;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 40F;
+            legend2.Name = "Legend1";
+            legend2.Position.Auto = false;
+            legend2.Position.Height = 28F;
+            legend2.Position.Width = 14F;
+            legend2.Position.X = 86F;
+            legend2.Position.Y = 15F;
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(13, 29);
             this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.IsValueShownAsLabel = true;
-            series9.Legend = "Legend1";
-            series9.Name = "Photos";
-            series9.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            series10.ChartArea = "ChartArea1";
-            series10.IsValueShownAsLabel = true;
-            series10.Legend = "Legend1";
-            series10.Name = "Videos";
-            series10.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            series11.ChartArea = "ChartArea1";
-            series11.IsValueShownAsLabel = true;
-            series11.Legend = "Legend1";
-            series11.Name = "Status";
-            series11.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Series.Add(series11);
+            series5.ChartArea = "ChartArea1";
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Photos";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series6.ChartArea = "ChartArea1";
+            series6.IsValueShownAsLabel = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Videos";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series7.ChartArea = "ChartArea1";
+            series7.IsValueShownAsLabel = true;
+            series7.Legend = "Legend1";
+            series7.Name = "Status";
+            series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(726, 208);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -293,25 +294,25 @@
             this.chartFriends.BorderlineColor = System.Drawing.Color.Transparent;
             this.chartFriends.BorderlineWidth = 0;
             this.chartFriends.BorderSkin.BorderWidth = 0;
-            chartArea6.AxisX.LineColor = System.Drawing.Color.DimGray;
-            chartArea6.AxisX.LineWidth = 2;
-            chartArea6.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea6.AxisY.LineColor = System.Drawing.Color.DimGray;
-            chartArea6.AxisY.LineWidth = 2;
-            chartArea6.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea6.Name = "ChartArea1";
-            this.chartFriends.ChartAreas.Add(chartArea6);
+            chartArea4.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisX.LineWidth = 2;
+            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea4.AxisY.LineWidth = 2;
+            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea4.Name = "ChartArea1";
+            this.chartFriends.ChartAreas.Add(chartArea4);
             this.chartFriends.Location = new System.Drawing.Point(0, 28);
             this.chartFriends.Margin = new System.Windows.Forms.Padding(0);
             this.chartFriends.MaximumSize = new System.Drawing.Size(360, 200);
             this.chartFriends.MinimumSize = new System.Drawing.Size(360, 200);
             this.chartFriends.Name = "chartFriends";
-            series12.BorderWidth = 2;
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.IsValueShownAsLabel = true;
-            series12.Name = "Friends";
-            this.chartFriends.Series.Add(series12);
+            series8.BorderWidth = 2;
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.IsValueShownAsLabel = true;
+            series8.Name = "Friends";
+            this.chartFriends.Series.Add(series8);
             this.chartFriends.Size = new System.Drawing.Size(360, 200);
             this.chartFriends.TabIndex = 3;
             this.chartFriends.Text = "chart2";
@@ -333,8 +334,8 @@
             // 
             this.panelTopPost.AutoScroll = true;
             this.panelTopPost.BackColor = System.Drawing.Color.White;
+            this.panelTopPost.Controls.Add(this.pictureBoxTopPost);
             this.panelTopPost.Controls.Add(this.labelTopPostCaptionDateTime);
-            this.panelTopPost.Controls.Add(this.labelTopPostShares);
             this.panelTopPost.Controls.Add(this.labelTopPostCaptionContent);
             this.panelTopPost.Controls.Add(this.labelTopPostCaptionTitle);
             this.panelTopPost.Controls.Add(this.labelTopPostComments);
@@ -345,60 +346,14 @@
             this.panelTopPost.Size = new System.Drawing.Size(363, 266);
             this.panelTopPost.TabIndex = 3;
             // 
-            // labelTopPost
+            // pictureBoxTopPost
             // 
-            this.labelTopPost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelTopPost.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopPost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelTopPost.Location = new System.Drawing.Point(0, 0);
-            this.labelTopPost.Name = "labelTopPost";
-            this.labelTopPost.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelTopPost.Size = new System.Drawing.Size(363, 35);
-            this.labelTopPost.TabIndex = 1;
-            this.labelTopPost.Text = "Top Post";
-            // 
-            // labelTopPostLikes
-            // 
-            this.labelTopPostLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelTopPostLikes.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopPostLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelTopPostLikes.Location = new System.Drawing.Point(9, 49);
-            this.labelTopPostLikes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTopPostLikes.Name = "labelTopPostLikes";
-            this.labelTopPostLikes.Size = new System.Drawing.Size(166, 28);
-            this.labelTopPostLikes.TabIndex = 8;
-            this.labelTopPostLikes.Text = "Likes: ";
-            this.labelTopPostLikes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelTopPostComments
-            // 
-            this.labelTopPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelTopPostComments.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopPostComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelTopPostComments.Location = new System.Drawing.Point(9, 77);
-            this.labelTopPostComments.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTopPostComments.Name = "labelTopPostComments";
-            this.labelTopPostComments.Size = new System.Drawing.Size(166, 28);
-            this.labelTopPostComments.TabIndex = 9;
-            this.labelTopPostComments.Text = "Comments: ";
-            this.labelTopPostComments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelTopPostShares
-            // 
-            this.labelTopPostShares.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelTopPostShares.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTopPostShares.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelTopPostShares.Location = new System.Drawing.Point(9, 105);
-            this.labelTopPostShares.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTopPostShares.Name = "labelTopPostShares";
-            this.labelTopPostShares.Size = new System.Drawing.Size(166, 27);
-            this.labelTopPostShares.TabIndex = 10;
-            this.labelTopPostShares.Text = "Shares: ";
-            this.labelTopPostShares.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBoxTopPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxTopPost.Location = new System.Drawing.Point(181, 49);
+            this.pictureBoxTopPost.Name = "pictureBoxTopPost";
+            this.pictureBoxTopPost.Size = new System.Drawing.Size(168, 97);
+            this.pictureBoxTopPost.TabIndex = 11;
+            this.pictureBoxTopPost.TabStop = false;
             // 
             // labelTopPostCaptionDateTime
             // 
@@ -448,6 +403,47 @@
             this.labelTopPostCaptionTitle.Text = "Caption";
             this.labelTopPostCaptionTitle.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // labelTopPostComments
+            // 
+            this.labelTopPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelTopPostComments.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelTopPostComments.Location = new System.Drawing.Point(9, 68);
+            this.labelTopPostComments.Margin = new System.Windows.Forms.Padding(0);
+            this.labelTopPostComments.Name = "labelTopPostComments";
+            this.labelTopPostComments.Size = new System.Drawing.Size(166, 28);
+            this.labelTopPostComments.TabIndex = 9;
+            this.labelTopPostComments.Text = "Comments: ";
+            this.labelTopPostComments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelTopPostLikes
+            // 
+            this.labelTopPostLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelTopPostLikes.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelTopPostLikes.Location = new System.Drawing.Point(9, 40);
+            this.labelTopPostLikes.Margin = new System.Windows.Forms.Padding(0);
+            this.labelTopPostLikes.Name = "labelTopPostLikes";
+            this.labelTopPostLikes.Size = new System.Drawing.Size(166, 28);
+            this.labelTopPostLikes.TabIndex = 8;
+            this.labelTopPostLikes.Text = "Likes: ";
+            this.labelTopPostLikes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelTopPost
+            // 
+            this.labelTopPost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelTopPost.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelTopPost.Location = new System.Drawing.Point(0, 0);
+            this.labelTopPost.Name = "labelTopPost";
+            this.labelTopPost.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.labelTopPost.Size = new System.Drawing.Size(363, 35);
+            this.labelTopPost.TabIndex = 1;
+            this.labelTopPost.Text = "Top Post";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +465,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).EndInit();
             this.panelTopPost.ResumeLayout(false);
             this.panelTopPost.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopPost)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,16 +484,16 @@
         public System.Windows.Forms.Label labelBio1;
         public System.Windows.Forms.Label labelBio2;
         public System.Windows.Forms.Label labelBio3;
-        public System.Windows.Forms.Label labelRecentActivityTitle;
-        public System.Windows.Forms.Label labelRecentActivityContent;
+        public System.Windows.Forms.Label labelRecentStatusUpdateTitle;
+        public System.Windows.Forms.Label labelRecentStatusUpdateContent;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
-        public System.Windows.Forms.Label labelRecentActivityDateTime;
+        public System.Windows.Forms.Label labelRecentStatusUpdateDateTime;
         public System.Windows.Forms.Label labelTopPostCaptionDateTime;
-        public System.Windows.Forms.Label labelTopPostShares;
         public System.Windows.Forms.Label labelTopPostCaptionContent;
         public System.Windows.Forms.Label labelTopPostCaptionTitle;
         public System.Windows.Forms.Label labelTopPostComments;
         public System.Windows.Forms.Label labelTopPostLikes;
+        public System.Windows.Forms.PictureBox pictureBoxTopPost;
     }
 }

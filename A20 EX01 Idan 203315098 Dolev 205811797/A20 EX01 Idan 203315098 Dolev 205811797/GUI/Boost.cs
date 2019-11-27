@@ -22,6 +22,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private AppSettings m_AppSettings;
         private LoginResult m_LoginResult;
         private readonly int k_CollectionLimit = 50;
+        private int m_TopPostIndex = -1;
 
         public Boost()
         {
@@ -52,7 +53,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.BackColor = UI_Elements.color_BGColor;
             this.navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
-            this.login.Visible = false;
+            this.login.Visible = true;
             login.BringToFront();            
         }
 
@@ -143,13 +144,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             dashboard.labelBio2.Text = "Friends using Boost: " + m_LoggedInUser.Friends.Count;
             dashboard.labelBio3.Text = "Verified?: " + (m_LoggedInUser.Verfied == true ? "Yes" : "No")  ;
             int i = 0;
-            Post lastPost = m_LoggedInUser.Posts[i];
-            while (lastPost.Message == null)
+            Post lastStatus = m_LoggedInUser.Posts[i];
+            while (lastStatus.Message == null && lastStatus.Type != Post.eType.status)
             {
-                lastPost = m_LoggedInUser.Posts[++i];
+                lastStatus = m_LoggedInUser.Posts[++i];
             }
-            dashboard.labelRecentActivityContent.Text = "\"" + lastPost.Message + "\"";
-            dashboard.labelRecentActivityDateTime.Text = "- " + lastPost.CreatedTime.ToString();
+            dashboard.labelRecentStatusUpdateContent.Text = "\"" + lastStatus.Message + "\"";
+            dashboard.labelRecentStatusUpdateDateTime.Text = "- " + lastStatus.CreatedTime.ToString();
+
+            int topLikes = -1;
+            //Get Top Post
+            int j = 0;
+            foreach(Post post in m_LoggedInUser.Posts)
+            {
+                if(post.LikedBy.Count > topLikes)
+                {
+                    topLikes = post.LikedBy.Count;
+                    m_TopPostIndex = j;
+                }
+                j++;
+            }
+            //
+            dashboard.labelTopPostLikes.Text += m_LoggedInUser.Posts[m_TopPostIndex].LikedBy.Count;
+            dashboard.labelTopPostComments.Text += m_LoggedInUser.Posts[m_TopPostIndex].Comments.Count;
+            dashboard.labelTopPostCaptionContent.Text = "\"" + m_LoggedInUser.Posts[m_TopPostIndex].Message + "\"";
+            dashboard.labelTopPostCaptionDateTime.Text = "- " + m_LoggedInUser.Posts[m_TopPostIndex].CreatedTime.ToString();
+            dashboard.pictureBoxTopPost.LoadAsync(m_LoggedInUser.Posts[m_TopPostIndex].PictureURL);
+  
+
             dashboard.DashboardUpdate();
             analytics.bestTimes.PopulateBestTimes(m_LoggedInUser.Posts);
             analytics.bestTimes.DrawBestTimesGrid();
