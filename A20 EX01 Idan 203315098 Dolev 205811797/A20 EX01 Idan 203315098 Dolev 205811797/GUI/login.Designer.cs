@@ -28,31 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.labelLoginError = new System.Windows.Forms.Label();
+            this.gradientBG = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.labelLoading = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxFBLogin = new System.Windows.Forms.PictureBox();
+            this.gradientBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_login;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(440, 196);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(271, 97);
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // labelLoginError
             // 
             this.labelLoginError.BackColor = System.Drawing.Color.Transparent;
             this.labelLoginError.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoginError.ForeColor = System.Drawing.Color.Red;
-            this.labelLoginError.Location = new System.Drawing.Point(440, 381);
+            this.labelLoginError.Location = new System.Drawing.Point(441, 379);
             this.labelLoginError.Name = "labelLoginError";
             this.labelLoginError.Size = new System.Drawing.Size(271, 26);
             this.labelLoginError.TabIndex = 2;
@@ -60,18 +51,43 @@
             this.labelLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoginError.Visible = false;
             // 
+            // gradientBG
+            // 
+            this.gradientBG.GradientAngle = 45F;
+            this.gradientBG.Controls.Add(this.labelLoading);
+            this.gradientBG.Controls.Add(this.pictureBoxLogo);
+            this.gradientBG.Controls.Add(this.labelLoginError);
+            this.gradientBG.Controls.Add(this.pictureBoxFBLogin);
+            this.gradientBG.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.gradientBG.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(32)))), ((int)(((byte)(69)))));
+            this.gradientBG.Location = new System.Drawing.Point(0, 0);
+            this.gradientBG.Name = "gradientBG";
+            this.gradientBG.Size = new System.Drawing.Size(1148, 677);
+            this.gradientBG.TabIndex = 4;
+            // 
             // labelLoading
             // 
             this.labelLoading.BackColor = System.Drawing.Color.Transparent;
             this.labelLoading.Font = new System.Drawing.Font("Century Gothic", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoading.ForeColor = System.Drawing.Color.White;
-            this.labelLoading.Location = new System.Drawing.Point(440, 381);
+            this.labelLoading.Location = new System.Drawing.Point(488, 379);
             this.labelLoading.Name = "labelLoading";
-            this.labelLoading.Size = new System.Drawing.Size(271, 26);
+            this.labelLoading.Size = new System.Drawing.Size(177, 26);
             this.labelLoading.TabIndex = 3;
             this.labelLoading.Text = "Loading...";
             this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelLoading.Visible = false;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxLogo.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_login;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(441, 194);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(271, 97);
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // pictureBoxFBLogin
             // 
@@ -79,7 +95,7 @@
             this.pictureBoxFBLogin.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.fbLogin;
             this.pictureBoxFBLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxFBLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxFBLogin.Location = new System.Drawing.Point(487, 321);
+            this.pictureBoxFBLogin.Location = new System.Drawing.Point(488, 319);
             this.pictureBoxFBLogin.Name = "pictureBoxFBLogin";
             this.pictureBoxFBLogin.Size = new System.Drawing.Size(177, 36);
             this.pictureBoxFBLogin.TabIndex = 1;
@@ -92,12 +108,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.labelLoading);
-            this.Controls.Add(this.labelLoginError);
-            this.Controls.Add(this.pictureBoxFBLogin);
-            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.gradientBG);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(1151, 677);
+            this.gradientBG.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).EndInit();
             this.ResumeLayout(false);
@@ -110,5 +124,6 @@
         public System.Windows.Forms.Label labelLoginError;
         public System.Windows.Forms.Label labelLoading;
         public System.Windows.Forms.PictureBox pictureBoxFBLogin;
+        private GUI.GradientPanel gradientBG;
     }
 }

@@ -38,7 +38,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // btnUsername
             // 
             this.btnUsername.BackColor = System.Drawing.Color.Transparent;
-            this.btnUsername.Cursor = System.Windows.Forms.Cursors.Hand;
+            //this.btnUsername.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUsername.FlatAppearance.BorderSize = 0;
             this.btnUsername.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUsername.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;

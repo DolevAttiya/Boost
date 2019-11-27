@@ -50,7 +50,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.BackColor = UI_Elements.color_BGColor;
+            this.BackColor = UI_Elements.color_BGColorA;
             this.navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
             this.login.Visible = true;
@@ -167,9 +167,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             //
             dashboard.labelTopPostLikes.Text += m_LoggedInUser.Posts[m_TopPostIndex].LikedBy.Count;
             dashboard.labelTopPostComments.Text += m_LoggedInUser.Posts[m_TopPostIndex].Comments.Count;
+            if(m_LoggedInUser.Posts[m_TopPostIndex].Message == null || m_LoggedInUser.Posts[m_TopPostIndex].Message == "")
+            {
+                dashboard.labelTopPostCaptionTitle.Visible = false;
+                dashboard.labelTopPostCaptionContent.Visible = false;
+            }
+            else
+            {
             dashboard.labelTopPostCaptionContent.Text = "\"" + m_LoggedInUser.Posts[m_TopPostIndex].Message + "\"";
+            }
             dashboard.labelTopPostCaptionDateTime.Text = "- " + m_LoggedInUser.Posts[m_TopPostIndex].CreatedTime.ToString();
             dashboard.pictureBoxTopPost.LoadAsync(m_LoggedInUser.Posts[m_TopPostIndex].PictureURL);
+
   
 
             dashboard.DashboardUpdate();
