@@ -185,6 +185,5 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             analytics.bestTimes.PopulateBestTimes(m_LoggedInUser.Posts);
             analytics.bestTimes.DrawBestTimesGrid();
         }
-
     }
 }

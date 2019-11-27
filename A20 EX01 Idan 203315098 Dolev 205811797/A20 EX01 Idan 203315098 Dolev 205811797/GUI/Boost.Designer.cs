@@ -37,6 +37,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.Analytics();
             this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.Dashboard();
             this.login = new A20_EX01_Idan_203315098_Dolev_205811797.Login();
+            this.gradientPanelFooterLeft = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanelFooterRight = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.SuspendLayout();
             // 
             // navbarSeparator
@@ -102,6 +104,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.login.TabIndex = 14;
             this.login.Visible = false;
             // 
+            // gradientPanelFooterLeft
+            // 
+            this.gradientPanelFooterLeft.GradientAngle = 0F;
+            this.gradientPanelFooterLeft.GradientColorA = UI_Elements.color_Secondary;
+            this.gradientPanelFooterLeft.GradientColorB = UI_Elements.color_Secondary;
+            this.gradientPanelFooterLeft.Location = new System.Drawing.Point(56, 620);
+            this.gradientPanelFooterLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.gradientPanelFooterLeft.Name = "gradientPanelFooterLeft";
+            this.gradientPanelFooterLeft.Size = new System.Drawing.Size(350, 2);
+            this.gradientPanelFooterLeft.TabIndex = 16;
+            // 
+            // gradientPanelFooterRight
+            // 
+            this.gradientPanelFooterRight.GradientAngle = 180F;
+            this.gradientPanelFooterRight.GradientColorA = UI_Elements.color_Secondary;
+            this.gradientPanelFooterRight.GradientColorB = UI_Elements.color_Secondary;
+            this.gradientPanelFooterRight.Location = new System.Drawing.Point(728, 620);
+            this.gradientPanelFooterRight.Margin = new System.Windows.Forms.Padding(0);
+            this.gradientPanelFooterRight.Name = "gradientPanelFooterRight";
+            this.gradientPanelFooterRight.Size = new System.Drawing.Size(350, 2);
+            this.gradientPanelFooterRight.TabIndex = 17;
+            // 
             // Boost
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -109,6 +133,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(226)))), ((int)(((byte)(232)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
+            this.Controls.Add(this.gradientPanelFooterRight);
+            this.Controls.Add(this.gradientPanelFooterLeft);
             this.Controls.Add(this.navbar);
             this.Controls.Add(this.analytics);
             this.Controls.Add(this.dashboard);
@@ -143,6 +169,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         public Analytics analytics;
         public Login login;
         private GUI.Navbar navbar;
+        private GUI.GradientPanel gradientPanelFooterLeft;
+        private GUI.GradientPanel gradientPanelFooterRight;
     }
 }
 
