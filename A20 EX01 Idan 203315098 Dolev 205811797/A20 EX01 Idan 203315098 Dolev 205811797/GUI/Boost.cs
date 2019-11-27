@@ -18,10 +18,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
     {
         public User m_LoggedInUser;
 
-        //UI Data Members
-        private List<Button> m_NavbarButtons = new List<Button>();
+        //public List<Button> m_NavbarButtons = new List<Button>();
         private AppSettings m_AppSettings;
         private LoginResult m_LoginResult;
+        private readonly int k_CollectionLimit = 50;
 
         public Boost()
         {
@@ -29,40 +29,47 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             Setup();
 
             m_AppSettings = new AppSettings();
-            this.login.AddLoginMethod(this);
+            this.login.RegisterLoginMethod(this);
             
+        }
+
+        public enum eBoostPages : byte
+        {
+            Dashboard = 0,
+            Analytics,
         }
 
         private void Setup()
         {
-            m_NavbarButtons.Add(this.btnDashboard);
-            m_NavbarButtons.Add(this.btnAnalytics);
-            m_NavbarButtons.Add(this.btnUsername);
-            foreach(Button button in m_NavbarButtons)
+            //m_NavbarButtons.Add(this.btnDashboard);
+            //m_NavbarButtons.Add(this.btnAnalytics);
+            //m_NavbarButtons.Add(this.btnUsername);
+            foreach(Button button in navbar.m_NavbarButtons)
             {
-                button.ForeColor = UI_Elements.color_NavbarButtonColor;
+                button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.BackColor = UI_Elements.color_BGColor;
-            switchPage(this.btnDashboard);
+            this.navbarSeparator.BringToFront();
+            switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
             this.login.Visible = true;
             login.BringToFront();            
         }
 
-        private void BtnDashboard_Click(object sender, EventArgs e)
-        {
-            dashboard.BringToFront();
-        }
+        //private void BtnDashboard_Click(object sender, EventArgs e)
+        //{
+        //    dashboard.BringToFront();
+        //}
 
-        private void BtnAnalytics_Click(object sender, EventArgs e)
-        {
-            analytics.BringToFront();
-        }
+        //private void BtnAnalytics_Click(object sender, EventArgs e)
+        //{
+        //    analytics.BringToFront();
+        //}
 
-        private void NavbarButton_Click(object sender, EventArgs e)
+        public void NavbarButton_Click(object sender, EventArgs e)
         {
             switchPage((Button)sender);
         }
@@ -70,7 +77,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         private void switchPage(Button i_Button)
         {
 
-            foreach(Button button in m_NavbarButtons)
+            foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Font = UI_Elements.font_NavbarButtonDefault;
             }
@@ -94,7 +101,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
         {
             this.login.labelLoading.Visible = true;
 
-            FacebookService.s_CollectionLimit = 50;
+            FacebookService.s_CollectionLimit = k_CollectionLimit;
 
             m_LoginResult = FacebookService.Login("748532218946260",
                 "public_profile",
@@ -127,24 +134,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797
             {
                 this.login.labelLoginError.BringToFront();
                 this.login.labelLoginError.Visible = true;
-                //MessageBox.Show(result.ErrorMessage);
             }
 
         }
-
-        //protected override void OnFormClosed(FormClosedEventArgs e)
-        //{
-        //    base.OnFormClosed(e);
-        //}
 
 
         public void FetchUserData()
         {
             String name = m_LoggedInUser.Name; ;
 
-            this.btnUsername.Text = name;
-            this.navbarProfilePic.LoadAsync(m_LoggedInUser.PictureSmallURL);
-            this.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            navbar.btnUsername.Text = name;
+            navbar.navbarProfilePic.LoadAsync(m_LoggedInUser.PictureSmallURL);
+            navbar.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 
 
             dashboard.labelName.Text = name;
