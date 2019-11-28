@@ -19,9 +19,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         //public List<Button> m_NavbarButtons = new List<Button>();
         private AppSettings m_AppSettings;
-        private LoginResult m_LoginResult;
-        private readonly int k_CollectionLimit = 50;
-        private int m_TopPostIndex = -1;
+        private LoginResult m_LoginResult; //Login method
+        private readonly int k_CollectionLimit = 50;//Login method
+        private int m_TopPostIndex = -1; //Top Posts
 
         public Boost()
         {
@@ -36,12 +36,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public enum eBoostPages : byte
         {
             Dashboard = 0,
-            Analytics
+            Analytics,
         }
 
         private void Setup()
         {
-            foreach(Button button in navbar.m_NavbarButtons)
+            foreach(Button button in navbar.m_NavbarButtons) //Add event handler to dynamically added buttons
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
@@ -84,7 +84,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         }
 
 
-        public void FacebookLogin()
+        public void FacebookLogin() //temp -> Engine
         {
             this.login.labelLoading.Visible = true;
 
@@ -144,7 +144,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.labelBio3.Text = "Verified?: " + (m_LoggedInUser.Verfied == true ? "Yes" : "No")  ;
             int i = 0;
             Post lastStatus = m_LoggedInUser.Posts[i];
-            while (lastStatus.Message == null && lastStatus.Type != Post.eType.status)
+            while (lastStatus.Message == null && lastStatus.Type != Post.eType.status) //->engine
             {
                 lastStatus = m_LoggedInUser.Posts[++i];
             }

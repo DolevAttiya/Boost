@@ -12,12 +12,12 @@ using Facebook;
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
 
-    public delegate void LoginEventHandler();
+    public delegate void LoginEventHandler(); //?
 
     public partial class Login : UserControl
     {
 
-        private LoginEventHandler m_LoginEvent;
+        private LoginEventHandler m_LoginEvent; //? 
 
         public Login()
         {
@@ -39,12 +39,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)
         {
-            m_LoginEvent.Invoke();
+            m_LoginEvent.Invoke();// ? invoke login method from engine?
             this.Visible = false;
 
         }
 
-        public void RegisterLoginMethod(Boost i_BoostForm)
+        public void RegisterLoginMethod(Boost i_BoostForm) //TODO invoke login method from engine
         {
             m_LoginEvent += new LoginEventHandler(i_BoostForm.FacebookLogin);
         }

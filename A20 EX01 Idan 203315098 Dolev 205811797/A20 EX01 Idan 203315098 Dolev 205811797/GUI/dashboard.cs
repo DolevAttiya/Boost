@@ -19,6 +19,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
+            //Dummy values
+            //TODO create a method that gets the most recent 5 dates and collects and calculates photos, vids & status
             this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
             this.chart1.Series["Photos"].Points.AddXY("06/04/19", 50);
             this.chart1.Series["Photos"].Points.AddXY("22/5/19", 200);
@@ -33,7 +35,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.chart1.Series["Status"].Points.AddXY("01/07/19", 22);
             this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
             this.chart1.AlignDataPointsByAxisLabel();
-
+            //Friend chart dummy values
             this.chartFriends.Series["Friends"].Points.AddXY("10/10/19", 350);
             this.chartFriends.Series["Friends"].Points.AddXY("15/10/19", 340);
             this.chartFriends.Series["Friends"].Points.AddXY("10/11/19", 360);

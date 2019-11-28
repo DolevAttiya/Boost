@@ -86,6 +86,13 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\DataClasses\Analysis.cs" />
+    <Compile Include="Engine\DataClasses\BoostEngine.cs" />
+    <Compile Include="Engine\DataClasses\DayAndHour.cs" />
+    <Compile Include="Engine\DataClasses\ETimerSelector.cs" />
+    <Compile Include="Engine\DataClasses\IAnalysis.cs" />
+    <Compile Include="Engine\DataClasses\TimeAnalysis.cs" />
+    <Compile Include="Engine\DataClasses\TopFanAnalysis.cs" />
     <Compile Include="Engine\Engagement.cs" />
     <Compile Include="Engine\PostTime.cs" />
     <Compile Include="GUI\Analytics.cs">
