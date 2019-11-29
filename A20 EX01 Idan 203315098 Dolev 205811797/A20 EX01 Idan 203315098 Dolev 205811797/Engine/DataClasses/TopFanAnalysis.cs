@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using FacebookWrapper.ObjectModel;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
+namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
-    public class TopFanAnalysis :Analysis, IAnalysis
+    public class TopFanAnalysis : Analysis, IAnalysis
     {
         public TopFanAnalysis()
         {
@@ -17,50 +16,48 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
             VideosDictionary = new Dictionary<object, int>();
             StatusDictionary = new Dictionary<object, int>();
             CombinedAnalysisHolders = new Dictionary<object, int>();
-            const int k_ZeroLikesYet = 0;
 
-            foreach(User friend in BoostEngine.LoggedInUser.Friends)
-            {
-                if(friend != null)
-                {
-                    PhotosDictionary.Add(friend, k_ZeroLikesYet);
-                    VideosDictionary.Add(friend, k_ZeroLikesYet);
-                    StatusDictionary.Add(friend, k_ZeroLikesYet);
-                    CombinedAnalysisHolders.Add(friend, k_ZeroLikesYet);
-                }
-            }
         }
 
-        private IAnalysis CalculateAnalysis()
+        private IAnalysis calculateAnalysis()
         {
-            TopFanAnalysis o_CalculatedTopFans = new TopFanAnalysis();
-
-            o_CalculatedTopFans.PhotosDictionary = calculator(this.PhotosDictionary);
-            o_CalculatedTopFans.VideosDictionary = calculator(this.VideosDictionary);
-            o_CalculatedTopFans.StatusDictionary = calculator(this.StatusDictionary);
-            o_CalculatedTopFans.CombinedAnalysisHolders = calculator(this.CombinedAnalysisHolders);
-
-            return o_CalculatedTopFans;
+            return new TopFanAnalysis
+                       {
+                           PhotosDictionary = Calculator(this.PhotosDictionary),
+                           VideosDictionary = Calculator(this.VideosDictionary),
+                           StatusDictionary = Calculator(this.StatusDictionary),
+                           CombinedAnalysisHolders = Calculator(this.CombinedAnalysisHolders)
+                       };
         }
 
-        protected override Dictionary<object, int> postsParser(
+        protected override Dictionary<object, int> PostsParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_ArrayToAnalysisHolders)
         {
+            const int k_LikeByUser = 1;
             foreach(User likedBy in i_PostToAnalysis.LikedBy)
             {
-                io_ArrayToAnalysisHolders[likedBy] += 1;
+                if(io_ArrayToAnalysisHolders.ContainsKey(likedBy))
+                {
+                    io_ArrayToAnalysisHolders[likedBy] += k_LikeByUser;
+                }
+                else
+                {
+                    io_ArrayToAnalysisHolders.Add(likedBy, k_LikeByUser);
+                }
             }
 
             return io_ArrayToAnalysisHolders;
         }
 
-        public IAnalysis CreateAnalysisByTimeStrict(eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+        public IAnalysis CreateAnalysisByTimeStrict(
+            User i_UserToDoAnalysisOn,
+            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
         {
             initializeComponents();
-            addByType(i_TimeToStrict);
+            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
 
-            return CalculateAnalysis();
+            return calculateAnalysis();
         }
     }
 }

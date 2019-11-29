@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\DataClasses\Analysis.cs" />
-    <Compile Include="Engine\DataClasses\BoostEngine.cs" />
+    <Compile Include="Engine\BoostEngine.cs" />
     <Compile Include="Engine\DataClasses\DayAndHour.cs" />
     <Compile Include="Engine\DataClasses\ETimerSelector.cs" />
     <Compile Include="Engine\DataClasses\IAnalysis.cs" />

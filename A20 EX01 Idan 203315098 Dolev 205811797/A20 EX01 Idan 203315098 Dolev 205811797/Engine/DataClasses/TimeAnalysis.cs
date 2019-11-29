@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using FacebookWrapper.ObjectModel;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
+namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     class TimeAnalysis : Analysis, IAnalysis
     {
@@ -15,6 +13,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
         private void initializeComponents()
         {
+            PhotosDictionary = new Dictionary<object, int>();
+            VideosDictionary = new Dictionary<object, int>();
+            StatusDictionary = new Dictionary<object, int>();
+            CombinedAnalysisHolders = new Dictionary<object, int>();
             const int k_ZeroLikesYet = 0;
             for(int days = 0; days < DayAndHour.k_NumberDaysOfWeek; days++)
             {
@@ -30,12 +32,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
             }
         }
 
-        protected override Dictionary<object, int> postsParser(
+        protected override Dictionary<object, int> PostsParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_DictionaryToAnalysis)
         {
             io_DictionaryToAnalysis[new DayAndHour(
-                i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
+                i_PostToAnalysis.CreatedTime.Value.DayOfWeek, //TODO 
                 TimeSpan.FromHours(i_PostToAnalysis.CreatedTime.Value.Hour))] = i_PostToAnalysis.LikedBy.Count;
 
             return io_DictionaryToAnalysis;
@@ -43,18 +45,21 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
         private IAnalysis calculateAnalysis()
         {
-            TimeAnalysis o_CalculatedTopFans = new TimeAnalysis();
-            o_CalculatedTopFans.PhotosDictionary = calculator(this.PhotosDictionary);
-            o_CalculatedTopFans.VideosDictionary = calculator(this.VideosDictionary);
-            o_CalculatedTopFans.StatusDictionary = calculator(this.StatusDictionary);
-            o_CalculatedTopFans.CombinedAnalysisHolders = calculator(this.CombinedAnalysisHolders);
-            return o_CalculatedTopFans;
+            return new TimeAnalysis
+                       {
+                           PhotosDictionary = Calculator(this.PhotosDictionary),
+                           VideosDictionary = Calculator(this.VideosDictionary),
+                           StatusDictionary = Calculator(this.StatusDictionary),
+                           CombinedAnalysisHolders = Calculator(this.CombinedAnalysisHolders)
+                       };
         }
 
-        public IAnalysis CreateAnalysisByTimeStrict(eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+        public IAnalysis CreateAnalysisByTimeStrict(
+            User i_UserToDoAnalysisOn,
+            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
         {
             initializeComponents();
-            addByType(i_TimeToStrict);
+            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
             return calculateAnalysis();
         }
     }

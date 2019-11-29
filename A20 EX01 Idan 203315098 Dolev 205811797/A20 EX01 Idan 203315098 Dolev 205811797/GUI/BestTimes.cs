@@ -34,17 +34,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         public void PopulateBestTimes(FacebookObjectCollection<Post> i_Posts)
         {
-            for(int i=0; i < i_Posts.Count; i++)
+            foreach(Post postToPopulate in i_Posts)
             {
-                if(i_Posts[i].UpdateTime != null)
+                if(postToPopulate.UpdateTime != null)
                 {
-                    DateTime updateTime = i_Posts[i].UpdateTime.Value;
+                    DateTime updateTime = postToPopulate.UpdateTime.Value;
                     Random rand = new Random();
 
                     int day = (int)Convert.ChangeType(updateTime.DayOfWeek, updateTime.DayOfWeek.GetTypeCode());
                     int hours = updateTime.TimeOfDay.Hours;
 
-                    if(i_Posts[i].UpdateTime.Value.TimeOfDay.Minutes>30)
+                    if(postToPopulate.UpdateTime.Value.TimeOfDay.Minutes>30)
                     {
                         hours++;
                         if(hours == 24)

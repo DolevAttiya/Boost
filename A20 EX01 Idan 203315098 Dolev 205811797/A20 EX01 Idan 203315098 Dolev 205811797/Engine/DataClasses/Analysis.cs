@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using A20_EX01_Idan_203315098_Dolev_205811797.DataClasses;
 using FacebookWrapper.ObjectModel;
 
-namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
+namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public abstract class Analysis
     {
@@ -17,7 +14,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
         public Dictionary<object, int> CombinedAnalysisHolders { get; protected set; }
 
-        protected Dictionary<object, int> calculator(Dictionary<object, int> i_DictionaryToSort)
+        protected Dictionary<object, int> Calculator(Dictionary<object, int> i_DictionaryToSort)
         {
             int numberOfIterations = BoostEngine.k_TopNumber;
             const int k_ZeroIterations = 0;
@@ -35,36 +32,37 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.DataClasses
 
             return o_SortedDictionary;
         }
-        protected void addByType(eTimerSelector i_TimeToStrict)
+
+        protected void AddByType(User i_UserToDoAnalysisOn, eTimerSelector i_TimeToStrict)
         {
             const int k_OlderThanTimeToStrict = 0;
 
-            foreach (Post postToAnalysis in BoostEngine.LoggedInUser.Posts)
+            foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
             {
-                CombinedAnalysisHolders = postsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+                CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
 
-                if (postToAnalysis.CreatedTime == null || i_TimeToStrict.CompareTo(postToAnalysis.CreatedTime.Value.Date)
-                    < k_OlderThanTimeToStrict)
+                if(postToAnalysis.CreatedTime == null || i_TimeToStrict.CompareTo(postToAnalysis.CreatedTime.Value.Date)
+                   < k_OlderThanTimeToStrict)
                 {
                     break;
                 }
 
-                switch (postToAnalysis.Type)
+                switch(postToAnalysis.Type)
                 {
                     case Post.eType.status:
-                        StatusDictionary = postsParser(postToAnalysis, StatusDictionary); // TODO
+                        StatusDictionary = PostsParser(postToAnalysis, StatusDictionary); // TODO
                         break;
                     case Post.eType.photo:
-                        PhotosDictionary = postsParser(postToAnalysis, PhotosDictionary); // TODO
+                        PhotosDictionary = PostsParser(postToAnalysis, PhotosDictionary); // TODO
                         break;
                     case Post.eType.video:
-                        VideosDictionary = postsParser(postToAnalysis, VideosDictionary); // TODO
+                        VideosDictionary = PostsParser(postToAnalysis, VideosDictionary); // TODO
                         break;
                 }
             }
         }
 
-        protected abstract Dictionary<object, int> postsParser(
+        protected abstract Dictionary<object, int> PostsParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_ArrayToAnalysisHolders);
     }
