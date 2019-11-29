@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using Facebook;
-using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
@@ -45,7 +44,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         }
 
-        public void RegisterLoginMethod(BoostEngine i_BoostForm) //TODO invoke login method from engine
+        public void RegisterLoginMethod(Boost i_BoostForm) //TODO invoke login method from engine
         {
             m_LoginEvent += new LoginEventHandler(i_BoostForm.FacebookLogin);
         }

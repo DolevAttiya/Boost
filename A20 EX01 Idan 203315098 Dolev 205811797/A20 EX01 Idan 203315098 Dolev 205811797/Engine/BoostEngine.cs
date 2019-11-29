@@ -8,7 +8,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
     public class BoostEngine
     {
 
-        private const int k_CollectionLimit = 9999;//Login method
+        private const int k_CollectionLimit = 50;//Login method
         public const int k_TopNumber = 3;
         private const string k_AppId = "748532218946260";
 
@@ -84,12 +84,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public Post GetTopPost()
         {
-            Post o_Post = null;
+            Post mostLikedPost = null;
             const int k_PostMaxCount = 25;
-            int postSearchLimiter = 0;
-            int topLikes = LoggedInUser.Posts[0].LikedBy.Count;
+            int topLikes=0,postSearchLimiter = 0;//Cause facebook does not let see the likes
 
-            foreach(Post post in LoggedInUser.Posts)
+            if (LoggedInUser.Posts[0] != null)
+            {
+                topLikes = LoggedInUser.Posts[0].LikedBy.Count;
+                mostLikedPost = LoggedInUser.Posts[0];//Cause facebook does not let see the likes
+            }
+
+            foreach (Post post in LoggedInUser.Posts)
             {
                 if(post == null || k_PostMaxCount< postSearchLimiter++)
 
@@ -98,17 +103,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 else
                 {
-                    if(post.LikedBy.Count <= topLikes)
+                    if(post.LikedBy.Count < topLikes)
                     {
                         continue;
                     }
                 }
 
                 topLikes = post.LikedBy.Count;
-                o_Post = post;
+                mostLikedPost = post;
             }
 
-            return o_Post;
+            return mostLikedPost;
         }
     }
 }

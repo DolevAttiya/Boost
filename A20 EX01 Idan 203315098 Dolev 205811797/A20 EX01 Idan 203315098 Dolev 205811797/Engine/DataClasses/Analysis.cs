@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FacebookWrapper.ObjectModel;
 
@@ -35,19 +36,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         protected void AddByType(User i_UserToDoAnalysisOn, eTimerSelector i_TimeToStrict)
         {
-            const int k_OlderThanTimeToStrict = 0;
 
             foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
             {
-                CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
-
-                if(postToAnalysis.CreatedTime == null || i_TimeToStrict.CompareTo(postToAnalysis.CreatedTime.Value.Date)
-                   < k_OlderThanTimeToStrict)
+                if (postToAnalysis.CreatedTime == null || i_TimeToStrict.GetHashCode()< DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days )
                 {
                     break;
                 }
 
-                switch(postToAnalysis.Type)
+                CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+                switch (postToAnalysis.Type)
                 {
                     case Post.eType.status:
                         StatusDictionary = PostsParser(postToAnalysis, StatusDictionary); // TODO

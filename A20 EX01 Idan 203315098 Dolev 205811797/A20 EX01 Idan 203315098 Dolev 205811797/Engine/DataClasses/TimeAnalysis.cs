@@ -4,7 +4,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
-    class TimeAnalysis : Analysis, IAnalysis
+    public class TimeAnalysis : Analysis, IAnalysis
     {
         public TimeAnalysis()
         {
@@ -43,7 +43,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             return io_DictionaryToAnalysis;
         }
 
-        private IAnalysis calculateAnalysis()
+        private IAnalysis calculateAnalysis(TimeAnalysis i_CurrentTimeAnalysis)
         {
             return new TimeAnalysis
                        {
@@ -60,7 +60,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
         {
             initializeComponents();
             AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
-            return calculateAnalysis();
+            return calculateAnalysis(this);
         }
     }
 }
