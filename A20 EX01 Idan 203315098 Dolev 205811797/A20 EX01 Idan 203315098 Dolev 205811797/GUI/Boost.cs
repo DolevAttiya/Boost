@@ -29,7 +29,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private void setup()
         {
             ////Add event handler to dynamically added buttons
-            foreach (Button button in navbar.m_NavbarButtons) 
+            foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
