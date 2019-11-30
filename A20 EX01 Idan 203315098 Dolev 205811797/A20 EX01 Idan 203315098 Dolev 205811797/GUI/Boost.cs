@@ -76,16 +76,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public void FacebookLogin() ////temp -> Engine
         {
             BoostEn.FacebookLogin();
-            bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
-            if(isTheUserLoggedIn)
-            {
-                this.login.labelLoading.Visible = true;
-                FetchUserData();
-            }
-            else
+            if(BoostEn.LoggedInUser == null)
             {
                 this.login.labelLoginError.BringToFront();
                 this.login.labelLoginError.Visible = true;
+            }
+            else
+            {
+                this.login.labelLoading.Visible = true;
+                FetchUserData();
             }
         }
 
@@ -112,27 +111,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.labelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
             dashboard.labelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
 
-            topPost = BoostEn.GetTopPost();
-
-            if(topPost == null)
+            try
             {
-                throw new NullReferenceException("Couldn't get the best Post");
-            }
+                topPost = BoostEn.GetTopPost();
+                dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
+                dashboard.labelTopPostComments.Text += topPost.Comments.Count;
+                if (string.IsNullOrEmpty(topPost.Message))
+                {
+                    dashboard.labelTopPostCaptionTitle.Visible = false;
+                    dashboard.labelTopPostCaptionContent.Visible = false;
+                }
+                else
+                {
+                    dashboard.labelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
+                }
 
-            dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
-            dashboard.labelTopPostComments.Text += topPost.Comments.Count;
-            if(string.IsNullOrEmpty(topPost.Message))
-            {
-                dashboard.labelTopPostCaptionTitle.Visible = false;
-                dashboard.labelTopPostCaptionContent.Visible = false;
+                dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
+                dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
             }
-            else
+            catch(NullReferenceException e)
             {
-                dashboard.labelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
-            }
 
-            dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-            dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
+            }
 
             dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore

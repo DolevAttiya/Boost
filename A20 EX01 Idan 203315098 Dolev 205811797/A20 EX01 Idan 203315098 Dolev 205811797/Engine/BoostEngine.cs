@@ -115,6 +115,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 mostLikedPost = post;
             }
 
+            if(mostLikedPost == null)
+            {
+                throw new NullReferenceException("Couldn't get the Top Post");
+            }
+
             return mostLikedPost;
         }
     }
