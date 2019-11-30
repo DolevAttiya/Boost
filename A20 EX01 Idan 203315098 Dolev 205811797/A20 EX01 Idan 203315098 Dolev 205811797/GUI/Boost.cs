@@ -10,7 +10,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
     {
 
         //// need to think what to do with it
-        public BoostEngine BoostEn { get; set; } 
+        public BoostEngine BoostEn { get; set; }
 
         public Boost()
         {
@@ -101,8 +101,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
             else
             {
-                this.login.labelLoginError.BringToFront();
-                this.login.labelLoginError.Visible = true;
+                this.login.labelLoading.Visible = true;
+                FetchUserData();
             }
         }
 
@@ -129,31 +129,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.labelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
             dashboard.labelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
 
-            topPost = BoostEn.GetTopPost();
-
-            if(topPost == null)
+            try
             {
-                throw new NullReferenceException("Couldn't get the best Post");
+                topPost = BoostEn.GetTopPost();
+                dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
+                dashboard.labelTopPostComments.Text += topPost.Comments.Count;
+                if (string.IsNullOrEmpty(topPost.Message))
+                {
+                    dashboard.labelTopPostCaptionTitle.Visible = false;
+                    dashboard.labelTopPostCaptionContent.Visible = false;
+                }
+                else
+                {
+                    dashboard.labelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
+                }
+
+                dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
+                dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
+            }
+            catch(NullReferenceException e)
+            {
+
             }
 
-            dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
-            dashboard.labelTopPostComments.Text += topPost.Comments.Count;
-            if(string.IsNullOrEmpty(topPost.Message))
-            {
-                dashboard.labelTopPostCaptionTitle.Visible = false;
-                dashboard.labelTopPostCaptionContent.Visible = false;
-            }
-            else
-            {
-                dashboard.labelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
-            }
-
-            dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-            dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
-
-            dashboard.DashboardUpdate();
+           dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
+                ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeStrict(BoostEn.LoggedInUser));
+        }
                 BoostEn.TimeAnalysis.GetAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Month) as
                     TimeAnalysis); ////TODO For grid need to make a new method withoutCalculate
         }
