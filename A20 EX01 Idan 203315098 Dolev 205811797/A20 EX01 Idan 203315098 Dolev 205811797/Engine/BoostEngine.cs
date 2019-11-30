@@ -116,9 +116,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             }
             else
             {
-                if(LoggedInUser.Friends.Count != m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count-1].Value)
+                if(LoggedInUser.Friends.Count != m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 1].Value)
                 {
-
                     m_AppSettings.FriendCounter.Add(friendCount);
 
                     if(m_AppSettings.FriendCounter.Count > k_NumOfFriendCounters)
@@ -126,8 +125,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                         m_AppSettings.FriendCounter.RemoveAt(0);
                     }
                 }
-            }
-            
+            } 
         }
 
         public Post GetTopPost()

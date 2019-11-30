@@ -1,32 +1,31 @@
-﻿using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
     public class AppSettings
     {
         public bool FirstLogin { get; set; }
+
         public bool RememberUser { get; set; }
 
         public DateTime? LastLogin { get; set; }
 
         public string LastAccessToken { get; set; }
+
         public string LastLoggedInEmail { get; set; }
+
         public string StartupPath { get; set; }
         
         public List<DateAndValue> FriendCounter;
-        
-  
 
-        //private static String m_FilePath = @"C:\Users\Idan\boostAppSettings.xml";
-
-        private static String m_FilePath = String.Format(@"{0}\boostAppSettings.xml", Application.StartupPath);
+        private static string m_FilePath = string.Format(@"{0}\boostAppSettings.xml", Application.StartupPath);
 
         private AppSettings()
         {
@@ -72,6 +71,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             {
                 createNewFile();
             }
+
             using (Stream streamSave = new FileStream(m_FilePath, FileMode.Truncate))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
@@ -85,15 +85,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             streamCreateNew.Close();
         }
 
-
         public bool IsFirstLogin()
         {
             if(LastLogin != null)
             {
                 FirstLogin = false;
             }
+
             return FirstLogin;
         }
-
     }
 }

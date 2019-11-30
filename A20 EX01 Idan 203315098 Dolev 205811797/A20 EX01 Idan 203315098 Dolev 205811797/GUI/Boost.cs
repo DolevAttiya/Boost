@@ -8,8 +8,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Boost : Form
     {
-
-        //// need to think what to do with it
         public BoostEngine BoostEn { get; set; }
 
         public Boost()
@@ -85,11 +83,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     BoostEn.m_AppSettings.LastLogin = null;
                     BoostEn.m_AppSettings.FirstLogin = true;
                 }
+
                 if (BoostEn.m_AppSettings.IsFirstLogin())
                 {
                     welcomeScreen.Visible = true;
                     welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
                 }
+
                 BoostEn.m_AppSettings.LastLoggedInEmail = currentUserEmail;
                 BoostEn.m_AppSettings.FirstLogin = false;
                 BoostEn.m_AppSettings.LastAccessToken = BoostEn.LoginResult.AccessToken;
@@ -147,18 +147,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
                 dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
             }
-            catch(NullReferenceException e)
+            catch (NullReferenceException e)
             {
-
+                
             }
 
-           dashboard.DashboardUpdate();
+            dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
                 ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeStrict(BoostEn.LoggedInUser));
-        }
-                BoostEn.TimeAnalysis.GetAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Month) as
-                    TimeAnalysis); ////TODO For grid need to make a new method withoutCalculate
+
+
         }
 
         private void TimerWelcomeScreen_Tick(object sender, EventArgs e)
