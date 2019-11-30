@@ -38,24 +38,22 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
         {
             foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
             {
-                if(postToAnalysis.CreatedTime == null || i_TimeToStrict.GetHashCode()
-                   < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
+                if(postToAnalysis != null && postToAnalysis.CreatedTime != null && i_TimeToStrict.GetHashCode()
+                   >= DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                 {
-                    break;
-                }
-
-                CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
-                switch (postToAnalysis.Type)
-                {
-                    case Post.eType.status:
-                        StatusDictionary = PostsParser(postToAnalysis, StatusDictionary); // TODO
-                        break;
-                    case Post.eType.photo:
-                        PhotosDictionary = PostsParser(postToAnalysis, PhotosDictionary); // TODO
-                        break;
-                    case Post.eType.video:
-                        VideosDictionary = PostsParser(postToAnalysis, VideosDictionary); // TODO
-                        break;
+                    CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+                    switch(postToAnalysis.Type)
+                    {
+                        case Post.eType.status:
+                            StatusDictionary = PostsParser(postToAnalysis, StatusDictionary); // TODO
+                            break;
+                        case Post.eType.photo:
+                            PhotosDictionary = PostsParser(postToAnalysis, PhotosDictionary); // TODO
+                            break;
+                        case Post.eType.video:
+                            VideosDictionary = PostsParser(postToAnalysis, VideosDictionary); // TODO
+                            break;
+                    }
                 }
             }
         }

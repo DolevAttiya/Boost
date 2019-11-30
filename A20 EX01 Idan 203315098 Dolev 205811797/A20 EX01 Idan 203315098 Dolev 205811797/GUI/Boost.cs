@@ -12,7 +12,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private AppSettings m_AppSettings;
 
         //// need to think what to do with it
-        public BoostEngine BoostEn { get; set; } 
+        public BoostEngine BoostEn { get; set; }
 
         public Boost()
         {
@@ -32,7 +32,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private void setup()
         {
             ////Add event handler to dynamically added buttons
-            foreach (Button button in navbar.m_NavbarButtons) 
+            foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
@@ -137,8 +137,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
-                BoostEn.TimeAnalysis.GetAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Month) as
-                    TimeAnalysis); ////TODO For greed need to make a new method withoutCalculate
+                ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeStrict(BoostEn.LoggedInUser));
         }
     }
 }

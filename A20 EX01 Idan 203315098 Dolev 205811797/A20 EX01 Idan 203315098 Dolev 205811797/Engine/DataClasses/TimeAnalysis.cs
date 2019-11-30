@@ -64,7 +64,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
             return calculateAnalysis(this);
         }
-        public IAnalysis GetAnalysisByTimeStrict(
+        public TimeAnalysis GetAnalysisByTimeStrict(
             User i_UserToDoAnalysisOn,
             eTimerSelector i_TimeToStrict = eTimerSelector.Month)
         {

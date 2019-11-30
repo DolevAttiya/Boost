@@ -3,9 +3,9 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
-    public class TopFanAnalysis : Analysis, IAnalysis
+    public class BiggestFanAnalysis : Analysis, IAnalysis
     {
-        public TopFanAnalysis()
+        public BiggestFanAnalysis()
         {
             initializeComponents();
         }
@@ -20,7 +20,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         private IAnalysis calculateAnalysis()
         {
-            return new TopFanAnalysis
+            return new BiggestFanAnalysis
                        {
                            PhotosDictionary = Calculator(this.PhotosDictionary),
                            VideosDictionary = Calculator(this.VideosDictionary),
@@ -59,9 +59,5 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             return calculateAnalysis();
         }
 
-        public IAnalysis GetAnalysisByTimeStrict(User i_UserToDoAnalysisOn, eTimerSelector i_TimeToStrict)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

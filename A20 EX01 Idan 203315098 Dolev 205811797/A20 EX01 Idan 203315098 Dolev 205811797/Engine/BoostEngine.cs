@@ -15,12 +15,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public IAnalysis TimeAnalysis { get; private set; }
 
-        public IAnalysis TopFansAnalysis { get; private set; }
+        public IAnalysis BiggestFansAnalysis { get; private set; }
 
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
-            TopFansAnalysis = new TopFanAnalysis();
+            BiggestFansAnalysis = new BiggestFanAnalysis();
         }
 
         public void FacebookLogin()
@@ -70,6 +70,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             Post o_LastStatus = null;
             foreach(Post postToSearch in LoggedInUser.Posts)
             {
+                if(postToSearch == null)
+                {
+                    continue;
+                }
+
                 if(postToSearch.Type == Post.eType.status && postToSearch.Message != null)
                 {
                     o_LastStatus = postToSearch;
