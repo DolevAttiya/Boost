@@ -23,7 +23,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
             foreach(KeyValuePair<object, int> itemToSort in i_DictionaryToSort.OrderBy(key => key.Value))
             {
-                if(numberOfIterations-- > k_ZeroIterations)
+                if(numberOfIterations-- < k_ZeroIterations)
                 {
                     break;
                 }

@@ -137,7 +137,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
-                BoostEn.TimeAnalysis.CreateAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Day) as
+                BoostEn.TimeAnalysis.GetAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Month) as
                     TimeAnalysis); ////TODO For greed need to make a new method withoutCalculate
         }
     }

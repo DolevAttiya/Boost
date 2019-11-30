@@ -55,6 +55,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
                        };
         }
 
+
         public IAnalysis CreateAnalysisByTimeStrict(
             User i_UserToDoAnalysisOn,
             eTimerSelector i_TimeToStrict = eTimerSelector.Month)
@@ -62,6 +63,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             initializeComponents();
             AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
             return calculateAnalysis(this);
+        }
+        public IAnalysis GetAnalysisByTimeStrict(
+            User i_UserToDoAnalysisOn,
+            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+        {
+            initializeComponents();
+            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
+            return this;
         }
     }
 }

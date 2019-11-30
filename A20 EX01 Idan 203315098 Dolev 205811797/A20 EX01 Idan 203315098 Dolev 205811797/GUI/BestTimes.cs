@@ -84,8 +84,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 {
                     int dayInt = i;
                     DayAndHour currentDayAndHour = new DayAndHour(
-                        (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt),
-                        TimeSpan.FromHours(j));
+                        (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt-1),
+                        TimeSpan.FromHours(j-1));
                     /* DayOfWeek day = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt);
                       int hours = j - 1;*/
                     if(i != 0 && j != 0)
