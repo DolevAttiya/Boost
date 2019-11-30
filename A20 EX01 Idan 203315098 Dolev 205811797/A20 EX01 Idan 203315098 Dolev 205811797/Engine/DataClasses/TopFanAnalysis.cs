@@ -16,7 +16,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             VideosDictionary = new Dictionary<object, int>();
             StatusDictionary = new Dictionary<object, int>();
             CombinedAnalysisHolders = new Dictionary<object, int>();
-
         }
 
         private IAnalysis calculateAnalysis()

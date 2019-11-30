@@ -36,10 +36,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         protected void AddByType(User i_UserToDoAnalysisOn, eTimerSelector i_TimeToStrict)
         {
-
             foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
             {
-                if (postToAnalysis.CreatedTime == null || i_TimeToStrict.GetHashCode()< DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days )
+                if(postToAnalysis.CreatedTime == null || i_TimeToStrict.GetHashCode()
+                   < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                 {
                     break;
                 }

@@ -13,8 +13,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         public DayAndHour(DayOfWeek i_DayOfWeek, TimeSpan i_HourOfDay)
         {
-            // TODO Check For Errors !!
-
+            //// TODO Check For Errors !!
             if(i_HourOfDay.Minutes > 30)
             {
                 TimeSpan hourToAddParser = new TimeSpan(0, 1, 0, 0);
@@ -27,7 +26,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             }
 
             DayOfWeek = i_DayOfWeek;
-            
         }
     }
 }

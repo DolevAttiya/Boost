@@ -20,7 +20,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
             //Dummy values
-            //TODO create a method that gets the most recent 5 dates and collects and calculates photos, vids & status
+            //TODO create a method that gets the most recent 5 dates and collects and calculates photos, videos & status
             this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
             this.chart1.Series["Photos"].Points.AddXY("06/04/19", 50);
             this.chart1.Series["Photos"].Points.AddXY("22/5/19", 200);
@@ -60,7 +60,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             this.BackColor = System.Drawing.Color.Transparent;
             ////Dynamic Label Positions
-            ///Bio Panel
+            ///BioPanel
             //labelName
             this.labelName.Location = new System.Drawing.Point(this.pictureBoxBioProfilePic.Location.X, this.pictureBoxBioProfilePic.Bottom);
             this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);

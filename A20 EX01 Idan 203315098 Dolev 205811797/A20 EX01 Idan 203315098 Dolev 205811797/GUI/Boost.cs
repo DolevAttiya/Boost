@@ -1,6 +1,6 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses;
 
@@ -8,11 +8,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Boost : Form
     {
-
-        //public List<Button> m_NavbarButtons = new List<Button>();
+        ////public List<Button> m_NavbarButtons = new List<Button>();
         private AppSettings m_AppSettings;
 
-        public BoostEngine BoostEn { get; set; } // need to think what to do with it
+        //// need to think what to do with it
+        public BoostEngine BoostEn { get; set; } 
 
         public Boost()
         {
@@ -31,7 +31,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void setup()
         {
-            foreach(Button button in navbar.m_NavbarButtons) //Add event handler to dynamically added buttons
+            ////Add event handler to dynamically added buttons
+            foreach (Button button in navbar.m_NavbarButtons) 
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
@@ -42,7 +43,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.BackColor = UI_Elements.color_BGColorA;
             this.navbarSeparator.BringToFront();
-            switchPage(navbar.m_NavbarButtons[0]); //1st button represents home page
+            switchPage(navbar.m_NavbarButtons[0]); ////1st button represents home page
             this.login.Visible = true;
             login.BringToFront();
         }
@@ -54,7 +55,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void switchPage(Button i_Button)
         {
-
             foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Font = UI_Elements.font_NavbarButtonDefault;
@@ -73,8 +73,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             i_Button.Font = UI_Elements.font_NavbarButtonSelected;
         }
 
-
-        public void FacebookLogin() //temp -> Engine
+        public void FacebookLogin() ////temp -> Engine
         {
             BoostEn.FacebookLogin();
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
@@ -90,7 +89,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
         }
 
-
         public void FetchUserData()
         {
             const string k_Quotes = "\"";
@@ -100,7 +98,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             navbar.btnUsername.Text = name;
             navbar.navbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
             navbar.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-
 
             dashboard.labelName.Text = name;
             dashboard.pictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
@@ -138,8 +135,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
 
             dashboard.DashboardUpdate();
-            analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts);
-            analytics.bestTimes.DrawBestTimesGrid(BoostEn.TimeAnalysis.CreateAnalysisByTimeStrict(BoostEn.LoggedInUser,eTimerSelector.Day) as TimeAnalysis);//TODO For greed need to make a new method withoutCalculate
+            ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
+            analytics.bestTimes.DrawBestTimesGrid(
+                BoostEn.TimeAnalysis.CreateAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Day) as
+                    TimeAnalysis); ////TODO For greed need to make a new method withoutCalculate
         }
     }
 }

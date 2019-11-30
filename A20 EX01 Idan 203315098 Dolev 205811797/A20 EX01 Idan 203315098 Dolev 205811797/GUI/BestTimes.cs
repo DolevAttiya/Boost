@@ -33,7 +33,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             k_GridAreaWidth = this.Size.Width - 100;
         }
 
-        public void PopulateBestTimes(FacebookObjectCollection<Post> i_Posts)
+        /*public void PopulateBestTimes(FacebookObjectCollection<Post> i_Posts)
         {
             foreach(Post postToPopulate in i_Posts)
             {
@@ -63,7 +63,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
                 }
             }
-        }
+        }*/
 
         public void DrawBestTimesGrid(TimeAnalysis i_BestTimeAnmAnalysis)
         {
@@ -75,7 +75,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             int labelY = startY;
             int lastHeight = 0;
             int widthExpansion = 35;
-            int currentValue/* = 0*/;
+            int currentValue = 0;
+            m_MaxTimeValue = i_BestTimeAnmAnalysis.CombinedAnalysisHolders.Values.Max();
+
             for(int i = 0; i <= sk_NumOfDays; i++)
             {
                 for(int j = 0; j <= sk_NumOfHours; j++)
@@ -84,12 +86,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     DayAndHour currentDayAndHour = new DayAndHour(
                         (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt),
                         TimeSpan.FromHours(j));
-                    // DayOfWeek day = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt);
-                    //  int hours = j - 1;
-                    // if(i != 0 && j != 0)
-                    //  {
-                    currentValue = i_BestTimeAnmAnalysis.CombinedAnalysisHolders[currentDayAndHour];
-                    //   }
+                    /* DayOfWeek day = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt);
+                      int hours = j - 1;*/
+                    if(i != 0 && j != 0)
+                    {
+                        currentValue = i_BestTimeAnmAnalysis.CombinedAnalysisHolders[currentDayAndHour];
+
+                    }
 
                     m_BestTimesGrid[i, j] = new Label();
                     m_BestTimesGrid[i, j].Width = k_CellWidth;
