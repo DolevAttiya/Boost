@@ -2,7 +2,7 @@
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
-    partial class Analytics
+    public partial class Analytics
     {
         /// <summary> 
         /// Required designer variable.
@@ -19,6 +19,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
