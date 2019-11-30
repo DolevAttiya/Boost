@@ -158,7 +158,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostComments.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostComments.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostComments.Font = UI_Elements.font_Header3;
             this.labelTopPostComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostComments.Location = new System.Drawing.Point(18, 131);
             this.labelTopPostComments.Margin = new System.Windows.Forms.Padding(0);
@@ -173,7 +173,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostLikes.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostLikes.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostLikes.Font = UI_Elements.font_Header3;
             this.labelTopPostLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostLikes.Location = new System.Drawing.Point(18, 77);
             this.labelTopPostLikes.Margin = new System.Windows.Forms.Padding(0);

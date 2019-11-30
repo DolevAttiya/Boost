@@ -17,7 +17,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         protected Dictionary<object, int> Calculator(Dictionary<object, int> i_DictionaryToSort)
         {
-            int numberOfIterations = BoostEngine.k_TopNumber;
+            int numberOfIterations = BoostEngine.k_NumOfBiggestFans;
             const int k_ZeroIterations = 0;
             Dictionary<object, int> o_SortedDictionary = new Dictionary<object, int>();
 

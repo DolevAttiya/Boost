@@ -8,19 +8,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Boost : Form
     {
-        ////public List<Button> m_NavbarButtons = new List<Button>();
-        private AppSettings m_AppSettings;
 
         //// need to think what to do with it
         public BoostEngine BoostEn { get; set; } 
 
         public Boost()
         {
+            BoostEn = new BoostEngine();
             InitializeComponent();
             setup();
-            BoostEn = new BoostEngine();
-            m_AppSettings = new AppSettings();
-            this.login.RegisterLoginMethod(this);
+            login.m_LoginEvent += FacebookLogin;
         }
 
         public enum eBoostPages : byte
@@ -42,10 +39,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.BackColor = UI_Elements.color_BGColorA;
-            this.navbarSeparator.BringToFront();
+            navbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); ////1st button represents home page
+            welcomeScreen.Visible = false;
+            welcomeScreen.BringToFront();
+            this.login.checkBoxRememberUser.Checked = BoostEn.m_AppSettings.RememberUser;
             this.login.Visible = true;
-            login.BringToFront();
+            this.login.BringToFront();
         }
 
         public void NavbarButton_Click(object sender, EventArgs e)
@@ -73,14 +73,31 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             i_Button.Font = UI_Elements.font_NavbarButtonSelected;
         }
 
-        public void FacebookLogin() ////temp -> Engine
+        public void FacebookLogin()
         {
-            BoostEn.FacebookLogin();
+            BoostEn.FacebookLogin(BoostEn.m_AppSettings.LastAccessToken, BoostEn.m_AppSettings.RememberUser);
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
-                this.login.labelLoading.Visible = true;
+                string currentUserEmail = BoostEn.LoggedInUser.Email;
+                if (currentUserEmail != BoostEn.m_AppSettings.LastLoggedInEmail)
+                {
+                    BoostEn.m_AppSettings.LastLogin = null;
+                    BoostEn.m_AppSettings.FirstLogin = true;
+                }
+                if (BoostEn.m_AppSettings.IsFirstLogin())
+                {
+                    welcomeScreen.Visible = true;
+                    welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
+                }
+                BoostEn.m_AppSettings.LastLoggedInEmail = currentUserEmail;
+                BoostEn.m_AppSettings.FirstLogin = false;
+                BoostEn.m_AppSettings.LastAccessToken = BoostEn.LoginResult.AccessToken;
+                BoostEn.m_AppSettings.LastLogin = DateTime.Now;
+                BoostEn.m_AppSettings.RememberUser = this.login.checkBoxRememberUser.Checked;
                 FetchUserData();
+                BoostEn.FriendCountSetup();
+                chartSetup();
             }
             else
             {
@@ -138,7 +155,45 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
                 BoostEn.TimeAnalysis.GetAnalysisByTimeStrict(BoostEn.LoggedInUser, eTimerSelector.Month) as
-                    TimeAnalysis); ////TODO For greed need to make a new method withoutCalculate
+                    TimeAnalysis); ////TODO For grid need to make a new method withoutCalculate
+        }
+
+        private void TimerWelcomeScreen_Tick(object sender, EventArgs e)
+        {
+            int currentY = this.welcomeScreen.Location.Y;
+            if (currentY >= 1300)
+            {
+                timerWelcomeScreen.Stop();
+                this.welcomeScreen.Visible = false;
+            }
+            else
+            {
+                currentY += 30;
+                this.welcomeScreen.Location = new System.Drawing.Point(this.welcomeScreen.Location.X, currentY);
+            }
+        }
+
+        private void welcomeScreenStart()
+        {
+            timerWelcomeScreen.Interval = 1;
+            timerWelcomeScreen.Start();
+        }
+
+        private void Boost_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            BoostEn.m_AppSettings.SaveAppSettingsToFile();
+        }
+
+        private void chartSetup()
+        {
+            foreach(DateAndValue friendCounter in BoostEn.m_AppSettings.FriendCounter)
+            {
+                this.dashboard.chartFriends.Series[0].Points.AddXY(friendCounter.Date.Date.ToString("d/M/yy"), friendCounter.Value);
+            }
+            //this.dashboard.chartFriends.ChartAreas[0].AxisY.Minimum = (this.dashboard.chartFriends.Series[0].Points[0].YValues[0]) - 200 > 0 ? (this.dashboard.chartFriends.Series[0].Points[0].YValues[0]) - 200 : 0;
+            //this.dashboard.chartFriends.ChartAreas[0].AxisY.Maximum = (this.dashboard.chartFriends.Series[0].Points[(this.dashboard.chartFriends.Series[0].Points.Count) - 1].YValues[0]) + 200;
+            this.dashboard.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+            this.dashboard.chartFriends.AlignDataPointsByAxisLabel(); 
         }
     }
 }

@@ -36,14 +36,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
             this.chart1.AlignDataPointsByAxisLabel();
             //Friend chart dummy values
+            /*
             this.chartFriends.Series["Friends"].Points.AddXY("10/10/19", 350);
             this.chartFriends.Series["Friends"].Points.AddXY("15/10/19", 340);
             this.chartFriends.Series["Friends"].Points.AddXY("10/11/19", 360);
             this.chartFriends.ChartAreas[0].AxisY.Minimum = (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 > 0 ? (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 : 0;
-            this.chartFriends.ChartAreas[0].AxisY.Maximum = (this.chartFriends.Series[0].Points[(this.chartFriends.Series[0].Points.Count)-1].YValues[0]) + 200;
+            this.chartFriends.ChartAreas[0].AxisY.Maximum = (this.chartFriends.Series[0].Points[(this.chartFriends.Series[0].Points.Count) - 1].YValues[0]) + 200;
             this.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
-            this.chartFriends.AlignDataPointsByAxisLabel();
-
+            this.chartFriends.AlignDataPointsByAxisLabel();*/
         }
 
         //public void ChartSetup()
@@ -111,7 +111,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostCaptionDateTime.Size = new System.Drawing.Size(this.labelTopPostCaptionContent.Width, this.labelTopPostCaptionDateTime.Height);
             this.labelTopPostCaptionDateTime.MinimumSize = new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 25);
             this.labelTopPostCaptionDateTime.MaximumSize = new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 30);
-
         }
     }
 }

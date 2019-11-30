@@ -30,6 +30,7 @@
         {
             this.labelLoginError = new System.Windows.Forms.Label();
             this.gradientBG = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.checkBoxRememberUser = new System.Windows.Forms.CheckBox();
             this.labelLoading = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.pictureBoxFBLogin = new System.Windows.Forms.PictureBox();
@@ -41,9 +42,9 @@
             // labelLoginError
             // 
             this.labelLoginError.BackColor = System.Drawing.Color.Transparent;
-            this.labelLoginError.Font = UI_Elements.font_Header2;
+            this.labelLoginError.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoginError.ForeColor = System.Drawing.Color.Red;
-            this.labelLoginError.Location = new System.Drawing.Point(441, 379);
+            this.labelLoginError.Location = new System.Drawing.Point(441, 407);
             this.labelLoginError.Name = "labelLoginError";
             this.labelLoginError.Size = new System.Drawing.Size(271, 26);
             this.labelLoginError.TabIndex = 2;
@@ -53,24 +54,41 @@
             // 
             // gradientBG
             // 
-            this.gradientBG.GradientAngle = 45F;
+            this.gradientBG.Controls.Add(this.checkBoxRememberUser);
             this.gradientBG.Controls.Add(this.labelLoading);
             this.gradientBG.Controls.Add(this.pictureBoxLogo);
             this.gradientBG.Controls.Add(this.labelLoginError);
             this.gradientBG.Controls.Add(this.pictureBoxFBLogin);
-            this.gradientBG.GradientColorA = UI_Elements.color_Main;
-            this.gradientBG.GradientColorB = UI_Elements.color_Tertiary;
+            this.gradientBG.GradientAngle = 45F;
+            this.gradientBG.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.gradientBG.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(32)))), ((int)(((byte)(69)))));
             this.gradientBG.Location = new System.Drawing.Point(0, 0);
             this.gradientBG.Name = "gradientBG";
             this.gradientBG.Size = new System.Drawing.Size(1148, 677);
             this.gradientBG.TabIndex = 4;
+            // 
+            // checkBoxRememberUser
+            // 
+            this.checkBoxRememberUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxRememberUser.AutoSize = true;
+            this.checkBoxRememberUser.Size = new System.Drawing.Size(121, 21);
+            this.checkBoxRememberUser.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxRememberUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxRememberUser.ForeColor = System.Drawing.Color.White;
+            this.checkBoxRememberUser.Location = new System.Drawing.Point(516, 369);
+            this.checkBoxRememberUser.Name = "checkBoxRememberUser";
+            this.checkBoxRememberUser.TabIndex = 4;
+            this.checkBoxRememberUser.Text = "Remember Me";
+            this.checkBoxRememberUser.UseVisualStyleBackColor = false;
             // 
             // labelLoading
             // 
             this.labelLoading.BackColor = System.Drawing.Color.Transparent;
             this.labelLoading.Font = new System.Drawing.Font("Century Gothic", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoading.ForeColor = System.Drawing.Color.White;
-            this.labelLoading.Location = new System.Drawing.Point(488, 379);
+            this.labelLoading.Location = new System.Drawing.Point(488, 407);
             this.labelLoading.Name = "labelLoading";
             this.labelLoading.Size = new System.Drawing.Size(177, 26);
             this.labelLoading.TabIndex = 3;
@@ -112,6 +130,7 @@
             this.Name = "Login";
             this.Size = new System.Drawing.Size(1151, 677);
             this.gradientBG.ResumeLayout(false);
+            this.gradientBG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFBLogin)).EndInit();
             this.ResumeLayout(false);
@@ -124,6 +143,7 @@
         public System.Windows.Forms.Label labelLoginError;
         public System.Windows.Forms.Label labelLoading;
         public System.Windows.Forms.PictureBox pictureBoxFBLogin;
+        public System.Windows.Forms.CheckBox checkBoxRememberUser;
         private GUI.GradientPanel gradientBG;
     }
 }
