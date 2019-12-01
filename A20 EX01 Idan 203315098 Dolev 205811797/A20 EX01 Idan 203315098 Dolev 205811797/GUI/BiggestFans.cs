@@ -18,6 +18,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             InitializeComponent();
         }
 
+        //Test
         public void PopulateBiggestFans(BiggestFanAnalysis i_BiggestFanAnalysis, User i_User)
         {
             i_BiggestFanAnalysis.CreateAnalysisByTimeFrame(i_User, eTimeSelector.Year);
