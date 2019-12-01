@@ -96,7 +96,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 BoostEn.m_AppSettings.LastLogin = DateTime.Now;
                 BoostEn.m_AppSettings.RememberUser = this.login.checkBoxRememberUser.Checked;
                 FetchUserData();
-                BoostEn.FriendCountSetup();
                 chartSetup();
             }
             else
@@ -111,6 +110,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             const string k_Quotes = "\"";
             string name = BoostEn.LoggedInUser.Name;
             Post lastStatus, topPost;
+
+            BoostEn.FriendCountSetup();
+            BoostEn.SetupEngagementArrays();
 
             navbar.btnUsername.Text = name;
             navbar.navbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
@@ -152,11 +154,25 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 
             }
 
+            if(BoostEn.m_FriendChange != 0)
+            {
+                dashboard.labelFriendsChange.Visible = true;
+                if(BoostEn.m_FriendChange > 0)
+                {
+                    dashboard.labelFriendsChange.Text = "+" + BoostEn.m_FriendChange.ToString() + "Friends";
+                    dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
+                }
+                else
+                {
+                    dashboard.labelFriendsChange.Text = BoostEn.m_FriendChange.ToString() + "Friends";
+                    dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
+                }
+            }
+            dashboard.labelEngagement.Text += string.Format(@" (Last {0} posts)", BoostEn.k_NumOfPostsForEngagement);
             dashboard.DashboardUpdate();
             ////analytics.bestTimes.PopulateBestTimes(BoostEn.LoggedInUser.Posts); Not Really needed anymore
             analytics.bestTimes.DrawBestTimesGrid(
                 ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeStrict(BoostEn.LoggedInUser));
-
 
         }
 
@@ -188,14 +204,24 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void chartSetup()
         {
+            //Friend Chart
             foreach(DateAndValue friendCounter in BoostEn.m_AppSettings.FriendCounter)
             {
                 this.dashboard.chartFriends.Series[0].Points.AddXY(friendCounter.Date.Date.ToString("d/M/yy"), friendCounter.Value);
             }
-            //this.dashboard.chartFriends.ChartAreas[0].AxisY.Minimum = (this.dashboard.chartFriends.Series[0].Points[0].YValues[0]) - 200 > 0 ? (this.dashboard.chartFriends.Series[0].Points[0].YValues[0]) - 200 : 0;
-            //this.dashboard.chartFriends.ChartAreas[0].AxisY.Maximum = (this.dashboard.chartFriends.Series[0].Points[(this.dashboard.chartFriends.Series[0].Points.Count) - 1].YValues[0]) + 200;
             this.dashboard.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
-            this.dashboard.chartFriends.AlignDataPointsByAxisLabel(); 
+            //this.dashboard.chartFriends.AlignDataPointsByAxisLabel(); 
+
+            //Engagement Chart
+            for(int i = 0; i < BoostEn.k_NumOfPostsForEngagement; i++)
+            {
+                DateAndValue currentLikes = BoostEn.m_Engagement_RecentPostLikes[i];
+                DateAndValue currentComments = BoostEn.m_Engagement_RecentPostComments[i];
+
+                this.dashboard.chartEngagement.Series["Likes"].Points.AddXY(currentLikes.Date.ToString(), currentLikes.Value);
+                this.dashboard.chartEngagement.Series["Comments"].Points.AddXY(currentComments.Date.ToString(), currentComments.Value);
+
+            }
         }
     }
 }

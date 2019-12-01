@@ -10,8 +10,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         private const int k_CollectionLimit = 50; ////Login method
         public const int k_NumOfBiggestFans = 3;
         public const int k_NumOfFriendCounters = 3;
+        public readonly int k_NumOfPostsForEngagement = 10;
         private const string k_AppId = "748532218946260";
         public AppSettings m_AppSettings = AppSettings.LoadAppSettingsFromFile();
+        public DateAndValue[] m_Engagement_RecentPostLikes;
+        public DateAndValue[] m_Engagement_RecentPostComments;
+        public int m_FriendChange=0;
 
         public User LoggedInUser { get; set; }
 
@@ -125,7 +129,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                         m_AppSettings.FriendCounter.RemoveAt(0);
                     }
                 }
+
+                if(m_AppSettings.FriendCounter.Count>1)
+                {
+                    m_FriendChange = m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 1].Value - m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 2].Value;
+                }
             } 
+
+        }
+
+        public void SetupEngagementArrays()
+        {
+            m_Engagement_RecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
+            m_Engagement_RecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
+
+            for (int i = k_NumOfPostsForEngagement-1; i >=0; i--) 
+            {
+                m_Engagement_RecentPostLikes[i] = new DateAndValue();
+                m_Engagement_RecentPostComments[i] = new DateAndValue();
+
+                m_Engagement_RecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
+                m_Engagement_RecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
+                if(LoggedInUser.Posts[i].CreatedTime.HasValue)
+                {
+                    m_Engagement_RecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                    m_Engagement_RecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                }
+
+            }
         }
 
         public Post GetTopPost()

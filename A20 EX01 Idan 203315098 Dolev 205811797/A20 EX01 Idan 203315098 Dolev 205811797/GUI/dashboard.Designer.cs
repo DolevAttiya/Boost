@@ -36,7 +36,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTopPost = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.pictureBoxTopPost = new System.Windows.Forms.PictureBox();
             this.labelTopPostCaptionDateTime = new System.Windows.Forms.Label();
@@ -46,9 +50,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostLikes = new System.Windows.Forms.Label();
             this.labelTopPost = new System.Windows.Forms.Label();
             this.panelFriends = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.labelFriendsChange = new System.Windows.Forms.Label();
             this.chartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelFriends = new System.Windows.Forms.Label();
             this.panelEngagement = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.chartEngagement = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelUserBio = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
@@ -65,6 +71,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelFriends.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).BeginInit();
             this.panelEngagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEngagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
@@ -85,7 +92,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelTopPost.GradientColorA = System.Drawing.Color.White;
             this.panelTopPost.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelTopPost.Location = new System.Drawing.Point(544, 494);
-            this.panelTopPost.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelTopPost.Margin = new System.Windows.Forms.Padding(6);
             this.panelTopPost.Name = "panelTopPost";
             this.panelTopPost.Size = new System.Drawing.Size(726, 512);
             this.panelTopPost.TabIndex = 3;
@@ -96,7 +103,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.pictureBoxTopPost.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxTopPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBoxTopPost.Location = new System.Drawing.Point(362, 94);
-            this.pictureBoxTopPost.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.pictureBoxTopPost.Margin = new System.Windows.Forms.Padding(6);
             this.pictureBoxTopPost.Name = "pictureBoxTopPost";
             this.pictureBoxTopPost.Size = new System.Drawing.Size(336, 187);
             this.pictureBoxTopPost.TabIndex = 11;
@@ -158,7 +165,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostComments.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostComments.Font = UI_Elements.font_Header3;
+            this.labelTopPostComments.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTopPostComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostComments.Location = new System.Drawing.Point(18, 131);
             this.labelTopPostComments.Margin = new System.Windows.Forms.Padding(0);
@@ -173,7 +180,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostLikes.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostLikes.Font = UI_Elements.font_Header3;
+            this.labelTopPostLikes.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTopPostLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostLikes.Location = new System.Drawing.Point(18, 77);
             this.labelTopPostLikes.Margin = new System.Windows.Forms.Padding(0);
@@ -204,16 +211,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelFriends.AutoScroll = true;
             this.panelFriends.BackColor = System.Drawing.Color.White;
+            this.panelFriends.Controls.Add(this.labelFriendsChange);
             this.panelFriends.Controls.Add(this.chartFriends);
             this.panelFriends.Controls.Add(this.labelFriends);
             this.panelFriends.GradientAngle = 90F;
             this.panelFriends.GradientColorA = System.Drawing.Color.White;
             this.panelFriends.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelFriends.Location = new System.Drawing.Point(1316, 494);
-            this.panelFriends.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelFriends.Margin = new System.Windows.Forms.Padding(6);
             this.panelFriends.Name = "panelFriends";
             this.panelFriends.Size = new System.Drawing.Size(726, 512);
             this.panelFriends.TabIndex = 2;
+            // 
+            // labelFriendsChange
+            // 
+            this.labelFriendsChange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelFriendsChange.BackColor = System.Drawing.Color.Transparent;
+            this.labelFriendsChange.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFriendsChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelFriendsChange.Location = new System.Drawing.Point(390, 26);
+            this.labelFriendsChange.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelFriendsChange.Name = "labelFriendsChange";
+            this.labelFriendsChange.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.labelFriendsChange.Size = new System.Drawing.Size(292, 67);
+            this.labelFriendsChange.TabIndex = 4;
+            this.labelFriendsChange.Text = "+X";
+            this.labelFriendsChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelFriendsChange.Visible = false;
             // 
             // chartFriends
             // 
@@ -256,7 +281,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelFriends.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelFriends.Name = "labelFriends";
             this.labelFriends.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.labelFriends.Size = new System.Drawing.Size(726, 67);
+            this.labelFriends.Size = new System.Drawing.Size(336, 67);
             this.labelFriends.TabIndex = 2;
             this.labelFriends.Text = "Friends";
             // 
@@ -264,69 +289,109 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             this.panelEngagement.AutoScroll = true;
             this.panelEngagement.BackColor = System.Drawing.Color.White;
+            this.panelEngagement.Controls.Add(this.chartEngagement);
             this.panelEngagement.Controls.Add(this.chart1);
             this.panelEngagement.Controls.Add(this.labelEngagement);
             this.panelEngagement.GradientAngle = 90F;
             this.panelEngagement.GradientColorA = System.Drawing.Color.White;
             this.panelEngagement.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelEngagement.Location = new System.Drawing.Point(544, 0);
-            this.panelEngagement.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelEngagement.Margin = new System.Windows.Forms.Padding(6);
             this.panelEngagement.Name = "panelEngagement";
             this.panelEngagement.Size = new System.Drawing.Size(1498, 460);
             this.panelEngagement.TabIndex = 1;
             // 
-            // chart1
+            // chartEngagement
             // 
-            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chartEngagement.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Enabled = false;
             chartArea2.AxisX.LineColor = System.Drawing.Color.DimGray;
             chartArea2.AxisX.LineWidth = 2;
             chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
             chartArea2.AxisY.LineColor = System.Drawing.Color.DimGray;
             chartArea2.AxisY.LineWidth = 2;
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
             chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 95F;
-            chartArea2.Position.Width = 85F;
-            chartArea2.Position.Y = 3F;
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend1.AutoFitMinFontSize = 8;
+            this.chartEngagement.ChartAreas.Add(chartArea2);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
             legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend1.IsTextAutoFit = false;
-            legend1.MaximumAutoSize = 40F;
+            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
-            legend1.Position.Auto = false;
-            legend1.Position.Height = 28F;
-            legend1.Position.Width = 14F;
-            legend1.Position.X = 86F;
-            legend1.Position.Y = 15F;
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(26, 54);
-            this.chart1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.chart1.Name = "chart1";
+            legend1.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartEngagement.Legends.Add(legend1);
+            this.chartEngagement.Location = new System.Drawing.Point(29, 54);
+            this.chartEngagement.Name = "chartEngagement";
             series2.ChartArea = "ChartArea1";
-            series2.IsValueShownAsLabel = true;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
             series2.Legend = "Legend1";
-            series2.Name = "Photos";
+            series2.Name = "Likes";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series3.ChartArea = "ChartArea1";
-            series3.IsValueShownAsLabel = true;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
             series3.Legend = "Legend1";
-            series3.Name = "Videos";
+            series3.Name = "Comments";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.chartEngagement.Series.Add(series2);
+            this.chartEngagement.Series.Add(series3);
+            this.chartEngagement.Size = new System.Drawing.Size(1449, 390);
+            this.chartEngagement.TabIndex = 2;
+            this.chartEngagement.Text = "chartEngagement";
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 95F;
+            chartArea3.Position.Width = 85F;
+            chartArea3.Position.Y = 3F;
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend2.AutoFitMinFontSize = 8;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 40F;
+            legend2.Name = "Legend1";
+            legend2.Position.Auto = false;
+            legend2.Position.Height = 28F;
+            legend2.Position.Width = 14F;
+            legend2.Position.X = 86F;
+            legend2.Position.Y = 15F;
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(26, 54);
+            this.chart1.Margin = new System.Windows.Forms.Padding(6);
+            this.chart1.Name = "chart1";
             series4.ChartArea = "ChartArea1";
             series4.IsValueShownAsLabel = true;
             series4.Legend = "Legend1";
-            series4.Name = "Status";
+            series4.Name = "Photos";
             series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Videos";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series6.ChartArea = "ChartArea1";
+            series6.IsValueShownAsLabel = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Status";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(1452, 400);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
             // 
             // labelEngagement
             // 
@@ -359,7 +424,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelUserBio.GradientColorA = System.Drawing.Color.White;
             this.panelUserBio.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelUserBio.Location = new System.Drawing.Point(0, 0);
-            this.panelUserBio.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelUserBio.Margin = new System.Windows.Forms.Padding(6);
             this.panelUserBio.Name = "panelUserBio";
             this.panelUserBio.Size = new System.Drawing.Size(500, 1006);
             this.panelUserBio.TabIndex = 0;
@@ -498,7 +563,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.Controls.Add(this.panelFriends);
             this.Controls.Add(this.panelEngagement);
             this.Controls.Add(this.panelUserBio);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Dashboard";
             this.Size = new System.Drawing.Size(2042, 1006);
             this.panelTopPost.ResumeLayout(false);
@@ -507,6 +572,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelFriends.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).EndInit();
             this.panelEngagement.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartEngagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panelUserBio.ResumeLayout(false);
             this.panelUserBio.PerformLayout();
@@ -533,6 +599,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public System.Windows.Forms.Label labelRecentStatusUpdateContent;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chartEngagement;
         public System.Windows.Forms.Label labelRecentStatusUpdateDateTime;
         public System.Windows.Forms.Label labelTopPostCaptionDateTime;
         public System.Windows.Forms.Label labelTopPostCaptionContent;
@@ -540,5 +607,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public System.Windows.Forms.Label labelTopPostComments;
         public System.Windows.Forms.Label labelTopPostLikes;
         public System.Windows.Forms.PictureBox pictureBoxTopPost;
+        public System.Windows.Forms.Label labelFriendsChange;
     }
 }

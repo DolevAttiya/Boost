@@ -53,7 +53,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 catch
                 {
-                    throw;
+                    File.Delete(m_FilePath);
+                    appSettings = new AppSettings();
+                    createNewFile();
                 }
             }
             else

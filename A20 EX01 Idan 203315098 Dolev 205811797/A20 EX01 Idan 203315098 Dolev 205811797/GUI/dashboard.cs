@@ -21,7 +21,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             InitializeComponent();
             //Dummy values
             //TODO create a method that gets the most recent 5 dates and collects and calculates photos, videos & status
-            this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
+            /*this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
             this.chart1.Series["Photos"].Points.AddXY("06/04/19", 50);
             this.chart1.Series["Photos"].Points.AddXY("22/5/19", 200);
             this.chart1.Series["Photos"].Points.AddXY("01/07/19", 45);
@@ -34,7 +34,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.chart1.Series["Status"].Points.AddXY("22/5/19", 35);
             this.chart1.Series["Status"].Points.AddXY("01/07/19", 22);
             this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
-            this.chart1.AlignDataPointsByAxisLabel();
+            this.chart1.AlignDataPointsByAxisLabel();*/
             //Friend chart dummy values
             /*
             this.chartFriends.Series["Friends"].Points.AddXY("10/10/19", 350);
@@ -45,16 +45,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
             this.chartFriends.AlignDataPointsByAxisLabel();*/
         }
-
-        //public void ChartSetup()
-        //{
-        //    this.chart1.Series["Engagement"].Points.Clear();
-        //    for (int i = 0 ; i < k_EngagementChartCount ; i++)
-        //    {
-        //        int index = k_EngagementChartCount - i -1;
-        //        this.chart1.Series["Engagement"].Points.AddXY(m_EngagementList[index].TimePosted.Date, m_EngagementList[index].LikeCount);
-        //    }
-        //}
 
         public void DashboardUpdate()
         {
