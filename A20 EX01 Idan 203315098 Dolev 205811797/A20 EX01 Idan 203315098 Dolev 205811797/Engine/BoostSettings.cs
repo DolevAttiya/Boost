@@ -9,7 +9,7 @@ using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
-    public class AppSettings
+    public class BoostSettings
     {
         public bool FirstLogin { get; set; }
 
@@ -25,9 +25,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         
         public List<DateAndValue> FriendCounter;
 
-        private static string m_FilePath = string.Format(@"{0}\boostAppSettings.xml", Application.StartupPath);
+        private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
 
-        private AppSettings()
+        private BoostSettings()
         {
             FirstLogin = true;
             LastAccessToken = null;
@@ -37,9 +37,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             FriendCounter = new List<DateAndValue>();
         }
 
-        public static AppSettings LoadAppSettingsFromFile()
+        public static BoostSettings LoadAppSettingsFromFile()
         {
-            AppSettings appSettings = null;
+            BoostSettings appSettings = null;
 
             if (File.Exists(m_FilePath))
             {
@@ -47,20 +47,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 {
                     using (Stream stream = new FileStream(m_FilePath, FileMode.Open))
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-                        appSettings = serializer.Deserialize(stream) as AppSettings;
+                        XmlSerializer serializer = new XmlSerializer(typeof(BoostSettings));
+                        appSettings = serializer.Deserialize(stream) as BoostSettings;
                     }
                 }
                 catch
                 {
                     File.Delete(m_FilePath);
-                    appSettings = new AppSettings();
+                    appSettings = new BoostSettings();
                     createNewFile();
                 }
             }
             else
             {
-                appSettings = new AppSettings();
+                appSettings = new BoostSettings();
                 createNewFile();
             }
 

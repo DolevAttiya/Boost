@@ -70,7 +70,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // welcomeScreen
             // 
-            this.welcomeScreen.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("welcomeScreen.BackgroundImage")));
+            this.welcomeScreen.BackgroundImage = global::A20_EX01_Idan_203315098_Dolev_205811797.Properties.Resources.WelcomeScreen_v4; /*((System.Drawing.Image)(resources.GetObject("welcomeScreen.BackgroundImage")));*/
             this.welcomeScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.welcomeScreen.Location = new System.Drawing.Point(0, 0);
             this.welcomeScreen.Name = "welcomeScreen";

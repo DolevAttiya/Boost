@@ -74,7 +74,7 @@
     <Compile Include="GUI\Analytics.Designer.cs">
       <DependentUpon>Analytics.cs</DependentUpon>
     </Compile>
-    <Compile Include="Engine\AppSettings.cs" />
+    <Compile Include="Engine\BoostSettings.cs" />
     <Compile Include="GUI\BestTimes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -192,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WelcomeScreen_StartRollover.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WelcomeScreen_v4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

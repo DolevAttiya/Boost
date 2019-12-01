@@ -12,7 +12,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         public const int k_NumOfFriendCounters = 3;
         public readonly int k_NumOfPostsForEngagement = 10;
         private const string k_AppId = "748532218946260";
-        public AppSettings m_AppSettings = AppSettings.LoadAppSettingsFromFile();
+        public BoostSettings m_AppSettings = BoostSettings.LoadAppSettingsFromFile();
         public DateAndValue[] m_Engagement_RecentPostLikes;
         public DateAndValue[] m_Engagement_RecentPostComments;
         public int m_FriendChange=0;
