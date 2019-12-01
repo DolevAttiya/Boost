@@ -185,12 +185,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 dashboard.labelFriendsChange.Visible = true;
                 if (BoostEn.m_FriendChange > 0)
                 {
-                    dashboard.labelFriendsChange.Text = "+" + BoostEn.m_FriendChange.ToString() + "Friends";
+                    dashboard.labelFriendsChange.Text = "+" + BoostEn.m_FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
                 }
                 else
                 {
-                    dashboard.labelFriendsChange.Text = BoostEn.m_FriendChange.ToString() + "Friends";
+                    dashboard.labelFriendsChange.Text = BoostEn.m_FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
                 }
             }

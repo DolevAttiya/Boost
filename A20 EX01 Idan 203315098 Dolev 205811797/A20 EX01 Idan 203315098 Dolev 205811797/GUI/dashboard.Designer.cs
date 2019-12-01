@@ -101,9 +101,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // labelTopPostError
             // 
             this.labelTopPostError.AutoSize = true;
+            this.labelTopPostError.BackColor = System.Drawing.Color.Transparent;
             this.labelTopPostError.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTopPostError.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelTopPostError.BackColor = System.Drawing.Color.Transparent;
             this.labelTopPostError.Location = new System.Drawing.Point(11, 45);
             this.labelTopPostError.MaximumSize = new System.Drawing.Size(230, 230);
             this.labelTopPostError.Name = "labelTopPostError";
@@ -236,14 +236,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // labelFriendsChange
             // 
             this.labelFriendsChange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelFriendsChange.BackColor = System.Drawing.Color.Transparent;
+            this.labelFriendsChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelFriendsChange.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelFriendsChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelFriendsChange.Location = new System.Drawing.Point(195, 14);
+            this.labelFriendsChange.Location = new System.Drawing.Point(203, 15);
             this.labelFriendsChange.Name = "labelFriendsChange";
             this.labelFriendsChange.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelFriendsChange.Size = new System.Drawing.Size(146, 35);
+            this.labelFriendsChange.Size = new System.Drawing.Size(125, 27);
             this.labelFriendsChange.TabIndex = 4;
             this.labelFriendsChange.Text = "+X";
             this.labelFriendsChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -289,7 +290,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelFriends.Location = new System.Drawing.Point(0, 0);
             this.labelFriends.Name = "labelFriends";
             this.labelFriends.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelFriends.Size = new System.Drawing.Size(168, 35);
+            this.labelFriends.Size = new System.Drawing.Size(168, 52);
             this.labelFriends.TabIndex = 2;
             this.labelFriends.Text = "Friends";
             // 
