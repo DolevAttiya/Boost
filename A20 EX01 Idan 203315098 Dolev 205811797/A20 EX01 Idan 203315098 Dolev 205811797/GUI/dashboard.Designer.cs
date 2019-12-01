@@ -334,11 +334,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.chartEngagement.Name = "chartEngagement";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series2.Color = System.Drawing.Color.DarkOrange;
             series2.Legend = "Legend1";
             series2.Name = "Likes";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series3.Color = System.Drawing.Color.Teal;
             series3.Legend = "Legend1";
             series3.Name = "Comments";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
