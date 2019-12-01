@@ -12,10 +12,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         public const int k_NumOfFriendCounters = 3;
         public readonly int k_NumOfPostsForEngagement = 10;
         private const string k_AppId = "748532218946260";
-        public BoostSettings m_AppSettings = BoostSettings.LoadAppSettingsFromFile();
+        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
         public DateAndValue[] m_Engagement_RecentPostLikes;
         public DateAndValue[] m_Engagement_RecentPostComments;
         public int m_FriendChange=0;
+        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
 
         public User LoggedInUser { get; set; }
 
@@ -114,25 +115,25 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             friendCount.Value = LoggedInUser.Friends.Count;
             friendCount.Date = DateTime.Now;
 
-            if (m_AppSettings.FriendCounter.Count < 1)
+            if (m_BoostSettings.FriendCounter.Count < 1)
             {
-                m_AppSettings.FriendCounter.Add(friendCount);
+                m_BoostSettings.FriendCounter.Add(friendCount);
             }
             else
             {
-                if(LoggedInUser.Friends.Count != m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 1].Value)
+                if(LoggedInUser.Friends.Count != m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value)
                 {
-                    m_AppSettings.FriendCounter.Add(friendCount);
+                    m_BoostSettings.FriendCounter.Add(friendCount);
 
-                    if(m_AppSettings.FriendCounter.Count > k_NumOfFriendCounters)
+                    if(m_BoostSettings.FriendCounter.Count > k_NumOfFriendCounters)
                     {
-                        m_AppSettings.FriendCounter.RemoveAt(0);
+                        m_BoostSettings.FriendCounter.RemoveAt(0);
                     }
                 }
 
-                if(m_AppSettings.FriendCounter.Count>1)
+                if(m_BoostSettings.FriendCounter.Count>1)
                 {
-                    m_FriendChange = m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 1].Value - m_AppSettings.FriendCounter[m_AppSettings.FriendCounter.Count - 2].Value;
+                    m_FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
                 }
             } 
 
@@ -191,7 +192,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
             if(mostLikedPost == null)
             {
-                throw new NullReferenceException("Couldn't get the Top Post");
+                throw new NullReferenceException(k_TopPostErrorMessage);
             }
 
             return mostLikedPost;
