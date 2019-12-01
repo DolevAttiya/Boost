@@ -22,6 +22,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             Dashboard = 0,
             Analytics,
+            About
         }
 
         private void setup()
@@ -69,6 +70,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 case "btnAnalytics":
                     analytics.BringToFront();
                     break;
+                case "btnAbout":
+                    about.BringToFront();
+                    break;
+
             }
 
             i_Button.Font = UI_Elements.font_NavbarButtonSelected;
@@ -128,7 +133,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             ///BiggestFans
             try
             {
-                //Populate Biggest Fans
+                //analytics.biggestFans.PopulateBiggestFans((BiggestFanAnalysis)BoostEn.BiggestFanAnalysis, BoostEn.LoggedInUser);
             }
             catch (NullReferenceException e)
             {
@@ -175,7 +180,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 }
 
                 dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-                dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
+                if(!string.IsNullOrWhiteSpace(topPost.PictureURL))
+                {
+                    dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
+                }
             }
             catch (NullReferenceException e)
             {

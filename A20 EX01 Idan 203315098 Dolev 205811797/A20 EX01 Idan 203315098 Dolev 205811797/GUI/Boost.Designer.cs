@@ -41,6 +41,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Analytics();
             this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Dashboard();
             this.login = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Login();
+            this.about = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.About();
             this.timerWelcomeScreen = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -108,6 +109,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.navbar.Size = new System.Drawing.Size(1023, 65);
             this.navbar.TabIndex = 15;
             // 
+            // about
+            // 
+            this.about.BackColor = System.Drawing.Color.Transparent;
+            this.about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.about.Location = new System.Drawing.Point(56, 79);
+            this.about.Name = "about";
+            this.about.Size = new System.Drawing.Size(1021, 523);
+            this.about.TabIndex = 13;
+            // 
             // analytics
             // 
             this.analytics.BackColor = System.Drawing.Color.Transparent;
@@ -154,6 +164,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.Controls.Add(this.gradientPanelFooterLeft);
             this.Controls.Add(this.navbar);
             this.Controls.Add(this.analytics);
+            this.Controls.Add(this.about);
             this.Controls.Add(this.dashboard);
             this.Controls.Add(this.footer);
             this.Controls.Add(this.navbarSeparator);
@@ -180,6 +191,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public Label footer;
         public Dashboard dashboard;
         public Analytics analytics;
+        public About about;
         public Login login;
         private GUI.Navbar navbar;
         private GUI.GradientPanel gradientPanelFooterLeft;
