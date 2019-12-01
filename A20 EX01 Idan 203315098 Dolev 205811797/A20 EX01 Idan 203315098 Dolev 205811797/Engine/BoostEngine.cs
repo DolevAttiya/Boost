@@ -24,12 +24,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public IAnalysis TimeAnalysis { get; private set; }
 
-        public IAnalysis BiggestFansAnalysis { get; private set; }
+        public IAnalysis BiggestFanAnalysis { get; private set; }
 
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
-            BiggestFansAnalysis = new BiggestFanAnalysis();
+            BiggestFanAnalysis = new BiggestFanAnalysis();
         }
 
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)

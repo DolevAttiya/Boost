@@ -34,31 +34,31 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             return o_SortedDictionary;
         }
 
-        protected void AddByType(User i_UserToDoAnalysisOn, eTimerSelector i_TimeToStrict)
+        protected void AddByType(User i_UserToDoAnalysisOn, eTimeSelector i_TimeFrame)
         {
             foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
             {
-                if(postToAnalysis != null && postToAnalysis.CreatedTime != null && i_TimeToStrict.GetHashCode()
+                if(postToAnalysis != null && postToAnalysis.CreatedTime != null && i_TimeFrame.GetHashCode()
                    >= DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                 {
-                    CombinedAnalysisHolders = PostsParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+                    CombinedAnalysisHolders = PostParser(postToAnalysis, CombinedAnalysisHolders); // TODO
                     switch(postToAnalysis.Type)
                     {
                         case Post.eType.status:
-                            StatusDictionary = PostsParser(postToAnalysis, StatusDictionary); // TODO
+                            StatusDictionary = PostParser(postToAnalysis, StatusDictionary); // TODO
                             break;
                         case Post.eType.photo:
-                            PhotosDictionary = PostsParser(postToAnalysis, PhotosDictionary); // TODO
+                            PhotosDictionary = PostParser(postToAnalysis, PhotosDictionary); // TODO
                             break;
                         case Post.eType.video:
-                            VideosDictionary = PostsParser(postToAnalysis, VideosDictionary); // TODO
+                            VideosDictionary = PostParser(postToAnalysis, VideosDictionary); // TODO
                             break;
                     }
                 }
             }
         }
 
-        protected abstract Dictionary<object, int> PostsParser(
+        protected abstract Dictionary<object, int> PostParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_ArrayToAnalysisHolders);
     }

@@ -29,7 +29,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
                        };
         }
 
-        protected override Dictionary<object, int> PostsParser(
+        protected override Dictionary<object, int> PostParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_ArrayToAnalysisHolders)
         {
@@ -49,12 +49,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             return io_ArrayToAnalysisHolders;
         }
 
-        public IAnalysis CreateAnalysisByTimeStrict(
+        public IAnalysis CreateAnalysisByTimeFrame(
             User i_UserToDoAnalysisOn,
-            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+            eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             initializeComponents();
-            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
+            AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
 
             return calculateAnalysis();
         }

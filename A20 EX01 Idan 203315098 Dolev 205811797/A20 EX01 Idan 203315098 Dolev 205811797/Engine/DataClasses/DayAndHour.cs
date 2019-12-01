@@ -4,8 +4,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public struct DayAndHour
     {
-        public const int k_NumberDaysOfWeek = 7;
-        public const int k_NumberHoursADay = 24;
+        public const int k_NumOfWeekDays = 7;
+        public const int k_NumOfHours = 24;
 
         public DayOfWeek DayOfWeek { get; private set; }
 

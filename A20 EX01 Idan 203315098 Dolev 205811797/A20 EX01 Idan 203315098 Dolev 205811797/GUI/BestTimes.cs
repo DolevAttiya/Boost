@@ -63,7 +63,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
         }*/
 
-        public void DrawBestTimesGrid(TimeAnalysis i_BestTimeAnmAnalysis)
+        public void DrawBestTimesGrid(TimeAnalysis i_BestTimeAnalysis)
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
@@ -74,7 +74,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
-            m_MaxTimeValue = i_BestTimeAnmAnalysis.CombinedAnalysisHolders.Values.Max();
+            m_MaxTimeValue = i_BestTimeAnalysis.CombinedAnalysisHolders.Values.Max();
 
             for(int i = 0; i <= sk_NumOfDays; i++)
             {
@@ -88,7 +88,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                       int hours = j - 1;*/
                     if(i != 0 && j != 0)
                     {
-                        currentValue = i_BestTimeAnmAnalysis.CombinedAnalysisHolders[currentDayAndHour];
+                        currentValue = i_BestTimeAnalysis.CombinedAnalysisHolders[currentDayAndHour];
                     }
 
                     m_BestTimesGrid[i, j] = new Label();

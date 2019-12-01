@@ -124,7 +124,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             ///BestTimes
             analytics.bestTimes.DrawBestTimesGrid(
-                ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeStrict(BoostEn.LoggedInUser));
+                ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeFrame(BoostEn.LoggedInUser));
+            ///BiggestFans
+            try
+            {
+                //Populate Biggest Fans
+            }
+            catch (NullReferenceException e)
+            {
+                //Display error message
+            }
         }
 
         private void fetchDashboardData()
