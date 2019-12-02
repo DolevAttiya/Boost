@@ -20,20 +20,20 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         public Dictionary<object, int> VideosDictionary
         {
-            get => m_PhotosDictionary;
-            protected set => m_PhotosDictionary = value;
+            get => m_VideosDictionary;
+            protected set => m_VideosDictionary = value;
         }
 
         public Dictionary<object, int> StatusDictionary
         {
-            get => m_PhotosDictionary;
-            protected set => m_PhotosDictionary = value;
+            get => m_StatusDictionary;
+            protected set => m_StatusDictionary = value;
         }
 
         public Dictionary<object, int> CombinedAnalysisHolders
         {
-            get => m_PhotosDictionary;
-            protected set => m_PhotosDictionary = value;
+            get => m_CombinedAnalysisHolders;
+            protected set => m_CombinedAnalysisHolders = value;
         }
 
 
