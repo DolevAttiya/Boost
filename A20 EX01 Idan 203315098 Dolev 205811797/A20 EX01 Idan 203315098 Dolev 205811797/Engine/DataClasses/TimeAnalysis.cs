@@ -16,7 +16,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             PhotosDictionary = new Dictionary<object, int>();
             VideosDictionary = new Dictionary<object, int>();
             StatusDictionary = new Dictionary<object, int>();
-            CombinedAnalysisHolders = new Dictionary<object, int>();
+            CombinedAnalysisHolders = new Dictionary<object, Int32>();
             const int k_ZeroLikesYet = 0;
 
             for(int days = 0; days < DayAndHour.k_NumOfWeekDays; days++)
@@ -33,38 +33,27 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             }
         }
 
-        protected override Dictionary<object, int> PostParser(
+        protected override void PostParser(
             Post i_PostToAnalysis,
-            Dictionary<object, int> io_DictionaryToAnalysis)
+            ref Dictionary<object, int> io_DictionaryToAnalysis)
         {
-            io_DictionaryToAnalysis[new DayAndHour(
-                i_PostToAnalysis.CreatedTime.Value.DayOfWeek, ////TODO 
-                TimeSpan.FromHours(i_PostToAnalysis.CreatedTime.Value.Hour))] = i_PostToAnalysis.LikedBy.Count;
+            try
+            {
+                io_DictionaryToAnalysis[new DayAndHour(
+                    i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
+                    TimeSpan.FromHours(i_PostToAnalysis.CreatedTime.Value.Hour))] = i_PostToAnalysis.LikedBy.Count;
+            }
+            catch(Exception e)
+            {
+                throw new NullReferenceException("The there is no post to Parse", e);
 
-            return io_DictionaryToAnalysis;
+            }
         }
 
-        private IAnalysis calculateAnalysis(TimeAnalysis i_CurrentTimeAnalysis)
-        {
-            return new TimeAnalysis
-                       {
-                           PhotosDictionary = Calculator(this.PhotosDictionary),
-                           VideosDictionary = Calculator(this.VideosDictionary),
-                           StatusDictionary = Calculator(this.StatusDictionary),
-                           CombinedAnalysisHolders = Calculator(this.CombinedAnalysisHolders)
-                       };
-        }
+
+
 
         public IAnalysis CreateAnalysisByTimeFrame(
-            User i_UserToDoAnalysisOn,
-            eTimeSelector i_TimeFrame = eTimeSelector.Month)
-        {
-            initializeComponents();
-            AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
-            return calculateAnalysis(this);
-        }
-
-        public TimeAnalysis GetAnalysisByTimeFrame(
             User i_UserToDoAnalysisOn,
             eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {

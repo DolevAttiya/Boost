@@ -7,59 +7,72 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public abstract class Analysis
     {
-        public Dictionary<object, int> PhotosDictionary { get; protected set; }
+        private Dictionary<object, int> m_PhotosDictionary;
+        private Dictionary<object, int> m_VideosDictionary;
+        private Dictionary<object, int> m_StatusDictionary;
+        private Dictionary<object, int> m_CombinedAnalysisHolders;
 
-        public Dictionary<object, int> VideosDictionary { get; protected set; }
-
-        public Dictionary<object, int> StatusDictionary { get; protected set; }
-
-        public Dictionary<object, int> CombinedAnalysisHolders { get; protected set; }
-
-        protected Dictionary<object, int> Calculator(Dictionary<object, int> i_DictionaryToSort)
+        public Dictionary<object, int> PhotosDictionary
         {
-            int numberOfIterations = BoostEngine.k_NumOfBiggestFans;
-            const int k_ZeroIterations = 0;
-            Dictionary<object, int> o_SortedDictionary = new Dictionary<object, int>();
-
-            foreach(KeyValuePair<object, int> itemToSort in i_DictionaryToSort.OrderBy(key => key.Value))
-            {
-                if(numberOfIterations-- < k_ZeroIterations)
-                {
-                    break;
-                }
-
-                o_SortedDictionary.Add(itemToSort.Key, itemToSort.Value);
-            }
-
-            return o_SortedDictionary;
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
         }
+
+        public Dictionary<object, int> VideosDictionary
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
+
+        public Dictionary<object, int> StatusDictionary
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
+
+        public Dictionary<object, int> CombinedAnalysisHolders
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
+
 
         protected void AddByType(User i_UserToDoAnalysisOn, eTimeSelector i_TimeFrame)
         {
-            foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
+            try
             {
-                if(postToAnalysis != null && postToAnalysis.CreatedTime != null && i_TimeFrame.GetHashCode()
-                   >= DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
+                foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
                 {
-                    CombinedAnalysisHolders = PostParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+
+                    if(i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
+                    {
+                        break;
+                    }
+
+                    PostParser(postToAnalysis, ref this.m_CombinedAnalysisHolders);
                     switch(postToAnalysis.Type)
                     {
                         case Post.eType.status:
-                            StatusDictionary = PostParser(postToAnalysis, StatusDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_StatusDictionary);
                             break;
                         case Post.eType.photo:
-                            PhotosDictionary = PostParser(postToAnalysis, PhotosDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_PhotosDictionary);
                             break;
                         case Post.eType.video:
-                            VideosDictionary = PostParser(postToAnalysis, VideosDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_VideosDictionary);
                             break;
                     }
                 }
             }
+            catch(Exception e)
+            {
+                throw new Exception("Couldn't Get Post", e);
+            }
+
         }
 
-        protected abstract Dictionary<object, int> PostParser(
+        protected abstract void PostParser(
             Post i_PostToAnalysis,
-            Dictionary<object, int> io_ArrayToAnalysisHolders);
+            ref Dictionary<object, int> io_ArrayToAnalysisHolders);
     }
 }

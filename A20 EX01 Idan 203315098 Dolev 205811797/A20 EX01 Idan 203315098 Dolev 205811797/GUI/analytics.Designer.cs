@@ -42,8 +42,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // labelAnalytics
             // 
-            this.labelAnalytics.Font = UI_Elements.font_Header1;
-            this.labelAnalytics.ForeColor = UI_Elements.color_Main;
+            this.labelAnalytics.Font = Stylesheet.font_Header1;
+            this.labelAnalytics.ForeColor = Stylesheet.color_Main;
             this.labelAnalytics.Location = new  Point(0, 0);
             this.labelAnalytics.Name = "labelAnalytics";
             this.labelAnalytics.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -62,8 +62,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panel1.Size = new  Size(1005, 434);
             this.panel1.TabIndex = 1;
             this.panel1.GradientAngle = 90F;
-            this.panel1.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panel1.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panel1.GradientColorA = Stylesheet.color_PanelColorA;
+            this.panel1.GradientColorB = Stylesheet.color_PanelColorB;
 
             // 
             // biggestFans
@@ -84,13 +84,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // buttonBestTimes
             // 
-            this.buttonBestTimes.BackColor = UI_Elements.color_Main;
-            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
+            this.buttonBestTimes.BackColor = Stylesheet.color_Main;
+            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = Stylesheet.color_Secondary;
+            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.color_NavbarRollover;
             this.buttonBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBestTimes.FlatAppearance.BorderSize = 0;
             this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBestTimes.Font = UI_Elements.font_Header2;
+            this.buttonBestTimes.Font = Stylesheet.font_Header2;
             this.buttonBestTimes.ForeColor =  Color.White;
             this.buttonBestTimes.Location = new  Point(9, 49);
             this.buttonBestTimes.Margin = new System.Windows.Forms.Padding(0);
@@ -103,13 +103,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // buttonBiggestFans
             // 
-            this.buttonBiggestFans.BackColor = UI_Elements.color_Main;
-            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = UI_Elements.color_Secondary;
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
+            this.buttonBiggestFans.BackColor = Stylesheet.color_Main;
+            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = Stylesheet.color_Secondary;
+            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.color_NavbarRollover;
             this.buttonBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonBiggestFans.FlatAppearance.BorderSize = 0;
             this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBiggestFans.Font = UI_Elements.font_Header2;
+            this.buttonBiggestFans.Font = Stylesheet.font_Header2;
             this.buttonBiggestFans.ForeColor =  Color.White;
             this.buttonBiggestFans.Location = new  Point(230, 49);
             this.buttonBiggestFans.Margin = new System.Windows.Forms.Padding(0);

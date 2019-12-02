@@ -67,10 +67,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
-            int startX = 5;
-            int startY = 45;
-            int labelX = startX;
-            int labelY = startY;
+            const int k_StartX = 5;
+            const int k_StartY = 45;
+            int labelX = k_StartX;
+            int labelY = k_StartY;
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
@@ -94,23 +94,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     m_BestTimesGrid[i, j] = new Label();
                     m_BestTimesGrid[i, j].Width = k_CellWidth;
                     m_BestTimesGrid[i, j].Height = k_CellHeight;
-                    m_BestTimesGrid[i, j].BorderStyle = System.Windows.Forms.BorderStyle.None;
-                    m_BestTimesGrid[i, j].Location = new System.Drawing.Point(labelX, labelY);
+                    m_BestTimesGrid[i, j].BorderStyle = BorderStyle.None;
+                    m_BestTimesGrid[i, j].Location = new Point(labelX, labelY);
                     m_BestTimesGrid[i, j].Text = string.Empty;
-                    m_BestTimesGrid[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                    m_BestTimesGrid[i, j].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                    m_BestTimesGrid[i, j].Font = new System.Drawing.Font(
+                    m_BestTimesGrid[i, j].TextAlign = ContentAlignment.MiddleLeft;
+                    m_BestTimesGrid[i, j].FlatStyle = FlatStyle.Flat;
+                    m_BestTimesGrid[i, j].Font = new Font(
                         "Century Gothic",
                         7.875F,
-                        System.Drawing.FontStyle.Bold,
-                        System.Drawing.GraphicsUnit.Point,
+                        FontStyle.Bold,
+                        GraphicsUnit.Point,
                         (byte)0);
-                    m_BestTimesGrid[i, j].ForeColor = System.Drawing.Color.White;
+                    m_BestTimesGrid[i, j].ForeColor = Color.White;
                     this.Controls.Add(m_BestTimesGrid[i, j]);
                     if(i == 0)
                     {
                         m_BestTimesGrid[i, j].Height -= 20;
-                        m_BestTimesGrid[i, j].BackColor = UI_Elements.color_Secondary;
+                        m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         if(j == 0)
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
@@ -126,28 +126,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
                             m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
-                            m_BestTimesGrid[i, j].BackColor = UI_Elements.color_Secondary;
+                            m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         }
                         else
                         {
-                            m_BestTimesGrid[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                            m_BestTimesGrid[i, j].TextAlign = ContentAlignment.MiddleCenter;
                             if(currentValue != 0)
                             {
                                 if(currentValue <= m_MaxTimeValue * 0.1)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.White;
+                                    m_BestTimesGrid[i, j].BackColor = Color.White;
                                 }
                                 else if(currentValue <= m_MaxTimeValue * 0.25)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesLow;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesLow;
                                 }
                                 else if(currentValue <= m_MaxTimeValue * 0.75)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesMedium;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesMedium;
                                 }
                                 else
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesHigh;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesHigh;
                                 }
                             }
                         }
@@ -160,7 +160,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     }
                 }
 
-                labelX = startX;
+                labelX = k_StartX;
                 labelY += lastHeight;
             }
         }
