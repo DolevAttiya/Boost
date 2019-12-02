@@ -31,38 +31,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             k_GridAreaWidth = this.Size.Width - 100;
         }
 
-        /*public void PopulateBestTimes(FacebookObjectCollection<Post> i_Posts)
-        {
-            foreach(Post postToPopulate in i_Posts)
-            {
-                if(postToPopulate.UpdateTime != null)
-                {
-                    DateTime updateTime = postToPopulate.UpdateTime.Value;
-                    Random rand = new Random();
-
-                    int day = (int)Convert.ChangeType(updateTime.DayOfWeek, updateTime.DayOfWeek.GetTypeCode());
-                    int hours = updateTime.TimeOfDay.Hours;
-
-                    if(postToPopulate.UpdateTime.Value.TimeOfDay.Minutes > 30)
-                    {
-                        hours++;
-                        if(hours == 24)
-                        {
-                            hours = 0;
-                        }
-                    }
-
-                    //m_BestPostTimes[day, hours] += i_Posts[i].LikedBy.Count;//TODO
-                    m_BestPostTimes[day, hours] += rand.Next(0, 1000); //TODO
-                    if(m_BestPostTimes[day, hours] > m_MaxTimeValue)
-                    {
-                        m_MaxTimeValue = m_BestPostTimes[day, hours];
-                    }
-
-                }
-            }
-        }*/
-
         public void DrawBestTimesGrid(TimeAnalysis i_BestTimeAnalysis)
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
@@ -84,8 +52,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     DayAndHour currentDayAndHour = new DayAndHour(
                         (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt - 1),
                         TimeSpan.FromHours(j - 1));
-                    /* DayOfWeek day = (DayOfWeek)Enum.ToObject(typeof(DayOfWeek), dayInt);
-                      int hours = j - 1;*/
+ 
                     if(i != 0 && j != 0)
                     {
                         currentValue = i_BestTimeAnalysis.CombinedAnalysisHolders[currentDayAndHour];

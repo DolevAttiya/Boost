@@ -69,7 +69,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 catch (Exception e)
                 {
-                    throw new FacebookApiException("Couldn't Connect",e);
+                    throw new FacebookApiException("Connection failed!",e);
                 }
             }
             else
@@ -99,7 +99,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 catch (Exception e)
                 {
-                    throw new FacebookApiException("Couldn't Login",e);
+                    throw new FacebookApiException("Login failed!",e);
                 }
             }
 

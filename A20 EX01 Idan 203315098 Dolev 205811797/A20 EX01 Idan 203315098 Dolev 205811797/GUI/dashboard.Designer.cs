@@ -67,6 +67,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio1 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
             this.pictureBoxBioProfilePic = new System.Windows.Forms.PictureBox();
+            this.labelError = new System.Windows.Forms.Label();
             this.panelTopPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTopPost)).BeginInit();
             this.panelFriends.SuspendLayout();
@@ -330,7 +331,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             legend1.TitleBackColor = System.Drawing.Color.Transparent;
             this.chartEngagement.Legends.Add(legend1);
             this.chartEngagement.Location = new System.Drawing.Point(14, 28);
-            this.chartEngagement.Margin = new System.Windows.Forms.Padding(2);
+            this.chartEngagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartEngagement.Name = "chartEngagement";
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
@@ -481,7 +482,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(25, 361);
             this.labelRecentStatusUpdateTitle.Name = "labelRecentStatusUpdateTitle";
             this.labelRecentStatusUpdateTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 60);
+            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 77);
             this.labelRecentStatusUpdateTitle.TabIndex = 5;
             this.labelRecentStatusUpdateTitle.Text = "Recent Status Update";
             this.labelRecentStatusUpdateTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -495,7 +496,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio3.Location = new System.Drawing.Point(25, 333);
             this.labelBio3.Name = "labelBio3";
-            this.labelBio3.Size = new System.Drawing.Size(200, 37);
+            this.labelBio3.Size = new System.Drawing.Size(200, 55);
             this.labelBio3.TabIndex = 4;
             this.labelBio3.Text = "Detail 3";
             this.labelBio3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -509,7 +510,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio2.Location = new System.Drawing.Point(25, 305);
             this.labelBio2.Name = "labelBio2";
-            this.labelBio2.Size = new System.Drawing.Size(200, 37);
+            this.labelBio2.Size = new System.Drawing.Size(200, 55);
             this.labelBio2.TabIndex = 3;
             this.labelBio2.Text = "Detail 2";
             this.labelBio2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -524,7 +525,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio1.Location = new System.Drawing.Point(25, 277);
             this.labelBio1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBio1.Name = "labelBio1";
-            this.labelBio1.Size = new System.Drawing.Size(200, 37);
+            this.labelBio1.Size = new System.Drawing.Size(200, 55);
             this.labelBio1.TabIndex = 2;
             this.labelBio1.Text = "Detail 1";
             this.labelBio1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -556,12 +557,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.pictureBoxBioProfilePic.TabIndex = 0;
             this.pictureBoxBioProfilePic.TabStop = false;
             // 
+            // labelError
+            // 
+            this.labelError.BackColor = System.Drawing.Color.Transparent;
+            this.labelError.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelError.Location = new System.Drawing.Point(0, 0);
+            this.labelError.Name = "labelError";
+            this.labelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.labelError.Size = new System.Drawing.Size(1021, 523);
+            this.labelError.TabIndex = 13;
+            this.labelError.Text = "Could not fetch user data!";
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.labelError.Visible = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.panelTopPost);
             this.Controls.Add(this.panelFriends);
             this.Controls.Add(this.panelEngagement);
@@ -611,5 +628,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public System.Windows.Forms.PictureBox pictureBoxTopPost;
         public System.Windows.Forms.Label labelFriendsChange;
         public System.Windows.Forms.Label labelTopPostError;
+        public System.Windows.Forms.Label labelError;
     }
 }
