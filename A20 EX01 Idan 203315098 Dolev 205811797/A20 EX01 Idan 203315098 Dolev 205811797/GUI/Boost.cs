@@ -46,7 +46,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             
             //Startup operations
             navbarSeparator.BringToFront();
-            switchPage(navbar.m_NavbarButtons[0]); //Switch to the 1st button's page (app home page)
+            switchPage(navbar.m_NavbarButtons[0]); //Switch to the 1st button's page (App home page)
             welcomeScreen.Visible = false;
             welcomeScreen.BringToFront();
             this.login.checkBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
@@ -157,7 +157,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
             try
             {
-                ///Navbar
+                ///Navigation bar
                 navbar.btnUsername.Text = name;
                 navbar.navbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
                 navbar.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

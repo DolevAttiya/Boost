@@ -18,13 +18,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public const int k_NumOfFriendCounters = 3;
 
-        public readonly int k_NumOfPostsForEngagement = 10;
+        public const int k_NumOfPostsForEngagement = 10;
 
         private const string k_AppId = "748532218946260";
 
         public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
 
-        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
+        public const string k_TopPostErrorMessage = "Could not get Top Post!";
         #endregion
 
         #region Properties
@@ -43,6 +43,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public IAnalysis BiggestFanAnalysis { get; }
         #endregion
+        
         #endregion
 
 
