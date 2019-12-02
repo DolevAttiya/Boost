@@ -123,9 +123,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_v3 {
+        internal static System.Drawing.Bitmap WelcomeScreen_v4 {
             get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_v3", resourceCulture);
+                object obj = ResourceManager.GetObject("WelcomeScreen_v4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
