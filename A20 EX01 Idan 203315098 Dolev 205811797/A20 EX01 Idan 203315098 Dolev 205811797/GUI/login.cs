@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using FacebookWrapper;
-using Facebook;
+
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
@@ -37,13 +31,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
         {
-            this.pictureBoxFBLogin.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.fbLogin));
+            this.pictureBoxFBLogin.BackgroundImage = ((Image)(Properties.Resources.fbLogin));
         }
 
 
         private void PictureBoxFBLogin_MouseEnter(object sender, EventArgs e)
         {
-            this.pictureBoxFBLogin.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.fbLogin_rollover));
+            this.pictureBoxFBLogin.BackgroundImage = ((Image)(Properties.Resources.fbLogin_rollover));
         }
 
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)

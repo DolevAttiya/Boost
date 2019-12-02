@@ -94,18 +94,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     m_BestTimesGrid[i, j] = new Label();
                     m_BestTimesGrid[i, j].Width = k_CellWidth;
                     m_BestTimesGrid[i, j].Height = k_CellHeight;
-                    m_BestTimesGrid[i, j].BorderStyle = System.Windows.Forms.BorderStyle.None;
-                    m_BestTimesGrid[i, j].Location = new System.Drawing.Point(labelX, labelY);
+                    m_BestTimesGrid[i, j].BorderStyle = BorderStyle.None;
+                    m_BestTimesGrid[i, j].Location = new Point(labelX, labelY);
                     m_BestTimesGrid[i, j].Text = string.Empty;
-                    m_BestTimesGrid[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                    m_BestTimesGrid[i, j].FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                    m_BestTimesGrid[i, j].Font = new System.Drawing.Font(
+                    m_BestTimesGrid[i, j].TextAlign = ContentAlignment.MiddleLeft;
+                    m_BestTimesGrid[i, j].FlatStyle = FlatStyle.Flat;
+                    m_BestTimesGrid[i, j].Font = new Font(
                         "Century Gothic",
                         7.875F,
-                        System.Drawing.FontStyle.Bold,
-                        System.Drawing.GraphicsUnit.Point,
+                        FontStyle.Bold,
+                        GraphicsUnit.Point,
                         (byte)0);
-                    m_BestTimesGrid[i, j].ForeColor = System.Drawing.Color.White;
+                    m_BestTimesGrid[i, j].ForeColor = Color.White;
                     this.Controls.Add(m_BestTimesGrid[i, j]);
                     if(i == 0)
                     {
@@ -130,12 +130,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         }
                         else
                         {
-                            m_BestTimesGrid[i, j].TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+                            m_BestTimesGrid[i, j].TextAlign = ContentAlignment.MiddleCenter;
                             if(currentValue != 0)
                             {
                                 if(currentValue <= m_MaxTimeValue * 0.1)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = System.Drawing.Color.White;
+                                    m_BestTimesGrid[i, j].BackColor = Color.White;
                                 }
                                 else if(currentValue <= m_MaxTimeValue * 0.25)
                                 {

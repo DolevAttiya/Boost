@@ -32,18 +32,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             foreach(Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
             {
                 Button button = new Button();
-                button.BackColor = System.Drawing.Color.Transparent;
-                button.Cursor = System.Windows.Forms.Cursors.Hand;
+                button.BackColor = Color.Transparent;
+                button.Cursor = Cursors.Hand;
                 button.FlatAppearance.BorderSize = 0;
-                button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+                button.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 button.FlatAppearance.MouseOverBackColor = Stylesheet.color_NavbarRollover;
-                button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                button.FlatStyle = FlatStyle.Flat;
                 button.Font = Stylesheet.font_NavbarButtonDefault;
                 button.ForeColor = Stylesheet.color_NavbarButtonColor;
-                button.Location = new System.Drawing.Point(X, Y);
-                button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+                button.Location = new Point(X, Y);
+                button.Margin = new Padding(2, 3, 2, 3);
                 button.Name = "btn" + page.ToString();
-                button.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
+                button.Size = new Size(buttonWidth, buttonHeight);
                 button.TabIndex = (byte)page + 2;
                 button.Text = page.ToString().ToUpper();
                 button.UseVisualStyleBackColor = false;
