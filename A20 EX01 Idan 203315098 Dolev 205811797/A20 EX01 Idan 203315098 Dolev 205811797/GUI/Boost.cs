@@ -146,14 +146,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     (TimeAnalysis)BoostEn.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEn.LoggedInUser));
                 ///BiggestFans
 
-                analytics.biggestFans.DrawBiggestFans(
+                analytics.biggestFans.DisplayBiggestFans(
                     (BiggestFanAnalysis)BoostEn.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
                         BoostEn.LoggedInUser,
                         eTimeSelector.Month));
             }
-            catch(Exception e)//TODO
+            catch(Exception e)
             {
-                //Display error message
+                analytics.DisplayAnalyticsErrorMessage();
             }
         }
 
@@ -183,7 +183,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
             catch (NullReferenceException)
             {
-                //Display "Could not load Data"
+                dashboard.DisplayDashboardErrorMessage();
             }
 
             ///Top Post
@@ -237,9 +237,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     }
                 }
             }
-            catch(Exception e) //TODO
+            catch(Exception e)
             {
-                //Show error that we couldn't fetch user data
+                dashboard.DisplayDashboardErrorMessage();
+                dashboard.labelError.Text = "Could not fetch data from boostSettings.xml";
             }
             
 

@@ -78,7 +78,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public static Color color_Tertiary = Color.FromArgb(14, 32, 69);
         public static Color color_BGColorA = Color.FromArgb(223, 226, 232);
         public static Color color_BGColorB = Color.FromArgb(216, 220, 229);
-        public static Color color_BGColor_OLD = Color.FromArgb(224, 224, 224); //TODO
         public static Color color_NavbarButtonColor = Color.FromArgb(65, 65, 65);
         public static Color color_TabRollover = Color.FromArgb(89, 124, 194);
         public static Color color_NavbarRollover = Color.FromArgb(193, 203, 220);

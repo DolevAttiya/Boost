@@ -38,6 +38,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostCaptionDateTime.Font = Stylesheet.font_Body;
         }
 
+        public void DisplayDashboardErrorMessage()
+        {
+            this.panelEngagement.Visible = false;
+            this.panelUserBio.Visible = false;
+            this.panelFriends.Visible = false;
+            this.panelTopPost.Visible = false;
+            this.labelError.Visible = true;
+        }
+
         public void UpdateDashboardUI()
         {
             ////Dynamic Label Positions
