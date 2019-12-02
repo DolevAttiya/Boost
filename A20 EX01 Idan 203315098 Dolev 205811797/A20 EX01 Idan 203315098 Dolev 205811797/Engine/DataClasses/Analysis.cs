@@ -7,51 +7,72 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public abstract class Analysis
     {
-        public Dictionary<object, int> PhotosDictionary { get; protected set; }
+        private Dictionary<object, int> m_PhotosDictionary;
+        private Dictionary<object, int> m_VideosDictionary;
+        private Dictionary<object, int> m_StatusDictionary;
+        private Dictionary<object, int> m_CombinedAnalysisHolders;
 
-        public Dictionary<object, int> VideosDictionary { get; protected set; }
+        public Dictionary<object, int> PhotosDictionary
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
 
-        public Dictionary<object, int> StatusDictionary { get; protected set; }
+        public Dictionary<object, int> VideosDictionary
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
 
-        public Dictionary<object, int> CombinedAnalysisHolders { get; protected set; }
+        public Dictionary<object, int> StatusDictionary
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
+
+        public Dictionary<object, int> CombinedAnalysisHolders
+        {
+            get => m_PhotosDictionary;
+            protected set => m_PhotosDictionary = value;
+        }
 
 
         protected void AddByType(User i_UserToDoAnalysisOn, eTimeSelector i_TimeFrame)
         {
             try
             {
-                foreach (Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
+                foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
                 {
 
-                    if (i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
+                    if(i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                     {
                         break;
                     }
 
-                    CombinedAnalysisHolders = PostParser(postToAnalysis, CombinedAnalysisHolders); // TODO
-                    switch (postToAnalysis.Type)
+                    PostParser(postToAnalysis, ref this.m_CombinedAnalysisHolders);
+                    switch(postToAnalysis.Type)
                     {
                         case Post.eType.status:
-                            StatusDictionary = PostParser(postToAnalysis, StatusDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_StatusDictionary);
                             break;
                         case Post.eType.photo:
-                            PhotosDictionary = PostParser(postToAnalysis, PhotosDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_PhotosDictionary);
                             break;
                         case Post.eType.video:
-                            VideosDictionary = PostParser(postToAnalysis, VideosDictionary); // TODO
+                            PostParser(postToAnalysis, ref this.m_VideosDictionary);
                             break;
                     }
                 }
             }
             catch(Exception e)
             {
-                throw new Exception("Couldn't Get Post",e);
+                throw new Exception("Couldn't Get Post", e);
             }
-            
+
         }
 
-        protected abstract Dictionary<object, int> PostParser(
+        protected abstract void PostParser(
             Post i_PostToAnalysis,
-            Dictionary<object, int> io_ArrayToAnalysisHolders);
+            ref Dictionary<object, int> io_ArrayToAnalysisHolders);
     }
 }

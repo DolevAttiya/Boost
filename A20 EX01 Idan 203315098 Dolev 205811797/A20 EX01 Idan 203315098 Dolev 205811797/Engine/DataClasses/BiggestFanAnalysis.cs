@@ -19,9 +19,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             CombinedAnalysisHolders = new Dictionary<object, int>();
         }
 
-        protected override Dictionary<object, int> PostParser(
+        protected override void PostParser(
             Post i_PostToAnalysis,
-            Dictionary<object, int> io_ArrayToAnalysisHolders)
+            ref Dictionary<object, int> io_ArrayToAnalysisHolders)
         {
             const int k_LikeByUser = 1;
             try
@@ -42,8 +42,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             {
                 throw new Exception("Couldn't get one post or more",e);
             }
-            
-            return io_ArrayToAnalysisHolders;
         }
 
         public IAnalysis CreateAnalysisByTimeFrame(
