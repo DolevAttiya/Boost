@@ -36,10 +36,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 button.Cursor = System.Windows.Forms.Cursors.Hand;
                 button.FlatAppearance.BorderSize = 0;
                 button.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-                button.FlatAppearance.MouseOverBackColor = UI_Elements.color_NavbarRollover;
+                button.FlatAppearance.MouseOverBackColor = Stylesheet.color_NavbarRollover;
                 button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                button.Font = UI_Elements.font_NavbarButtonDefault;
-                button.ForeColor = UI_Elements.color_NavbarButtonColor;
+                button.Font = Stylesheet.font_NavbarButtonDefault;
+                button.ForeColor = Stylesheet.color_NavbarButtonColor;
                 button.Location = new System.Drawing.Point(X, Y);
                 button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                 button.Name = "btn" + page.ToString();

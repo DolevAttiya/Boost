@@ -19,36 +19,32 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
-            //Dummy values
-            //TODO create a method that gets the most recent 5 dates and collects and calculates photos, videos & status
-            /*this.chart1.Series["Photos"].Points.AddXY("31/12/18", 20);
-            this.chart1.Series["Photos"].Points.AddXY("06/04/19", 50);
-            this.chart1.Series["Photos"].Points.AddXY("22/5/19", 200);
-            this.chart1.Series["Photos"].Points.AddXY("01/07/19", 45);
-            this.chart1.Series["Photos"].Points.AddXY("18/10/19", 100);
-            this.chart1.Series["Videos"].Points.AddXY("22/5/19", 150);
-            this.chart1.Series["Videos"].Points.AddXY("01/07/19", 70);
-            this.chart1.Series["Videos"].Points.AddXY("18/10/19", 10);
-            this.chart1.Series["Status"].Points.AddXY("31/12/18", 300);
-            this.chart1.Series["Status"].Points.AddXY("06/04/19", 50);
-            this.chart1.Series["Status"].Points.AddXY("22/5/19", 35);
-            this.chart1.Series["Status"].Points.AddXY("01/07/19", 22);
-            this.chart1.Series["Status"].Points.AddXY("18/10/19", 66);
-            this.chart1.AlignDataPointsByAxisLabel();*/
-            //Friend chart dummy values
-            /*
-            this.chartFriends.Series["Friends"].Points.AddXY("10/10/19", 350);
-            this.chartFriends.Series["Friends"].Points.AddXY("15/10/19", 340);
-            this.chartFriends.Series["Friends"].Points.AddXY("10/11/19", 360);
-            this.chartFriends.ChartAreas[0].AxisY.Minimum = (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 > 0 ? (this.chartFriends.Series[0].Points[0].YValues[0]) - 200 : 0;
-            this.chartFriends.ChartAreas[0].AxisY.Maximum = (this.chartFriends.Series[0].Points[(this.chartFriends.Series[0].Points.Count) - 1].YValues[0]) + 200;
-            this.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
-            this.chartFriends.AlignDataPointsByAxisLabel();*/
+            dashboardInitalSetup();
         }
 
-        public void DashboardUpdate()
+        private void dashboardInitalSetup()
         {
+            //Enforcing visual styles (in case of designer auto change)
             this.BackColor = System.Drawing.Color.Transparent;
+            this.labelName.Font = Stylesheet.font_Header1;
+            this.labelBio1.Font = Stylesheet.font_Header3;
+            this.labelBio2.Font = Stylesheet.font_Header3;
+            this.labelBio3.Font = Stylesheet.font_Header3;
+            this.labelRecentStatusUpdateTitle.Font = Stylesheet.font_Header2Underline;
+            this.labelRecentStatusUpdateContent.Font = Stylesheet.font_BodyItalics;
+            this.labelRecentStatusUpdateDateTime.Font = Stylesheet.font_Body;
+            this.labelEngagement.Font = Stylesheet.font_Header2;
+            this.labelFriends.Font = Stylesheet.font_Header2;
+            this.labelTopPost.Font = Stylesheet.font_Header2;
+            this.labelTopPostLikes.Font = Stylesheet.font_Header3;
+            this.labelTopPostComments.Font = Stylesheet.font_Header3;
+            this.labelTopPostCaptionTitle.Font = Stylesheet.font_Header2Underline;
+            this.labelTopPostCaptionContent.Font = Stylesheet.font_BodyItalics;
+            this.labelTopPostCaptionDateTime.Font = Stylesheet.font_Body;
+        }
+
+        public void UpdateDashboardUI()
+        {
             ////Dynamic Label Positions
             ///BioPanel
             //labelName
