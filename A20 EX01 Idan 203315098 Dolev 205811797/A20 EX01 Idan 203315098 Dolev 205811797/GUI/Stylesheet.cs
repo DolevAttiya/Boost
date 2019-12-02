@@ -101,7 +101,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public static Color color_TabRollover = Color.FromArgb(89, 124, 194);
         public static Color color_NavbarRollover = Color.FromArgb(193, 203, 220);
         public static Color color_PanelColorA = Color.White;
-        public static Color color_PanelColorB = Color.FromArgb(239, 239, 239);
+        public static Color color_PanelColorB = Color.FromArgb(241, 241, 241);
         // Best Times Heatmap Colors
         public static Color color_BestTimesLow = Color.FromArgb(232, 200, 20);
         public static Color color_BestTimesMedium = Color.FromArgb(217, 117, 17);
