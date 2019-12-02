@@ -18,32 +18,36 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
         protected void AddByType(User i_UserToDoAnalysisOn, eTimeSelector i_TimeFrame)
         {
-            foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
+            try
             {
-                if(postToAnalysis?.CreatedTime == null || i_TimeFrame.GetHashCode()
-                   < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
+                foreach (Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
                 {
-                    if(postToAnalysis == null)
+
+                    if (i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                     {
-                        throw new NullReferenceException("The there is no post to Sort");
+                        break;
                     }
 
-                    break;
-                }
-                CombinedAnalysisHolders = PostParser(postToAnalysis, CombinedAnalysisHolders); // TODO
-                switch(postToAnalysis.Type)
-                {
-                    case Post.eType.status:
-                        StatusDictionary = PostParser(postToAnalysis, StatusDictionary); // TODO
-                        break;
-                    case Post.eType.photo:
-                        PhotosDictionary = PostParser(postToAnalysis, PhotosDictionary); // TODO
-                        break;
-                    case Post.eType.video:
-                        VideosDictionary = PostParser(postToAnalysis, VideosDictionary); // TODO
-                        break;
+                    CombinedAnalysisHolders = PostParser(postToAnalysis, CombinedAnalysisHolders); // TODO
+                    switch (postToAnalysis.Type)
+                    {
+                        case Post.eType.status:
+                            StatusDictionary = PostParser(postToAnalysis, StatusDictionary); // TODO
+                            break;
+                        case Post.eType.photo:
+                            PhotosDictionary = PostParser(postToAnalysis, PhotosDictionary); // TODO
+                            break;
+                        case Post.eType.video:
+                            VideosDictionary = PostParser(postToAnalysis, VideosDictionary); // TODO
+                            break;
+                    }
                 }
             }
+            catch(Exception e)
+            {
+                throw new Exception("Couldn't Get Post",e);
+            }
+            
         }
 
         protected abstract Dictionary<object, int> PostParser(

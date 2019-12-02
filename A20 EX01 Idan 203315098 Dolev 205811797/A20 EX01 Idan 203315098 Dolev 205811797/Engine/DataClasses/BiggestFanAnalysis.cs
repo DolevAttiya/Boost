@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
@@ -23,18 +24,25 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             Dictionary<object, int> io_ArrayToAnalysisHolders)
         {
             const int k_LikeByUser = 1;
-            foreach(User likedBy in i_PostToAnalysis.LikedBy)
+            try
             {
-                if(io_ArrayToAnalysisHolders.ContainsKey(likedBy))
+                foreach (User likedBy in i_PostToAnalysis.LikedBy)
                 {
-                    io_ArrayToAnalysisHolders[likedBy] += k_LikeByUser;
-                }
-                else
-                {
-                    io_ArrayToAnalysisHolders.Add(likedBy, k_LikeByUser);
+                    if (io_ArrayToAnalysisHolders.ContainsKey(likedBy))
+                    {
+                        io_ArrayToAnalysisHolders[likedBy] += k_LikeByUser;
+                    }
+                    else
+                    {
+                        io_ArrayToAnalysisHolders.Add(likedBy, k_LikeByUser);
+                    }
                 }
             }
-
+            catch(Exception e)
+            {
+                throw new Exception("Couldn't get one post or more",e);
+            }
+            
             return io_ArrayToAnalysisHolders;
         }
 

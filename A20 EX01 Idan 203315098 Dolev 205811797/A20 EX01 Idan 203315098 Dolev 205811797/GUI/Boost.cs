@@ -85,7 +85,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         public void FacebookLogin()
         {
-            BoostEn.FacebookLogin(BoostEn.m_BoostSettings.LastAccessToken, BoostEn.m_BoostSettings.RememberUser);
+            try
+            {
+                BoostEn.FacebookLogin(BoostEn.m_BoostSettings.LastAccessToken, BoostEn.m_BoostSettings.RememberUser);
+            }
+            catch(Exception e)//TODO
+            {
+                //show Error on screen
+            }
+
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
@@ -143,7 +151,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         BoostEn.LoggedInUser,
                         eTimeSelector.Month));
             }
-            catch(NullReferenceException e)//TODO
+            catch(Exception e)//TODO
             {
                 //Display error message
             }
@@ -202,7 +210,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
             catch(NullReferenceException e)
             {
-                dashboard.labelTopPostError.Text = BoostEngine.k_TopPostErrorMessage;
+                dashboard.labelTopPostError.Text = BoostEngine.k_PostErrorMessage;
                 dashboard.labelTopPostError.Visible = true;
                 dashboard.labelTopPostLikes.Visible = false;
                 dashboard.labelTopPostComments.Visible = false;
@@ -212,20 +220,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
 
             ///Friends Panel
-            if(BoostEn.FriendChange != 0)
+            try
             {
-                dashboard.labelFriendsChange.Visible = true;
-                if(BoostEn.FriendChange > 0)
+                if (BoostEn.FriendChange != 0)
                 {
-                    dashboard.labelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
-                    dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
-                }
-                else
-                {
-                    dashboard.labelFriendsChange.Text = BoostEn.FriendChange.ToString();
-                    dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
+                    dashboard.labelFriendsChange.Visible = true;
+                    if (BoostEn.FriendChange > 0)
+                    {
+                        dashboard.labelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
+                        dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
+                    }
+                    else
+                    {
+                        dashboard.labelFriendsChange.Text = BoostEn.FriendChange.ToString();
+                        dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
+                    }
                 }
             }
+            catch(Exception e) //TODO
+            {
+                //Show error that we couldn't fetch user data
+            }
+            
 
             ///Engagement Panel
            dashboard.labelEngagement.Text += $@" (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";

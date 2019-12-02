@@ -24,7 +24,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
 
-        public const string k_TopPostErrorMessage = "Could not get Top Post!";
+        public const string k_PostErrorMessage = "Could not get Post!";
         #endregion
 
         #region Properties
@@ -67,9 +67,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 {
                     LoginResult = FacebookService.Connect(i_AccessToken);
                 }
-                catch (Exception e)//TODO
+                catch (Exception e)
                 {
-                    throw new FacebookApiException("Couldn't Connect");
+                    throw new FacebookApiException("Couldn't Connect",e);
                 }
             }
             else
@@ -97,9 +97,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                         "user_posts",
                         "user_hometown");
                 }
-                catch (Exception e)//TODO
+                catch (Exception e)
                 {
-                    throw new FacebookApiException("Couldn't Login");
+                    throw new FacebookApiException("Couldn't Login",e);
                 }
             }
 
@@ -113,6 +113,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public Post GetLastStatus()
         {
+
             Post o_LastStatus = null;
             foreach(Post postToSearch in LoggedInUser.Posts)
             {
@@ -133,30 +134,37 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public void FriendCountSetup()
         {
-            DateAndValue friendCount = new DateAndValue { Value = LoggedInUser.Friends.Count, Date = DateTime.Now };
-
-            if (m_BoostSettings.FriendCounter.Count < 1)
+            try
             {
-                m_BoostSettings.FriendCounter.Add(friendCount);
-            }
-            else
-            {
-                if(LoggedInUser.Friends.Count != m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value)
+                DateAndValue friendCount = new DateAndValue { Value = LoggedInUser.Friends.Count, Date = DateTime.Now };
+                if(m_BoostSettings.FriendCounter.Count < 1)
                 {
                     m_BoostSettings.FriendCounter.Add(friendCount);
-
-                    if(m_BoostSettings.FriendCounter.Count > k_NumOfFriendCounters)
+                }
+                else
+                {
+                    if(LoggedInUser.Friends.Count
+                       != m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value)
                     {
-                        m_BoostSettings.FriendCounter.RemoveAt(0);
+                        m_BoostSettings.FriendCounter.Add(friendCount);
+
+                        if(m_BoostSettings.FriendCounter.Count > k_NumOfFriendCounters)
+                        {
+                            m_BoostSettings.FriendCounter.RemoveAt(0);
+                        }
+                    }
+
+                    if(m_BoostSettings.FriendCounter.Count > 1)
+                    {
+                        FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value
+                                       - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
                     }
                 }
-
-                if(m_BoostSettings.FriendCounter.Count>1)
-                {
-                    FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
-                }
-            } 
-
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Couldn't get User's Friends", e);
+            }
         }
 
         public void SetupEngagementArrays()
@@ -164,7 +172,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             EngagementRecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
             EngagementRecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
 
-            for (int i = k_NumOfPostsForEngagement-1; i >=0; i--) 
+            for(int i = k_NumOfPostsForEngagement - 1; i >= 0; i--)
             {
                 EngagementRecentPostLikes[i] = new DateAndValue();
                 EngagementRecentPostComments[i] = new DateAndValue();
@@ -173,11 +181,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                     EngagementRecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
                     EngagementRecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
                 }
-                catch(Exception e)//TODO
+                catch(Exception e)
                 {
-                    throw new FacebookApiException("Couldn't get To post");
+                    throw new FacebookApiException(k_PostErrorMessage, e);
                 }
-                
+
                 if(LoggedInUser.Posts[i].CreatedTime.HasValue)
                 {
                     try
@@ -185,12 +193,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                         EngagementRecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
                         EngagementRecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
                     }
-                    catch(Exception e)//TODO
+                    catch(Exception e)
                     {
-                        throw new FacebookApiException("Couldn't get To post");
+                        throw new FacebookApiException(k_PostErrorMessage, e);
                     }
                 }
-
             }
         }
 
@@ -226,7 +233,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
             if(mostLikedPost == null)
             {
-                throw new NullReferenceException(k_TopPostErrorMessage);
+                throw new NullReferenceException(k_PostErrorMessage);
             }
 
             return mostLikedPost;

@@ -37,19 +37,21 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             Post i_PostToAnalysis,
             Dictionary<object, int> io_DictionaryToAnalysis)
         {
-            if(i_PostToAnalysis.CreatedTime == null)
-            {
-                throw new NullReferenceException("The there is no post to Sort");
-            }
-            else
+            try
             {
                 io_DictionaryToAnalysis[new DayAndHour(
-                    i_PostToAnalysis.CreatedTime.Value.DayOfWeek, 
+                    i_PostToAnalysis.CreatedTime.Value.DayOfWeek,
                     TimeSpan.FromHours(i_PostToAnalysis.CreatedTime.Value.Hour))] = i_PostToAnalysis.LikedBy.Count;
+            }
+            catch(Exception e)
+            {
+                throw new NullReferenceException("The there is no post to Parse", e);
+
             }
 
             return io_DictionaryToAnalysis;
         }
+
 
 
 
