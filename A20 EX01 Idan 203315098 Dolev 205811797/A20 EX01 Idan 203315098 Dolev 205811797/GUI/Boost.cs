@@ -89,9 +89,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 BoostEn.FacebookLogin(BoostEn.m_BoostSettings.LastAccessToken, BoostEn.m_BoostSettings.RememberUser);
             }
-            catch(Exception e)//TODO
+            catch(Exception e)
             {
-                //show Error on screen
+                login.labelLoginError.Visible = true;
             }
 
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
