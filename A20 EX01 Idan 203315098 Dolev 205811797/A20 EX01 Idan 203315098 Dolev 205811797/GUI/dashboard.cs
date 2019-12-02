@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses;
@@ -7,19 +8,38 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Dashboard : UserControl
     {
-
+        #region Data Members & Properties
         public List<Engagement> EngagementList { get; set; }
 
+        public List<GradientPanel> m_DashboardPanelList = new List<GradientPanel>();
+        #endregion
+
+        #region Ctor
         public Dashboard()
         {
             EngagementList = new List<Engagement>();
             InitializeComponent();
             dashboardInitalSetup();
         }
+        #endregion
 
+        #region Methods
         private void dashboardInitalSetup()
         {
-            //Enforcing visual styles (in case of designer auto change)
+            // Add panels to list
+            m_DashboardPanelList.Add(this.panelEngagement);
+            m_DashboardPanelList.Add(this.panelFriends);
+            m_DashboardPanelList.Add(this.panelTopPost);
+            m_DashboardPanelList.Add(this.panelUserBio);
+
+            foreach (GradientPanel panel in m_DashboardPanelList)
+            {
+                panel.GradientColorA = Stylesheet.color_PanelColorA;
+                panel.GradientColorB = Stylesheet.color_PanelColorB;
+                panel.GradientAngle = 90F;
+            }
+
+            // Enforcing visual styles (in case of designer auto change)
             this.BackColor = System.Drawing.Color.Transparent;
             this.labelName.Font = Stylesheet.font_Header1;
             this.labelBio1.Font = Stylesheet.font_Header3;
@@ -45,38 +65,39 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelFriends.Visible = false;
             this.panelTopPost.Visible = false;
             this.labelError.Visible = true;
+            this.labelError.BringToFront();
         }
 
         public void UpdateDashboardUI()
         {
-            ////Dynamic Label Positions
-            ///BioPanel
-            //labelName
+            //// Dynamic Label Positions
+            /// BioPanel
+            // labelName
             this.labelName.Location = new System.Drawing.Point(
                 this.pictureBoxBioProfilePic.Location.X,
                 this.pictureBoxBioProfilePic.Bottom);
             this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
-            //labelBio1
+            // labelBio1
             this.labelBio1.Location = new System.Drawing.Point(this.labelName.Location.X, this.labelName.Bottom);
             this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 22);
-            //labelBio2
+            // labelBio2
             this.labelBio2.Location = new System.Drawing.Point(this.labelBio1.Location.X, this.labelBio1.Bottom);
             this.labelBio2.Size = new System.Drawing.Size(this.labelBio1.Width, this.labelBio1.Height);
             this.labelBio2.Padding = this.labelBio1.Padding;
             this.labelBio2.Margin = this.labelBio1.Margin;
-            //labelBio3
+            // labelBio3
             this.labelBio3.Location = new System.Drawing.Point(this.labelBio2.Location.X, this.labelBio2.Bottom);
             this.labelBio3.Size = new System.Drawing.Size(this.labelBio2.Width, this.labelBio2.Height);
             this.labelBio3.Padding = this.labelBio2.Padding;
             this.labelBio3.Margin = this.labelBio2.Margin;
-            //labelRecentStatusUpdateTltle
+            // labelRecentStatusUpdateTltle
             this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(
                 this.labelBio3.Location.X,
                 this.labelBio3.Bottom);
             this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(
                 this.labelBio3.Width,
                 this.labelRecentStatusUpdateTitle.Height);
-            //labelRecentStatusUpdateContent
+            // labelRecentStatusUpdateContent
             this.labelRecentStatusUpdateContent.Location = new System.Drawing.Point(
                 this.labelRecentStatusUpdateTitle.Location.X,
                 this.labelRecentStatusUpdateTitle.Bottom);
@@ -90,7 +111,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(
                 this.labelRecentStatusUpdateContent.Width,
                 171);
-            //labelRecentStatusUpdateDateTime
+            // labelRecentStatusUpdateDateTime
             this.labelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(
                 this.labelRecentStatusUpdateContent.Location.X,
                 this.labelRecentStatusUpdateContent.Bottom);
@@ -103,26 +124,26 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(
                 this.labelRecentStatusUpdateDateTime.Width,
                 30);
-            ///TopPost Panel
-            //pictureBoxTopPost
+            /// TopPost Panel
+            // pictureBoxTopPost
             this.pictureBoxTopPost.Location = new System.Drawing.Point(
                 this.pictureBoxTopPost.Location.X,
                 this.labelTopPostLikes.Top);
-            //labelTopPostComments
+            // labelTopPostComments
             this.labelTopPostComments.Location = new System.Drawing.Point(
                 this.labelTopPostLikes.Location.X,
                 this.labelTopPostLikes.Bottom);
             this.labelTopPostComments.Size = new System.Drawing.Size(
                 this.labelTopPostLikes.Width,
                 this.labelTopPostLikes.Height);
-            //labelTopPostCaptionTitle
+            // labelTopPostCaptionTitle
             this.labelTopPostCaptionTitle.Location = new System.Drawing.Point(
                 this.labelTopPostComments.Location.X,
                 this.labelTopPostComments.Bottom);
             this.labelTopPostCaptionTitle.Size = new System.Drawing.Size(
                 this.labelTopPostComments.Width,
                 this.labelTopPostCaptionTitle.Height);
-            //labelTopPostCaptionContent
+            // labelTopPostCaptionContent
             this.labelTopPostCaptionContent.Location = new System.Drawing.Point(
                 this.labelTopPostCaptionTitle.Location.X,
                 this.labelTopPostCaptionTitle.Bottom);
@@ -134,7 +155,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 0);
             this.labelTopPostCaptionContent.MaximumSize =
                 new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 171);
-            //labelTopPostCaptionDateTime
+            // labelTopPostCaptionDateTime
             this.labelTopPostCaptionDateTime.Location = new System.Drawing.Point(
                 this.labelTopPostCaptionContent.Location.X,
                 this.labelTopPostCaptionContent.Bottom);
@@ -146,5 +167,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostCaptionDateTime.MaximumSize =
                 new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 30);
         }
+        #endregion
     }
 }

@@ -11,6 +11,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
     public class BoostSettings
     {
+        #region Data Members & Properties
         public bool FirstLogin { get; set; }
 
         public bool RememberUser { get; set; }
@@ -26,7 +27,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         public List<DateAndValue> FriendCounter;
 
         private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
+        #endregion
 
+        #region Ctor
         private BoostSettings()
         {
             FirstLogin = true;
@@ -36,7 +39,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             StartupPath = Application.StartupPath;
             FriendCounter = new List<DateAndValue>();
         }
+        #endregion
 
+        #region Methods
         public static BoostSettings LoadAppSettingsFromFile()
         {
             BoostSettings appSettings = null;
@@ -96,5 +101,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
             return FirstLogin;
         }
+        #endregion
     }
 }

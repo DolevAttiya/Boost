@@ -6,11 +6,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public class BiggestFanAnalysis : Analysis, IAnalysis
     {
+        #region Ctor
         public BiggestFanAnalysis()
         {
             initializeComponents();
         }
+        #endregion
 
+        #region Methods
         private void initializeComponents()
         {
             PhotosDictionary = new Dictionary<object, int>();
@@ -40,19 +43,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             }
             catch(Exception e)
             {
-                throw new Exception("Couldn't get one post or more",e);
+                throw new Exception("Couldn't get one post or more", e);
             }
         }
 
         public IAnalysis CreateAnalysisByTimeFrame(
-            User i_UserToDoAnalysisOn,
+            User i_AnalysisUser,
             eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             initializeComponents();
-            AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
+            AddByType(i_AnalysisUser, i_TimeFrame);
 
             return this;
         }
-        
+        #endregion
     }
 }
