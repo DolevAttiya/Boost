@@ -141,7 +141,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         BoostEn.LoggedInUser,
                         eTimeSelector.Month));
             }
-            catch(NullReferenceException e)
+            catch(NullReferenceException e)//TODO
             {
                 //Display error message
             }
@@ -203,17 +203,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
 
             ///Friends Panel
-            if(BoostEn.m_FriendChange != 0)
+            if(BoostEn.FriendChange != 0)
             {
                 dashboard.labelFriendsChange.Visible = true;
-                if(BoostEn.m_FriendChange > 0)
+                if(BoostEn.FriendChange > 0)
                 {
-                    dashboard.labelFriendsChange.Text = "+" + BoostEn.m_FriendChange.ToString();
+                    dashboard.labelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
                 }
                 else
                 {
-                    dashboard.labelFriendsChange.Text = BoostEn.m_FriendChange.ToString();
+                    dashboard.labelFriendsChange.Text = BoostEn.FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
                 }
             }
