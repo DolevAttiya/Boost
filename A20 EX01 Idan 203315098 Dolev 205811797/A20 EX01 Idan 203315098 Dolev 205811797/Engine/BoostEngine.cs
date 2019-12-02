@@ -7,17 +7,30 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
     public class BoostEngine
     {
-        private const int k_CollectionLimit = 50; ////Login method
-        public const int k_NumOfBiggestFans = 3;
-        public const int k_NumOfFriendCounters = 3;
-        public readonly int k_NumOfPostsForEngagement = 10;
-        private const string k_AppId = "748532218946260";
-        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
-        public DateAndValue[] m_Engagement_RecentPostLikes;
-        public DateAndValue[] m_Engagement_RecentPostComments;
-        public int m_FriendChange=0;
-        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
+        #region Data Members & Properties
+        #region Data Members
+        private const int k_CollectionLimit = 50; //For Login method
 
+        public const int k_NumOfBiggestFans = 3;
+
+        public const int k_NumOfFriendCounters = 3;
+
+        public readonly int k_NumOfPostsForEngagement = 10;
+
+        private const string k_AppId = "748532218946260";
+
+        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+
+        public DateAndValue[] m_Engagement_RecentPostLikes;
+
+        public DateAndValue[] m_Engagement_RecentPostComments;
+
+        public int m_FriendChange=0;
+
+        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
+        #endregion
+
+        #region Properties
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
@@ -25,13 +38,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         public IAnalysis TimeAnalysis { get; private set; }
 
         public IAnalysis BiggestFanAnalysis { get; private set; }
+        #endregion
+        #endregion
 
+        #region Ctor
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
         }
+        #endregion
 
+        #region Methods
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -197,5 +215,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
             return mostLikedPost;
         }
+        #endregion
     }
 }
