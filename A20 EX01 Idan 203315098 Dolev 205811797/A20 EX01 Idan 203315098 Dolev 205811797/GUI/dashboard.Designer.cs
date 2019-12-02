@@ -2,7 +2,7 @@
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
-    partial class Dashboard
+    public partial class Dashboard
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,8 +36,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTopPost = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.labelTopPostError = new System.Windows.Forms.Label();
             this.pictureBoxTopPost = new System.Windows.Forms.PictureBox();
             this.labelTopPostCaptionDateTime = new System.Windows.Forms.Label();
             this.labelTopPostCaptionContent = new System.Windows.Forms.Label();
@@ -46,9 +51,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostLikes = new System.Windows.Forms.Label();
             this.labelTopPost = new System.Windows.Forms.Label();
             this.panelFriends = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.labelFriendsChange = new System.Windows.Forms.Label();
             this.chartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelFriends = new System.Windows.Forms.Label();
             this.panelEngagement = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.chartEngagement = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labelEngagement = new System.Windows.Forms.Label();
             this.panelUserBio = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
@@ -65,6 +72,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelFriends.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).BeginInit();
             this.panelEngagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEngagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panelUserBio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBioProfilePic)).BeginInit();
@@ -74,6 +82,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             this.panelTopPost.AutoScroll = true;
             this.panelTopPost.BackColor = System.Drawing.Color.White;
+            this.panelTopPost.Controls.Add(this.labelTopPostError);
             this.panelTopPost.Controls.Add(this.pictureBoxTopPost);
             this.panelTopPost.Controls.Add(this.labelTopPostCaptionDateTime);
             this.panelTopPost.Controls.Add(this.labelTopPostCaptionContent);
@@ -82,12 +91,26 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelTopPost.Controls.Add(this.labelTopPostLikes);
             this.panelTopPost.Controls.Add(this.labelTopPost);
             this.panelTopPost.GradientAngle = 90F;
-            this.panelTopPost.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelTopPost.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelTopPost.GradientColorA = System.Drawing.Color.White;
+            this.panelTopPost.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelTopPost.Location = new System.Drawing.Point(272, 257);
             this.panelTopPost.Name = "panelTopPost";
             this.panelTopPost.Size = new System.Drawing.Size(363, 266);
             this.panelTopPost.TabIndex = 3;
+            // 
+            // labelTopPostError
+            // 
+            this.labelTopPostError.AutoSize = true;
+            this.labelTopPostError.BackColor = System.Drawing.Color.Transparent;
+            this.labelTopPostError.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostError.ForeColor = System.Drawing.Color.DarkRed;
+            this.labelTopPostError.Location = new System.Drawing.Point(11, 45);
+            this.labelTopPostError.MaximumSize = new System.Drawing.Size(230, 230);
+            this.labelTopPostError.Name = "labelTopPostError";
+            this.labelTopPostError.Size = new System.Drawing.Size(84, 28);
+            this.labelTopPostError.TabIndex = 12;
+            this.labelTopPostError.Text = "label1";
+            this.labelTopPostError.Visible = false;
             // 
             // pictureBoxTopPost
             // 
@@ -105,8 +128,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostCaptionDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostCaptionDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostCaptionDateTime.Font = UI_Elements.font_Body;
-            this.labelTopPostCaptionDateTime.ForeColor = UI_Elements.color_Main;
+            this.labelTopPostCaptionDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostCaptionDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostCaptionDateTime.Location = new System.Drawing.Point(8, 235);
             this.labelTopPostCaptionDateTime.Margin = new System.Windows.Forms.Padding(0);
             this.labelTopPostCaptionDateTime.MaximumSize = new System.Drawing.Size(200, 30);
@@ -123,8 +146,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostCaptionContent.AutoSize = true;
             this.labelTopPostCaptionContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostCaptionContent.Font = UI_Elements.font_BodyItalics;
-            this.labelTopPostCaptionContent.ForeColor = UI_Elements.color_Main;
+            this.labelTopPostCaptionContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostCaptionContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostCaptionContent.Location = new System.Drawing.Point(10, 173);
             this.labelTopPostCaptionContent.MaximumSize = new System.Drawing.Size(200, 89);
             this.labelTopPostCaptionContent.MinimumSize = new System.Drawing.Size(200, 2);
@@ -139,8 +162,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostCaptionTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostCaptionTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostCaptionTitle.Font = UI_Elements.font_Header2Underline;
-            this.labelTopPostCaptionTitle.ForeColor = UI_Elements.color_Main;
+            this.labelTopPostCaptionTitle.Font = new System.Drawing.Font("Century Gothic", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostCaptionTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostCaptionTitle.Location = new System.Drawing.Point(11, 132);
             this.labelTopPostCaptionTitle.Name = "labelTopPostCaptionTitle";
             this.labelTopPostCaptionTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
@@ -154,8 +177,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostComments.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostComments.Font = UI_Elements.font_Header3;
-            this.labelTopPostComments.ForeColor = UI_Elements.color_Main;
+            this.labelTopPostComments.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostComments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostComments.Location = new System.Drawing.Point(9, 68);
             this.labelTopPostComments.Margin = new System.Windows.Forms.Padding(0);
             this.labelTopPostComments.Name = "labelTopPostComments";
@@ -169,8 +192,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPostLikes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPostLikes.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPostLikes.Font = UI_Elements.font_Header3;
-            this.labelTopPostLikes.ForeColor = UI_Elements.color_Main;
+            this.labelTopPostLikes.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPostLikes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPostLikes.Location = new System.Drawing.Point(9, 40);
             this.labelTopPostLikes.Margin = new System.Windows.Forms.Padding(0);
             this.labelTopPostLikes.Name = "labelTopPostLikes";
@@ -184,8 +207,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelTopPost.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelTopPost.BackColor = System.Drawing.Color.Transparent;
-            this.labelTopPost.Font = UI_Elements.font_Header2;
-            this.labelTopPost.ForeColor = UI_Elements.color_Main;
+            this.labelTopPost.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTopPost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelTopPost.Location = new System.Drawing.Point(0, 0);
             this.labelTopPost.Name = "labelTopPost";
             this.labelTopPost.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -199,15 +222,33 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelFriends.AutoScroll = true;
             this.panelFriends.BackColor = System.Drawing.Color.White;
+            this.panelFriends.Controls.Add(this.labelFriendsChange);
             this.panelFriends.Controls.Add(this.chartFriends);
             this.panelFriends.Controls.Add(this.labelFriends);
             this.panelFriends.GradientAngle = 90F;
-            this.panelFriends.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelFriends.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelFriends.GradientColorA = System.Drawing.Color.White;
+            this.panelFriends.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelFriends.Location = new System.Drawing.Point(658, 257);
             this.panelFriends.Name = "panelFriends";
             this.panelFriends.Size = new System.Drawing.Size(363, 266);
             this.panelFriends.TabIndex = 2;
+            // 
+            // labelFriendsChange
+            // 
+            this.labelFriendsChange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelFriendsChange.BackColor = System.Drawing.Color.Transparent;
+            this.labelFriendsChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.labelFriendsChange.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFriendsChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelFriendsChange.Location = new System.Drawing.Point(203, 15);
+            this.labelFriendsChange.Name = "labelFriendsChange";
+            this.labelFriendsChange.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.labelFriendsChange.Size = new System.Drawing.Size(125, 27);
+            this.labelFriendsChange.TabIndex = 4;
+            this.labelFriendsChange.Text = "+X";
+            this.labelFriendsChange.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelFriendsChange.Visible = false;
             // 
             // chartFriends
             // 
@@ -244,12 +285,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelFriends.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelFriends.BackColor = System.Drawing.Color.Transparent;
-            this.labelFriends.Font = UI_Elements.font_Header2;
-            this.labelFriends.ForeColor = UI_Elements.color_Main;
+            this.labelFriends.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFriends.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelFriends.Location = new System.Drawing.Point(0, 0);
             this.labelFriends.Name = "labelFriends";
             this.labelFriends.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.labelFriends.Size = new System.Drawing.Size(363, 35);
+            this.labelFriends.Size = new System.Drawing.Size(168, 52);
             this.labelFriends.TabIndex = 2;
             this.labelFriends.Text = "Friends";
             // 
@@ -257,75 +298,118 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             this.panelEngagement.AutoScroll = true;
             this.panelEngagement.BackColor = System.Drawing.Color.White;
+            this.panelEngagement.Controls.Add(this.chartEngagement);
             this.panelEngagement.Controls.Add(this.chart1);
             this.panelEngagement.Controls.Add(this.labelEngagement);
             this.panelEngagement.GradientAngle = 90F;
-            this.panelEngagement.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelEngagement.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelEngagement.GradientColorA = System.Drawing.Color.White;
+            this.panelEngagement.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelEngagement.Location = new System.Drawing.Point(272, 0);
             this.panelEngagement.Name = "panelEngagement";
             this.panelEngagement.Size = new System.Drawing.Size(749, 239);
             this.panelEngagement.TabIndex = 1;
             // 
-            // chart1
+            // chartEngagement
             // 
-            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chartEngagement.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Enabled = false;
             chartArea2.AxisX.LineColor = System.Drawing.Color.DimGray;
             chartArea2.AxisX.LineWidth = 2;
             chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
             chartArea2.AxisY.LineColor = System.Drawing.Color.DimGray;
             chartArea2.AxisY.LineWidth = 2;
             chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
             chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 95F;
-            chartArea2.Position.Width = 85F;
-            chartArea2.Position.Y = 3F;
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend1.AutoFitMinFontSize = 8;
+            this.chartEngagement.ChartAreas.Add(chartArea2);
+            legend1.Alignment = System.Drawing.StringAlignment.Center;
             legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend1.IsTextAutoFit = false;
-            legend1.MaximumAutoSize = 40F;
+            legend1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend1.Name = "Legend1";
-            legend1.Position.Auto = false;
-            legend1.Position.Height = 28F;
-            legend1.Position.Width = 14F;
-            legend1.Position.X = 86F;
-            legend1.Position.Y = 15F;
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(13, 28);
-            this.chart1.Name = "chart1";
+            legend1.TitleBackColor = System.Drawing.Color.Transparent;
+            this.chartEngagement.Legends.Add(legend1);
+            this.chartEngagement.Location = new System.Drawing.Point(14, 28);
+            this.chartEngagement.Margin = new System.Windows.Forms.Padding(2);
+            this.chartEngagement.Name = "chartEngagement";
             series2.ChartArea = "ChartArea1";
-            series2.IsValueShownAsLabel = true;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series2.Color = System.Drawing.Color.DarkOrange;
             series2.Legend = "Legend1";
-            series2.Name = "Photos";
+            series2.Name = "Likes";
             series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             series3.ChartArea = "ChartArea1";
-            series3.IsValueShownAsLabel = true;
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+            series3.Color = System.Drawing.Color.Teal;
             series3.Legend = "Legend1";
-            series3.Name = "Videos";
+            series3.Name = "Comments";
             series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            this.chartEngagement.Series.Add(series2);
+            this.chartEngagement.Series.Add(series3);
+            this.chartEngagement.Size = new System.Drawing.Size(724, 203);
+            this.chartEngagement.TabIndex = 2;
+            this.chartEngagement.Text = "chartEngagement";
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.AxisX.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisX.LineWidth = 2;
+            chartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.AxisY.LineColor = System.Drawing.Color.DimGray;
+            chartArea3.AxisY.LineWidth = 2;
+            chartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea3.BackColor = System.Drawing.Color.Transparent;
+            chartArea3.Name = "ChartArea1";
+            chartArea3.Position.Auto = false;
+            chartArea3.Position.Height = 95F;
+            chartArea3.Position.Width = 85F;
+            chartArea3.Position.Y = 3F;
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend2.AutoFitMinFontSize = 8;
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend2.IsTextAutoFit = false;
+            legend2.MaximumAutoSize = 40F;
+            legend2.Name = "Legend1";
+            legend2.Position.Auto = false;
+            legend2.Position.Height = 28F;
+            legend2.Position.Width = 14F;
+            legend2.Position.X = 86F;
+            legend2.Position.Y = 15F;
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(13, 28);
+            this.chart1.Name = "chart1";
             series4.ChartArea = "ChartArea1";
             series4.IsValueShownAsLabel = true;
             series4.Legend = "Legend1";
-            series4.Name = "Status";
+            series4.Name = "Photos";
             series4.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
-            this.chart1.Series.Add(series2);
-            this.chart1.Series.Add(series3);
+            series5.ChartArea = "ChartArea1";
+            series5.IsValueShownAsLabel = true;
+            series5.Legend = "Legend1";
+            series5.Name = "Videos";
+            series5.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
+            series6.ChartArea = "ChartArea1";
+            series6.IsValueShownAsLabel = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Status";
+            series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Date;
             this.chart1.Series.Add(series4);
+            this.chart1.Series.Add(series5);
+            this.chart1.Series.Add(series6);
             this.chart1.Size = new System.Drawing.Size(726, 208);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
             // 
             // labelEngagement
             // 
             this.labelEngagement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelEngagement.BackColor = System.Drawing.Color.Transparent;
-            this.labelEngagement.Font = UI_Elements.font_Header2;
-            this.labelEngagement.ForeColor = UI_Elements.color_Main;
+            this.labelEngagement.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEngagement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelEngagement.Location = new System.Drawing.Point(0, 0);
             this.labelEngagement.Name = "labelEngagement";
             this.labelEngagement.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -346,8 +430,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelUserBio.Controls.Add(this.labelName);
             this.panelUserBio.Controls.Add(this.pictureBoxBioProfilePic);
             this.panelUserBio.GradientAngle = 90F;
-            this.panelUserBio.GradientColorA = UI_Elements.color_PanelColorA;
-            this.panelUserBio.GradientColorB = UI_Elements.color_PanelColorB;
+            this.panelUserBio.GradientColorA = System.Drawing.Color.White;
+            this.panelUserBio.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
             this.panelUserBio.Location = new System.Drawing.Point(0, 0);
             this.panelUserBio.Name = "panelUserBio";
             this.panelUserBio.Size = new System.Drawing.Size(250, 523);
@@ -358,8 +442,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelRecentStatusUpdateDateTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRecentStatusUpdateDateTime.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentStatusUpdateDateTime.Font = UI_Elements.font_Body;
-            this.labelRecentStatusUpdateDateTime.ForeColor = UI_Elements.color_Main;
+            this.labelRecentStatusUpdateDateTime.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateDateTime.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(22, 491);
             this.labelRecentStatusUpdateDateTime.Margin = new System.Windows.Forms.Padding(0);
             this.labelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(200, 30);
@@ -376,8 +460,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRecentStatusUpdateContent.AutoSize = true;
             this.labelRecentStatusUpdateContent.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentStatusUpdateContent.Font = UI_Elements.font_BodyItalics;
-            this.labelRecentStatusUpdateContent.ForeColor = UI_Elements.color_Main;
+            this.labelRecentStatusUpdateContent.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentStatusUpdateContent.Location = new System.Drawing.Point(24, 402);
             this.labelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(200, 89);
             this.labelRecentStatusUpdateContent.MinimumSize = new System.Drawing.Size(200, 2);
@@ -392,12 +476,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelRecentStatusUpdateTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelRecentStatusUpdateTitle.BackColor = System.Drawing.Color.Transparent;
-            this.labelRecentStatusUpdateTitle.Font = UI_Elements.font_Header2Underline;
-            this.labelRecentStatusUpdateTitle.ForeColor = UI_Elements.color_Main;
+            this.labelRecentStatusUpdateTitle.Font = new System.Drawing.Font("Century Gothic", 13F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecentStatusUpdateTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(25, 361);
             this.labelRecentStatusUpdateTitle.Name = "labelRecentStatusUpdateTitle";
             this.labelRecentStatusUpdateTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 7);
-            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 42);
+            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(200, 60);
             this.labelRecentStatusUpdateTitle.TabIndex = 5;
             this.labelRecentStatusUpdateTitle.Text = "Recent Status Update";
             this.labelRecentStatusUpdateTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -407,11 +491,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio3.BackColor = System.Drawing.Color.Transparent;
-            this.labelBio3.Font = UI_Elements.font_Header3;
-            this.labelBio3.ForeColor = UI_Elements.color_Main;
+            this.labelBio3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio3.Location = new System.Drawing.Point(25, 333);
             this.labelBio3.Name = "labelBio3";
-            this.labelBio3.Size = new System.Drawing.Size(200, 19);
+            this.labelBio3.Size = new System.Drawing.Size(200, 37);
             this.labelBio3.TabIndex = 4;
             this.labelBio3.Text = "Detail 3";
             this.labelBio3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -421,11 +505,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio2.BackColor = System.Drawing.Color.Transparent;
-            this.labelBio2.Font = UI_Elements.font_Header3;
-            this.labelBio2.ForeColor = UI_Elements.color_Main;
+            this.labelBio2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio2.Location = new System.Drawing.Point(25, 305);
             this.labelBio2.Name = "labelBio2";
-            this.labelBio2.Size = new System.Drawing.Size(200, 19);
+            this.labelBio2.Size = new System.Drawing.Size(200, 37);
             this.labelBio2.TabIndex = 3;
             this.labelBio2.Text = "Detail 2";
             this.labelBio2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,12 +519,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelBio1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.labelBio1.BackColor = System.Drawing.Color.Transparent;
-            this.labelBio1.Font = UI_Elements.font_Header3;
-            this.labelBio1.ForeColor = UI_Elements.color_Main;
+            this.labelBio1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBio1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelBio1.Location = new System.Drawing.Point(25, 277);
             this.labelBio1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBio1.Name = "labelBio1";
-            this.labelBio1.Size = new System.Drawing.Size(200, 19);
+            this.labelBio1.Size = new System.Drawing.Size(200, 37);
             this.labelBio1.TabIndex = 2;
             this.labelBio1.Text = "Detail 1";
             this.labelBio1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -449,8 +533,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             this.labelName.AutoSize = true;
             this.labelName.BackColor = System.Drawing.Color.Transparent;
-            this.labelName.Font = UI_Elements.font_Header1;
-            this.labelName.ForeColor = UI_Elements.color_Main;
+            this.labelName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.labelName.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelName.Location = new System.Drawing.Point(25, 232);
             this.labelName.MaximumSize = new System.Drawing.Size(250, 0);
@@ -490,6 +574,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelFriends.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartFriends)).EndInit();
             this.panelEngagement.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartEngagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panelUserBio.ResumeLayout(false);
             this.panelUserBio.PerformLayout();
@@ -516,6 +601,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public System.Windows.Forms.Label labelRecentStatusUpdateContent;
         public System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         public System.Windows.Forms.DataVisualization.Charting.Chart chartFriends;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chartEngagement;
         public System.Windows.Forms.Label labelRecentStatusUpdateDateTime;
         public System.Windows.Forms.Label labelTopPostCaptionDateTime;
         public System.Windows.Forms.Label labelTopPostCaptionContent;
@@ -523,5 +609,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public System.Windows.Forms.Label labelTopPostComments;
         public System.Windows.Forms.Label labelTopPostLikes;
         public System.Windows.Forms.PictureBox pictureBoxTopPost;
+        public System.Windows.Forms.Label labelFriendsChange;
+        public System.Windows.Forms.Label labelTopPostError;
     }
 }

@@ -13,6 +13,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
     {
 
         public List<Button> m_NavbarButtons = new List<Button>();
+
         public Navbar()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 button.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
                 button.Name = "btn" + page.ToString();
                 button.Size = new System.Drawing.Size(buttonWidth, buttonHeight);
-                button.TabIndex = (byte)page+2;
+                button.TabIndex = (byte)page + 2;
                 button.Text = page.ToString().ToUpper();
                 button.UseVisualStyleBackColor = false;
                 this.Controls.Add(button);
@@ -51,7 +52,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
                 X += buttonWidth + buttonSpacing;
             }
-            
         }
     }
 }

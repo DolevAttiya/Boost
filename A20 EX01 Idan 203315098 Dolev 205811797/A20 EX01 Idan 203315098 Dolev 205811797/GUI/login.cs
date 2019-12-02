@@ -12,42 +12,44 @@ using Facebook;
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
 
-    public delegate void LoginEventHandler();
+    public delegate void LoginEventHandler(); //?
 
     public partial class Login : UserControl
     {
 
-        private LoginEventHandler m_LoginEvent;
+        public LoginEventHandler m_LoginEvent; //? 
 
         public Login()
         {
             InitializeComponent();
+            loginPageSetup();
             pictureBoxFBLogin.MouseEnter += new EventHandler(PictureBoxFBLogin_MouseEnter);
             pictureBoxFBLogin.MouseLeave += new EventHandler(PictureBoxFBLogin_MouseLeave);
         }
 
-        void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
+        private void loginPageSetup()
+        {
+            this.labelLoading.Location = new Point(this.labelLoading.Location.X, this.checkBoxRememberUser.Bottom + 10);
+            this.labelLoginError.Location = new Point(this.labelLoginError.Location.X, this.labelLoading.Location.Y);
+        }
+
+        private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
         {
             this.pictureBoxFBLogin.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.fbLogin));
         }
 
 
-        void PictureBoxFBLogin_MouseEnter(object sender, EventArgs e)
+        private void PictureBoxFBLogin_MouseEnter(object sender, EventArgs e)
         {
             this.pictureBoxFBLogin.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.fbLogin_rollover));
         }
 
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)
         {
-            m_LoginEvent.Invoke();
+            this.labelLoading.Visible = true;
+            m_LoginEvent.Invoke(); // ? invoke login method from engine?
             this.Visible = false;
 
         }
-
-        public void RegisterLoginMethod(Boost i_BoostForm)
-        {
-            m_LoginEvent += new LoginEventHandler(i_BoostForm.FacebookLogin);
-        }
-
     }
 }

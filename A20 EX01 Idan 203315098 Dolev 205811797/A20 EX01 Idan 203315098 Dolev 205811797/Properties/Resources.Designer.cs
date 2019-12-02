@@ -103,9 +103,29 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Mockup_Main_copy {
+        internal static System.Drawing.Bitmap WelcomeScreen_StartDefault {
             get {
-                object obj = ResourceManager.GetObject("Mockup_Main copy", resourceCulture);
+                object obj = ResourceManager.GetObject("WelcomeScreen_StartDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WelcomeScreen_StartRollover {
+            get {
+                object obj = ResourceManager.GetObject("WelcomeScreen_StartRollover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WelcomeScreen_v4 {
+            get {
+                object obj = ResourceManager.GetObject("WelcomeScreen_v4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
