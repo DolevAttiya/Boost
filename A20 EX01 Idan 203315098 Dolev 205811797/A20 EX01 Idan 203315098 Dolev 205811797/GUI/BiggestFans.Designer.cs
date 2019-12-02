@@ -30,11 +30,11 @@
         private void InitializeComponent()
         {
             this.gradientPanel3 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.BiggestFriendBronzeLable = new System.Windows.Forms.Label();
+            this.BiggestFanBronzeLable = new System.Windows.Forms.Label();
             this.gradientPanel2 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.BiggestFriendSilverLable = new System.Windows.Forms.Label();
+            this.BiggestFanSilverLable = new System.Windows.Forms.Label();
             this.gradientPanel1 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.BiggestFriendGoldLable = new System.Windows.Forms.Label();
+            this.BiggestFanGoldLable = new System.Windows.Forms.Label();
             this.gradientPanel3.SuspendLayout();
             this.gradientPanel2.SuspendLayout();
             this.gradientPanel1.SuspendLayout();
@@ -45,7 +45,7 @@
             this.gradientPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gradientPanel3.Controls.Add(this.BiggestFriendBronzeLable);
+            this.gradientPanel3.Controls.Add(this.BiggestFanBronzeLable);
             this.gradientPanel3.GradientAngle = 0F;
             this.gradientPanel3.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(68)))), ((int)(((byte)(27)))));
             this.gradientPanel3.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(105)))), ((int)(((byte)(83)))));
@@ -56,23 +56,23 @@
             // 
             // BiggestFriendBronzeLable
             // 
-            this.BiggestFriendBronzeLable.BackColor = System.Drawing.Color.Transparent;
-            this.BiggestFriendBronzeLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BiggestFriendBronzeLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.BiggestFriendBronzeLable.Location = new System.Drawing.Point(0, 0);
-            this.BiggestFriendBronzeLable.Margin = new System.Windows.Forms.Padding(0);
-            this.BiggestFriendBronzeLable.Name = "BiggestFriendBronzeLable";
-            this.BiggestFriendBronzeLable.Size = new System.Drawing.Size(960, 100);
-            this.BiggestFriendBronzeLable.TabIndex = 0;
-            this.BiggestFriendBronzeLable.Text = "Jane Doe | Likes: X | Comments: Y";
-            this.BiggestFriendBronzeLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BiggestFanBronzeLable.BackColor = System.Drawing.Color.Transparent;
+            this.BiggestFanBronzeLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BiggestFanBronzeLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BiggestFanBronzeLable.Location = new System.Drawing.Point(0, 0);
+            this.BiggestFanBronzeLable.Margin = new System.Windows.Forms.Padding(0);
+            this.BiggestFanBronzeLable.Name = "BiggestFriendBronzeLable";
+            this.BiggestFanBronzeLable.Size = new System.Drawing.Size(960, 100);
+            this.BiggestFanBronzeLable.TabIndex = 0;
+            this.BiggestFanBronzeLable.Text = "Jane Doe | Likes: X | Comments: Y";
+            this.BiggestFanBronzeLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gradientPanel2
             // 
             this.gradientPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gradientPanel2.Controls.Add(this.BiggestFriendSilverLable);
+            this.gradientPanel2.Controls.Add(this.BiggestFanSilverLable);
             this.gradientPanel2.GradientAngle = 0F;
             this.gradientPanel2.GradientColorA = System.Drawing.Color.Silver;
             this.gradientPanel2.GradientColorB = System.Drawing.Color.Gainsboro;
@@ -83,23 +83,23 @@
             // 
             // BiggestFriendSilverLable
             // 
-            this.BiggestFriendSilverLable.BackColor = System.Drawing.Color.Transparent;
-            this.BiggestFriendSilverLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BiggestFriendSilverLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.BiggestFriendSilverLable.Location = new System.Drawing.Point(0, 0);
-            this.BiggestFriendSilverLable.Margin = new System.Windows.Forms.Padding(0);
-            this.BiggestFriendSilverLable.Name = "BiggestFriendSilverLable";
-            this.BiggestFriendSilverLable.Size = new System.Drawing.Size(960, 100);
-            this.BiggestFriendSilverLable.TabIndex = 0;
-            this.BiggestFriendSilverLable.Text = "Jane Doe | Likes: X | Comments: Y";
-            this.BiggestFriendSilverLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BiggestFanSilverLable.BackColor = System.Drawing.Color.Transparent;
+            this.BiggestFanSilverLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BiggestFanSilverLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BiggestFanSilverLable.Location = new System.Drawing.Point(0, 0);
+            this.BiggestFanSilverLable.Margin = new System.Windows.Forms.Padding(0);
+            this.BiggestFanSilverLable.Name = "BiggestFriendSilverLable";
+            this.BiggestFanSilverLable.Size = new System.Drawing.Size(960, 100);
+            this.BiggestFanSilverLable.TabIndex = 0;
+            this.BiggestFanSilverLable.Text = "Jane Doe | Likes: X | Comments: Y";
+            this.BiggestFanSilverLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gradientPanel1
             // 
             this.gradientPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gradientPanel1.Controls.Add(this.BiggestFriendGoldLable);
+            this.gradientPanel1.Controls.Add(this.BiggestFanGoldLable);
             this.gradientPanel1.GradientAngle = 0F;
             this.gradientPanel1.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(160)))), ((int)(((byte)(54)))));
             this.gradientPanel1.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(200)))), ((int)(((byte)(75)))));
@@ -110,16 +110,16 @@
             // 
             // BiggestFriendGoldLable
             // 
-            this.BiggestFriendGoldLable.BackColor = System.Drawing.Color.Transparent;
-            this.BiggestFriendGoldLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BiggestFriendGoldLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.BiggestFriendGoldLable.Location = new System.Drawing.Point(0, 0);
-            this.BiggestFriendGoldLable.Margin = new System.Windows.Forms.Padding(0);
-            this.BiggestFriendGoldLable.Name = "BiggestFriendGoldLable";
-            this.BiggestFriendGoldLable.Size = new System.Drawing.Size(960, 100);
-            this.BiggestFriendGoldLable.TabIndex = 0;
-            this.BiggestFriendGoldLable.Text = "Jane Doe | Likes: X | Comments: Y";
-            this.BiggestFriendGoldLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.BiggestFanGoldLable.BackColor = System.Drawing.Color.Transparent;
+            this.BiggestFanGoldLable.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BiggestFanGoldLable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BiggestFanGoldLable.Location = new System.Drawing.Point(0, 0);
+            this.BiggestFanGoldLable.Margin = new System.Windows.Forms.Padding(0);
+            this.BiggestFanGoldLable.Name = "BiggestFriendGoldLable";
+            this.BiggestFanGoldLable.Size = new System.Drawing.Size(960, 100);
+            this.BiggestFanGoldLable.TabIndex = 0;
+            this.BiggestFanGoldLable.Text = "Jane Doe | Likes: X | Comments: Y";
+            this.BiggestFanGoldLable.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BiggestFans
             // 
@@ -141,10 +141,10 @@
         #endregion
 
         private GUI.GradientPanel gradientPanel1;
-        private System.Windows.Forms.Label BiggestFriendGoldLable;
-        private System.Windows.Forms.Label BiggestFriendSilverLable;
+        private System.Windows.Forms.Label BiggestFanGoldLable;
+        private System.Windows.Forms.Label BiggestFanSilverLable;
         private GUI.GradientPanel gradientPanel2;
         private GUI.GradientPanel gradientPanel3;
-        private System.Windows.Forms.Label BiggestFriendBronzeLable;
+        private System.Windows.Forms.Label BiggestFanBronzeLable;
     }
 }

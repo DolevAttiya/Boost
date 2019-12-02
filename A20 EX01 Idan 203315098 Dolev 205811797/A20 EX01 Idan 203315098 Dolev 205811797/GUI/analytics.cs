@@ -11,6 +11,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             analyticsInitialSetup();
         }
 
+        public void DisplayAnalyticsErrorMessage()
+        {
+            this.panel1.Visible = false;
+            this.labelError.Visible = true;
+        }
+
         private void analyticsInitialSetup()
         {
             this.BackColor = System.Drawing.Color.Transparent;

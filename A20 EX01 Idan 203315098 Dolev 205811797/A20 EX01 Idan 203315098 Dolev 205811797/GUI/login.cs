@@ -11,7 +11,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
     public partial class Login : UserControl
     {
 
-        public LoginEventHandler m_LoginEvent; //? 
+        public LoginEventHandler m_LoginEvent; 
+        public const string k_LoginFailedMessage = "LOGIN FAILED! PLEASE TRY AGAIN!";
 
         public Login()
         {
@@ -25,6 +26,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             this.labelLoading.Location = new Point(this.labelLoading.Location.X, this.checkBoxRememberUser.Bottom + 10);
             this.labelLoginError.Location = new Point(this.labelLoginError.Location.X, this.labelLoading.Location.Y);
+            this.labelLoginError.Text = k_LoginFailedMessage;
         }
 
         private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)

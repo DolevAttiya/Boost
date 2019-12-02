@@ -11,19 +11,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
     
     public partial class BiggestFans : UserControl
     {
-        private readonly List<Label> r_BiggestFriendsScore;
+        private readonly List<Label> r_BiggestFanLeaderboard;
         public BiggestFans()
         {
             InitializeComponent();
-            r_BiggestFriendsScore = new List<Label>(BoostEngine.k_NumOfBiggestFans) { BiggestFriendGoldLable, BiggestFriendSilverLable, BiggestFriendBronzeLable };
+            r_BiggestFanLeaderboard = new List<Label>(BoostEngine.k_NumOfBiggestFans) { BiggestFanGoldLable, BiggestFanSilverLable, BiggestFanBronzeLable };
         }
 
-        public void DrawBiggestFans(BiggestFanAnalysis i_BiggestFanAnalysis)
+        public void DisplayBiggestFans(BiggestFanAnalysis i_BiggestFanAnalysis)
         {
 
             int numberOfIterations = 0;
 
-            foreach (Label varAnalysisHolder in r_BiggestFriendsScore)
+            foreach (Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {
                
                 varAnalysisHolder.Text = $@"{numberOfIterations++} | Likes: {numberOfIterations++}";
@@ -31,9 +31,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
             KeyValuePair<object,int>[] sortedCombinedValues = BoostEngine.SortedSelectedDictionary(i_BiggestFanAnalysis.CombinedAnalysisHolders);
             numberOfIterations = 0;
-            foreach(Label varAnalysisHolder in r_BiggestFriendsScore)
+            foreach(Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {
-                if(numberOfIterations > r_BiggestFriendsScore.Count || i_BiggestFanAnalysis.CombinedAnalysisHolders.Count-1 < numberOfIterations)
+                if(numberOfIterations > r_BiggestFanLeaderboard.Count || i_BiggestFanAnalysis.CombinedAnalysisHolders.Count-1 < numberOfIterations)
                 {
                     break;
                 }
@@ -44,11 +44,22 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 {
                     varAnalysisHolder.Text = $@"{userToGet.FirstName} | Likes: {value}";
                 }
-                catch//TODO
+                catch
                 {
-                    // Couldn't get Friend Name
+                    varAnalysisHolder.Text = $@"Unable to get friend name | Likes: {value}";
                 }
                    
+            }
+
+            numberOfIterations = 0;
+            foreach (Label varAnalysisHolder in r_BiggestFanLeaderboard) //in case Facebook permissions do no allow access to friend's name
+            {
+
+                if(char.IsDigit(varAnalysisHolder.Text[0]))
+                {
+                    varAnalysisHolder.Text = $@"Friend #{numberOfIterations++} | Likes: N/A";
+                }
+
             }
         }
     }
