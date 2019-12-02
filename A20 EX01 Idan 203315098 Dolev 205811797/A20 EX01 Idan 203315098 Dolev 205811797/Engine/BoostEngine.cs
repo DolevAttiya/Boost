@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses;
+using Facebook;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
-    public class BoostEngine
+    public class BoostEngine 
     {
         #region Data Members & Properties
         #region Data Members
@@ -21,31 +24,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
 
-        public DateAndValue[] m_Engagement_RecentPostLikes;
-
-        public DateAndValue[] m_Engagement_RecentPostComments;
-
-        public int m_FriendChange=0;
-
         public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
         #endregion
 
         #region Properties
+          
+        public int FriendChange { get; set; }
+    
+        public DateAndValue[] EngagementRecentPostLikes { get; set; }
+
+        public DateAndValue[] EngagementRecentPostComments { get; set; }
+
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
 
-        public IAnalysis TimeAnalysis { get; private set; }
+        public IAnalysis TimeAnalysis { get; }
 
-        public IAnalysis BiggestFanAnalysis { get; private set; }
+        public IAnalysis BiggestFanAnalysis { get; }
         #endregion
         #endregion
+
 
         #region Ctor
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
+            FriendChange= 0;
         }
         #endregion
 
@@ -54,16 +60,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
             User o_LoggedInUser = null;
-            if (i_AccessToken != null && i_RememberUser == true)
+            if (i_AccessToken != null && i_RememberUser)
             {
                 try
                 {
                     LoginResult = FacebookService.Connect(i_AccessToken);
                 }
-                catch (Exception e)
+                catch (Exception e)//TODO
                 {
-                    Console.WriteLine(e.Message);
-                    throw;
+                    throw new FacebookApiException("Couldn't Connect");
                 }
             }
             else
@@ -91,10 +96,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                         "user_posts",
                         "user_hometown");
                 }
-                catch (Exception e)
+                catch (Exception e)//TODO
                 {
-                    Console.WriteLine(e.Message);
-                    throw;
+                    throw new FacebookApiException("Couldn't Login");
                 }
             }
 
@@ -128,10 +132,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public void FriendCountSetup()
         {
-            DateAndValue friendCount = new DateAndValue();
-
-            friendCount.Value = LoggedInUser.Friends.Count;
-            friendCount.Date = DateTime.Now;
+            DateAndValue friendCount = new DateAndValue { Value = LoggedInUser.Friends.Count, Date = DateTime.Now };
 
             if (m_BoostSettings.FriendCounter.Count < 1)
             {
@@ -151,7 +152,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
                 if(m_BoostSettings.FriendCounter.Count>1)
                 {
-                    m_FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
+                    FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
                 }
             } 
 
@@ -159,20 +160,34 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public void SetupEngagementArrays()
         {
-            m_Engagement_RecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
-            m_Engagement_RecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
+            EngagementRecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
+            EngagementRecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
 
             for (int i = k_NumOfPostsForEngagement-1; i >=0; i--) 
             {
-                m_Engagement_RecentPostLikes[i] = new DateAndValue();
-                m_Engagement_RecentPostComments[i] = new DateAndValue();
-
-                m_Engagement_RecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
-                m_Engagement_RecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
+                EngagementRecentPostLikes[i] = new DateAndValue();
+                EngagementRecentPostComments[i] = new DateAndValue();
+                try
+                {
+                    EngagementRecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
+                    EngagementRecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
+                }
+                catch(Exception e)//TODO
+                {
+                    throw new FacebookApiException("Couldn't get To post");
+                }
+                
                 if(LoggedInUser.Posts[i].CreatedTime.HasValue)
                 {
-                    m_Engagement_RecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
-                    m_Engagement_RecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                    try
+                    {
+                        EngagementRecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                        EngagementRecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                    }
+                    catch(Exception e)//TODO
+                    {
+                        throw new FacebookApiException("Couldn't get To post");
+                    }
                 }
 
             }
@@ -215,6 +230,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
             return mostLikedPost;
         }
-        #endregion
+
+        public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
+        {
+             KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
+            
+            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo((pair2.Value)));
+            return o_SortedDictionaryValues;
+        }
+              #endregion
     }
 }

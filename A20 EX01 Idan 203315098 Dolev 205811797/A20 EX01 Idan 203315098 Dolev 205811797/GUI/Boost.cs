@@ -37,7 +37,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 button.Click += new System.EventHandler(this.NavbarButton_Click);
             }
-            
             //Boost Frame properties
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -92,18 +91,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 //Identify Login (Email as ID + First login)
                 string currentUserEmail = BoostEn.LoggedInUser.Email;
-                if (currentUserEmail != BoostEn.m_BoostSettings.LastLoggedInEmail)
+                if(currentUserEmail != BoostEn.m_BoostSettings.LastLoggedInEmail)
                 {
                     BoostEn.m_BoostSettings.LastLogin = null;
                     BoostEn.m_BoostSettings.FirstLogin = true;
                 }
 
-                if (BoostEn.m_BoostSettings.IsFirstLogin())
+                if(BoostEn.m_BoostSettings.IsFirstLogin())
                 {
                     welcomeScreen.Visible = true;
                     welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
                 }
-                
                 //Overwrite Boost Settings
                 BoostEn.m_BoostSettings.LastLoggedInEmail = currentUserEmail;
                 BoostEn.m_BoostSettings.FirstLogin = false;
@@ -133,15 +131,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         private void fetchAnalyticsPageData()
         {
-            ///BestTimes
-            analytics.bestTimes.DrawBestTimesGrid(
-                ((TimeAnalysis)BoostEn.TimeAnalysis).GetAnalysisByTimeFrame(BoostEn.LoggedInUser));
-            ///BiggestFans
             try
             {
-                //analytics.biggestFans.PopulateBiggestFans((BiggestFanAnalysis)BoostEn.BiggestFanAnalysis, BoostEn.LoggedInUser);
+                ///BestTimes
+                analytics.bestTimes.DrawBestTimesGrid(
+                    (TimeAnalysis)BoostEn.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEn.LoggedInUser));
+                ///BiggestFans
+
+                analytics.biggestFans.DrawBiggestFans(
+                    (BiggestFanAnalysis)BoostEn.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
+                        BoostEn.LoggedInUser,
+                        eTimeSelector.Month));
             }
-            catch (NullReferenceException e)
+            catch(NullReferenceException e)//TODO
             {
                 //Display error message
             }
@@ -182,7 +184,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 topPost = BoostEn.GetTopPost();
                 dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
                 dashboard.labelTopPostComments.Text += topPost.Comments.Count;
-                if (string.IsNullOrEmpty(topPost.Message))
+                if(string.IsNullOrEmpty(topPost.Message))
                 {
                     dashboard.labelTopPostCaptionTitle.Visible = false;
                     dashboard.labelTopPostCaptionContent.Visible = false;
@@ -198,9 +200,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
                 }
             }
-            catch (NullReferenceException e)
+            catch(NullReferenceException e)
             {
-                dashboard.labelTopPostError.Text = BoostEn.k_TopPostErrorMessage;
+                dashboard.labelTopPostError.Text = BoostEngine.k_TopPostErrorMessage;
                 dashboard.labelTopPostError.Visible = true;
                 dashboard.labelTopPostLikes.Visible = false;
                 dashboard.labelTopPostComments.Visible = false;
@@ -210,22 +212,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
 
             ///Friends Panel
-            if (BoostEn.m_FriendChange != 0)
+            if(BoostEn.FriendChange != 0)
             {
                 dashboard.labelFriendsChange.Visible = true;
-                if (BoostEn.m_FriendChange > 0)
+                if(BoostEn.FriendChange > 0)
                 {
-                    dashboard.labelFriendsChange.Text = "+" + BoostEn.m_FriendChange.ToString();
+                    dashboard.labelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
                 }
                 else
                 {
-                    dashboard.labelFriendsChange.Text = BoostEn.m_FriendChange.ToString();
+                    dashboard.labelFriendsChange.Text = BoostEn.FriendChange.ToString();
                     dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
                 }
             }
+
             ///Engagement Panel
-            dashboard.labelEngagement.Text += string.Format(@" (Last {0} posts)", BoostEn.k_NumOfPostsForEngagement);
+           dashboard.labelEngagement.Text += $@" (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
             //Update dashboard UI after data fetch
             dashboard.UpdateDashboardUI();
         }
@@ -233,7 +236,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private void TimerWelcomeScreen_Tick(object sender, EventArgs e)
         {
             int currentY = this.welcomeScreen.Location.Y;
-            if (currentY >= 1300)
+            if(currentY >= 1300)
             {
                 timerWelcomeScreen.Stop();
                 this.welcomeScreen.Visible = false;
@@ -261,19 +264,26 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             //Friend Chart
             foreach(DateAndValue friendCounter in BoostEn.m_BoostSettings.FriendCounter)
             {
-                this.dashboard.chartFriends.Series[0].Points.AddXY(friendCounter.Date.Date.ToString("d/M/yy"), friendCounter.Value);
+                this.dashboard.chartFriends.Series[0].Points.AddXY(
+                    friendCounter.Date.Date.ToString("d/M/yy"),
+                    friendCounter.Value);
             }
+
             this.dashboard.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
             //this.dashboard.chartFriends.AlignDataPointsByAxisLabel(); 
 
             //Engagement Chart
-            for(int i = 0; i < BoostEn.k_NumOfPostsForEngagement; i++)
+            for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
             {
-                DateAndValue currentLikes = BoostEn.m_Engagement_RecentPostLikes[i];
-                DateAndValue currentComments = BoostEn.m_Engagement_RecentPostComments[i];
+                DateAndValue currentLikes = BoostEn.EngagementRecentPostLikes[i];
+                DateAndValue currentComments = BoostEn.EngagementRecentPostComments[i];
 
-                this.dashboard.chartEngagement.Series["Likes"].Points.AddXY(currentLikes.Date.ToString(), currentLikes.Value);
-                this.dashboard.chartEngagement.Series["Comments"].Points.AddXY(currentComments.Date.ToString(), currentComments.Value);
+                this.dashboard.chartEngagement.Series["Likes"].Points.AddXY(
+                    currentLikes.Date.ToString(),
+                    currentLikes.Value);
+                this.dashboard.chartEngagement.Series["Comments"].Points.AddXY(
+                    currentComments.Date.ToString(),
+                    currentComments.Value);
 
             }
         }
