@@ -19,9 +19,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             CombinedAnalysisHolders = new Dictionary<object, int>();
             const int k_ZeroLikesYet = 0;
 
-            for(int days = 0; days < DayAndHour.k_NumberDaysOfWeek; days++)
+            for(int days = 0; days < DayAndHour.k_NumOfWeekDays; days++)
             {
-                for(int hour = 0; hour < DayAndHour.k_NumberHoursADay; hour++)
+                for(int hour = 0; hour < DayAndHour.k_NumOfHours; hour++)
                 {
                     DayAndHour tempDayAndHour = new DayAndHour(DayOfWeek.Sunday + days, TimeSpan.FromHours(hour));
                     //// Created At that exact time in order to match the days of the week (Sunday - Saturday ) with the date: Sunday = 1 Monday= 2 etc.
@@ -33,7 +33,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             }
         }
 
-        protected override Dictionary<object, int> PostsParser(
+        protected override Dictionary<object, int> PostParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_DictionaryToAnalysis)
         {
@@ -55,21 +55,21 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
                        };
         }
 
-
-        public IAnalysis CreateAnalysisByTimeStrict(
+        public IAnalysis CreateAnalysisByTimeFrame(
             User i_UserToDoAnalysisOn,
-            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+            eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             initializeComponents();
-            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
+            AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
             return calculateAnalysis(this);
         }
-        public TimeAnalysis GetAnalysisByTimeStrict(
+
+        public TimeAnalysis GetAnalysisByTimeFrame(
             User i_UserToDoAnalysisOn,
-            eTimerSelector i_TimeToStrict = eTimerSelector.Month)
+            eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             initializeComponents();
-            AddByType(i_UserToDoAnalysisOn, i_TimeToStrict);
+            AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
             return this;
         }
     }

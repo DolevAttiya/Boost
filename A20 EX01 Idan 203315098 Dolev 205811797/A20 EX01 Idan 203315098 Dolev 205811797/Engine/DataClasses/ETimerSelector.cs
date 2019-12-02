@@ -1,6 +1,6 @@
 ﻿namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
-    public enum eTimerSelector
+    public enum eTimeSelector
     {
         Day = 7,
         Month = 31,
