@@ -1,23 +1,28 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Data;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses;
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
-    public class BoostEngine
+    public class BoostEngine 
     {
         private const int k_CollectionLimit = 50; ////Login method
         public const int k_NumOfBiggestFans = 3;
         public const int k_NumOfFriendCounters = 3;
-        public readonly int k_NumOfPostsForEngagement = 10;
+        public const int k_NumOfPostsForEngagement = 10;
         private const string k_AppId = "748532218946260";
+        public const string k_TopPostErrorMessage = "Could not get Top Post!";
+        public int m_FriendChange = 0;
         public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
-        public DateAndValue[] m_Engagement_RecentPostLikes;
-        public DateAndValue[] m_Engagement_RecentPostComments;
-        public int m_FriendChange=0;
-        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
+        public DateAndValue[] EngagementRecentPostLikes { get; set; }
 
+        public DateAndValue[] EngagementRecentPostComments { get; set; }
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
@@ -25,6 +30,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         public IAnalysis TimeAnalysis { get; private set; }
 
         public IAnalysis BiggestFanAnalysis { get; private set; }
+
+        
+
+        
 
         public BoostEngine()
         {
@@ -141,20 +150,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public void SetupEngagementArrays()
         {
-            m_Engagement_RecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
-            m_Engagement_RecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
+            EngagementRecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
+            EngagementRecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
 
             for (int i = k_NumOfPostsForEngagement-1; i >=0; i--) 
             {
-                m_Engagement_RecentPostLikes[i] = new DateAndValue();
-                m_Engagement_RecentPostComments[i] = new DateAndValue();
-
-                m_Engagement_RecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
-                m_Engagement_RecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
+                EngagementRecentPostLikes[i] = new DateAndValue();
+                EngagementRecentPostComments[i] = new DateAndValue();
+                try
+                {
+                    EngagementRecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
+                    EngagementRecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+                
                 if(LoggedInUser.Posts[i].CreatedTime.HasValue)
                 {
-                    m_Engagement_RecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
-                    m_Engagement_RecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                    EngagementRecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
+                    EngagementRecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
                 }
 
             }
@@ -196,6 +213,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             }
 
             return mostLikedPost;
+        }
+
+        public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
+        {
+
+             KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
+            
+
+
+            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo((pair2.Value)));
+            return o_SortedDictionaryValues;
         }
     }
 }

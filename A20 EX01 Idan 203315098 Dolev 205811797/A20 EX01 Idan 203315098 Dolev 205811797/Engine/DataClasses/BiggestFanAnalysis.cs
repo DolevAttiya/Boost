@@ -18,17 +18,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             CombinedAnalysisHolders = new Dictionary<object, int>();
         }
 
-        private IAnalysis calculateAnalysis()
-        {
-            return new BiggestFanAnalysis
-                       {
-                           PhotosDictionary = Calculator(this.PhotosDictionary),
-                           VideosDictionary = Calculator(this.VideosDictionary),
-                           StatusDictionary = Calculator(this.StatusDictionary),
-                           CombinedAnalysisHolders = Calculator(this.CombinedAnalysisHolders)
-                       };
-        }
-
         protected override Dictionary<object, int> PostParser(
             Post i_PostToAnalysis,
             Dictionary<object, int> io_ArrayToAnalysisHolders)
@@ -56,7 +45,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             initializeComponents();
             AddByType(i_UserToDoAnalysisOn, i_TimeFrame);
 
-            return calculateAnalysis();
+            return this;
         }
+        
     }
 }

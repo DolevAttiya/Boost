@@ -67,10 +67,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
-            int startX = 5;
-            int startY = 45;
-            int labelX = startX;
-            int labelY = startY;
+            const int k_StartX = 5;
+            const int k_StartY = 45;
+            int labelX = k_StartX;
+            int labelY = k_StartY;
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
@@ -160,7 +160,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     }
                 }
 
-                labelX = startX;
+                labelX = k_StartX;
                 labelY += lastHeight;
             }
         }
