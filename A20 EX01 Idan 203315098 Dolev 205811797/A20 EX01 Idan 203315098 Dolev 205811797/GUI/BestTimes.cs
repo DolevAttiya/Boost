@@ -110,7 +110,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     if(i == 0)
                     {
                         m_BestTimesGrid[i, j].Height -= 20;
-                        m_BestTimesGrid[i, j].BackColor = UI_Elements.color_Secondary;
+                        m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         if(j == 0)
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
@@ -126,7 +126,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
                             m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
-                            m_BestTimesGrid[i, j].BackColor = UI_Elements.color_Secondary;
+                            m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         }
                         else
                         {
@@ -139,15 +139,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                                 }
                                 else if(currentValue <= m_MaxTimeValue * 0.25)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesLow;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesLow;
                                 }
                                 else if(currentValue <= m_MaxTimeValue * 0.75)
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesMedium;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesMedium;
                                 }
                                 else
                                 {
-                                    m_BestTimesGrid[i, j].BackColor = UI_Elements.color_BestTimesHigh;
+                                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesHigh;
                                 }
                             }
                         }

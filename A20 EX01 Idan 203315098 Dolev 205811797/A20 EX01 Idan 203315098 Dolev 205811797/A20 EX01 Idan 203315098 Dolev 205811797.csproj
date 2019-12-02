@@ -131,7 +131,7 @@
     </Compile>
     <Compile Include="Launcher\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GUI\UI_Elements.cs" />
+    <Compile Include="GUI\Stylesheet.cs" />
     <EmbeddedResource Include="GUI\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

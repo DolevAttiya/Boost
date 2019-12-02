@@ -43,8 +43,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.btnUsername.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnUsername.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsername.Font = UI_Elements.font_NavbarButtonDefault;
-            this.btnUsername.ForeColor = UI_Elements.color_NavbarButtonColor;
+            this.btnUsername.Font = Stylesheet.font_NavbarButtonDefault;
+            this.btnUsername.ForeColor = Stylesheet.color_NavbarButtonColor;
             this.btnUsername.Location = new System.Drawing.Point(880, 20);
             this.btnUsername.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnUsername.Name = "btnUsername";

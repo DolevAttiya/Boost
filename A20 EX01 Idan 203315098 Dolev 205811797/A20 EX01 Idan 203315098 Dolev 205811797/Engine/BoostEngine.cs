@@ -10,34 +10,52 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 {
     public class BoostEngine 
     {
-        private const int k_CollectionLimit = 50; ////Login method
-        public const int k_NumOfBiggestFans = 3;
-        public const int k_NumOfFriendCounters = 3;
-        public const int k_NumOfPostsForEngagement = 10;
-        private const string k_AppId = "748532218946260";
-        public const string k_TopPostErrorMessage = "Could not get Top Post!";
+        #region Data Members & Properties
+        #region Data Members
+        private const int k_CollectionLimit = 50; //For Login method
 
+        public const int k_NumOfBiggestFans = 3;
+
+        public const int k_NumOfFriendCounters = 3;
+
+        public readonly int k_NumOfPostsForEngagement = 10;
+
+        private const string k_AppId = "748532218946260";
+
+        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+
+        public readonly string k_TopPostErrorMessage = "Could not get Top Post!";
+        #endregion
+
+        #region Properties
+          
         public int FriendChange { get; set; }
     
-        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
         public DateAndValue[] EngagementRecentPostLikes { get; set; }
 
         public DateAndValue[] EngagementRecentPostComments { get; set; }
+
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
 
         public IAnalysis TimeAnalysis { get; }
 
-        public IAnalysis BiggestFanAnalysis { get;}
+        public IAnalysis BiggestFanAnalysis { get; }
+        #endregion
+        #endregion
 
+
+        #region Ctor
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
             FriendChange= 0;
         }
+        #endregion
 
+        #region Methods
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -215,13 +233,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
         {
-
              KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
             
-
-
             Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo((pair2.Value)));
             return o_SortedDictionaryValues;
         }
+              #endregion
     }
 }
