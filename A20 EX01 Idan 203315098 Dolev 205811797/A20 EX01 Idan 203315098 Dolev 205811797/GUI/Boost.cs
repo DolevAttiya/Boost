@@ -35,13 +35,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             //Add event handler to dynamically added buttons
             foreach(Button button in navbar.m_NavbarButtons)
             {
-                button.Click += new System.EventHandler(this.NavbarButton_Click);
+                button.Click += new EventHandler(this.NavbarButton_Click);
             }
             //Boost Frame properties
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Margin = new Padding(0, 0, 0, 0);
             this.BackColor = Stylesheet.color_BGColorA;
             
             //Startup operations
@@ -168,11 +168,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 ///Navigation bar
                 navbar.btnUsername.Text = name;
                 navbar.navbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
-                navbar.navbarProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                navbar.navbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
                 ///Bio Panel
                 dashboard.labelName.Text = name;
                 dashboard.pictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
-                dashboard.pictureBoxBioProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+                dashboard.pictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
                 dashboard.labelBio1.Text = $@"Location: {BoostEn.LoggedInUser.Location.Name}";
                 dashboard.labelBio2.Text = $@"Friends using Boost: {BoostEn.LoggedInUser.Friends.Count}";
                 dashboard.labelBio3.Text = $@"Verified?: {(BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";

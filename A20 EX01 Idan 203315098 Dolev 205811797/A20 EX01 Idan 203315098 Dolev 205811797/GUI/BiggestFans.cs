@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using A20_EX01_Idan_203315098_Dolev_205811797.Engine;
@@ -39,7 +40,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
                 User userToGet = sortedCombinedValues[numberOfIterations].Key as User;
                 int value = sortedCombinedValues[numberOfIterations].Value;
-                varAnalysisHolder.Text = $@"{userToGet.FirstName} | Likes: {value}";
+                try
+                {
+                    varAnalysisHolder.Text = $@"{userToGet.FirstName} | Likes: {value}";
+                }
+                catch//TODO
+                {
+                    // Couldn't get Friend Name
+                }
+                   
             }
         }
     }

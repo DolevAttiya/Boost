@@ -12,16 +12,66 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
         //FONTS
         public static string font_MainFontName = "Century Gothic";
-        public static Font font_NavbarButtonDefault = new System.Drawing.Font(font_MainFontName, 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_NavbarButtonSelected = new System.Drawing.Font(font_MainFontName, 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Header1 = new System.Drawing.Font(font_MainFontName, 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Header2 = new System.Drawing.Font(font_MainFontName, 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Header2Underline = new System.Drawing.Font(font_MainFontName, font_Header2.Size, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Header3 = new System.Drawing.Font(font_MainFontName, 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Header3Underline = new System.Drawing.Font(font_MainFontName, font_Header3.Size, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Regular | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Body = new System.Drawing.Font(font_MainFontName, 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_BodyItalics = new System.Drawing.Font(font_MainFontName, font_Body.Size, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        public static Font font_Footer = new System.Drawing.Font(font_MainFontName, 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        public static Font font_NavbarButtonDefault = new Font(
+            font_MainFontName,
+            10F,
+            FontStyle.Bold,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_NavbarButtonSelected = new Font(
+            font_MainFontName,
+            10F,
+            ((FontStyle)((FontStyle.Bold | FontStyle.Underline))),
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Header1 = new Font(
+            font_MainFontName,
+            18F,
+            FontStyle.Bold,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Header2 = new Font(
+            font_MainFontName,
+            13F,
+            FontStyle.Bold,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Header2Underline = new Font(
+            font_MainFontName,
+            font_Header2.Size,
+            ((FontStyle)((FontStyle.Bold | FontStyle.Underline))),
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Header3 = new Font(
+            font_MainFontName,
+            11F,
+            FontStyle.Regular,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Header3Underline = new Font(
+            font_MainFontName,
+            font_Header3.Size,
+            ((FontStyle)((FontStyle.Regular | FontStyle.Underline))),
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Body = new Font(
+            font_MainFontName,
+            9F,
+            FontStyle.Regular,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_BodyItalics = new Font(
+            font_MainFontName,
+            font_Body.Size,
+            FontStyle.Italic,
+            GraphicsUnit.Point,
+            ((byte)(0)));
+        public static Font font_Footer = new Font(
+            font_MainFontName,
+            8.25F,
+            FontStyle.Regular,
+            GraphicsUnit.Point,
+            ((byte)(0)));
         //COLORS
         public static Color color_Main = Color.FromArgb(32, 52, 88);
         public static Color color_Secondary = Color.FromArgb(66, 103, 178);
