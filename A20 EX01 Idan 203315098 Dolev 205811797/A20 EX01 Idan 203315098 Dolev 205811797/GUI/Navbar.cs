@@ -11,15 +11,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Navbar : UserControl
     {
-
+        #region Data Members
         public List<Button> m_NavbarButtons = new List<Button>();
+        #endregion
 
+        #region Ctor
         public Navbar()
         {
             InitializeComponent();
             setupNavbarButtons();
         }
+        #endregion
 
+        #region Methods
         private void setupNavbarButtons()
         {
             int startX = 120;
@@ -53,5 +57,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 X += buttonWidth + buttonSpacing;
             }
         }
+        #endregion
     }
 }

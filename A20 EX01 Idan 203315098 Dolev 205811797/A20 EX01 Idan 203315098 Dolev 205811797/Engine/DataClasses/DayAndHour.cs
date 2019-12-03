@@ -4,13 +4,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public struct DayAndHour
     {
+        #region Data Members
         public const int k_NumOfWeekDays = 7;
         public const int k_NumOfHours = 24;
+        #endregion
 
+        #region Properties
         public DayOfWeek DayOfWeek { get; private set; }
 
         public TimeSpan HourOfDay { get; private set; }
+        #endregion
 
+        #region Ctor
         public DayAndHour(DayOfWeek i_DayOfWeek, TimeSpan i_HourOfDay)
         {
             if(i_HourOfDay.Minutes > 30)
@@ -26,5 +31,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 
             DayOfWeek = i_DayOfWeek;
         }
+        #endregion
     }
 }

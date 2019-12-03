@@ -19,6 +19,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -182,9 +183,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.ResumeLayout(false);
 
         }
-
-
-
         #endregion
 
         public Panel navbarSeparator;

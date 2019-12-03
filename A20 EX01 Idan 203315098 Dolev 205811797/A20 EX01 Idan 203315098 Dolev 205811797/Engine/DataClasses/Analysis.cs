@@ -7,11 +7,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
     public abstract class Analysis
     {
+        #region Data Members
         private Dictionary<object, int> m_PhotosDictionary;
         private Dictionary<object, int> m_VideosDictionary;
         private Dictionary<object, int> m_StatusDictionary;
         private Dictionary<object, int> m_CombinedAnalysisHolders;
+        #endregion
 
+        #region Properties
         public Dictionary<object, int> PhotosDictionary
         {
             get => m_PhotosDictionary;
@@ -35,15 +38,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             get => m_CombinedAnalysisHolders;
             protected set => m_CombinedAnalysisHolders = value;
         }
+        #endregion
 
+        #region Methods
 
-        protected void AddByType(User i_UserToDoAnalysisOn, eTimeSelector i_TimeFrame)
+        protected void AddByType(User i_AnalysisUser, eTimeSelector i_TimeFrame)
         {
             try
             {
-                foreach(Post postToAnalysis in i_UserToDoAnalysisOn.Posts)
+                foreach(Post postToAnalysis in i_AnalysisUser.Posts)
                 {
-
                     if(i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                     {
                         break;
@@ -68,11 +72,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses
             {
                 throw new Exception("Couldn't Get Post", e);
             }
-
         }
 
         protected abstract void PostParser(
             Post i_PostToAnalysis,
             ref Dictionary<object, int> io_ArrayToAnalysisHolders);
+        #endregion
     }
 }

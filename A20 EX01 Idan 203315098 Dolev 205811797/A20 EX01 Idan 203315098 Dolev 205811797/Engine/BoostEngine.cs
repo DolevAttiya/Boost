@@ -12,7 +12,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
     {
         #region Data Members & Properties
         #region Data Members
-        private const int k_CollectionLimit = 50; //For Login method
+        private const int k_CollectionLimit = 50; // For Login method
 
         public const int k_NumOfBiggestFans = 3;
 
@@ -46,13 +46,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         
         #endregion
 
-
         #region Ctor
         public BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
-            FriendChange= 0;
+            FriendChange = 0;
         }
         #endregion
 
@@ -69,7 +68,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 catch (Exception e)
                 {
-                    throw new FacebookApiException("Connection failed!",e);
+                    throw new FacebookApiException("Connection failed!", e);
                 }
             }
             else
@@ -99,7 +98,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
                 }
                 catch (Exception e)
                 {
-                    throw new FacebookApiException("Login failed!",e);
+                    throw new FacebookApiException("Login failed!", e);
                 }
             }
 
@@ -113,7 +112,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
 
         public Post GetLastStatus()
         {
-
             Post o_LastStatus = null;
             foreach(Post postToSearch in LoggedInUser.Posts)
             {
@@ -205,12 +203,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         {
             Post mostLikedPost = null;
             const int k_PostMaxCount = 25;
-            int topLikes = 0, postSearchLimiter = 0; ////Cause Facebook does not let see the likes
+            int topLikes = 0, postSearchLimiter = 0; ////Due to Facebook not showing likes
 
             if(LoggedInUser.Posts[0] != null)
             {
                 topLikes = LoggedInUser.Posts[0].LikedBy.Count;
-                mostLikedPost = LoggedInUser.Posts[0]; ////Cause Facebook does not let see the likes
+                mostLikedPost = LoggedInUser.Posts[0]; ////Due to Facebook not showing likes
             }
 
             foreach(Post post in LoggedInUser.Posts)
@@ -243,9 +241,9 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         {
              KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
             
-            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo((pair2.Value)));
+            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
             return o_SortedDictionaryValues;
         }
-              #endregion
+        #endregion
     }
 }

@@ -2,7 +2,7 @@
 
 namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
-    partial class About
+    public partial class About
     {
         /// <summary> 
         /// Required designer variable.
@@ -19,6 +19,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -48,13 +49,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.label1.Location = new System.Drawing.Point(3, 55);
             this.label1.MaximumSize = new System.Drawing.Size(950, 500);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5);
-            this.label1.Size = new System.Drawing.Size(707, 70);
+            this.label1.Size = new System.Drawing.Size(778, 67);
             this.label1.TabIndex = 1;
             this.label1.Text = "Version: 0.1.0\r\n\r\nBoost for Facebook is a social media management app developed b" +
     "y Idan Ram and Dolev Attiya.";

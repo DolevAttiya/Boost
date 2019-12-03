@@ -32,13 +32,13 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private void InitializeComponent()
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
-            this.panel1 = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelAnalytics = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.biggestFans = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BiggestFans();
             this.bestTimes = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BestTimes();
             this.buttonBestTimes = new System.Windows.Forms.Button();
             this.buttonBiggestFans = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panelAnalytics.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelAnalytics
@@ -52,19 +52,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.labelAnalytics.TabIndex = 0;
             this.labelAnalytics.Text = "ANALYTICS";
             // 
-            // panel1
+            // panelAnalytics
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.biggestFans);
-            this.panel1.Controls.Add(this.bestTimes);
-            this.panel1.GradientAngle = 90F;
-            this.panel1.GradientColorA = System.Drawing.Color.White;
-            this.panel1.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
-            this.panel1.Location = new System.Drawing.Point(9, 81);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 434);
-            this.panel1.TabIndex = 1;
+            this.panelAnalytics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelAnalytics.Controls.Add(this.biggestFans);
+            this.panelAnalytics.Controls.Add(this.bestTimes);
+            this.panelAnalytics.GradientAngle = 90F;
+            this.panelAnalytics.GradientColorA = System.Drawing.Color.White;
+            this.panelAnalytics.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
+            this.panelAnalytics.Location = new System.Drawing.Point(9, 81);
+            this.panelAnalytics.Margin = new System.Windows.Forms.Padding(0);
+            this.panelAnalytics.Name = "panelAnalytics";
+            this.panelAnalytics.Size = new System.Drawing.Size(1005, 434);
+            this.panelAnalytics.TabIndex = 1;
             // 
             // biggestFans
             // 
@@ -143,11 +143,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonBiggestFans);
             this.Controls.Add(this.buttonBestTimes);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelAnalytics);
             this.Controls.Add(this.labelAnalytics);
             this.Name = "Analytics";
             this.Size = new System.Drawing.Size(1021, 523);
-            this.panel1.ResumeLayout(false);
+            this.panelAnalytics.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -155,7 +155,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         #endregion
 
         private System.Windows.Forms.Label labelAnalytics;
-        private GradientPanel panel1;
+        private GradientPanel panelAnalytics;
         private System.Windows.Forms.Button buttonBestTimes;
         private System.Windows.Forms.Button buttonBiggestFans;
         public BestTimes bestTimes;

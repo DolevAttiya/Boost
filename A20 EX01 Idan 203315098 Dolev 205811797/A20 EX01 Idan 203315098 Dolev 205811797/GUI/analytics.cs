@@ -5,21 +5,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 {
     public partial class Analytics : UserControl
     {
+        #region Ctor
         public Analytics()
         {
             InitializeComponent();
             analyticsInitialSetup();
         }
+        #endregion
+
+        #region Methods
 
         public void DisplayAnalyticsErrorMessage()
         {
-            this.panel1.Visible = false;
+            this.panelAnalytics.Visible = false;
             this.labelError.Visible = true;
         }
 
         private void analyticsInitialSetup()
         {
             this.BackColor = System.Drawing.Color.Transparent;
+            this.panelAnalytics.GradientColorA = Stylesheet.color_PanelColorA;
+            this.panelAnalytics.GradientColorB = Stylesheet.color_PanelColorB;
+            this.panelAnalytics.GradientAngle = 90F;
             this.bestTimes.BringToFront();
             this.buttonBestTimes.BackColor = Stylesheet.color_Secondary;
             this.buttonBiggestFans.BackColor = Stylesheet.color_Main;
@@ -39,5 +46,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.buttonBiggestFans.BackColor = Stylesheet.color_Secondary;
             this.buttonBestTimes.BackColor = Stylesheet.color_Main;
         }
+        #endregion
     }
 }
