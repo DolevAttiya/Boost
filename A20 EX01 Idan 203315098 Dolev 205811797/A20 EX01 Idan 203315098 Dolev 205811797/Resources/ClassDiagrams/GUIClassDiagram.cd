@@ -10,9 +10,14 @@
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Analytics">
     <Position X="20.5" Y="9" Width="4" />
     <TypeIdentifier>
-      <HashCode>AAACAAAABCCAAEAABADAAAICAAAAABAAAAAAAEAAKAA=</HashCode>
+      <HashCode>IAACAAAAACCAAERABADAAAICAAAAABAAAAAAAAAAIAA=</HashCode>
       <FileName>GUI\Analytics.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="BiggestFansPage" />
+      <Field Name="BestTimesPage" />
+      <Field Name="panelAnalytics" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.BestTimes">
     <Position X="18" Y="13.5" Width="4" />
@@ -30,6 +35,9 @@
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Boost">
     <Position X="17.25" Y="0.75" Width="4.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
       <Enum Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Boost.eBoostPages" Collapsed="true">
         <TypeIdentifier>
@@ -37,17 +45,47 @@
         </TypeIdentifier>
       </Enum>
     </NestedTypes>
+    <AssociationLine Name="gradientPanelFooterRight" Type="A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.25" Y="1.625" />
+        <Point X="12.208" Y="1.625" Type="JumpStart" />
+        <Point X="12.042" Y="1.625" Type="JumpEnd" />
+        <Point X="8.875" Y="1.625" />
+        <Point X="8.875" Y="3.5" />
+        <Point X="9.25" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="gradientPanelFooterLeft" Type="A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="-0.078" Y="0.06" Height="0.182" Width="1.827" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>EAAAgSQQADoAAAAQAQCFALACBAEABAAAAACAgEQIEQA=</HashCode>
+      <HashCode>FAAAgSAAADoBAAAQAACEALASBAEAAAEAEACAgEQIAQQ=</HashCode>
       <FileName>GUI\Boost.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="AnalyticsPage" />
+      <Field Name="AboutPage" />
+      <Field Name="welcomeScreen" />
+      <Field Name="DashboardPage" />
+      <Field Name="LoginPage" />
+      <Field Name="navbar" />
+      <Field Name="gradientPanelFooterRight" />
+      <Field Name="gradientPanelFooterLeft" />
+      <Property Name="BoostEn" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Dashboard">
     <Position X="13.75" Y="9" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AIAhAIAgBCDBAgAEAAmAAAACAQAIBQAEIAAQgBgIEAY=</HashCode>
+      <HashCode>AAAxBMACACVBAAUAAAmAAAgDAACAgAiAOAQABAAAMAI=</HashCode>
       <FileName>GUI\Dashboard.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="m_DashboardPanelList" />
+      <Property Name="EngagementList" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientForm">
     <Position X="10.5" Y="5" Width="2.5" />
@@ -57,7 +95,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel">
-    <Position X="10.5" Y="2.5" Width="2.5" />
+    <Position X="9.25" Y="2.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EACAAAAAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GUI\GradientPanel.cs</FileName>
@@ -66,21 +104,25 @@
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Login">
     <Position X="22.25" Y="2.5" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>AAAEAEEAACAAAAAIQiCAACACAAAAAAgAAAgAAAAAAAE=</HashCode>
+      <HashCode>AAAEIUEAACAAIAAAQgCAACACAAAAAAgAIAgAAAAAAAA=</HashCode>
       <FileName>GUI\Login.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_LoginEvent" />
+      <Field Name="gradientBG" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Navbar">
     <Position X="10.5" Y="9" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAACBCAAAAAACAAAACAAAAAIAAAAAAAAAAAAQ=</HashCode>
+      <HashCode>AAAAgAAAACBAAAAAAACAAAACAAQAAAAAAACAgAAAAAA=</HashCode>
       <FileName>GUI\Navbar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.Stylesheet">
     <Position X="14" Y="2.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>wCAAQAQAIQAAAAAAgEgIgiAAIBAAAEAAAAAEIQAAAAQ=</HashCode>
+      <HashCode>gAAoBAAABGAEAAkAIAQgAABAAAYCAAAAAAkBAgAAABA=</HashCode>
       <FileName>GUI\Stylesheet.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -89,6 +131,23 @@
     <TypeIdentifier>
       <HashCode>AAAAAAKAACAAAAAAAACAAAACAAAAIAAAAgAAAAAAAAA=</HashCode>
       <FileName>GUI\WelcomeScreen.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_Start" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.Engine.BoostEngine" Collapsed="true">
+    <Position X="23" Y="1.25" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AgEgACEAAAAgAIVAAAEQAAAAAgJEAAQAAAAAAEBAEAA=</HashCode>
+      <FileName>Engine\BoostEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A20_EX01_Idan_203315098_Dolev_205811797.Engine.DataClasses.Engagement" Collapsed="true">
+    <Position X="10" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQYAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\DataClasses\Engagement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Delegate Name="A20_EX01_Idan_203315098_Dolev_205811797.GUI.LoginEventHandler">

@@ -40,7 +40,7 @@
             // 
             // labelHighColor
             // 
-            this.labelHighColor.BackColor = Stylesheet.color_BestTimesHigh;
+            this.labelHighColor.BackColor = Stylesheet.Color_BestTimesHigh;
             this.labelHighColor.Location = new System.Drawing.Point(99, 12);
             this.labelHighColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelHighColor.Name = "labelHighColor";
@@ -74,7 +74,7 @@
             // 
             // labelMediumColor
             // 
-            this.labelMediumColor.BackColor = Stylesheet.color_BestTimesMedium;
+            this.labelMediumColor.BackColor = Stylesheet.Color_BestTimesMedium;
             this.labelMediumColor.Location = new System.Drawing.Point(190, 13);
             this.labelMediumColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMediumColor.Name = "labelMediumColor";
@@ -96,7 +96,7 @@
             // 
             // labelLowColor
             // 
-            this.labelLowColor.BackColor = Stylesheet.color_BestTimesLow;
+            this.labelLowColor.BackColor = Stylesheet.Color_BestTimesLow;
             this.labelLowColor.Location = new System.Drawing.Point(300, 14);
             this.labelLowColor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLowColor.Name = "labelLowColor";

@@ -25,7 +25,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             BoostEn = new BoostEngine();
             InitializeComponent();
             boostFormInitialSetup();
-            login.m_LoginEvent += FacebookLogin;
+            LoginPage.m_LoginEvent += FacebookLogin;
         }
         #endregion
 
@@ -43,16 +43,16 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Margin = new Padding(0, 0, 0, 0);
-            this.BackColor = Stylesheet.color_BGColorA;
+            this.BackColor = Stylesheet.Color_BGColorA;
             
             // Bring UI elements to front in sequence
-            navbarSeparator.BringToFront();
+            NavbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             welcomeScreen.Visible = false;
             welcomeScreen.BringToFront();
-            this.login.checkBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
-            this.login.Visible = true;
-            this.login.BringToFront();
+            this.LoginPage.CheckBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
+            this.LoginPage.Visible = true;
+            this.LoginPage.BringToFront();
         }
 
         private void Boost_FormClosing(object sender, FormClosingEventArgs e)
@@ -69,23 +69,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             foreach(Button button in navbar.m_NavbarButtons)
             {
-                button.Font = Stylesheet.font_NavbarButtonDefault;
+                button.Font = Stylesheet.Font_NavbarButtonDefault;
             }
 
             switch(i_Button.Name)
             {
                 case "btnDashboard":
-                    dashboard.BringToFront();
+                    DashboardPage.BringToFront();
                     break;
                 case "btnAnalytics":
-                    analytics.BringToFront();
+                    AnalyticsPage.BringToFront();
                     break;
                 case "btnAbout":
-                    about.BringToFront();
+                    AboutPage.BringToFront();
                     break;
             }
 
-            i_Button.Font = Stylesheet.font_NavbarButtonSelected;
+            i_Button.Font = Stylesheet.Font_NavbarButtonSelected;
         }
 
         public void FacebookLogin()
@@ -96,7 +96,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
             catch(Exception)
             {
-                login.labelLoginError.Visible = true;
+                LoginPage.LabelLoginError.Visible = true;
             }
 
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
@@ -121,7 +121,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 BoostEn.m_BoostSettings.FirstLogin = false;
                 BoostEn.m_BoostSettings.LastAccessToken = BoostEn.LoginResult.AccessToken;
                 BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
-                BoostEn.m_BoostSettings.RememberUser = this.login.checkBoxRememberUser.Checked;
+                BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
 
                 // Fetch and load data
                 FetchUserData();
@@ -129,7 +129,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
             else
             {
-                this.login.labelLoading.Visible = true;
+                this.LoginPage.LabelLoading.Visible = true;
                 FetchUserData();
             }
         }
@@ -147,18 +147,18 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             try
             {
                 ///BestTimes
-                analytics.bestTimes.DrawBestTimesGrid(
+                AnalyticsPage.BestTimesPage.DrawBestTimesGrid(
                     (TimeAnalysis)BoostEn.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEn.LoggedInUser));
                 ///BiggestFans
 
-                analytics.biggestFans.DisplayBiggestFans(
+                AnalyticsPage.BiggestFansPage.DisplayBiggestFans(
                     (BiggestFanAnalysis)BoostEn.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
                         BoostEn.LoggedInUser,
                         eTimeSelector.Month));
             }
             catch(Exception)
             {
-                analytics.DisplayAnalyticsErrorMessage();
+                AnalyticsPage.DisplayAnalyticsErrorMessage();
             }
         }
 
@@ -176,10 +176,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             displayFriendChange();
 
             /// Engagement Panel
-            dashboard.labelEngagement.Text += $@" (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
+            DashboardPage.LabelEngagement.Text += $@" (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
 
             // Update dashboard UI after data fetch
-            dashboard.UpdateDashboardUI();
+            DashboardPage.UpdateDashboardUI();
         }
 
         private void fetchUserBioAndPhoto(string k_Quotes, string name)
@@ -188,25 +188,25 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             try
             {
                 ///Navigation bar
-                navbar.btnUsername.Text = name;
-                navbar.navbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
-                navbar.navbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+                navbar.BtnUsername.Text = name;
+                navbar.NavbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
+                navbar.NavbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
                 ///Bio Panel
-                dashboard.labelName.Text = name;
-                dashboard.pictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
-                dashboard.pictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
-                dashboard.labelBio1.Text = $@"Location: {BoostEn.LoggedInUser.Location.Name}";
-                dashboard.labelBio2.Text = $@"Friends using Boost: {BoostEn.LoggedInUser.Friends.Count}";
-                dashboard.labelBio3.Text = $@"Verified?: {(BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";
+                DashboardPage.LabelName.Text = name;
+                DashboardPage.PictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
+                DashboardPage.PictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+                DashboardPage.LabelBio1.Text = $@"Location: {BoostEn.LoggedInUser.Location.Name}";
+                DashboardPage.LabelBio2.Text = $@"Friends using Boost: {BoostEn.LoggedInUser.Friends.Count}";
+                DashboardPage.LabelBio3.Text = $@"Verified?: {(BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";
                 
                 // Recent Status Update
                 lastStatus = BoostEn.GetLastStatus();
-                dashboard.labelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
-                dashboard.labelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
+                DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
+                DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
             }
             catch (NullReferenceException)
             {
-                dashboard.DisplayDashboardErrorMessage();
+                DashboardPage.DisplayDashboardErrorMessage();
             }
         }
 
@@ -216,23 +216,23 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 if (BoostEn.FriendChange != 0)
                 {
-                    dashboard.labelFriendsChange.Visible = true;
+                    DashboardPage.LabelFriendsChange.Visible = true;
                     if (BoostEn.FriendChange > 0)
                     {
-                        dashboard.labelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
-                        dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
+                        DashboardPage.LabelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
+                        DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
                     }
                     else
                     {
-                        dashboard.labelFriendsChange.Text = BoostEn.FriendChange.ToString();
-                        dashboard.labelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
+                        DashboardPage.LabelFriendsChange.Text = BoostEn.FriendChange.ToString();
+                        DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
                     }
                 }
             }
             catch (Exception)
             {
-                dashboard.DisplayDashboardErrorMessage();
-                dashboard.labelError.Text = "Could not fetch data from boostSettings.xml";
+                DashboardPage.DisplayDashboardErrorMessage();
+                DashboardPage.LabelError.Text = "Could not fetch data from boostSettings.xml";
             }
         }
 
@@ -242,32 +242,32 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             try
             {
                 topPost = BoostEn.GetTopPost();
-                dashboard.labelTopPostLikes.Text += topPost.LikedBy.Count;
-                dashboard.labelTopPostComments.Text += topPost.Comments.Count;
+                DashboardPage.LabelTopPostLikes.Text += topPost.LikedBy.Count;
+                DashboardPage.LabelTopPostComments.Text += topPost.Comments.Count;
                 if (string.IsNullOrEmpty(topPost.Message))
                 {
-                    dashboard.labelTopPostCaptionTitle.Visible = false;
-                    dashboard.labelTopPostCaptionContent.Visible = false;
+                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
+                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
                 }
                 else
                 {
-                    dashboard.labelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
+                    DashboardPage.LabelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
                 }
 
-                dashboard.labelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
+                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
                 if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
                 {
-                    dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
+                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
                 }
             }
             catch (NullReferenceException)
             {
-                dashboard.labelTopPostError.Text = BoostEngine.k_PostErrorMessage;
-                dashboard.labelTopPostError.Visible = true;
-                dashboard.labelTopPostLikes.Visible = false;
-                dashboard.labelTopPostComments.Visible = false;
-                dashboard.labelTopPostCaptionDateTime.Visible = false;
-                dashboard.pictureBoxTopPost.Visible = false;
+                DashboardPage.LabelTopPostError.Text = BoostEngine.k_PostErrorMessage;
+                DashboardPage.LabelTopPostError.Visible = true;
+                DashboardPage.LabelTopPostLikes.Visible = false;
+                DashboardPage.LabelTopPostComments.Visible = false;
+                DashboardPage.LabelTopPostCaptionDateTime.Visible = false;
+                DashboardPage.PictureBoxTopPost.Visible = false;
             }
         }
 
@@ -276,12 +276,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // Friend Chart
             foreach(DateAndValue friendCounter in BoostEn.m_BoostSettings.FriendCounter)
             {
-                this.dashboard.chartFriends.Series[0].Points.AddXY(
+                this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
                     friendCounter.Date.Date.ToString("d/M/yy"),
                     friendCounter.Value);
             }
 
-            this.dashboard.chartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+            this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
 
             // Engagement Chart
             for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
@@ -289,10 +289,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 DateAndValue currentLikes = BoostEn.EngagementRecentPostLikes[i];
                 DateAndValue currentComments = BoostEn.EngagementRecentPostComments[i];
 
-                this.dashboard.chartEngagement.Series["Likes"].Points.AddXY(
+                this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
                     currentLikes.Date.ToString(),
                     currentLikes.Value);
-                this.dashboard.chartEngagement.Series["Comments"].Points.AddXY(
+                this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
                     currentComments.Date.ToString(),
                     currentComments.Value);
             }

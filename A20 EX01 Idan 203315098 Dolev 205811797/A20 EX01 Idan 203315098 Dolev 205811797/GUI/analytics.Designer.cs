@@ -33,11 +33,11 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
             this.panelAnalytics = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.biggestFans = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BiggestFans();
-            this.bestTimes = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BestTimes();
+            this.BiggestFansPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BiggestFans();
+            this.BestTimesPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.BestTimes();
             this.buttonBestTimes = new System.Windows.Forms.Button();
             this.buttonBiggestFans = new System.Windows.Forms.Button();
-            this.labelError = new System.Windows.Forms.Label();
+            this.LabelError = new System.Windows.Forms.Label();
             this.panelAnalytics.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,8 +55,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // panelAnalytics
             // 
             this.panelAnalytics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelAnalytics.Controls.Add(this.biggestFans);
-            this.panelAnalytics.Controls.Add(this.bestTimes);
+            this.panelAnalytics.Controls.Add(this.BiggestFansPage);
+            this.panelAnalytics.Controls.Add(this.BestTimesPage);
             this.panelAnalytics.GradientAngle = 90F;
             this.panelAnalytics.GradientColorA = System.Drawing.Color.White;
             this.panelAnalytics.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
@@ -68,19 +68,19 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // biggestFans
             // 
-            this.biggestFans.BackColor = System.Drawing.Color.Transparent;
-            this.biggestFans.Location = new System.Drawing.Point(4, 4);
-            this.biggestFans.Name = "biggestFans";
-            this.biggestFans.Size = new System.Drawing.Size(1000, 430);
-            this.biggestFans.TabIndex = 1;
+            this.BiggestFansPage.BackColor = System.Drawing.Color.Transparent;
+            this.BiggestFansPage.Location = new System.Drawing.Point(4, 4);
+            this.BiggestFansPage.Name = "biggestFans";
+            this.BiggestFansPage.Size = new System.Drawing.Size(1000, 430);
+            this.BiggestFansPage.TabIndex = 1;
             // 
             // bestTimes
             // 
-            this.bestTimes.BackColor = System.Drawing.Color.Transparent;
-            this.bestTimes.Location = new System.Drawing.Point(4, 4);
-            this.bestTimes.Name = "bestTimes";
-            this.bestTimes.Size = new System.Drawing.Size(1000, 430);
-            this.bestTimes.TabIndex = 0;
+            this.BestTimesPage.BackColor = System.Drawing.Color.Transparent;
+            this.BestTimesPage.Location = new System.Drawing.Point(4, 4);
+            this.BestTimesPage.Name = "bestTimes";
+            this.BestTimesPage.Size = new System.Drawing.Size(1000, 430);
+            this.BestTimesPage.TabIndex = 0;
             // 
             // buttonBestTimes
             // 
@@ -122,17 +122,17 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // labelError
             // 
-            this.labelError.BackColor = System.Drawing.Color.White;
-            this.labelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelError.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelError.Location = new System.Drawing.Point(12, 81);
-            this.labelError.Name = "labelError";
-            this.labelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.labelError.Size = new System.Drawing.Size(1001, 434);
-            this.labelError.TabIndex = 14;
-            this.labelError.Text = "Could not fetch/analyze user data!";
-            this.labelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.labelError.Visible = false;
+            this.LabelError.BackColor = System.Drawing.Color.White;
+            this.LabelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelError.ForeColor = System.Drawing.Color.DarkRed;
+            this.LabelError.Location = new System.Drawing.Point(12, 81);
+            this.LabelError.Name = "labelError";
+            this.LabelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.LabelError.Size = new System.Drawing.Size(1001, 434);
+            this.LabelError.TabIndex = 14;
+            this.LabelError.Text = "Could not fetch/analyze user data!";
+            this.LabelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LabelError.Visible = false;
             // 
             // Analytics
             // 
@@ -140,7 +140,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.LabelError);
             this.Controls.Add(this.buttonBiggestFans);
             this.Controls.Add(this.buttonBestTimes);
             this.Controls.Add(this.panelAnalytics);
@@ -158,8 +158,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         private GradientPanel panelAnalytics;
         private System.Windows.Forms.Button buttonBestTimes;
         private System.Windows.Forms.Button buttonBiggestFans;
-        public BestTimes bestTimes;
-        public BiggestFans biggestFans;
-        public System.Windows.Forms.Label labelError;
+        public BestTimes BestTimesPage;
+        public BiggestFans BiggestFansPage;
+        public System.Windows.Forms.Label LabelError;
     }
 }

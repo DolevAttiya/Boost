@@ -26,7 +26,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         #region Methods
         private void dashboardInitalSetup()
         {
-            // Add panels to list
+            //// Add panels to list
             m_DashboardPanelList.Add(this.panelEngagement);
             m_DashboardPanelList.Add(this.panelFriends);
             m_DashboardPanelList.Add(this.panelTopPost);
@@ -34,28 +34,28 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
             foreach (GradientPanel panel in m_DashboardPanelList)
             {
-                panel.GradientColorA = Stylesheet.color_PanelColorA;
-                panel.GradientColorB = Stylesheet.color_PanelColorB;
+                panel.GradientColorA = Stylesheet.Color_PanelColorA;
+                panel.GradientColorB = Stylesheet.Color_PanelColorB;
                 panel.GradientAngle = 90F;
             }
 
-            // Enforcing visual styles (in case of designer auto change)
+            //// Enforcing visual styles (in case of designer auto change)
             this.BackColor = System.Drawing.Color.Transparent;
-            this.labelName.Font = Stylesheet.font_Header1;
-            this.labelBio1.Font = Stylesheet.font_Header3;
-            this.labelBio2.Font = Stylesheet.font_Header3;
-            this.labelBio3.Font = Stylesheet.font_Header3;
-            this.labelRecentStatusUpdateTitle.Font = Stylesheet.font_Header2Underline;
-            this.labelRecentStatusUpdateContent.Font = Stylesheet.font_BodyItalics;
-            this.labelRecentStatusUpdateDateTime.Font = Stylesheet.font_Body;
-            this.labelEngagement.Font = Stylesheet.font_Header2;
-            this.labelFriends.Font = Stylesheet.font_Header2;
-            this.labelTopPost.Font = Stylesheet.font_Header2;
-            this.labelTopPostLikes.Font = Stylesheet.font_Header3;
-            this.labelTopPostComments.Font = Stylesheet.font_Header3;
-            this.labelTopPostCaptionTitle.Font = Stylesheet.font_Header2Underline;
-            this.labelTopPostCaptionContent.Font = Stylesheet.font_BodyItalics;
-            this.labelTopPostCaptionDateTime.Font = Stylesheet.font_Body;
+            this.LabelName.Font = Stylesheet.Font_Header1;
+            this.LabelBio1.Font = Stylesheet.Font_Header3;
+            this.LabelBio2.Font = Stylesheet.Font_Header3;
+            this.LabelBio3.Font = Stylesheet.Font_Header3;
+            this.LabelRecentStatusUpdateTitle.Font = Stylesheet.Font_Header2Underline;
+            this.LabelRecentStatusUpdateContent.Font = Stylesheet.Font_BodyItalics;
+            this.LabelRecentStatusUpdateDateTime.Font = Stylesheet.Font_Body;
+            this.LabelEngagement.Font = Stylesheet.Font_Header2;
+            this.LabelFriends.Font = Stylesheet.Font_Header2;
+            this.LabelTopPost.Font = Stylesheet.Font_Header2;
+            this.LabelTopPostLikes.Font = Stylesheet.Font_Header3;
+            this.LabelTopPostComments.Font = Stylesheet.Font_Header3;
+            this.LabelTopPostCaptionTitle.Font = Stylesheet.Font_Header2Underline;
+            this.LabelTopPostCaptionContent.Font = Stylesheet.Font_BodyItalics;
+            this.LabelTopPostCaptionDateTime.Font = Stylesheet.Font_Body;
         }
 
         public void DisplayDashboardErrorMessage()
@@ -64,108 +64,108 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.panelUserBio.Visible = false;
             this.panelFriends.Visible = false;
             this.panelTopPost.Visible = false;
-            this.labelError.Visible = true;
-            this.labelError.BringToFront();
+            this.LabelError.Visible = true;
+            this.LabelError.BringToFront();
         }
 
         public void UpdateDashboardUI()
         {
             //// Dynamic Label Positions
-            /// BioPanel
-            // labelName
-            this.labelName.Location = new System.Drawing.Point(
-                this.pictureBoxBioProfilePic.Location.X,
-                this.pictureBoxBioProfilePic.Bottom);
-            this.labelName.MinimumSize = new System.Drawing.Size(this.pictureBoxBioProfilePic.Width, 0);
-            // labelBio1
-            this.labelBio1.Location = new System.Drawing.Point(this.labelName.Location.X, this.labelName.Bottom);
-            this.labelBio1.Size = new System.Drawing.Size(this.labelName.Width, 22);
-            // labelBio2
-            this.labelBio2.Location = new System.Drawing.Point(this.labelBio1.Location.X, this.labelBio1.Bottom);
-            this.labelBio2.Size = new System.Drawing.Size(this.labelBio1.Width, this.labelBio1.Height);
-            this.labelBio2.Padding = this.labelBio1.Padding;
-            this.labelBio2.Margin = this.labelBio1.Margin;
-            // labelBio3
-            this.labelBio3.Location = new System.Drawing.Point(this.labelBio2.Location.X, this.labelBio2.Bottom);
-            this.labelBio3.Size = new System.Drawing.Size(this.labelBio2.Width, this.labelBio2.Height);
-            this.labelBio3.Padding = this.labelBio2.Padding;
-            this.labelBio3.Margin = this.labelBio2.Margin;
-            // labelRecentStatusUpdateTltle
-            this.labelRecentStatusUpdateTitle.Location = new System.Drawing.Point(
-                this.labelBio3.Location.X,
-                this.labelBio3.Bottom);
-            this.labelRecentStatusUpdateTitle.Size = new System.Drawing.Size(
-                this.labelBio3.Width,
-                this.labelRecentStatusUpdateTitle.Height);
-            // labelRecentStatusUpdateContent
-            this.labelRecentStatusUpdateContent.Location = new System.Drawing.Point(
-                this.labelRecentStatusUpdateTitle.Location.X,
-                this.labelRecentStatusUpdateTitle.Bottom);
-            this.labelRecentStatusUpdateContent.Size = new System.Drawing.Size(
-                this.labelRecentStatusUpdateTitle.Width,
-                this.labelRecentStatusUpdateContent.Height);
-            this.labelRecentStatusUpdateContent.AutoSize = true;
-            this.labelRecentStatusUpdateContent.MinimumSize = new System.Drawing.Size(
-                this.labelRecentStatusUpdateContent.Width,
+            //// BioPanel
+            //// LabelName
+            this.LabelName.Location = new System.Drawing.Point(
+                this.PictureBoxBioProfilePic.Location.X,
+                this.PictureBoxBioProfilePic.Bottom);
+            this.LabelName.MinimumSize = new System.Drawing.Size(this.PictureBoxBioProfilePic.Width, 0);
+            //// LabelBio1
+            this.LabelBio1.Location = new System.Drawing.Point(this.LabelName.Location.X, this.LabelName.Bottom);
+            this.LabelBio1.Size = new System.Drawing.Size(this.LabelName.Width, 22);
+            //// LabelBio2
+            this.LabelBio2.Location = new System.Drawing.Point(this.LabelBio1.Location.X, this.LabelBio1.Bottom);
+            this.LabelBio2.Size = new System.Drawing.Size(this.LabelBio1.Width, this.LabelBio1.Height);
+            this.LabelBio2.Padding = this.LabelBio1.Padding;
+            this.LabelBio2.Margin = this.LabelBio1.Margin;
+            //// LabelBio3
+            this.LabelBio3.Location = new System.Drawing.Point(this.LabelBio2.Location.X, this.LabelBio2.Bottom);
+            this.LabelBio3.Size = new System.Drawing.Size(this.LabelBio2.Width, this.LabelBio2.Height);
+            this.LabelBio3.Padding = this.LabelBio2.Padding;
+            this.LabelBio3.Margin = this.LabelBio2.Margin;
+            //// LabelRecentStatusUpdateTltle
+            this.LabelRecentStatusUpdateTitle.Location = new System.Drawing.Point(
+                this.LabelBio3.Location.X,
+                this.LabelBio3.Bottom);
+            this.LabelRecentStatusUpdateTitle.Size = new System.Drawing.Size(
+                this.LabelBio3.Width,
+                this.LabelRecentStatusUpdateTitle.Height);
+            //// LabelRecentStatusUpdateContent
+            this.LabelRecentStatusUpdateContent.Location = new System.Drawing.Point(
+                this.LabelRecentStatusUpdateTitle.Location.X,
+                this.LabelRecentStatusUpdateTitle.Bottom);
+            this.LabelRecentStatusUpdateContent.Size = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateTitle.Width,
+                this.LabelRecentStatusUpdateContent.Height);
+            this.LabelRecentStatusUpdateContent.AutoSize = true;
+            this.LabelRecentStatusUpdateContent.MinimumSize = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateContent.Width,
                 0);
-            this.labelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(
-                this.labelRecentStatusUpdateContent.Width,
+            this.LabelRecentStatusUpdateContent.MaximumSize = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateContent.Width,
                 171);
-            // labelRecentStatusUpdateDateTime
-            this.labelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(
-                this.labelRecentStatusUpdateContent.Location.X,
-                this.labelRecentStatusUpdateContent.Bottom);
-            this.labelRecentStatusUpdateDateTime.Size = new System.Drawing.Size(
-                this.labelRecentStatusUpdateContent.Width,
-                this.labelRecentStatusUpdateDateTime.Height);
-            this.labelRecentStatusUpdateDateTime.MinimumSize = new System.Drawing.Size(
-                this.labelRecentStatusUpdateDateTime.Width,
+            //// LabelRecentStatusUpdateDateTime
+            this.LabelRecentStatusUpdateDateTime.Location = new System.Drawing.Point(
+                this.LabelRecentStatusUpdateContent.Location.X,
+                this.LabelRecentStatusUpdateContent.Bottom);
+            this.LabelRecentStatusUpdateDateTime.Size = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateContent.Width,
+                this.LabelRecentStatusUpdateDateTime.Height);
+            this.LabelRecentStatusUpdateDateTime.MinimumSize = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateDateTime.Width,
                 25);
-            this.labelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(
-                this.labelRecentStatusUpdateDateTime.Width,
+            this.LabelRecentStatusUpdateDateTime.MaximumSize = new System.Drawing.Size(
+                this.LabelRecentStatusUpdateDateTime.Width,
                 30);
-            /// TopPost Panel
-            // pictureBoxTopPost
-            this.pictureBoxTopPost.Location = new System.Drawing.Point(
-                this.pictureBoxTopPost.Location.X,
-                this.labelTopPostLikes.Top);
-            // labelTopPostComments
-            this.labelTopPostComments.Location = new System.Drawing.Point(
-                this.labelTopPostLikes.Location.X,
-                this.labelTopPostLikes.Bottom);
-            this.labelTopPostComments.Size = new System.Drawing.Size(
-                this.labelTopPostLikes.Width,
-                this.labelTopPostLikes.Height);
-            // labelTopPostCaptionTitle
-            this.labelTopPostCaptionTitle.Location = new System.Drawing.Point(
-                this.labelTopPostComments.Location.X,
-                this.labelTopPostComments.Bottom);
-            this.labelTopPostCaptionTitle.Size = new System.Drawing.Size(
-                this.labelTopPostComments.Width,
-                this.labelTopPostCaptionTitle.Height);
-            // labelTopPostCaptionContent
-            this.labelTopPostCaptionContent.Location = new System.Drawing.Point(
-                this.labelTopPostCaptionTitle.Location.X,
-                this.labelTopPostCaptionTitle.Bottom);
-            this.labelTopPostCaptionContent.Size = new System.Drawing.Size(
-                this.labelTopPostCaptionTitle.Width,
-                this.labelTopPostCaptionContent.Height);
-            this.labelTopPostCaptionContent.AutoSize = true;
-            this.labelTopPostCaptionContent.MinimumSize =
-                new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 0);
-            this.labelTopPostCaptionContent.MaximumSize =
-                new System.Drawing.Size(this.labelTopPostCaptionContent.Width, 171);
-            // labelTopPostCaptionDateTime
-            this.labelTopPostCaptionDateTime.Location = new System.Drawing.Point(
-                this.labelTopPostCaptionContent.Location.X,
-                this.labelTopPostCaptionContent.Bottom);
-            this.labelTopPostCaptionDateTime.Size = new System.Drawing.Size(
-                this.labelTopPostCaptionContent.Width,
-                this.labelTopPostCaptionDateTime.Height);
-            this.labelTopPostCaptionDateTime.MinimumSize =
-                new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 25);
-            this.labelTopPostCaptionDateTime.MaximumSize =
-                new System.Drawing.Size(this.labelTopPostCaptionDateTime.Width, 30);
+            ///// TopPost Panel
+            //// PictureBoxTopPost
+            this.PictureBoxTopPost.Location = new System.Drawing.Point(
+                this.PictureBoxTopPost.Location.X,
+                this.LabelTopPostLikes.Top);
+            //// LabelTopPostComments
+            this.LabelTopPostComments.Location = new System.Drawing.Point(
+                this.LabelTopPostLikes.Location.X,
+                this.LabelTopPostLikes.Bottom);
+            this.LabelTopPostComments.Size = new System.Drawing.Size(
+                this.LabelTopPostLikes.Width,
+                this.LabelTopPostLikes.Height);
+            //// LabelTopPostCaptionTitle
+            this.LabelTopPostCaptionTitle.Location = new System.Drawing.Point(
+                this.LabelTopPostComments.Location.X,
+                this.LabelTopPostComments.Bottom);
+            this.LabelTopPostCaptionTitle.Size = new System.Drawing.Size(
+                this.LabelTopPostComments.Width,
+                this.LabelTopPostCaptionTitle.Height);
+            //// LabelTopPostCaptionContent
+            this.LabelTopPostCaptionContent.Location = new System.Drawing.Point(
+                this.LabelTopPostCaptionTitle.Location.X,
+                this.LabelTopPostCaptionTitle.Bottom);
+            this.LabelTopPostCaptionContent.Size = new System.Drawing.Size(
+                this.LabelTopPostCaptionTitle.Width,
+                this.LabelTopPostCaptionContent.Height);
+            this.LabelTopPostCaptionContent.AutoSize = true;
+            this.LabelTopPostCaptionContent.MinimumSize =
+                new System.Drawing.Size(this.LabelTopPostCaptionContent.Width, 0);
+            this.LabelTopPostCaptionContent.MaximumSize =
+                new System.Drawing.Size(this.LabelTopPostCaptionContent.Width, 171);
+            //// LabelTopPostCaptionDateTime
+            this.LabelTopPostCaptionDateTime.Location = new System.Drawing.Point(
+                this.LabelTopPostCaptionContent.Location.X,
+                this.LabelTopPostCaptionContent.Bottom);
+            this.LabelTopPostCaptionDateTime.Size = new System.Drawing.Size(
+                this.LabelTopPostCaptionContent.Width,
+                this.LabelTopPostCaptionDateTime.Height);
+            this.LabelTopPostCaptionDateTime.MinimumSize =
+                new System.Drawing.Size(this.LabelTopPostCaptionDateTime.Width, 25);
+            this.LabelTopPostCaptionDateTime.MaximumSize =
+                new System.Drawing.Size(this.LabelTopPostCaptionDateTime.Width, 30);
         }
         #endregion
     }

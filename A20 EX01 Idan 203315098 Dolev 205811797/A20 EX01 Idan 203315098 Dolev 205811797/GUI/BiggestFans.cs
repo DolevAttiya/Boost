@@ -54,7 +54,8 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             }
 
             numberOfIterations = 0;
-            foreach (Label varAnalysisHolder in r_BiggestFanLeaderboard) // In case Facebook permissions do no allow access to friend's name
+            //// In case Facebook permissions do no allow access to friend's name
+            foreach (Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {
                 if(char.IsDigit(varAnalysisHolder.Text[0]))
                 {
