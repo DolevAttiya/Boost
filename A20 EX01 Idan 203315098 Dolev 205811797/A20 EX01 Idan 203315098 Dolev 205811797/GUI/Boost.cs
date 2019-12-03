@@ -94,7 +94,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             {
                 BoostEn.FacebookLogin(BoostEn.m_BoostSettings.LastAccessToken, BoostEn.m_BoostSettings.RememberUser);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 login.labelLoginError.Visible = true;
             }
@@ -156,7 +156,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         BoostEn.LoggedInUser,
                         eTimeSelector.Month));
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 analytics.DisplayAnalyticsErrorMessage();
             }
@@ -229,7 +229,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 dashboard.DisplayDashboardErrorMessage();
                 dashboard.labelError.Text = "Could not fetch data from boostSettings.xml";
@@ -260,7 +260,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                     dashboard.pictureBoxTopPost.LoadAsync(topPost.PictureURL);
                 }
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 dashboard.labelTopPostError.Text = BoostEngine.k_PostErrorMessage;
                 dashboard.labelTopPostError.Visible = true;

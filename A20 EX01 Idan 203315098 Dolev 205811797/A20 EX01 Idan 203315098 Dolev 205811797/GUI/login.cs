@@ -35,6 +35,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             this.pictureBoxFBLogin.BackgroundImage = ((Image)(Properties.Resources.fbLogin));
         }
+
         private void PictureBoxFBLogin_MouseEnter(object sender, EventArgs e)
         {
             this.pictureBoxFBLogin.BackgroundImage = ((Image)(Properties.Resources.fbLogin_rollover));
