@@ -170,6 +170,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Resources\ClassDiagrams\EngineClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -182,6 +183,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\ClassDiagrams\GUIClassDiagram.cd" />
     <None Include="Resources\fbLogin.png" />
   </ItemGroup>
   <ItemGroup>
