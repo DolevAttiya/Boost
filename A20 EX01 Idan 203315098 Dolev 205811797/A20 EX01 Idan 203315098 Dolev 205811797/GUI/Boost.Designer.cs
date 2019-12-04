@@ -33,42 +33,42 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boost));
-            this.NavbarSeparator = new System.Windows.Forms.Panel();
-            this.Footer = new System.Windows.Forms.Label();
+            this.navbarSeparator = new System.Windows.Forms.Panel();
+            this.footer = new System.Windows.Forms.Label();
             this.welcomeScreen = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.WelcomeScreen();
             this.gradientPanelFooterRight = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.gradientPanelFooterLeft = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
             this.navbar = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Navbar();
-            this.AnalyticsPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Analytics();
-            this.DashboardPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Dashboard();
-            this.LoginPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Login();
-            this.AboutPage = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.About();
+            this.analytics = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Analytics();
+            this.dashboard = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Dashboard();
+            this.login = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.Login();
+            this.about = new A20_EX01_Idan_203315098_Dolev_205811797.GUI.About();
             this.timerWelcomeScreen = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // navbarSeparator
             // 
-            this.NavbarSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.NavbarSeparator.ForeColor = System.Drawing.Color.Transparent;
-            this.NavbarSeparator.Location = new System.Drawing.Point(56, 62);
-            this.NavbarSeparator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.NavbarSeparator.Name = "navbarSeparator";
-            this.NavbarSeparator.Size = new System.Drawing.Size(1021, 3);
-            this.NavbarSeparator.TabIndex = 1;
+            this.navbarSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.navbarSeparator.ForeColor = System.Drawing.Color.Transparent;
+            this.navbarSeparator.Location = new System.Drawing.Point(56, 62);
+            this.navbarSeparator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.navbarSeparator.Name = "navbarSeparator";
+            this.navbarSeparator.Size = new System.Drawing.Size(1021, 3);
+            this.navbarSeparator.TabIndex = 1;
             // 
             // footer
             // 
-            this.Footer.BackColor = System.Drawing.Color.Transparent;
-            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Footer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.Footer.Location = new System.Drawing.Point(0, 605);
-            this.Footer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Footer.Name = "footer";
-            this.Footer.Size = new System.Drawing.Size(1135, 33);
-            this.Footer.TabIndex = 6;
-            this.Footer.Text = "ALL RIGHTS RESERVED TO BOOST FOR FACEBOOK © 2019";
-            this.Footer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.footer.BackColor = System.Drawing.Color.Transparent;
+            this.footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.footer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.footer.Location = new System.Drawing.Point(0, 605);
+            this.footer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.footer.Name = "footer";
+            this.footer.Size = new System.Drawing.Size(1135, 33);
+            this.footer.TabIndex = 6;
+            this.footer.Text = "ALL RIGHTS RESERVED TO BOOST FOR FACEBOOK © 2019";
+            this.footer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // welcomeScreen
             // 
@@ -112,42 +112,42 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             // 
             // about
             // 
-            this.AboutPage.BackColor = System.Drawing.Color.Transparent;
-            this.AboutPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AboutPage.Location = new System.Drawing.Point(56, 79);
-            this.AboutPage.Name = "about";
-            this.AboutPage.Size = new System.Drawing.Size(1021, 523);
-            this.AboutPage.TabIndex = 13;
+            this.about.BackColor = System.Drawing.Color.Transparent;
+            this.about.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.about.Location = new System.Drawing.Point(56, 79);
+            this.about.Name = "about";
+            this.about.Size = new System.Drawing.Size(1021, 523);
+            this.about.TabIndex = 13;
             // 
             // analytics
             // 
-            this.AnalyticsPage.BackColor = System.Drawing.Color.Transparent;
-            this.AnalyticsPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AnalyticsPage.Location = new System.Drawing.Point(56, 79);
-            this.AnalyticsPage.Name = "analytics";
-            this.AnalyticsPage.Size = new System.Drawing.Size(1021, 523);
-            this.AnalyticsPage.TabIndex = 13;
+            this.analytics.BackColor = System.Drawing.Color.Transparent;
+            this.analytics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.analytics.Location = new System.Drawing.Point(56, 79);
+            this.analytics.Name = "analytics";
+            this.analytics.Size = new System.Drawing.Size(1021, 523);
+            this.analytics.TabIndex = 13;
             // 
             // dashboard
             // 
-            this.DashboardPage.BackColor = System.Drawing.Color.Transparent;
-            this.DashboardPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DashboardPage.Location = new System.Drawing.Point(56, 79);
-            this.DashboardPage.MaximumSize = this.DashboardPage.Size;
-            this.DashboardPage.MinimumSize = this.DashboardPage.Size;
-            this.DashboardPage.Name = "dashboard";
-            this.DashboardPage.Size = new System.Drawing.Size(1021, 523);
-            this.DashboardPage.TabIndex = 12;
+            this.dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.dashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.dashboard.Location = new System.Drawing.Point(56, 79);
+            this.dashboard.MaximumSize = this.dashboard.Size;
+            this.dashboard.MinimumSize = this.dashboard.Size;
+            this.dashboard.Name = "dashboard";
+            this.dashboard.Size = new System.Drawing.Size(1021, 523);
+            this.dashboard.TabIndex = 12;
             // 
             // login
             // 
-            this.LoginPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.LoginPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.LoginPage.Location = new System.Drawing.Point(-5, -5);
-            this.LoginPage.Name = "login";
-            this.LoginPage.Size = new System.Drawing.Size(1141, 643);
-            this.LoginPage.TabIndex = 14;
-            this.LoginPage.Visible = false;
+            this.login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.login.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.login.Location = new System.Drawing.Point(-5, -5);
+            this.login.Name = "login";
+            this.login.Size = new System.Drawing.Size(1141, 643);
+            this.login.TabIndex = 14;
+            this.login.Visible = false;
             // 
             // timerWelcomeScreen
             // 
@@ -164,12 +164,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             this.Controls.Add(this.gradientPanelFooterRight);
             this.Controls.Add(this.gradientPanelFooterLeft);
             this.Controls.Add(this.navbar);
-            this.Controls.Add(this.AnalyticsPage);
-            this.Controls.Add(this.AboutPage);
-            this.Controls.Add(this.DashboardPage);
-            this.Controls.Add(this.Footer);
-            this.Controls.Add(this.NavbarSeparator);
-            this.Controls.Add(this.LoginPage);
+            this.Controls.Add(this.analytics);
+            this.Controls.Add(this.about);
+            this.Controls.Add(this.dashboard);
+            this.Controls.Add(this.footer);
+            this.Controls.Add(this.navbarSeparator);
+            this.Controls.Add(this.login);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -185,12 +185,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         }
         #endregion
 
-        public Panel NavbarSeparator;
-        public Label Footer;
-        public Dashboard DashboardPage;
-        public Analytics AnalyticsPage;
-        public About AboutPage;
-        public Login LoginPage;
+        public Panel navbarSeparator;
+        public Label footer;
+        public Dashboard dashboard;
+        public Analytics analytics;
+        public About about;
+        public Login login;
         private GUI.Navbar navbar;
         private GUI.GradientPanel gradientPanelFooterLeft;
         private GUI.GradientPanel gradientPanelFooterRight;

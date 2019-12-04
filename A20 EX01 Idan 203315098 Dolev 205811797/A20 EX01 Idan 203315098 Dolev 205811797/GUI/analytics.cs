@@ -18,33 +18,33 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
         public void DisplayAnalyticsErrorMessage()
         {
             this.panelAnalytics.Visible = false;
-            this.LabelError.Visible = true;
+            this.labelError.Visible = true;
         }
 
         private void analyticsInitialSetup()
         {
             this.BackColor = System.Drawing.Color.Transparent;
-            this.panelAnalytics.GradientColorA = Stylesheet.Color_PanelColorA;
-            this.panelAnalytics.GradientColorB = Stylesheet.Color_PanelColorB;
+            this.panelAnalytics.GradientColorA = Stylesheet.color_PanelColorA;
+            this.panelAnalytics.GradientColorB = Stylesheet.color_PanelColorB;
             this.panelAnalytics.GradientAngle = 90F;
-            this.BestTimesPage.BringToFront();
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Main;
-            this.labelAnalytics.Font = Stylesheet.Font_Header1;
+            this.bestTimes.BringToFront();
+            this.buttonBestTimes.BackColor = Stylesheet.color_Secondary;
+            this.buttonBiggestFans.BackColor = Stylesheet.color_Main;
+            this.labelAnalytics.Font = Stylesheet.font_Header1;
         }
 
         private void ButtonBestTimes_Click(object sender, EventArgs e)
         {
-            this.BestTimesPage.BringToFront();
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Main;
+            this.bestTimes.BringToFront();
+            this.buttonBestTimes.BackColor = Stylesheet.color_Secondary;
+            this.buttonBiggestFans.BackColor = Stylesheet.color_Main;
         }
 
         private void ButtonBiggestFans_Click(object sender, EventArgs e)
         {
-            this.BiggestFansPage.BringToFront();
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Main;
+            this.biggestFans.BringToFront();
+            this.buttonBiggestFans.BackColor = Stylesheet.color_Secondary;
+            this.buttonBestTimes.BackColor = Stylesheet.color_Main;
         }
         #endregion
     }

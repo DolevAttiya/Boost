@@ -56,14 +56,6 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
         #endregion
 
         #region Methods
-        public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
-        {
-            KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
-
-            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
-            return o_SortedDictionaryValues;
-        }
-
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -243,6 +235,14 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.Engine
             }
 
             return mostLikedPost;
+        }
+
+        public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
+        {
+             KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
+            
+            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
+            return o_SortedDictionaryValues;
         }
         #endregion
     }

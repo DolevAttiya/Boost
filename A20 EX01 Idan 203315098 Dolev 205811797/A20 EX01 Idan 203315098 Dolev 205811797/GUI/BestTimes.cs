@@ -65,11 +65,10 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
                     this.Controls.Add(m_BestTimesGrid[i, j]);
-                    //// Column titles
-                    if(i == 0)
+                    if(i == 0) // Column titles
                     {
                         m_BestTimesGrid[i, j].Height -= 20;
-                        m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
+                        m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         if(j == 0)
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
@@ -80,13 +79,12 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                         }
                     }
                     else
-                    {                   
-                        //// Row titles
-                        if(j == 0)
+                    {
+                        if(j == 0) // Row titles
                         {
                             m_BestTimesGrid[i, j].Width += widthExpansion;
                             m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
-                            m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
+                            m_BestTimesGrid[i, j].BackColor = Stylesheet.color_Secondary;
                         }
                         else
                         {
@@ -117,15 +115,15 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
                 }
                 else if (currentValue <= m_MaxTimeValue * 0.25)
                 {
-                    m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_BestTimesLow;
+                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesLow;
                 }
                 else if (currentValue <= m_MaxTimeValue * 0.75)
                 {
-                    m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_BestTimesMedium;
+                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesMedium;
                 }
                 else
                 {
-                    m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_BestTimesHigh;
+                    m_BestTimesGrid[i, j].BackColor = Stylesheet.color_BestTimesHigh;
                 }
             }
         }
@@ -140,7 +138,7 @@ namespace A20_EX01_Idan_203315098_Dolev_205811797.GUI
             label.Text = string.Empty;
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.FlatStyle = FlatStyle.Flat;
-            label.Font = Stylesheet.Font_BestTimesGrid;
+            label.Font = Stylesheet.font_BestTimesGrid;
             label.ForeColor = Color.White;
 
             return label;

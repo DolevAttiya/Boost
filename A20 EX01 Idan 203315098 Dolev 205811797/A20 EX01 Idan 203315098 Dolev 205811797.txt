@@ -6,5 +6,5 @@ Delivery Date.........: 3 - December- 2019
 Delivered In Delay....: No
 Delay Reason..........: Irrelevant
 Visual Studio Version.: 2017 & 2019
-Comments..............: 
+Comments..............: No Comments
 =======================End Exercise Checking Report=========================
