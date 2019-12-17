@@ -71,6 +71,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             {
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
             }
+            navbar.SelectButton(i_Button);
 
             switch(i_Button.Name)
             {
@@ -85,7 +86,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
                     break;
             }
 
-            i_Button.Font = Stylesheet.Font_NavbarButtonSelected;
         }
 
         public void FacebookLogin()

@@ -12,7 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Engine
     {
         #region Data Members & Properties
         #region Data Members
-        private const int k_CollectionLimit = 50; // For Login method
+        private const int k_CollectionLimit = /*50*/15; // For Login method
 
         public const int k_NumOfBiggestFans = 3;
 

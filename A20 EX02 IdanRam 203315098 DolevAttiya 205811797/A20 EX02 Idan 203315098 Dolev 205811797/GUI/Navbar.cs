@@ -26,12 +26,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
         #region Methods
         private void setupNavbarButtons()
         {
-            int startX = 120;
+            int startX = 135;
             int X = startX;
-            int Y = 20;
-            int buttonWidth = 120;
-            int buttonHeight = 32;
-            int buttonSpacing = 10;
+            // int Y = 20;
+            int Y = 0;
+            int buttonWidth = 135;
+            //int buttonHeight = 32;
+            int buttonHeight = this.Height;
+            int buttonSpacing = 0;
 
             foreach(Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
             {
@@ -56,6 +58,26 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
 
                 X += buttonWidth + buttonSpacing;
             }
+        }
+
+        public void SelectButton(Button i_Button)
+        {
+            foreach(Button button in m_NavbarButtons)
+            {
+                setButtonStyleToDefault(button);
+            }
+            i_Button.BackColor = Stylesheet.Color_Secondary;
+            i_Button.FlatAppearance.MouseDownBackColor = Stylesheet.Color_Secondary;
+            i_Button.ForeColor = Color.White;
+
+        }
+
+        private void setButtonStyleToDefault(Button i_Button)
+        {
+            i_Button.BackColor = Color.Transparent;
+            i_Button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            i_Button.ForeColor = Stylesheet.Color_NavbarButtonColor;
+
         }
         #endregion
     }
