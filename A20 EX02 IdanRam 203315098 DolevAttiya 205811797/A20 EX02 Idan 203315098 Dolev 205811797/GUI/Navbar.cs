@@ -38,14 +38,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             foreach(Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
             {
                 Button button = new Button();
-                button.BackColor = Color.Transparent;
+                //button.BackColor = Color.Transparent;
                 button.Cursor = Cursors.Hand;
                 button.FlatAppearance.BorderSize = 0;
-                button.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_NavbarRollover;
+                //button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
                 button.FlatStyle = FlatStyle.Flat;
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
-                button.ForeColor = Stylesheet.Color_NavbarButtonColor;
+               // button.ForeColor = Stylesheet.Color_NavbarButtonColor;
                 button.Location = new Point(X, Y);
                 button.Margin = new Padding(2, 3, 2, 3);
                 button.Name = "btn" + page.ToString();
@@ -55,6 +55,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
                 button.UseVisualStyleBackColor = false;
                 this.Controls.Add(button);
                 m_NavbarButtons.Add(button);
+                setButtonStyleToDefault(button);
 
                 X += buttonWidth + buttonSpacing;
             }
@@ -66,16 +67,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             {
                 setButtonStyleToDefault(button);
             }
-            i_Button.BackColor = Stylesheet.Color_Secondary;
-            i_Button.FlatAppearance.MouseDownBackColor = Stylesheet.Color_Secondary;
-            i_Button.ForeColor = Color.White;
+            i_Button.BackColor = Stylesheet.Color_NavbarSelected;
+            i_Button.ForeColor = Color.Black;
 
         }
 
         private void setButtonStyleToDefault(Button i_Button)
         {
             i_Button.BackColor = Color.Transparent;
-            i_Button.FlatAppearance.MouseDownBackColor = Color.Transparent;
             i_Button.ForeColor = Stylesheet.Color_NavbarButtonColor;
 
         }

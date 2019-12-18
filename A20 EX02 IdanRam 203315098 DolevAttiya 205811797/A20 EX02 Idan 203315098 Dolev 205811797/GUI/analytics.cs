@@ -30,6 +30,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.BestTimesPage.BringToFront();
             this.buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
             this.buttonBiggestFans.BackColor = Stylesheet.Color_Main;
+            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
         }
 

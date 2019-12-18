@@ -36,8 +36,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.NavbarSeparator = new System.Windows.Forms.Panel();
             this.Footer = new System.Windows.Forms.Label();
             this.welcomeScreen = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.WelcomeScreen();
-            this.gradientPanelFooterRight = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
-            this.gradientPanelFooterLeft = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.PanelFooterRight = new Panel();
+            this.PanelFooterLeft = new Panel();
             this.navbar = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Navbar();
             this.AnalyticsPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Analytics();
             this.DashboardPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Dashboard();
@@ -79,27 +79,23 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.welcomeScreen.Size = new System.Drawing.Size(1135, 638);
             this.welcomeScreen.TabIndex = 18;
             // 
-            // gradientPanelFooterRight
+            // PanelFooterRight
             // 
-            this.gradientPanelFooterRight.GradientAngle = 180F;
-            this.gradientPanelFooterRight.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterRight.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterRight.Location = new System.Drawing.Point(728, 620);
-            this.gradientPanelFooterRight.Margin = new System.Windows.Forms.Padding(0);
-            this.gradientPanelFooterRight.Name = "gradientPanelFooterRight";
-            this.gradientPanelFooterRight.Size = new System.Drawing.Size(350, 2);
-            this.gradientPanelFooterRight.TabIndex = 17;
+            this.PanelFooterRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.PanelFooterRight.Location = new System.Drawing.Point(728, 620);
+            this.PanelFooterRight.Margin = new System.Windows.Forms.Padding(0);
+            this.PanelFooterRight.Name = "gradientPanelFooterRight";
+            this.PanelFooterRight.Size = new System.Drawing.Size(350, 2);
+            this.PanelFooterRight.TabIndex = 17;
             // 
-            // gradientPanelFooterLeft
+            // PanelFooterLeft
             // 
-            this.gradientPanelFooterLeft.GradientAngle = 0F;
-            this.gradientPanelFooterLeft.GradientColorA = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterLeft.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.gradientPanelFooterLeft.Location = new System.Drawing.Point(56, 620);
-            this.gradientPanelFooterLeft.Margin = new System.Windows.Forms.Padding(0);
-            this.gradientPanelFooterLeft.Name = "gradientPanelFooterLeft";
-            this.gradientPanelFooterLeft.Size = new System.Drawing.Size(350, 2);
-            this.gradientPanelFooterLeft.TabIndex = 16;
+            this.PanelFooterLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.PanelFooterLeft.Location = new System.Drawing.Point(56, 620);
+            this.PanelFooterLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.PanelFooterLeft.Name = "gradientPanelFooterLeft";
+            this.PanelFooterLeft.Size = new System.Drawing.Size(350, 2);
+            this.PanelFooterLeft.TabIndex = 16;
             // 
             // navbar
             // 
@@ -161,8 +157,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
             this.Controls.Add(this.welcomeScreen);
-            this.Controls.Add(this.gradientPanelFooterRight);
-            this.Controls.Add(this.gradientPanelFooterLeft);
+            this.Controls.Add(this.PanelFooterRight);
+            this.Controls.Add(this.PanelFooterLeft);
             this.Controls.Add(this.navbar);
             this.Controls.Add(this.AnalyticsPage);
             this.Controls.Add(this.AboutPage);
@@ -192,8 +188,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
         public About AboutPage;
         public Login LoginPage;
         private GUI.Navbar navbar;
-        private GUI.GradientPanel gradientPanelFooterLeft;
-        private GUI.GradientPanel gradientPanelFooterRight;
+        private Panel PanelFooterLeft;
+        private Panel PanelFooterRight;
         private WelcomeScreen welcomeScreen;
         private Timer timerWelcomeScreen;
     }
