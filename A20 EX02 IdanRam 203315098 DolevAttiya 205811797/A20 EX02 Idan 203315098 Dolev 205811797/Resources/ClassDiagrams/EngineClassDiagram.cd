@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.BoostEngine">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
     <Position X="13.5" Y="0.5" Width="6.25" />
     <TypeIdentifier>
       <HashCode>AgEgACEAAAAgAIVAAAEQAAAAAgJEAAQAAAAAAEBAEAA=</HashCode>
@@ -16,7 +16,7 @@
       <Property Name="TimeAnalysis" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.BoostSettings">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings">
     <Position X="8.5" Y="4.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAgACEAAEAgGAAAAAAAgAAAAAGAAAAAAABAAAACAAAA=</HashCode>
@@ -26,23 +26,23 @@
       <Field Name="FriendCounter" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DateAndValue">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DateAndValue">
     <Position X="22.25" Y="3.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAA=</HashCode>
       <FileName>Engine\DataClasses\DateAndValue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.Analysis">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis">
     <Position X="13.5" Y="7.5" Width="6" />
     <TypeIdentifier>
       <HashCode>AAAAACAAAAAAAAQABAAABABAAABAAAAAAAgAAgAkAAA=</HashCode>
       <FileName>Engine\DataClasses\Analysis.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.BiggestFanAnalysis">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.BiggestFanAnalysis">
     <Position X="8.75" Y="15.5" Width="7" />
-    <InheritanceLine Type="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.Analysis" ManuallyRouted="true">
+    <InheritanceLine Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis" ManuallyRouted="true">
       <Path>
         <Point X="16.5" Y="10.853" />
         <Point X="16.5" Y="11.803" />
@@ -56,16 +56,16 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.Engagement">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.Engagement">
     <Position X="10.5" Y="1.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQYAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Engine\DataClasses\Engagement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.TimeAnalysis">
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.TimeAnalysis">
     <Position X="17.75" Y="15.5" Width="7" />
-    <InheritanceLine Type="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.Analysis" ManuallyRouted="true">
+    <InheritanceLine Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis" ManuallyRouted="true">
       <Path>
         <Point X="16.5" Y="10.853" />
         <Point X="16.5" Y="11.803" />
@@ -131,21 +131,21 @@
     <Position X="20.5" Y="0.75" Width="1.5" />
     <TypeIdentifier />
   </Class>
-  <Struct Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.DayAndHour">
+  <Struct Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.DayAndHour">
     <Position X="21" Y="8.25" Width="4.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAEAAAACAA=</HashCode>
       <FileName>Engine\DataClasses\DayAndHour.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Interface Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.IAnalysis">
+  <Interface Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.IAnalysis">
     <Position X="13.25" Y="5.75" Width="7" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
       <FileName>Engine\DataClasses\IAnalysis.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses.eTimeSelector">
+  <Enum Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses.eTimeSelector">
     <Position X="22.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>

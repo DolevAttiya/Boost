@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using A20_EX02_Idan_203315098_Dolev_205811797.GUI;
+using A20_EX02_Idan_203315098_Dolev_205811797.View;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Launcher
 {
