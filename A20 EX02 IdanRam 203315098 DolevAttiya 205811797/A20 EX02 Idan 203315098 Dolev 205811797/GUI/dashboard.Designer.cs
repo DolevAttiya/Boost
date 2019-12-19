@@ -38,7 +38,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.LabelError = new System.Windows.Forms.Label();
-            this.panelTopPost = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelTopPost = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.LabelTopPostError = new System.Windows.Forms.Label();
             this.PictureBoxTopPost = new System.Windows.Forms.PictureBox();
             this.LabelTopPostCaptionDateTime = new System.Windows.Forms.Label();
@@ -47,14 +47,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.LabelTopPostComments = new System.Windows.Forms.Label();
             this.LabelTopPostLikes = new System.Windows.Forms.Label();
             this.LabelTopPost = new System.Windows.Forms.Label();
-            this.panelFriends = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelFriends = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.LabelFriendsChange = new System.Windows.Forms.Label();
             this.ChartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LabelFriends = new System.Windows.Forms.Label();
-            this.panelEngagement = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelEngagement = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.ChartEngagement = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LabelEngagement = new System.Windows.Forms.Label();
-            this.panelUserBio = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelUserBio = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.LabelRecentStatusUpdateDateTime = new System.Windows.Forms.Label();
             this.LabelRecentStatusUpdateContent = new System.Windows.Forms.Label();
             this.LabelRecentStatusUpdateTitle = new System.Windows.Forms.Label();
@@ -561,10 +561,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
 
         #endregion
 
-        private GradientPanel panelUserBio;
-        private GradientPanel panelEngagement;
-        private GradientPanel panelFriends;
-        private GradientPanel panelTopPost;
+        private StylizedPanel panelUserBio;
+        private StylizedPanel panelEngagement;
+        private StylizedPanel panelFriends;
+        private StylizedPanel panelTopPost;
         public System.Windows.Forms.Label LabelEngagement;
         public System.Windows.Forms.Label LabelFriends;
         public System.Windows.Forms.Label LabelTopPost;

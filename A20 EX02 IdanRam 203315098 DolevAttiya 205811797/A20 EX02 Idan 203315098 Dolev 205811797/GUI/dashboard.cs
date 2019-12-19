@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Engine;
@@ -9,15 +10,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
     public partial class Dashboard : UserControl
     {
         #region Data Members & Properties
-        public List<Engagement> EngagementList { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public List<Engagement> m_EngagementList;
 
-        public List<GradientPanel> m_DashboardPanelList = new List<GradientPanel>();
+        public List<StylizedPanel> m_DashboardPanelList = new List<StylizedPanel>();
         #endregion
 
         #region Ctor
         public Dashboard()
         {
-            EngagementList = new List<Engagement>();
+            m_EngagementList = new List<Engagement>();
             InitializeComponent();
             dashboardInitalSetup();
         }
@@ -32,7 +34,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             m_DashboardPanelList.Add(this.panelTopPost);
             m_DashboardPanelList.Add(this.panelUserBio);
 
-            foreach (GradientPanel panel in m_DashboardPanelList)
+            foreach (StylizedPanel panel in m_DashboardPanelList)
             {
                 panel.GradientColorA = Stylesheet.Color_PanelColorA;
                 panel.GradientColorB = Stylesheet.Color_PanelColorB;

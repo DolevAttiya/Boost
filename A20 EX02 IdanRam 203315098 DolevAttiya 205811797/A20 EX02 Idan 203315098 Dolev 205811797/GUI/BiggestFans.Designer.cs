@@ -29,11 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gradientPanel3 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanel3 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.BiggestFanBronzeLable = new System.Windows.Forms.Label();
-            this.gradientPanel2 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanel2 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.BiggestFanSilverLable = new System.Windows.Forms.Label();
-            this.gradientPanel1 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientPanel1 = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.BiggestFanGoldLable = new System.Windows.Forms.Label();
             this.gradientPanel3.SuspendLayout();
             this.gradientPanel2.SuspendLayout();
@@ -140,11 +140,11 @@
 
         #endregion
 
-        private GUI.GradientPanel gradientPanel1;
+        private GUI.StylizedPanel gradientPanel1;
         private System.Windows.Forms.Label BiggestFanGoldLable;
         private System.Windows.Forms.Label BiggestFanSilverLable;
-        private GUI.GradientPanel gradientPanel2;
-        private GUI.GradientPanel gradientPanel3;
+        private GUI.StylizedPanel gradientPanel2;
+        private GUI.StylizedPanel gradientPanel3;
         private System.Windows.Forms.Label BiggestFanBronzeLable;
     }
 }

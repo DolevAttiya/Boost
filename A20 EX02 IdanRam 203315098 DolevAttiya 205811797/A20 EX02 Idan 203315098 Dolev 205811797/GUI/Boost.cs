@@ -51,7 +51,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             welcomeScreen.Visible = false;
             welcomeScreen.BringToFront();
             this.LoginPage.CheckBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
-            this.LoginPage.Visible = false; // true
+            this.LoginPage.Visible = true; // true
             this.LoginPage.BringToFront();
         }
 

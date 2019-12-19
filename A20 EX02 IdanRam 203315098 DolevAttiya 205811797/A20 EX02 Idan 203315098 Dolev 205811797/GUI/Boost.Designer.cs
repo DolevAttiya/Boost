@@ -36,8 +36,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.NavbarSeparator = new System.Windows.Forms.Panel();
             this.Footer = new System.Windows.Forms.Label();
             this.welcomeScreen = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.WelcomeScreen();
-            this.PanelFooterRight = new Panel();
-            this.PanelFooterLeft = new Panel();
+            this.PanelFooterRight = new System.Windows.Forms.Panel();
+            this.PanelFooterLeft = new System.Windows.Forms.Panel();
             this.navbar = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Navbar();
             this.AnalyticsPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Analytics();
             this.DashboardPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.Dashboard();
@@ -46,17 +46,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.timerWelcomeScreen = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // navbarSeparator
+            // NavbarSeparator
             // 
             this.NavbarSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.NavbarSeparator.ForeColor = System.Drawing.Color.Transparent;
             this.NavbarSeparator.Location = new System.Drawing.Point(56, 62);
             this.NavbarSeparator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.NavbarSeparator.Name = "navbarSeparator";
+            this.NavbarSeparator.Name = "NavbarSeparator";
             this.NavbarSeparator.Size = new System.Drawing.Size(1021, 3);
             this.NavbarSeparator.TabIndex = 1;
             // 
-            // footer
+            // Footer
             // 
             this.Footer.BackColor = System.Drawing.Color.Transparent;
             this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -64,7 +64,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.Footer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.Footer.Location = new System.Drawing.Point(0, 605);
             this.Footer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Footer.Name = "footer";
+            this.Footer.Name = "Footer";
             this.Footer.Size = new System.Drawing.Size(1135, 33);
             this.Footer.TabIndex = 6;
             this.Footer.Text = "ALL RIGHTS RESERVED TO BOOST FOR FACEBOOK © 2019";
@@ -72,7 +72,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             // 
             // welcomeScreen
             // 
-            this.welcomeScreen.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.WelcomeScreen_v4; /*((System.Drawing.Image)(resources.GetObject("welcomeScreen.BackgroundImage")));*/
+            this.welcomeScreen.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.WelcomeScreen_v4;
             this.welcomeScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.welcomeScreen.Location = new System.Drawing.Point(0, 0);
             this.welcomeScreen.Name = "welcomeScreen";
@@ -84,7 +84,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.PanelFooterRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.PanelFooterRight.Location = new System.Drawing.Point(728, 620);
             this.PanelFooterRight.Margin = new System.Windows.Forms.Padding(0);
-            this.PanelFooterRight.Name = "gradientPanelFooterRight";
+            this.PanelFooterRight.Name = "PanelFooterRight";
             this.PanelFooterRight.Size = new System.Drawing.Size(350, 2);
             this.PanelFooterRight.TabIndex = 17;
             // 
@@ -93,7 +93,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.PanelFooterLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.PanelFooterLeft.Location = new System.Drawing.Point(56, 620);
             this.PanelFooterLeft.Margin = new System.Windows.Forms.Padding(0);
-            this.PanelFooterLeft.Name = "gradientPanelFooterLeft";
+            this.PanelFooterLeft.Name = "PanelFooterLeft";
             this.PanelFooterLeft.Size = new System.Drawing.Size(350, 2);
             this.PanelFooterLeft.TabIndex = 16;
             // 
@@ -106,44 +106,44 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.navbar.Size = new System.Drawing.Size(1023, 65);
             this.navbar.TabIndex = 15;
             // 
-            // about
-            // 
-            this.AboutPage.BackColor = System.Drawing.Color.Transparent;
-            this.AboutPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AboutPage.Location = new System.Drawing.Point(56, 79);
-            this.AboutPage.Name = "about";
-            this.AboutPage.Size = new System.Drawing.Size(1021, 523);
-            this.AboutPage.TabIndex = 13;
-            // 
-            // analytics
+            // AnalyticsPage
             // 
             this.AnalyticsPage.BackColor = System.Drawing.Color.Transparent;
             this.AnalyticsPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.AnalyticsPage.Location = new System.Drawing.Point(56, 79);
-            this.AnalyticsPage.Name = "analytics";
+            this.AnalyticsPage.Name = "AnalyticsPage";
             this.AnalyticsPage.Size = new System.Drawing.Size(1021, 523);
             this.AnalyticsPage.TabIndex = 13;
             // 
-            // dashboard
+            // DashboardPage
             // 
             this.DashboardPage.BackColor = System.Drawing.Color.Transparent;
             this.DashboardPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.DashboardPage.Location = new System.Drawing.Point(56, 79);
             this.DashboardPage.MaximumSize = this.DashboardPage.Size;
             this.DashboardPage.MinimumSize = this.DashboardPage.Size;
-            this.DashboardPage.Name = "dashboard";
+            this.DashboardPage.Name = "DashboardPage";
             this.DashboardPage.Size = new System.Drawing.Size(1021, 523);
             this.DashboardPage.TabIndex = 12;
             // 
-            // login
+            // LoginPage
             // 
             this.LoginPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.LoginPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.LoginPage.Location = new System.Drawing.Point(-5, -5);
-            this.LoginPage.Name = "login";
+            this.LoginPage.Name = "LoginPage";
             this.LoginPage.Size = new System.Drawing.Size(1141, 643);
             this.LoginPage.TabIndex = 14;
             this.LoginPage.Visible = false;
+            // 
+            // AboutPage
+            // 
+            this.AboutPage.BackColor = System.Drawing.Color.Transparent;
+            this.AboutPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.AboutPage.Location = new System.Drawing.Point(56, 79);
+            this.AboutPage.Name = "AboutPage";
+            this.AboutPage.Size = new System.Drawing.Size(1021, 523);
+            this.AboutPage.TabIndex = 13;
             // 
             // timerWelcomeScreen
             // 
@@ -156,7 +156,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(226)))), ((int)(((byte)(232)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1135, 638);
-            this.Controls.Add(this.welcomeScreen);
             this.Controls.Add(this.PanelFooterRight);
             this.Controls.Add(this.PanelFooterLeft);
             this.Controls.Add(this.navbar);
@@ -166,6 +165,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
             this.Controls.Add(this.Footer);
             this.Controls.Add(this.NavbarSeparator);
             this.Controls.Add(this.LoginPage);
+            this.Controls.Add(this.welcomeScreen);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

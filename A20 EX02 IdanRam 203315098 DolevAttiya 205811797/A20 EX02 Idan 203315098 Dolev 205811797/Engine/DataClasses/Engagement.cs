@@ -2,6 +2,7 @@
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Engine.DataClasses
 {
+    [Serializable]
     public class Engagement
     {
         #region Properties

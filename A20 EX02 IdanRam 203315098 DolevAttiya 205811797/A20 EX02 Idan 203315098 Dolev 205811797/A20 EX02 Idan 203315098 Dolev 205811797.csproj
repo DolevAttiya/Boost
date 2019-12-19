@@ -96,7 +96,7 @@
     <Compile Include="GUI\GradientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\GradientPanel.cs">
+    <Compile Include="GUI\StylizedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\Dashboard.cs">

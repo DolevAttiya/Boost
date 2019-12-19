@@ -32,7 +32,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
         private void InitializeComponent()
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
-            this.panelAnalytics = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.panelAnalytics = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.BiggestFansPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.BiggestFans();
             this.BestTimesPage = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.BestTimes();
             this.buttonBestTimes = new System.Windows.Forms.Button();
@@ -155,7 +155,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
         #endregion
 
         private System.Windows.Forms.Label labelAnalytics;
-        private GradientPanel panelAnalytics;
+        private StylizedPanel panelAnalytics;
         private System.Windows.Forms.Button buttonBestTimes;
         private System.Windows.Forms.Button buttonBiggestFans;
         public BestTimes BestTimesPage;

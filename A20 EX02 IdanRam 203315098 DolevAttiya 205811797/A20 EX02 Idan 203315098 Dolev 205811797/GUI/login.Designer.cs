@@ -30,7 +30,7 @@
         private void InitializeComponent()
         {
             this.LabelLoginError = new System.Windows.Forms.Label();
-            this.gradientBG = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.GradientPanel();
+            this.gradientBG = new A20_EX02_Idan_203315098_Dolev_205811797.GUI.StylizedPanel();
             this.CheckBoxRememberUser = new System.Windows.Forms.CheckBox();
             this.LabelLoading = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -141,7 +141,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxLogo;
-        private GUI.GradientPanel gradientBG;
+        private GUI.StylizedPanel gradientBG;
         public System.Windows.Forms.Label LabelLoginError;
         public System.Windows.Forms.Label LabelLoading;
         public System.Windows.Forms.PictureBox PictureBoxFBLogin;

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.GUI
 {
-    public class GradientPanel : Panel
+    public class StylizedPanel : Panel
     {
         public Color GradientColorA { get; set; }
 
