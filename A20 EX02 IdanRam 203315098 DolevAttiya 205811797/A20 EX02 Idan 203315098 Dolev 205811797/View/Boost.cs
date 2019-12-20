@@ -53,7 +53,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
 
 
-            // Bring UI elements to front in sequence
+            //// Adjust UI before login
+            // Clear Charts
             foreach(var series in DashboardPage.ChartEngagement.Series)
             {
                 series.Points.Clear();
@@ -62,6 +63,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 series.Points.Clear();
             }
+
+            // Sort elements for app startup
             NavbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             welcomeScreen.Visible = false;
@@ -71,6 +74,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             userOptions.AdjustUserOptionsSize();
             userOptions.Location = new System.Drawing.Point(navbar.BtnUsername.Right-userOptions.Width + (navbar.Location.X), navbar.BtnUsername.Bottom);
             initializeLoginPage();
+            ////
         }
 
         private void initializeLoginPage()
