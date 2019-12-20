@@ -54,6 +54,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
 
             // Bring UI elements to front in sequence
+            foreach(var series in DashboardPage.ChartEngagement.Series)
+            {
+                series.Points.Clear();
+            }
+            foreach (var series in DashboardPage.ChartFriends.Series)
+            {
+                series.Points.Clear();
+            }
             NavbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             welcomeScreen.Visible = false;
