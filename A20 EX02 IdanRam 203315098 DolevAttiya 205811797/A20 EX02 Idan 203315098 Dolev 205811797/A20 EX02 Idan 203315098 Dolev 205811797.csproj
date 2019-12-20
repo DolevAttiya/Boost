@@ -123,6 +123,12 @@
     <Compile Include="View\Navbar.Designer.cs">
       <DependentUpon>Navbar.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UserOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserOptions.Designer.cs">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\WelcomeScreen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     <Compile Include="Launcher\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Stylesheet.cs" />
+    <Compile Include="View\WhatsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WhatsNew.Designer.cs">
+      <DependentUpon>WhatsNew.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\AboutView.resx">
       <DependentUpon>AboutView.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +169,9 @@
     <EmbeddedResource Include="View\Navbar.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\UserOptions.resx">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +185,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\WhatsNew.resx">
+      <DependentUpon>WhatsNew.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\ClassDiagrams\EngineClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

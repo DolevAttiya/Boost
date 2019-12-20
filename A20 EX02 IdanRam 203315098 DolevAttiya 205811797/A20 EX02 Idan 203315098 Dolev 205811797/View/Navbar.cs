@@ -58,7 +58,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 button.UseVisualStyleBackColor = false;
                 this.Controls.Add(button);
                 m_NavbarButtons.Add(button);
-                setButtonStyleToDefault(button);
+                SetButtonStyleToDefault(button);
 
                 X += buttonWidth + buttonSpacing;
             }
@@ -70,7 +70,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 foreach (Button button in m_NavbarButtons)
                 {
-                    setButtonStyleToDefault(button);
+                    SetButtonStyleToDefault(button);
                 }
                 i_Button.BackColor = Stylesheet.Color_NavbarSelected;
                 i_Button.ForeColor = Color.Black;
@@ -84,7 +84,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         }
 
-        private void setButtonStyleToDefault(Button i_Button)
+        public void SetButtonStyleToDefault(Button i_Button)
         {
             i_Button.BackColor = Color.Transparent;
             i_Button.ForeColor = Stylesheet.Color_NavbarButtonColor;
@@ -100,7 +100,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
             else
             {
-                setButtonStyleToDefault(BtnUsername);
+                SetButtonStyleToDefault(BtnUsername);
                 m_UsernameSelected = false;
             }
             m_UsernameButtonEvent.Invoke();

@@ -5,9 +5,11 @@ using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using Facebook;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 {
+
     public class BoostEngine 
     {
         #region Data Members & Properties
@@ -62,6 +64,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
             return o_SortedDictionaryValues;
+        }
+
+        public void FacebookLogout()
+        {
+            try
+            {
+                FacebookService.Logout(logoutCallback);
+            }
+            catch
+            {
+                MessageBox.Show("Logout unsuccessful!");
+            }
+        }
+
+        private void logoutCallback()
+        {
+            try
+            {
+                m_BoostSettings.DeleteAppSettingsFile();
+                m_BoostSettings.ResetSettingsToDefault();
+                m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)

@@ -10,6 +10,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     {
         #region Data Members
         public BoostEngine BoostEn { get; set; }
+        private bool m_InitialLogin;
 
         public enum eBoostPages : byte
         {
@@ -23,42 +24,60 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Boost()
         {
             BoostEn = new BoostEngine();
+            m_InitialLogin = false;
             InitializeComponent();
             boostFormInitialSetup();
             LoginPage.m_LoginEvent += FacebookLogin;
+            userOptions.m_LogoutEvent += FacebookLogout;
         }
         #endregion
 
         #region Methods
         private void boostFormInitialSetup()
         {
-            // Add event handler to dynamically added buttons
-            foreach(Button button in navbar.m_NavbarButtons)
+            if (!m_InitialLogin)
             {
-                button.Click += new EventHandler(this.NavbarButton_Click);
-            }
-            navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUsernameOptionPanel);
+                // Add event handler to dynamically added buttons
+                foreach (Button button in navbar.m_NavbarButtons)
+                {
+                    button.Click += new EventHandler(this.NavbarButton_Click);
+                }
+                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUsernameOptionPanel);
 
-            // Boost Frame properties
-            this.MaximizeBox = false;
-            this.MinimizeBox = true;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.Margin = new Padding(0, 0, 0, 0);
-            this.BackColor = Stylesheet.Color_BGColorA;
-            
+                // Boost Frame properties
+                this.MaximizeBox = false;
+                this.MinimizeBox = true;
+                this.FormBorderStyle = FormBorderStyle.FixedDialog;
+                this.Margin = new Padding(0, 0, 0, 0);
+                this.BackColor = Stylesheet.Color_BGColorA;
+            }
+
+
             // Bring UI elements to front in sequence
             NavbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             welcomeScreen.Visible = false;
             welcomeScreen.BringToFront();
-            this.LoginPage.CheckBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
-            this.LoginPage.Visible = false; // true
-            this.LoginPage.BringToFront();
+            navbar.SetButtonStyleToDefault(navbar.BtnUsername);
+            userOptions.Visible = false;
+            userOptions.AdjustUserOptionsSize();
+            userOptions.Location = new System.Drawing.Point(navbar.BtnUsername.Right-userOptions.Width + (navbar.Location.X), navbar.BtnUsername.Bottom);
+            initializeLoginPage();
         }
+
+        private void initializeLoginPage()
+        {
+            LoginPage.CheckBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
+            LoginPage.BringToFront();
+            LoginPage.LabelLoading.Visible = false;
+            LoginPage.Visible = true; // true
+        }
+
 
         private void toggleUsernameOptionPanel()
         {
-            //throw new NotImplementedException();
+            userOptions.BringToFront();
+            userOptions.Visible = !userOptions.Visible; // Toggle visibility
         }
 
         private void Boost_FormClosing(object sender, FormClosingEventArgs e)
@@ -92,6 +111,24 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     break;
             }
 
+            if(userOptions.Visible)
+            {
+                userOptions.BringToFront();
+            }
+        }
+
+        public void FacebookLogout()
+        {
+            try
+            {
+                BoostEn.FacebookLogout();
+                MessageBox.Show("Logout successful!");
+                boostFormInitialSetup();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Logout error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void FacebookLogin()
@@ -108,6 +145,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
+                if(!m_InitialLogin)
+                {
+                    m_InitialLogin = true;
+                }
                 // Identify Login (Email as ID + First login)
                 string currentUserEmail = BoostEn.LoggedInUser.Email;
                 if(currentUserEmail != BoostEn.m_BoostSettings.LastLoggedInEmail)
@@ -182,7 +223,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             displayFriendChange();
 
             /// Engagement Panel
-            DashboardPage.LabelEngagement.Text += $@" (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
+            DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
 
             // Update dashboard UI after data fetch
             DashboardPage.UpdateDashboardUI();

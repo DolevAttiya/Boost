@@ -44,6 +44,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.LoginPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.Login();
             this.AboutPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.AboutView();
             this.timerWelcomeScreen = new System.Windows.Forms.Timer(this.components);
+            this.userOptions = new A20_EX02_Idan_203315098_Dolev_205811797.View.UserOptions();
             this.SuspendLayout();
             // 
             // NavbarSeparator
@@ -148,6 +149,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // timerWelcomeScreen
             // 
             this.timerWelcomeScreen.Tick += new System.EventHandler(this.TimerWelcomeScreen_Tick);
+            //
+            // userOptions
+            // 
+            this.userOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.userOptions.Location = new System.Drawing.Point(1664, 106);
+            this.userOptions.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.userOptions.Name = "userOptions";
+            this.userOptions.Size = new System.Drawing.Size(340, 221);
+            this.userOptions.TabIndex = 19;
+            this.userOptions.Visible = false;
             // 
             // Boost
             // 
@@ -166,12 +177,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Controls.Add(this.NavbarSeparator);
             this.Controls.Add(this.LoginPage);
             this.Controls.Add(this.welcomeScreen);
+            this.Controls.Add(this.userOptions);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(0);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Boost";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Boost for Facebook";
@@ -192,5 +203,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private Panel PanelFooterRight;
         private WelcomeScreen welcomeScreen;
         private Timer timerWelcomeScreen;
+        private UserOptions userOptions;
     }
 }

@@ -32,6 +32,19 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         #region Ctor
         private BoostSettings()
         {
+            //FirstLogin = true;
+            //LastAccessToken = null;
+            //RememberUser = false;
+            //LastLogin = null;
+            //StartupPath = Application.StartupPath;
+            //FriendCounter = new List<DateAndValue>();
+            ResetSettingsToDefault();
+        }
+        #endregion
+
+        #region Methods
+        public void ResetSettingsToDefault()
+        {
             FirstLogin = true;
             LastAccessToken = null;
             RememberUser = false;
@@ -39,9 +52,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             StartupPath = Application.StartupPath;
             FriendCounter = new List<DateAndValue>();
         }
-        #endregion
 
-        #region Methods
         public static BoostSettings LoadAppSettingsFromFile()
         {
             BoostSettings appSettings = null;
@@ -91,6 +102,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             Stream streamCreateNew = new FileStream(m_FilePath, FileMode.CreateNew);
             streamCreateNew.Close();
         }
+
+        public void DeleteAppSettingsFile()
+        {
+            File.Delete(m_FilePath);
+        }
+        
 
         public bool IsFirstLogin()
         {
