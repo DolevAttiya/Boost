@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using System.Threading;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -139,7 +140,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message, "Logout error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(e.Message, "Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -169,27 +170,41 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     BoostEn.m_BoostSettings.FirstLogin = true;
                 }
 
-                if(BoostEn.m_BoostSettings.IsFirstLogin())
+                /*if(BoostEn.m_BoostSettings.IsFirstLogin()) // TODO - remove welcome screen?
                 {
                     welcomeScreen.Visible = true;
                     welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
-                }
-
-                // Overwrite Boost Settings
-                BoostEn.m_BoostSettings.LastLoggedInEmail = currentUserEmail;
-                BoostEn.m_BoostSettings.FirstLogin = false;
-                BoostEn.m_BoostSettings.LastAccessToken = BoostEn.LoginResult.AccessToken;
-                BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
-                BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
+                }*/
 
                 // Fetch and load data
                 FetchUserData();
                 dashboardChartSetup();
+                displayWhatsNewPopup();
+                overwriteBoostSettings(currentUserEmail);
             }
             else
             {
                 this.LoginPage.LabelLoading.Visible = true;
                 FetchUserData();
+            }
+        }
+
+        private void overwriteBoostSettings(string i_userEmail){
+            // Overwrite Boost Settings
+            BoostEn.m_BoostSettings.LastLoggedInEmail = i_userEmail;
+            BoostEn.m_BoostSettings.FirstLogin = false;
+            BoostEn.m_BoostSettings.LastAccessToken = BoostEn.LoginResult.AccessToken;
+            BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
+            BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
+            BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.r_CurrentVersion;
+        }
+
+        private void displayWhatsNewPopup()
+        {
+            if (BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.r_CurrentVersion)
+            {
+                WhatsNew whatsNew = new WhatsNew();
+                whatsNew.Visible = true;
             }
         }
 
@@ -206,8 +221,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 ///BestTimes
-                AnalyticsPage.BestTimesPage.DrawBestTimesGrid(
+                new Thread(new ThreadStart( () => {
+                    AnalyticsPage.BestTimesPage.DrawBestTimesGrid(
                     (TimeAnalysis)BoostEn.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEn.LoggedInUser));
+                   }) ).Start();
                 ///BiggestFans
 
                 AnalyticsPage.BiggestFansPage.DisplayBiggestFans(
@@ -226,7 +243,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             const string k_Quotes = "\"";
             string name = BoostEn.LoggedInUser.Name;
 
-            fetchUserBioAndPhoto(k_Quotes, name);
+            new Thread(new ThreadStart(() =>
+            {
+                fetchUserBioAndPhoto(k_Quotes, name);
+            })).Start();
 
             ///Top Post
             fetchTopPost(k_Quotes);
@@ -238,7 +258,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
 
             // Update dashboard UI after data fetch
-            DashboardPage.UpdateDashboardUI();
+            new Thread(DashboardPage.UpdateDashboardUI).Start();
         }
 
         private void fetchUserBioAndPhoto(string k_Quotes, string name)
@@ -246,22 +266,27 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             Post lastStatus;
             try
             {
-                ///Navigation bar
-                navbar.BtnUsername.Text = name;
-                navbar.NavbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
-                navbar.NavbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
-                ///Bio Panel
-                DashboardPage.LabelName.Text = name;
-                DashboardPage.PictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
-                DashboardPage.PictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
-                DashboardPage.LabelBio1.Text = $@"Location: {BoostEn.LoggedInUser.Location.Name}";
-                DashboardPage.LabelBio2.Text = $@"Friends using Boost: {BoostEn.LoggedInUser.Friends.Count}";
-                DashboardPage.LabelBio3.Text = $@"Verified?: {(BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";
+                this.Invoke(new Action(() =>
+                {
+                    ///Navigation bar
+                    navbar.BtnUsername.Text = name;
+                    navbar.NavbarProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureSmallURL);
+                    navbar.NavbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+                    ///Bio Panel
+                    DashboardPage.LabelName.Text = name;
+                    DashboardPage.PictureBoxBioProfilePic.LoadAsync(BoostEn.LoggedInUser.PictureLargeURL);
+                    DashboardPage.PictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+                    DashboardPage.LabelBio1.Text = $@"Location: {BoostEn.LoggedInUser.Location.Name}";
+                    DashboardPage.LabelBio2.Text = $@"Friends using Boost: {BoostEn.LoggedInUser.Friends.Count}";
+                    DashboardPage.LabelBio3.Text = $@"Verified?: {(BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";
+
+                    // Recent Status Update
+                    lastStatus = BoostEn.GetLastStatus();
+                    DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
+                    DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
+
+                }));
                 
-                // Recent Status Update
-                lastStatus = BoostEn.GetLastStatus();
-                DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
-                DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
             }
             catch (NullReferenceException)
             {

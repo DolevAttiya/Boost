@@ -28,47 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelWhatsNew = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // label1
+            // webBrowser1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 44);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "What\'s New";
-            // 
-            // panelWhatsNew
-            // 
-            this.panelWhatsNew.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelWhatsNew.Location = new System.Drawing.Point(0, 92);
-            this.panelWhatsNew.Name = "panelWhatsNew";
-            this.panelWhatsNew.Size = new System.Drawing.Size(1614, 782);
-            this.panelWhatsNew.TabIndex = 1;
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1614, 874);
+            this.webBrowser1.TabIndex = 0;
             // 
             // WhatsNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1614, 874);
-            this.Controls.Add(this.panelWhatsNew);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.webBrowser1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WhatsNew";
-            this.Text = "WhatsNew";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Whats New";
+            this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelWhatsNew;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

@@ -27,6 +27,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
 
         public const string k_PostErrorMessage = "Could not get Post!";
+
+        public static readonly string r_CurrentVersion = "0.2.0";
         #endregion
 
         #region Properties
@@ -72,9 +74,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             {
                 FacebookService.Logout(logoutCallback);
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("Logout unsuccessful!");
+                throw new FacebookApiException("Logout failed!", e);
             }
         }
 
@@ -88,7 +90,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                throw new Exception(e.Message);
             }
         }
 

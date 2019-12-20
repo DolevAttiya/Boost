@@ -93,6 +93,7 @@
     <Compile Include="View\BiggestFansView.Designer.cs">
       <DependentUpon>BiggestFansView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\UITools.cs" />
     <Compile Include="View\UI_Controls\GradientForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +228,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsNew.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

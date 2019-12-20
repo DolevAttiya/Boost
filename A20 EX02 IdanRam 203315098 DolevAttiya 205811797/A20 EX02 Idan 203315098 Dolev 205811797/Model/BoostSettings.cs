@@ -21,6 +21,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public string LastAccessToken { get; set; }
 
         public string LastLoggedInEmail { get; set; }
+        public string LastUsedVersion { get; set; }
 
         public string StartupPath { get; set; }
         
@@ -49,6 +50,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             LastAccessToken = null;
             RememberUser = false;
             LastLogin = null;
+            LastUsedVersion = null;
             StartupPath = Application.StartupPath;
             FriendCounter = new List<DateAndValue>();
         }
