@@ -21,7 +21,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private readonly int k_GridAreaWidth;
         private int k_CellWidth;
         private int k_CellHeight;
-        public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours];
+        public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours]; // TODO 
         public Label[,] m_BestTimesGrid = new Label[sk_NumOfDays + 1, sk_NumOfHours + 1];
         private int m_MaxTimeValue = 0;
         #endregion
@@ -36,8 +36,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DrawBestTimesGrid(TimeAnalysis i_BestTimeAnalysis)
+        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector= eTimeSelector.Month) 
         {
+            
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
             const int k_StartX = 5;
@@ -47,7 +48,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
-            m_MaxTimeValue = i_BestTimeAnalysis.CombinedAnalysisHolders.Values.Max();
+            BoostEngine.Instance.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEngine.Instance.LoggedInUser, i_TimeSelector);
+            m_MaxTimeValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders.Values.Max();
 
             for(int i = 0; i <= sk_NumOfDays; i++)
             {
@@ -60,7 +62,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
  
                     if(i != 0 && j != 0)
                     {
-                        currentValue = i_BestTimeAnalysis.CombinedAnalysisHolders[currentDayAndHour];
+                        currentValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders[currentDayAndHour];
                     }
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);

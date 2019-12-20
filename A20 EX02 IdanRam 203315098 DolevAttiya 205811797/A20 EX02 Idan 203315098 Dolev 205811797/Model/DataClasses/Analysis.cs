@@ -1,39 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using FacebookWrapper.ObjectModel;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 {
     public abstract class Analysis
     {
         #region Data Members
-        private Dictionary<object, int> m_PhotosDictionary;
-        private Dictionary<object, int> m_VideosDictionary;
-        private Dictionary<object, int> m_StatusDictionary;
-        private Dictionary<object, int> m_CombinedAnalysisHolders;
+        private SortedProxyDictionary<object, int> m_PhotosDictionary;
+        private SortedProxyDictionary<object, int> m_VideosDictionary;
+        private SortedProxyDictionary<object, int> m_StatusDictionary;
+        private SortedProxyDictionary<object, int> m_CombinedAnalysisHolders;
         #endregion
 
         #region Properties
-        public Dictionary<object, int> PhotosDictionary
+        public SortedProxyDictionary<object, int> PhotosDictionary
         {
             get => m_PhotosDictionary;
             protected set => m_PhotosDictionary = value;
         }
 
-        public Dictionary<object, int> VideosDictionary
+        public SortedProxyDictionary<object, int> VideosDictionary
         {
             get => m_VideosDictionary;
             protected set => m_VideosDictionary = value;
         }
 
-        public Dictionary<object, int> StatusDictionary
+        public SortedProxyDictionary<object, int> StatusDictionary
         {
             get => m_StatusDictionary;
             protected set => m_StatusDictionary = value;
         }
 
-        public Dictionary<object, int> CombinedAnalysisHolders
+        public SortedProxyDictionary<object, int> CombinedAnalysisHolders
         {
             get => m_CombinedAnalysisHolders;
             protected set => m_CombinedAnalysisHolders = value;
@@ -76,7 +75,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
         protected abstract void PostParser(
             Post i_PostToAnalysis,
-            ref Dictionary<object, int> io_ArrayToAnalysisHolders);
+            ref SortedProxyDictionary<object, int> io_ArrayToAnalysisHolders);
         #endregion
     }
 }

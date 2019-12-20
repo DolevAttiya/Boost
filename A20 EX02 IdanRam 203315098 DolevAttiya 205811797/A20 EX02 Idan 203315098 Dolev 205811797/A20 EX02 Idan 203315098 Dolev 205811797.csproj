@@ -62,12 +62,14 @@
     <Compile Include="Model\DataClasses\Analysis.cs" />
     <Compile Include="Model\BoostEngine.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
+    <Compile Include="Model\Design Patterns\Singleton.cs" />
     <Compile Include="Model\DataClasses\eTimerSelector.cs" />
     <Compile Include="Model\DataClasses\IAnalysis.cs" />
     <Compile Include="Model\DataClasses\TimeAnalysis.cs" />
     <Compile Include="Model\DataClasses\BiggestFanAnalysis.cs" />
     <Compile Include="Model\DataClasses\Engagement.cs" />
     <Compile Include="Model\DataClasses\DateAndValue.cs" />
+    <Compile Include="Model\Design Patterns\SortedProxyDictionary.cs" />
     <Compile Include="View\AboutView.cs">
       <SubType>UserControl</SubType>
     </Compile>

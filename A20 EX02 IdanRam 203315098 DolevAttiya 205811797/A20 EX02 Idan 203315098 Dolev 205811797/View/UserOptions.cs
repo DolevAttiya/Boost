@@ -77,7 +77,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Size = new Size(k_ButtonWidth, ((k_ButtonHeight+3) * m_UserOptionButtons.Count));
         }
 
-        private void selectUserOption(Button i_Button)
+        private void selectUserOption(Button i_Button) 
         {
             switch (i_Button.Name)
             {
@@ -94,7 +94,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            m_LogoutEvent.Invoke();
+                            m_LogoutEvent.Invoke(); // TODO SINGLETON
                         }
                         break;
                     }
