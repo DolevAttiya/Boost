@@ -93,6 +93,12 @@
     <Compile Include="View\BiggestFansView.Designer.cs">
       <DependentUpon>BiggestFansView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\UITools.cs" />
     <Compile Include="View\UI_Controls\GradientForm.cs">
       <SubType>Form</SubType>
@@ -170,6 +176,9 @@
     <EmbeddedResource Include="View\Navbar.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\UserOptions.resx">
       <DependentUpon>UserOptions.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +198,7 @@
     <EmbeddedResource Include="View\WhatsNew.resx">
       <DependentUpon>WhatsNew.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings.datasource" />
     <None Include="Resources\ClassDiagrams\EngineClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -1,6 +1,6 @@
 ﻿namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-    partial class WhatsNew
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,42 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(10, 10);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(814, 461);
-            this.webBrowser1.TabIndex = 0;
-            // 
-            // WhatsNew
+            // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 461);
-            this.Controls.Add(this.webBrowser1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(830, 500);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(830, 500);
-            this.Name = "WhatsNew";
+            this.Name = "Settings";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "What\'s New";
-            this.TopMost = true;
+            this.Text = "Settings";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

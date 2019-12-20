@@ -199,7 +199,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             }
             catch(Exception e)
             {
-                throw new Exception("Couldn't get User's Friends", e);
+                throw new Exception("Couldn't get user's friends", e);
             }
         }
 
