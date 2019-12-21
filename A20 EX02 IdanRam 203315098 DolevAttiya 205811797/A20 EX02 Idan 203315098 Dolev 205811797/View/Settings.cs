@@ -1,4 +1,5 @@
-﻿using System;
+﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,11 +10,47 @@ using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
+
+    public delegate void SaveSettingEventHandler();
+    
     public partial class Settings : Form
     {
+
+        public SaveSettingEventHandler m_SaveSettingEvent;
+
         public Settings()
         {
             InitializeComponent();
+            populateControls();
+        }
+
+        private void populateControls()
+        {
+            List<eTimeSelector> enumVals = new List<eTimeSelector>();
+
+            foreach (eTimeSelector m in Enum.GetValues(typeof(eTimeSelector)))
+            {
+                enumVals.Add(m);
+            }
+
+            defaultAnalyticsTimeFrameComboBox.DataSource = enumVals;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            //m_SaveSettingEvent.Invoke();
+            this.Close();
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

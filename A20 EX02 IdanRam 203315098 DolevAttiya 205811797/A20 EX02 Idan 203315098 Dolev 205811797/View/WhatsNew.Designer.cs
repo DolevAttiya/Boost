@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.webBrowserWhatNew = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(10, 10);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(814, 461);
-            this.webBrowser1.TabIndex = 0;
+            this.webBrowserWhatNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserWhatNew.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserWhatNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowserWhatNew.MinimumSize = new System.Drawing.Size(10, 10);
+            this.webBrowserWhatNew.Name = "webBrowser1";
+            this.webBrowserWhatNew.Size = new System.Drawing.Size(814, 461);
+            this.webBrowserWhatNew.TabIndex = 0;
             // 
             // WhatsNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 461);
-            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.webBrowserWhatNew);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(830, 500);
@@ -64,6 +64,6 @@
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.WebBrowser webBrowserWhatNew;
     }
 }

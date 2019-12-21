@@ -12,6 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
         public BoostEngine BoostEn { get; set; }
         private bool m_InitialLogin;
+        private Settings m_SettingsPopup = null;
 
         public enum eBoostPages : byte
         {
@@ -30,6 +31,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             boostFormInitialSetup();
             LoginPage.m_LoginEvent += FacebookLogin;
             userOptions.m_LogoutEvent += FacebookLogout;
+            userOptions.m_SettingsEvent += displaySettingsPopup;
         }
         #endregion
 
@@ -86,6 +88,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             LoginPage.Visible = true; // true
         }
 
+        private void initializeSettingsPopUp()
+        {
+            m_SettingsPopup = new Settings();
+            m_SettingsPopup.boostSettingsBindingSource.DataSource = BoostEn.m_BoostSettings;
+            //m_SettingsPopup.rememberUserCheckBox.Checked = BoostEn.m_BoostSettings.RememberUser;
+            //m_SettingsPopup.defaultAnalyticsTimeFrameComboBox.SelectedItem = BoostEn.m_BoostSettings.DefaultAnalyticsTimeFrame;
+        }
 
         private void toggleUsernameOptionPanel()
         {
@@ -178,6 +187,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
                 // Fetch and load data
                 FetchUserData();
+                initializeSettingsPopUp();
                 dashboardChartSetup();
                 displayWhatsNewPopup();
                 overwriteBoostSettings(currentUserEmail);
@@ -208,6 +218,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
 
+        private void displaySettingsPopup()
+        {
+            m_SettingsPopup.Show();
+        }
 
         public void FetchUserData()
         {

@@ -69,6 +69,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(2008, 798);
             this.webBrowser1.TabIndex = 2;
+            this.webBrowser1.Visible = false;
             // 
             // AboutView
             // 
