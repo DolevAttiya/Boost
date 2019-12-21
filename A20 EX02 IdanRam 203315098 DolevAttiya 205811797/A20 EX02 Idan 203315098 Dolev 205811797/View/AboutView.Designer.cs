@@ -32,7 +32,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void InitializeComponent()
         {
             this.labelAbout = new System.Windows.Forms.Label();
-            this.labelContent = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // labelAbout
@@ -49,29 +50,38 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             // labelContent
             // 
-            this.labelContent.AutoSize = true;
-            this.labelContent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.labelContent.Location = new System.Drawing.Point(6, 106);
-            this.labelContent.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.labelContent.MaximumSize = new System.Drawing.Size(1900, 962);
-            this.labelContent.Name = "labelContent";
-            this.labelContent.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
-            this.labelContent.Size = new System.Drawing.Size(1557, 134);
-            this.labelContent.TabIndex = 1;
-            this.labelContent.Text = "Version: 0.1.0\r\n\r\nBoost for Facebook is a social media management app developed b" +
-    "y Idan Ram and Dolev Attiya.";
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.labelVersion.Location = new System.Drawing.Point(6, 106);
+            this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.labelVersion.MaximumSize = new System.Drawing.Size(1900, 962);
+            this.labelVersion.Name = "labelContent";
+            this.labelVersion.Padding = new System.Windows.Forms.Padding(10);
+            this.labelVersion.Size = new System.Drawing.Size(240, 58);
+            this.labelVersion.TabIndex = 1;
+            this.labelVersion.Text = "Version: 0.1.0";
             // 
-            // About
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(13, 178);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(2008, 798);
+            this.webBrowser1.TabIndex = 2;
+            this.webBrowser1.Visible = false;
+            // 
+            // AboutView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.labelContent);
+            this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.labelAbout);
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.Name = "About";
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Name = "AboutView";
             this.Size = new System.Drawing.Size(2042, 1006);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -81,6 +91,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         private System.Windows.Forms.Label labelAbout;
-        private System.Windows.Forms.Label labelContent;
+        private System.Windows.Forms.Label labelVersion;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
