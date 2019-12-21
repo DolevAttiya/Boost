@@ -77,6 +77,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
             else
             {
+                BtnUsername.Focus();
                 m_UsernameSelected = true;
                 i_Button.BackColor = Stylesheet.Color_Main;
                 i_Button.ForeColor = Color.White;
@@ -115,9 +116,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_UsernameButtonEvent.Invoke();
         }
 
-        private void BtnUsername_Leave(object sender, EventArgs e)
+        private void BtnUsername_LostFocus(object sender, EventArgs e)
         {
-            //usernameClick();
+            usernameClick();
         }
         #endregion
     }

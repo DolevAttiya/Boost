@@ -47,7 +47,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 {
                     button.Click += new EventHandler(this.NavbarButton_Click);
                 }
-                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUsernameOptionPanel);
+                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUserOptionPanel);
 
                 // Boost Frame properties
                 this.MaximizeBox = false;
@@ -96,7 +96,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_SettingsPopup.boostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
         }
 
-        private void toggleUsernameOptionPanel()
+        private void toggleUserOptionPanel()
         {
             userOptions.BringToFront();
             userOptions.Visible = !userOptions.Visible; // Toggle visibility

@@ -56,7 +56,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.BtnUsername.Text = "John Doe";
             this.BtnUsername.UseVisualStyleBackColor = false;
             this.BtnUsername.Click += new System.EventHandler(this.BtnUsername_Click);
-            this.BtnUsername.Leave += new System.EventHandler(this.BtnUsername_Leave);
+            this.BtnUsername.LostFocus += new System.EventHandler(this.BtnUsername_LostFocus);
             // 
             // NavbarProfilePic
             // 
