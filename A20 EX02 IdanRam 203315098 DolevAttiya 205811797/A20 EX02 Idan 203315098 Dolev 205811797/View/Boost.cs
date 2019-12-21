@@ -192,11 +192,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 displayWhatsNewPopup();
                 overwriteBoostSettings(currentUserEmail);
             }
-            else
+            /*else
             {
                 this.LoginPage.LabelLoading.Visible = true;
                 FetchUserData();
-            }
+            }*/
         }
 
         private void overwriteBoostSettings(string i_userEmail){

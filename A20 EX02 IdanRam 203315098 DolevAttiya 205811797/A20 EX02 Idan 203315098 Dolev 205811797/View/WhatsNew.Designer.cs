@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.webBrowserWhatNew = new System.Windows.Forms.WebBrowser();
+            this.webBrowserWhatsNew = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
             // webBrowser1
             // 
-            this.webBrowserWhatNew.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowserWhatNew.Location = new System.Drawing.Point(0, 0);
-            this.webBrowserWhatNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.webBrowserWhatNew.MinimumSize = new System.Drawing.Size(10, 10);
-            this.webBrowserWhatNew.Name = "webBrowser1";
-            this.webBrowserWhatNew.Size = new System.Drawing.Size(814, 461);
-            this.webBrowserWhatNew.TabIndex = 0;
+            this.webBrowserWhatsNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserWhatsNew.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserWhatsNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowserWhatsNew.MinimumSize = new System.Drawing.Size(10, 10);
+            this.webBrowserWhatsNew.Name = "webBrowser1";
+            this.webBrowserWhatsNew.Size = new System.Drawing.Size(814, 461);
+            this.webBrowserWhatsNew.TabIndex = 0;
             // 
             // WhatsNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(814, 461);
-            this.Controls.Add(this.webBrowserWhatNew);
+            this.Controls.Add(this.webBrowserWhatsNew);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(830, 500);
@@ -64,6 +64,6 @@
 
         #endregion
 
-        private System.Windows.Forms.WebBrowser webBrowserWhatNew;
+        private System.Windows.Forms.WebBrowser webBrowserWhatsNew;
     }
 }

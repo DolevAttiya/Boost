@@ -45,22 +45,22 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // defaultAnalyticsTimeFrameLabel
             // 
             defaultAnalyticsTimeFrameLabel.AutoSize = true;
-            defaultAnalyticsTimeFrameLabel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            defaultAnalyticsTimeFrameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             defaultAnalyticsTimeFrameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            defaultAnalyticsTimeFrameLabel.Location = new System.Drawing.Point(63, 84);
+            defaultAnalyticsTimeFrameLabel.Location = new System.Drawing.Point(55, 84);
             defaultAnalyticsTimeFrameLabel.Name = "defaultAnalyticsTimeFrameLabel";
-            defaultAnalyticsTimeFrameLabel.Size = new System.Drawing.Size(182, 17);
+            defaultAnalyticsTimeFrameLabel.Size = new System.Drawing.Size(201, 16);
             defaultAnalyticsTimeFrameLabel.TabIndex = 7;
             defaultAnalyticsTimeFrameLabel.Text = "Default Analytics Time Frame:";
             // 
             // rememberUserLabel
             // 
             rememberUserLabel.AutoSize = true;
-            rememberUserLabel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            rememberUserLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             rememberUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            rememberUserLabel.Location = new System.Drawing.Point(63, 121);
+            rememberUserLabel.Location = new System.Drawing.Point(55, 121);
             rememberUserLabel.Name = "rememberUserLabel";
-            rememberUserLabel.Size = new System.Drawing.Size(104, 17);
+            rememberUserLabel.Size = new System.Drawing.Size(113, 16);
             rememberUserLabel.TabIndex = 9;
             rememberUserLabel.Text = "Remember User:";
             // 
@@ -74,7 +74,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.defaultAnalyticsTimeFrameComboBox.DataSource = this.boostSettingsBindingSource;
             this.defaultAnalyticsTimeFrameComboBox.DisplayMember = "DefaultAnalyticsTimeFrame";
             this.defaultAnalyticsTimeFrameComboBox.FormattingEnabled = true;
-            this.defaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(262, 84);
+            this.defaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(271, 83);
             this.defaultAnalyticsTimeFrameComboBox.Name = "defaultAnalyticsTimeFrameComboBox";
             this.defaultAnalyticsTimeFrameComboBox.Size = new System.Drawing.Size(121, 21);
             this.defaultAnalyticsTimeFrameComboBox.TabIndex = 8;
@@ -83,7 +83,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.boostSettingsBindingSource, "RememberUser", true));
             this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.boostSettingsBindingSource, "RememberUser", true));
-            this.rememberUserCheckBox.Location = new System.Drawing.Point(262, 119);
+            this.rememberUserCheckBox.Location = new System.Drawing.Point(271, 118);
             this.rememberUserCheckBox.Name = "rememberUserCheckBox";
             this.rememberUserCheckBox.Size = new System.Drawing.Size(121, 24);
             this.rememberUserCheckBox.TabIndex = 10;
