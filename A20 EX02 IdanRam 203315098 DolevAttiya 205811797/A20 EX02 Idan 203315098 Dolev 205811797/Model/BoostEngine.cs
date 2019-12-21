@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 using Facebook;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using System.Windows.Forms;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 {
-
-    public class BoostEngine 
+    public class BoostEngine
     {
         #region Data Members & Properties
+
         #region Data Members
+
         private const int k_CollectionLimit = /*50*/15; // For Login method
 
         public const int k_NumOfBiggestFans = 3;
@@ -29,12 +29,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public const string k_PostErrorMessage = "Could not get Post!";
 
         public static readonly string r_CurrentVersion = "0.2.0";
+
         #endregion
 
         #region Properties
-          
+
         public int FriendChange { get; set; }
-    
+
         public DateAndValue[] EngagementRecentPostLikes { get; set; }
 
         public DateAndValue[] EngagementRecentPostComments { get; set; }
@@ -43,30 +44,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public LoginResult LoginResult { get; set; }
 
-        public IAnalysis TimeAnalysis { get; }
+        public TimeAnalysis TimeAnalysis { get; }
 
-        public IAnalysis BiggestFanAnalysis { get; }
+        public BiggestFanAnalysis BiggestFanAnalysis { get; }
+
         #endregion
-        
+
         #endregion
 
         #region Ctor
-        public BoostEngine()
+
+        private BoostEngine()
         {
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
             FriendChange = 0;
         }
+
+        #endregion
+
+        #region Instance
+
+        public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
+
         #endregion
 
         #region Methods
-        public static KeyValuePair<object, int>[] SortedSelectedDictionary(Dictionary<object, int> i_DictionaryToSort)
-        {
-            KeyValuePair<object, int>[] o_SortedDictionaryValues = i_DictionaryToSort.ToArray();
-
-            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
-            return o_SortedDictionaryValues;
-        }
 
         public void FacebookLogout()
         {
@@ -98,13 +101,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
             User o_LoggedInUser = null;
-            if (i_AccessToken != null && i_RememberUser)
+            if(i_AccessToken != null && i_RememberUser)
             {
                 try
                 {
                     LoginResult = FacebookService.Connect(i_AccessToken);
                 }
-                catch (Exception e)
+                catch(Exception e)
                 {
                     throw new FacebookApiException("Connection failed!", e);
                 }
@@ -134,7 +137,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                         "user_posts",
                         "user_hometown");
                 }
-                catch (Exception e)
+                catch(Exception e)
                 {
                     throw new FacebookApiException("Login failed!", e);
                 }

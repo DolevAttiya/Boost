@@ -20,7 +20,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        private void PictureBoxStart_Click(object sender, EventArgs e)
+        private void PictureBoxStart_Click(object sender, EventArgs e) //TODO SingelTon
         {
             m_Start.Invoke();
         }

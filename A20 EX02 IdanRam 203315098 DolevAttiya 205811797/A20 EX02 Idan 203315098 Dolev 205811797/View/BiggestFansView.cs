@@ -23,7 +23,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DisplayBiggestFans(BiggestFanAnalysis i_BiggestFanAnalysis)
+        public void DisplayBiggestFans(eTimeSelector i_TimeSelector= eTimeSelector.Month)
         {
             int numberOfIterations = 0;
 
@@ -32,11 +32,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 varAnalysisHolder.Text = $@"{numberOfIterations++} | Likes: {numberOfIterations++}";
             }
 
-            KeyValuePair<object, int>[] sortedCombinedValues = BoostEngine.SortedSelectedDictionary(i_BiggestFanAnalysis.CombinedAnalysisHolders);
+            BoostEngine.Instance.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
+                BoostEngine.Instance.LoggedInUser,
+                i_TimeSelector);
+            KeyValuePair<object, int>[] sortedCombinedValues =  BoostEngine.Instance.BiggestFanAnalysis.CombinedAnalysisHolders.SortByValue();
             numberOfIterations = 0;
             foreach(Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {
-                if (numberOfIterations > r_BiggestFanLeaderboard.Count || i_BiggestFanAnalysis.CombinedAnalysisHolders.Count - 1 < numberOfIterations)
+                if (numberOfIterations > r_BiggestFanLeaderboard.Count || BoostEngine.Instance.BiggestFanAnalysis.CombinedAnalysisHolders.Count - 1 < numberOfIterations)
                 {
                     break;
                 }

@@ -10,7 +10,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     public partial class Boost : Form
     {
         #region Data Members
-        public BoostEngine BoostEn { get; set; }
+
+        public BoostEngine m_BoostEn;
         private bool m_InitialLogin;
         private Settings m_SettingsPopup = null;
 
@@ -25,7 +26,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Ctor
         public Boost()
         {
-            BoostEn = new BoostEngine();
+            m_BoostEn = BoostEngine.Instance;
             m_InitialLogin = false;
             InitializeComponent();
             boostFormInitialSetup();
@@ -82,7 +83,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void initializeLoginPage()
         {
-            LoginPage.CheckBoxRememberUser.Checked = BoostEn.m_BoostSettings.RememberUser;
+            LoginPage.CheckBoxRememberUser.Checked = m_BoostEn.m_BoostSettings.RememberUser;
             LoginPage.BringToFront();
             LoginPage.LabelLoading.Visible = false;
             LoginPage.Visible = true; // true
@@ -104,7 +105,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void Boost_FormClosing(object sender, FormClosingEventArgs e)
         {
-            BoostEn.m_BoostSettings.SaveAppSettingsToFile();
+            m_BoostEn.m_BoostSettings.SaveAppSettingsToFile();
         }
 
         public void NavbarButton_Click(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
-                BoostEn.FacebookLogout();
+                m_BoostEn.FacebookLogout();
                 MessageBox.Show("Logout successful!");
                 boostFormInitialSetup();
             }
@@ -157,14 +158,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
-                BoostEn.FacebookLogin(BoostEn.m_BoostSettings.LastAccessToken, BoostEn.m_BoostSettings.RememberUser);
+                m_BoostEn.FacebookLogin(m_BoostEn.m_BoostSettings.LastAccessToken, m_BoostEn.m_BoostSettings.RememberUser);
             }
             catch(Exception)
             {
                 LoginPage.LabelLoginError.Visible = true;
             }
 
-            bool isTheUserLoggedIn = BoostEn.LoggedInUser != null;
+            bool isTheUserLoggedIn = m_BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
                 if(!m_InitialLogin)
@@ -172,13 +173,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     m_InitialLogin = true;
                 }
                 // Identify Login (Email as ID + First login)
-                string currentUserEmail = BoostEn.LoggedInUser.Email;
-                if(currentUserEmail != BoostEn.m_BoostSettings.LastLoggedInEmail)
+                string currentUserEmail = m_BoostEn.LoggedInUser.Email;
+                if(currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
                 {
-                    BoostEn.m_BoostSettings.LastLogin = null;
-                    BoostEn.m_BoostSettings.FirstLogin = true;
+                    m_BoostEn.m_BoostSettings.LastLogin = null;
+                    m_BoostEn.m_BoostSettings.FirstLogin = true;
                 }
-
                 /*if(BoostEn.m_BoostSettings.IsFirstLogin()) // TODO - remove welcome screen?
                 {
                     welcomeScreen.Visible = true;
@@ -225,8 +225,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public void FetchUserData()
         {
-            BoostEn.FriendCountSetup();
-            BoostEn.SetupEngagementArrays();
+            m_BoostEn.FriendCountSetup();
+            m_BoostEn.SetupEngagementArrays();
             fetchDashboardData();
             fetchAnalyticsPageData();
         }
@@ -236,19 +236,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 ///BestTimes
-                new Thread(new ThreadStart( () => {
-                    AnalyticsPage.BestTimesPage.DrawBestTimesGrid(
-                    (TimeAnalysis)BoostEn.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEn.LoggedInUser));
-                   }) ).Start();
+
+               new Thread(new ThreadStart( () => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid();})).Start();
                 ///BiggestFans
 
-                AnalyticsPage.BiggestFansPage.DisplayBiggestFans(
-                    (BiggestFanAnalysis)BoostEn.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
-                        BoostEn.LoggedInUser,
-                        eTimeSelector.Month));
+                AnalyticsPage.BiggestFansPage.DisplayBiggestFans();
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.WriteLine(e.ToString());
                 AnalyticsPage.DisplayAnalyticsErrorMessage();
             }
         }
@@ -256,7 +252,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void fetchDashboardData()
         {
             const string k_Quotes = "\"";
-            string name = BoostEn.LoggedInUser.Name;
+            string name = m_BoostEn.LoggedInUser.Name;
 
             new Thread(new ThreadStart(() =>
             {
@@ -302,6 +298,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
                 }));
                 
+
             }
             catch (NullReferenceException)
             {
@@ -313,17 +310,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
-                if (BoostEn.FriendChange != 0)
+                if (m_BoostEn.FriendChange != 0)
                 {
                     DashboardPage.LabelFriendsChange.Visible = true;
-                    if (BoostEn.FriendChange > 0)
+                    if (m_BoostEn.FriendChange > 0)
                     {
-                        DashboardPage.LabelFriendsChange.Text = "+" + BoostEn.FriendChange.ToString();
+                        DashboardPage.LabelFriendsChange.Text = "+" + m_BoostEn.FriendChange.ToString();
                         DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
                     }
                     else
                     {
-                        DashboardPage.LabelFriendsChange.Text = BoostEn.FriendChange.ToString();
+                        DashboardPage.LabelFriendsChange.Text = m_BoostEn.FriendChange.ToString();
                         DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
                     }
                 }
@@ -373,7 +370,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void dashboardChartSetup()
         {
             // Friend Chart
-            foreach(DateAndValue friendCounter in BoostEn.m_BoostSettings.FriendCounter)
+            foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
             {
                 this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
                     friendCounter.Date.Date.ToString("d/M/yy"),
@@ -385,8 +382,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // Engagement Chart
             for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
             {
-                DateAndValue currentLikes = BoostEn.EngagementRecentPostLikes[i];
-                DateAndValue currentComments = BoostEn.EngagementRecentPostComments[i];
+                DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
+                DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
 
                 this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
                     currentLikes.Date.ToString(),
