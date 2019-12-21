@@ -70,14 +70,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
         ///    &lt;title&gt;About Boost&lt;/title&gt;
         ///  &lt;/head&gt;
-        ///  &lt;body&gt;
+        ///  &lt;body
+        ///    style=&quot;font-family: &apos;Century Gothic&apos;, CenturyGothic, AppleGothic, sans-serif;font-size: 1.1rem;color:#203458;margin: 1rem 1rem 2rem 2rem;&quot;
+        ///  &gt;
         ///    &lt;p class=&quot;about&quot;&gt;
-        ///      Boost for Facebook is a social media management desktop application
-        ///      developed by Idan Ram and Dolev Attiya.
-        ///    &lt;/p&gt;
-        ///  &lt;/body&gt;
-        ///&lt;/html&gt;
-        ///.
+        ///      Boost for Facebo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string About {
             get {
@@ -133,7 +130,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///* {
         ///  font-family: &quot;Century Gothic&quot;, CenturyGothic, AppleGothic, sans-serif;
         ///  color: var(--main-color);
-        ///  margin: 0.5rem;
+        ///  /*margin: 0.5rem;*/
         ///}
         ///
         ///h1 {
@@ -145,7 +142,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///}
         ///
         ///li {
-        ///  margin: 1rem;
+        ///  /*margin: 1rem;*/
         ///}
         ///
         ///.about {
@@ -160,36 +157,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_StartDefault {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_StartDefault", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_StartRollover {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_StartRollover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_v4 {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_v4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
         ///  &lt;head&gt;
@@ -199,17 +166,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
         ///    &lt;title&gt;What&apos;s New&lt;/title&gt;
         ///  &lt;/head&gt;
-        ///  &lt;body&gt;
+        ///  &lt;body
+        ///    style=&quot;font-family: &apos;Century Gothic&apos;, CenturyGothic, AppleGothic, sans-serif;color:#203458;margin: 1rem 1rem 2rem 2rem;&quot;
+        ///  &gt;
         ///    &lt;h1&gt;What&apos;s New&lt;/h1&gt;
         ///    &lt;div&gt;
-        ///      &lt;h2&gt;version 0.2.0&lt;/h2&gt;
-        ///      &lt;div&gt;
-        ///        &lt;ul&gt;
-        ///          &lt;li&gt;
-        ///            &lt;text&gt;Added user options:&lt;/text&gt;
-        ///            &lt;ul&gt;
-        ///              &lt;li&gt;
-        ///        [rest of string was truncated]&quot;;.
+        ///      &lt;h2 style=&quot;font-size:1. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WhatsNew {
             get {

@@ -35,7 +35,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Boost));
             this.NavbarSeparator = new System.Windows.Forms.Panel();
             this.Footer = new System.Windows.Forms.Label();
-            this.welcomeScreen = new A20_EX02_Idan_203315098_Dolev_205811797.View.WelcomeScreen();
             this.PanelFooterRight = new System.Windows.Forms.Panel();
             this.PanelFooterLeft = new System.Windows.Forms.Panel();
             this.navbar = new A20_EX02_Idan_203315098_Dolev_205811797.View.Navbar();
@@ -43,7 +42,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.DashboardPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.DashboardView();
             this.LoginPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.Login();
             this.AboutPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.AboutView();
-            this.timerWelcomeScreen = new System.Windows.Forms.Timer(this.components);
             this.userOptions = new A20_EX02_Idan_203315098_Dolev_205811797.View.UserOptions();
             this.SuspendLayout();
             // 
@@ -70,15 +68,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Footer.TabIndex = 6;
             this.Footer.Text = "ALL RIGHTS RESERVED TO BOOST FOR FACEBOOK © 2019";
             this.Footer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // welcomeScreen
-            // 
-            this.welcomeScreen.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.WelcomeScreen_v4;
-            this.welcomeScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.welcomeScreen.Location = new System.Drawing.Point(0, 0);
-            this.welcomeScreen.Name = "welcomeScreen";
-            this.welcomeScreen.Size = new System.Drawing.Size(1135, 638);
-            this.welcomeScreen.TabIndex = 18;
             // 
             // PanelFooterRight
             // 
@@ -146,10 +135,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.AboutPage.Size = new System.Drawing.Size(1021, 523);
             this.AboutPage.TabIndex = 13;
             // 
-            // timerWelcomeScreen
-            // 
-            this.timerWelcomeScreen.Tick += new System.EventHandler(this.TimerWelcomeScreen_Tick);
-            // 
             // userOptions
             // 
             this.userOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -176,7 +161,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Controls.Add(this.Footer);
             this.Controls.Add(this.NavbarSeparator);
             this.Controls.Add(this.LoginPage);
-            this.Controls.Add(this.welcomeScreen);
             this.Controls.Add(this.userOptions);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -201,8 +185,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private View.Navbar navbar;
         private Panel PanelFooterLeft;
         private Panel PanelFooterRight;
-        private WelcomeScreen welcomeScreen;
-        private Timer timerWelcomeScreen;
         private UserOptions userOptions;
     }
 }

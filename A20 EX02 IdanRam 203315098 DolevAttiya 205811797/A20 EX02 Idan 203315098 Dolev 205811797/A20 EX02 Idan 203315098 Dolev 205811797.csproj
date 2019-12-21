@@ -227,18 +227,6 @@
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WelcomeScreen_StartDefault.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_v3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_StartRollover.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_v4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

@@ -72,8 +72,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // Sort elements for app startup
             NavbarSeparator.BringToFront();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
-            welcomeScreen.Visible = false;
-            welcomeScreen.BringToFront();
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;
             userOptions.AdjustUserOptionsSize();
@@ -144,12 +142,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_BoostEn.FacebookLogout();
-                MessageBox.Show("Logout successful!");
+                MessageBox.Show(@"Logout successful!");
                 boostFormInitialSetup();
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message, "Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(e.Message, @"Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -178,11 +176,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     m_BoostEn.m_BoostSettings.LastLogin = null;
                     m_BoostEn.m_BoostSettings.FirstLogin = true;
                 }
-                /*if(m_BoostEn.m_BoostSettings.IsFirstLogin()) // TODO - remove welcome screen?
-                {
-                    welcomeScreen.Visible = true;
-                    welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
-                }*/
 
                 // Fetch and load data
                 FetchUserData();
@@ -191,11 +184,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 displayWhatsNewPopup();
                 overwriteBoostSettings(currentUserEmail);
             }
-            /*else
-            {
-                this.LoginPage.LabelLoading.Visible = true;
-                FetchUserData();
-            }*/
         }
 
         private void overwriteBoostSettings(string i_userEmail){
@@ -327,7 +315,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             catch (Exception)
             {
                 DashboardPage.DisplayDashboardErrorMessage();
-                DashboardPage.LabelError.Text = "Could not fetch data from boostSettings.xml";
+                DashboardPage.LabelError.Text = @"Could not fetch data from boostSettings.xml";
             }
         }
 
@@ -337,8 +325,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 topPost = m_BoostEn.GetTopPost();
-                DashboardPage.LabelTopPostLikes.Text = string.Format(@"Likes: {0}" ,topPost.LikedBy.Count);
-                DashboardPage.LabelTopPostComments.Text = string.Format(@"Comments: {0}" ,topPost.Comments.Count);
+                DashboardPage.LabelTopPostLikes.Text = $@"Likes: {topPost.LikedBy.Count}";
+                DashboardPage.LabelTopPostComments.Text = $@"Comments: {topPost.Comments.Count}";
                 if (string.IsNullOrEmpty(topPost.Message))
                 {
                     DashboardPage.LabelTopPostCaptionTitle.Visible = false;
@@ -392,33 +380,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     currentComments.Value);
             }
         }
-
-        private void TimerWelcomeScreen_Tick(object sender, EventArgs e)
-        {
-            int currentY = this.welcomeScreen.Location.Y;
-            if(currentY >= 1300)
-            {
-                timerWelcomeScreen.Stop();
-                this.welcomeScreen.Visible = false;
-            }
-            else
-            {
-                currentY += 30;
-                this.welcomeScreen.Location = new System.Drawing.Point(this.welcomeScreen.Location.X, currentY);
-            }
-        }
-
-        private void welcomeScreenStart()
-        {
-            timerWelcomeScreen.Interval = 1;
-            timerWelcomeScreen.Start();
-        }
-
-       /* private void Boost_Click(object sender, EventArgs e)
-        {
-            userOptions.Visible = false;
-            navbar.DeselectBtnUsername();
-        }*/
         #endregion
     }
 }
