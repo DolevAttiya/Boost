@@ -66,7 +66,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     }
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
-                    this.Controls.Add(m_BestTimesGrid[i, j]);
+
+                    // Multithreading
+                    this.Invoke(new Action(() => { 
+                        this.Controls.Add(m_BestTimesGrid[i, j]); 
+                    
                     //// Column titles
                     if(i == 0)
                     {
@@ -101,6 +105,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     {
                         lastHeight = m_BestTimesGrid[i, j].Height + 2;
                     }
+                    }));
                 }
 
                 labelX = k_StartX;

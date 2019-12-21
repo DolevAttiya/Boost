@@ -6,38 +6,41 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 {
     public class BoostSettings
     {
         #region Data Members & Properties
+        // App Settings
         public bool FirstLogin { get; set; }
-
-        public bool RememberUser { get; set; }
 
         public DateTime? LastLogin { get; set; }
 
         public string LastAccessToken { get; set; }
 
         public string LastLoggedInEmail { get; set; }
+        public string LastUsedVersion { get; set; }
 
         public string StartupPath { get; set; }
+
+        private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
+        
+        // User Settings
+        
+        public bool RememberUser { get; set; }
+        public eTimeSelector DefaultAnalyticsTimeFrame { get; set; }
         
         public List<DateAndValue> FriendCounter;
 
-        private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
+
         #endregion
 
         #region Ctor
         private BoostSettings()
         {
-            //FirstLogin = true;
-            //LastAccessToken = null;
-            //RememberUser = false;
-            //LastLogin = null;
-            //StartupPath = Application.StartupPath;
-            //FriendCounter = new List<DateAndValue>();
+
             ResetSettingsToDefault();
         }
         #endregion
@@ -49,8 +52,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             LastAccessToken = null;
             RememberUser = false;
             LastLogin = null;
+            LastUsedVersion = null;
             StartupPath = Application.StartupPath;
             FriendCounter = new List<DateAndValue>();
+            DefaultAnalyticsTimeFrame = eTimeSelector.Month;
         }
 
         public static BoostSettings LoadAppSettingsFromFile()

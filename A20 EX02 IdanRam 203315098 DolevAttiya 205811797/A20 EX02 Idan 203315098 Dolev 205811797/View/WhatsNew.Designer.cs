@@ -28,47 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelWhatsNew = new System.Windows.Forms.Panel();
+            this.webBrowserWhatsNew = new System.Windows.Forms.WebBrowser();
             this.SuspendLayout();
             // 
-            // label1
+            // webBrowser1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 44);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "What\'s New";
-            // 
-            // panelWhatsNew
-            // 
-            this.panelWhatsNew.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelWhatsNew.Location = new System.Drawing.Point(0, 92);
-            this.panelWhatsNew.Name = "panelWhatsNew";
-            this.panelWhatsNew.Size = new System.Drawing.Size(1614, 782);
-            this.panelWhatsNew.TabIndex = 1;
+            this.webBrowserWhatsNew.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowserWhatsNew.Location = new System.Drawing.Point(0, 0);
+            this.webBrowserWhatsNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowserWhatsNew.MinimumSize = new System.Drawing.Size(10, 10);
+            this.webBrowserWhatsNew.Name = "webBrowser1";
+            this.webBrowserWhatsNew.Size = new System.Drawing.Size(814, 461);
+            this.webBrowserWhatsNew.TabIndex = 0;
             // 
             // WhatsNew
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1614, 874);
-            this.Controls.Add(this.panelWhatsNew);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(814, 461);
+            this.Controls.Add(this.webBrowserWhatsNew);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(830, 500);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(830, 500);
             this.Name = "WhatsNew";
-            this.Text = "WhatsNew";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "What\'s New";
+            this.TopMost = true;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelWhatsNew;
+        private System.Windows.Forms.WebBrowser webBrowserWhatsNew;
     }
 }

@@ -1,0 +1,25 @@
+:root {
+  --main-color: #203458;
+}
+
+* {
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  color: var(--main-color);
+  /*margin: 0.5rem;*/
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+li {
+  /*margin: 1rem;*/
+}
+
+.about {
+  font-size: 1.25rem;
+}
