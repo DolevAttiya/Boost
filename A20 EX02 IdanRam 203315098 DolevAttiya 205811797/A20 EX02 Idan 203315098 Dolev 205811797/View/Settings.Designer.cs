@@ -37,6 +37,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.defaultAnalyticsTimeFrameComboBox = new System.Windows.Forms.ComboBox();
             this.rememberUserCheckBox = new System.Windows.Forms.CheckBox();
             this.labelSettings = new System.Windows.Forms.Label();
+            this.buttonOK = new System.Windows.Forms.Button();
             defaultAnalyticsTimeFrameLabel = new System.Windows.Forms.Label();
             rememberUserLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).BeginInit();
@@ -47,7 +48,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             defaultAnalyticsTimeFrameLabel.AutoSize = true;
             defaultAnalyticsTimeFrameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             defaultAnalyticsTimeFrameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            defaultAnalyticsTimeFrameLabel.Location = new System.Drawing.Point(55, 84);
+            defaultAnalyticsTimeFrameLabel.Location = new System.Drawing.Point(55, 80);
             defaultAnalyticsTimeFrameLabel.Name = "defaultAnalyticsTimeFrameLabel";
             defaultAnalyticsTimeFrameLabel.Size = new System.Drawing.Size(201, 16);
             defaultAnalyticsTimeFrameLabel.TabIndex = 7;
@@ -58,7 +59,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             rememberUserLabel.AutoSize = true;
             rememberUserLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             rememberUserLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            rememberUserLabel.Location = new System.Drawing.Point(55, 121);
+            rememberUserLabel.Location = new System.Drawing.Point(55, 117);
             rememberUserLabel.Name = "rememberUserLabel";
             rememberUserLabel.Size = new System.Drawing.Size(113, 16);
             rememberUserLabel.TabIndex = 9;
@@ -74,7 +75,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.defaultAnalyticsTimeFrameComboBox.DataSource = this.boostSettingsBindingSource;
             this.defaultAnalyticsTimeFrameComboBox.DisplayMember = "DefaultAnalyticsTimeFrame";
             this.defaultAnalyticsTimeFrameComboBox.FormattingEnabled = true;
-            this.defaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(271, 83);
+            this.defaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(271, 79);
             this.defaultAnalyticsTimeFrameComboBox.Name = "defaultAnalyticsTimeFrameComboBox";
             this.defaultAnalyticsTimeFrameComboBox.Size = new System.Drawing.Size(121, 21);
             this.defaultAnalyticsTimeFrameComboBox.TabIndex = 8;
@@ -83,7 +84,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.boostSettingsBindingSource, "RememberUser", true));
             this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.boostSettingsBindingSource, "RememberUser", true));
-            this.rememberUserCheckBox.Location = new System.Drawing.Point(271, 118);
+            this.rememberUserCheckBox.Location = new System.Drawing.Point(271, 114);
             this.rememberUserCheckBox.Name = "rememberUserCheckBox";
             this.rememberUserCheckBox.Size = new System.Drawing.Size(121, 24);
             this.rememberUserCheckBox.TabIndex = 10;
@@ -100,20 +101,42 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.labelSettings.TabIndex = 11;
             this.labelSettings.Text = "Settings";
             // 
+            // buttonOK
+            // 
+            this.buttonOK.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonOK.FlatAppearance.BorderSize = 0;
+            this.buttonOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(158)))), ((int)(((byte)(171)))), ((int)(((byte)(195)))));
+            this.buttonOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOK.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOK.ForeColor = System.Drawing.Color.White;
+            this.buttonOK.Location = new System.Drawing.Point(176, 165);
+            this.buttonOK.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(80, 40);
+            this.buttonOK.TabIndex = 12;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = false;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 176);
+            this.ClientSize = new System.Drawing.Size(434, 221);
+            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSettings);
             this.Controls.Add(defaultAnalyticsTimeFrameLabel);
             this.Controls.Add(this.defaultAnalyticsTimeFrameComboBox);
             this.Controls.Add(rememberUserLabel);
             this.Controls.Add(this.rememberUserCheckBox);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(455, 215);
+            this.MaximumSize = new System.Drawing.Size(450, 260);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(455, 215);
+            this.MinimumSize = new System.Drawing.Size(450, 260);
             this.Name = "Settings";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -121,6 +144,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             this.TopMost = true;
+            this.BackColor = Stylesheet.Color_BGColorA;
             ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -132,5 +156,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public System.Windows.Forms.BindingSource boostSettingsBindingSource;
         public System.Windows.Forms.ComboBox defaultAnalyticsTimeFrameComboBox;
         public System.Windows.Forms.CheckBox rememberUserCheckBox;
+        private System.Windows.Forms.Button buttonOK;
     }
 }

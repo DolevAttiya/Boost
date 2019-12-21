@@ -90,20 +90,35 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             i_Button.ForeColor = Stylesheet.Color_NavbarButtonColor;
 
         }
-        #endregion
+
+        public void DeselectBtnUsername()
+        {
+            SetButtonStyleToDefault(BtnUsername);
+            m_UsernameSelected = false;
+        }
 
         private void BtnUsername_Click(object sender, EventArgs e)
         {
-            if(m_UsernameSelected == false)
+            usernameClick();
+        }
+
+        private void usernameClick()
+        {
+            if (m_UsernameSelected == false)
             {
                 SelectButton(BtnUsername);
             }
             else
             {
-                SetButtonStyleToDefault(BtnUsername);
-                m_UsernameSelected = false;
+                DeselectBtnUsername();
             }
             m_UsernameButtonEvent.Invoke();
         }
+
+        private void BtnUsername_Leave(object sender, EventArgs e)
+        {
+            //usernameClick();
+        }
+        #endregion
     }
 }

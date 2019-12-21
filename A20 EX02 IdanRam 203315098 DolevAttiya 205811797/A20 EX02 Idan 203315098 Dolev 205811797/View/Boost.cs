@@ -33,6 +33,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             LoginPage.m_LoginEvent += FacebookLogin;
             userOptions.m_LogoutEvent += FacebookLogout;
             userOptions.m_SettingsEvent += displaySettingsPopup;
+            userOptions.m_OptionClickEvent += navbar.DeselectBtnUsername;
         }
         #endregion
 
@@ -93,8 +94,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             m_SettingsPopup = new Settings();
             m_SettingsPopup.boostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
-            //m_SettingsPopup.rememberUserCheckBox.Checked = m_BoostEn.m_BoostSettings.RememberUser;
-            //m_SettingsPopup.defaultAnalyticsTimeFrameComboBox.SelectedItem = m_BoostEn.m_BoostSettings.DefaultAnalyticsTimeFrame;
         }
 
         private void toggleUsernameOptionPanel()
@@ -414,6 +413,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             timerWelcomeScreen.Interval = 1;
             timerWelcomeScreen.Start();
         }
+
+       /* private void Boost_Click(object sender, EventArgs e)
+        {
+            userOptions.Visible = false;
+            navbar.DeselectBtnUsername();
+        }*/
         #endregion
     }
 }

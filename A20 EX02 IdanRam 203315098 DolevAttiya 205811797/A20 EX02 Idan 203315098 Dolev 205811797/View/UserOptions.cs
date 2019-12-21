@@ -12,6 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
     public delegate void LogoutEventHandler();
     public delegate void SettingsEventHandler();
+    public delegate void OptionClickEventHandler();
 
     public partial class UserOptions : UserControl
     {
@@ -20,17 +21,24 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private const int k_ButtonHeight = 40;
         public LogoutEventHandler m_LogoutEvent;
         public SettingsEventHandler m_SettingsEvent;
+        public OptionClickEventHandler m_OptionClickEvent;
 
         public UserOptions()
         {
             InitializeComponent();
             initializeUserOptionButtons();
+            m_OptionClickEvent += hideUserOptions;
         }
 
         private enum eUserOptions : byte //in reverse order
         {
             Settings,
             Logout
+        }
+
+        private void hideUserOptions()
+        {
+            this.Visible = false;
         }
 
         private void initializeUserOptionButtons()
@@ -83,11 +91,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 case "btnSettings":
                     {
+                        m_OptionClickEvent.Invoke();
                         m_SettingsEvent.Invoke();
                         break;
                     }
                 case "btnLogout":
                     {
+                        m_OptionClickEvent.Invoke();
                         DialogResult result = MessageBox.Show(@"Are you sure you want to logout?
 
 (Logging out would delete any locally saved settings and cached data from your machine)", "Logout",

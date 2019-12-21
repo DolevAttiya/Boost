@@ -149,12 +149,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // timerWelcomeScreen
             // 
             this.timerWelcomeScreen.Tick += new System.EventHandler(this.TimerWelcomeScreen_Tick);
-            //
+            // 
             // userOptions
             // 
             this.userOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.userOptions.Location = new System.Drawing.Point(1664, 106);
-            this.userOptions.Margin = new System.Windows.Forms.Padding(12, 12, 12, 12);
+            this.userOptions.Margin = new System.Windows.Forms.Padding(12);
             this.userOptions.Name = "userOptions";
             this.userOptions.Size = new System.Drawing.Size(340, 221);
             this.userOptions.TabIndex = 19;

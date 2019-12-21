@@ -12,9 +12,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
           
         public static void displayHTMLPage(WebBrowser i_WebBrowser, string i_ResourceName)
         {
-            Uri uri = new Uri(getFilepath(i_ResourceName));
-            i_WebBrowser.ScriptErrorsSuppressed = true;
-            i_WebBrowser.Navigate(uri);
+            string filePath = getFilepath(i_ResourceName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                Uri uri = new Uri(filePath);
+                i_WebBrowser.ScriptErrorsSuppressed = true;
+                i_WebBrowser.Navigate(uri);
+            }
+
         }
 
         private static string getFilepath(string i_ResourceName)
