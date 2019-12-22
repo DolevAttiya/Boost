@@ -10,7 +10,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     {
         #region Data Members
         public const string k_LoginFailedMessage = "LOGIN FAILED! PLEASE TRY AGAIN!";
-        public LoginEventHandler m_LoginEvent; 
+        public LoginEventHandler m_LoginEvent;
+        public bool IsFetchingAndLoading { get; set; }
         #endregion
         
         #region Ctor
@@ -44,8 +45,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)//TODO SINGELTON ?
         {
             this.LabelLoading.Visible = true;
+            this.IsFetchingAndLoading = true;
             m_LoginEvent.Invoke();
-            this.Visible = false;
         }
         #endregion
     }

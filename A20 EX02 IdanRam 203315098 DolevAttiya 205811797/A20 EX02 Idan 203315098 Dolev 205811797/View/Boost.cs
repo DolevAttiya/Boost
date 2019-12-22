@@ -165,13 +165,22 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             bool isTheUserLoggedIn = m_BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
-                if(!m_InitialLogin)
+                fetchAndInitialize();
+                LoginPage.Visible = false;
+            }
+        }
+
+        private void fetchAndInitialize()
+        {
+            try
+            {
+                if (!m_InitialLogin)
                 {
                     m_InitialLogin = true;
                 }
                 // Identify Login (Email as ID + First login)
                 string currentUserEmail = m_BoostEn.LoggedInUser.Email;
-                if(currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
+                if (currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
                 {
                     m_BoostEn.m_BoostSettings.LastLogin = null;
                     m_BoostEn.m_BoostSettings.FirstLogin = true;
@@ -183,6 +192,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 dashboardChartSetup();
                 displayWhatsNewPopup();
                 overwriteBoostSettings(currentUserEmail);
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
 
@@ -223,11 +236,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 ///BestTimes
-
-               new Thread(new ThreadStart( () => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid();})).Start();
+                new Thread(new ThreadStart( () => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid();})).Start();
+                
                 ///BiggestFans
-
-                AnalyticsPage.BiggestFansPage.DisplayBiggestFans();
+                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans()));
             }
             catch(Exception e)
             {
@@ -241,10 +253,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             const string k_Quotes = "\"";
             string name = m_BoostEn.LoggedInUser.Name;
 
-            new Thread(new ThreadStart(() =>
-            {
-                fetchUserBioAndPhoto(k_Quotes, name);
-            })).Start();
+            fetchUserBioAndPhoto(k_Quotes, name);
 
             ///Top Post
             fetchTopPost(k_Quotes);
@@ -253,7 +262,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             displayFriendChange();
 
             /// Engagement Panel
-            DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
+            this.Invoke(new Action(() =>DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)"));
 
             // Update dashboard UI after data fetch
             new Thread(DashboardPage.UpdateDashboardUI).Start();
@@ -324,24 +333,33 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             Post topPost;
             try
             {
-                topPost = m_BoostEn.GetTopPost();
-                DashboardPage.LabelTopPostLikes.Text = $@"Likes: {topPost.LikedBy.Count}";
-                DashboardPage.LabelTopPostComments.Text = $@"Comments: {topPost.Comments.Count}";
-                if (string.IsNullOrEmpty(topPost.Message))
-                {
-                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
-                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
-                }
-                else
-                {
-                    DashboardPage.LabelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
-                }
+                this.Invoke(
+                    new Action(
+                        () =>
+                            {
+                                topPost = m_BoostEn.GetTopPost();
+                                DashboardPage.LabelTopPostLikes.Text = $@"Likes: {topPost.LikedBy.Count}";
+                                DashboardPage.LabelTopPostComments.Text = $@"Comments: {topPost.Comments.Count}";
+                                if(string.IsNullOrEmpty(topPost.Message))
+                                {
+                                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
+                                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
+                                }
+                                else
+                                {
+                                    DashboardPage.LabelTopPostCaptionContent.Text =
+                                        $@"{k_Quotes}{topPost.Message}{k_Quotes}";
+                                }
 
-                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-                if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
-                {
-                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
-                }
+                                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
+                                if(!string.IsNullOrWhiteSpace(topPost.PictureURL))
+                                {
+                                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
+                                }
+
+
+
+                            }));
             }
             catch (NullReferenceException)
             {
@@ -356,29 +374,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void dashboardChartSetup()
         {
-            // Friend Chart
-            foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
+            this.Invoke(new Action(() =>
             {
-                this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
-                    friendCounter.Date.Date.ToString("d/M/yy"),
-                    friendCounter.Value);
-            }
+                // Friend Chart
+                foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
+                {
+                    this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
+                        friendCounter.Date.Date.ToString("d/M/yy"),
+                        friendCounter.Value);
+                }
 
-            this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+                this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
 
-            // Engagement Chart
-            for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
-            {
-                DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
-                DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
+                // Engagement Chart
+                for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
+                {
+                    DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
+                    DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
 
-                this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
-                    currentLikes.Date.ToString(),
-                    currentLikes.Value);
-                this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
-                    currentComments.Date.ToString(),
-                    currentComments.Value);
-            }
+                    this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
+                        currentLikes.Date.ToString(),
+                        currentLikes.Value);
+                    this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
+                        currentComments.Date.ToString(),
+                        currentComments.Value);
+                }
+            }));
         }
         #endregion
     }

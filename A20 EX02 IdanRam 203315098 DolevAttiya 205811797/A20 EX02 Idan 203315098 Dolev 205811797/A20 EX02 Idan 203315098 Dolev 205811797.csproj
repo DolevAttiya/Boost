@@ -138,12 +138,6 @@
     <Compile Include="View\UserOptions.Designer.cs">
       <DependentUpon>UserOptions.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WelcomeScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\WelcomeScreen.Designer.cs">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Launcher\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\Stylesheet.cs" />
@@ -183,9 +177,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\UserOptions.resx">
       <DependentUpon>UserOptions.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\WelcomeScreen.resx">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
