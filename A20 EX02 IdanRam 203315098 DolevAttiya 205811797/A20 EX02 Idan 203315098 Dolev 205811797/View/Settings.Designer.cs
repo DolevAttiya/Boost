@@ -127,6 +127,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(226)))), ((int)(((byte)(232)))));
             this.ClientSize = new System.Drawing.Size(434, 221);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSettings);
@@ -144,8 +145,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
-            this.TopMost = true;
-            this.BackColor = Stylesheet.Color_BGColorA;
             ((System.ComponentModel.ISupportInitialize)(this.BoostSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

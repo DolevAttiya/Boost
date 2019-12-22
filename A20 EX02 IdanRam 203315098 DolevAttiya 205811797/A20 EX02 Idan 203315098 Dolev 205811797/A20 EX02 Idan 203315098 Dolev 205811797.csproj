@@ -229,5 +229,9 @@
   <ItemGroup>
     <None Include="Resources\style.css" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings.gif" />
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings_small.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

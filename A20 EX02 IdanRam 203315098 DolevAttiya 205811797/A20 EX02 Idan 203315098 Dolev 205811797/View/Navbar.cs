@@ -120,7 +120,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void BtnUsername_LostFocus(object sender, EventArgs e)
         {
-            usernameClick();
+            //usernameClick(); // TODO
         }
         #endregion
     }
