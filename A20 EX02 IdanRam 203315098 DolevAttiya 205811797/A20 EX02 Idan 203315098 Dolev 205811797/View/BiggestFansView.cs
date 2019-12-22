@@ -23,7 +23,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DisplayBiggestFans(eTimeSelector i_TimeSelector= eTimeSelector.Month)
+        public void DisplayBiggestFans(eTimeSelector i_TimeSelector = eTimeSelector.Month)
         {
             int numberOfIterations = 0;
 
@@ -35,7 +35,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             BoostEngine.Instance.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
                 BoostEngine.Instance.LoggedInUser,
                 i_TimeSelector);
-            KeyValuePair<object, int>[] sortedCombinedValues =  BoostEngine.Instance.BiggestFanAnalysis.CombinedAnalysisHolders.SortByValue();
+            KeyValuePair<object, int>[] sortedCombinedValues =
+                BoostEngine.Instance.BiggestFanAnalysis.CombinedAnalysisHolders.SortByValue();
             numberOfIterations = 0;
             foreach(Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {

@@ -21,6 +21,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public string LastAccessToken { get; set; }
 
         public string LastLoggedInEmail { get; set; }
+
         public string LastUsedVersion { get; set; }
 
         public string StartupPath { get; set; }
@@ -28,36 +29,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
         
         // User Settings
-        
         public bool RememberUser { get; set; }
+
         public eTimeSelector DefaultAnalyticsTimeFrame { get; set; }
         
         public List<DateAndValue> FriendCounter;
-
-
         #endregion
 
         #region Ctor
         private BoostSettings()
         {
-
             ResetSettingsToDefault();
         }
         #endregion
 
         #region Methods
-        public void ResetSettingsToDefault()
-        {
-            FirstLogin = true;
-            LastAccessToken = null;
-            RememberUser = false;
-            LastLogin = null;
-            LastUsedVersion = null;
-            StartupPath = Application.StartupPath;
-            FriendCounter = new List<DateAndValue>();
-            DefaultAnalyticsTimeFrame = eTimeSelector.Month;
-        }
-
         public static BoostSettings LoadAppSettingsFromFile()
         {
             BoostSettings appSettings = null;
@@ -88,6 +74,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             return appSettings;
         }
 
+        public void ResetSettingsToDefault()
+        {
+            FirstLogin = true;
+            LastAccessToken = null;
+            RememberUser = false;
+            LastLogin = null;
+            LastUsedVersion = null;
+            StartupPath = Application.StartupPath;
+            FriendCounter = new List<DateAndValue>();
+            DefaultAnalyticsTimeFrame = eTimeSelector.Month;
+        }
+
         public void SaveAppSettingsToFile()
         {
             if (!File.Exists(m_FilePath))
@@ -113,7 +111,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             File.Delete(m_FilePath);
         }
         
-
         public bool IsFirstLogin()
         {
             if(LastLogin != null)

@@ -9,7 +9,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public static class UITools
     {
-          
         public static void displayHTMLPage(WebBrowser i_WebBrowser, string i_ResourceName)
         {
             string filePath = getFilepath(i_ResourceName);
@@ -20,7 +19,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 i_WebBrowser.ScriptErrorsSuppressed = true;
                 i_WebBrowser.Navigate(uri);
             }
-
         }
 
         private static string getFilepath(string i_ResourceName)

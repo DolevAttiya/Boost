@@ -2,7 +2,7 @@
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-    partial class Settings
+    public partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -19,6 +19,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -33,14 +34,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label defaultAnalyticsTimeFrameLabel;
             System.Windows.Forms.Label rememberUserLabel;
-            this.boostSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.defaultAnalyticsTimeFrameComboBox = new System.Windows.Forms.ComboBox();
-            this.rememberUserCheckBox = new System.Windows.Forms.CheckBox();
+            this.BoostSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DefaultAnalyticsTimeFrameComboBox = new System.Windows.Forms.ComboBox();
+            this.RememberUserCheckBox = new System.Windows.Forms.CheckBox();
             this.labelSettings = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             defaultAnalyticsTimeFrameLabel = new System.Windows.Forms.Label();
             rememberUserLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoostSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // defaultAnalyticsTimeFrameLabel
@@ -65,30 +66,30 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             rememberUserLabel.TabIndex = 9;
             rememberUserLabel.Text = "Remember User:";
             // 
-            // boostSettingsBindingSource
+            // BoostSettingsBindingSource
             // 
-            this.boostSettingsBindingSource.DataSource = typeof(A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings);
+            this.BoostSettingsBindingSource.DataSource = typeof(A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings);
             // 
-            // defaultAnalyticsTimeFrameComboBox
+            // DefaultAnalyticsTimeFrameComboBox
             // 
-            this.defaultAnalyticsTimeFrameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.boostSettingsBindingSource, "DefaultAnalyticsTimeFrame", true));
-            this.defaultAnalyticsTimeFrameComboBox.DataSource = this.boostSettingsBindingSource;
-            this.defaultAnalyticsTimeFrameComboBox.DisplayMember = "DefaultAnalyticsTimeFrame";
-            this.defaultAnalyticsTimeFrameComboBox.FormattingEnabled = true;
-            this.defaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(271, 79);
-            this.defaultAnalyticsTimeFrameComboBox.Name = "defaultAnalyticsTimeFrameComboBox";
-            this.defaultAnalyticsTimeFrameComboBox.Size = new System.Drawing.Size(121, 21);
-            this.defaultAnalyticsTimeFrameComboBox.TabIndex = 8;
+            this.DefaultAnalyticsTimeFrameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BoostSettingsBindingSource, "DefaultAnalyticsTimeFrame", true));
+            this.DefaultAnalyticsTimeFrameComboBox.DataSource = this.BoostSettingsBindingSource;
+            this.DefaultAnalyticsTimeFrameComboBox.DisplayMember = "DefaultAnalyticsTimeFrame";
+            this.DefaultAnalyticsTimeFrameComboBox.FormattingEnabled = true;
+            this.DefaultAnalyticsTimeFrameComboBox.Location = new System.Drawing.Point(271, 79);
+            this.DefaultAnalyticsTimeFrameComboBox.Name = "DefaultAnalyticsTimeFrameComboBox";
+            this.DefaultAnalyticsTimeFrameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.DefaultAnalyticsTimeFrameComboBox.TabIndex = 8;
             // 
-            // rememberUserCheckBox
+            // RememberUserCheckBox
             // 
-            this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.boostSettingsBindingSource, "RememberUser", true));
-            this.rememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.boostSettingsBindingSource, "RememberUser", true));
-            this.rememberUserCheckBox.Location = new System.Drawing.Point(271, 114);
-            this.rememberUserCheckBox.Name = "rememberUserCheckBox";
-            this.rememberUserCheckBox.Size = new System.Drawing.Size(121, 24);
-            this.rememberUserCheckBox.TabIndex = 10;
-            this.rememberUserCheckBox.UseVisualStyleBackColor = true;
+            this.RememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.BoostSettingsBindingSource, "RememberUser", true));
+            this.RememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.BoostSettingsBindingSource, "RememberUser", true));
+            this.RememberUserCheckBox.Location = new System.Drawing.Point(271, 114);
+            this.RememberUserCheckBox.Name = "RememberUserCheckBox";
+            this.RememberUserCheckBox.Size = new System.Drawing.Size(121, 24);
+            this.RememberUserCheckBox.TabIndex = 10;
+            this.RememberUserCheckBox.UseVisualStyleBackColor = true;
             // 
             // labelSettings
             // 
@@ -130,9 +131,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.labelSettings);
             this.Controls.Add(defaultAnalyticsTimeFrameLabel);
-            this.Controls.Add(this.defaultAnalyticsTimeFrameComboBox);
+            this.Controls.Add(this.DefaultAnalyticsTimeFrameComboBox);
             this.Controls.Add(rememberUserLabel);
-            this.Controls.Add(this.rememberUserCheckBox);
+            this.Controls.Add(this.RememberUserCheckBox);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(450, 260);
             this.MinimizeBox = false;
@@ -145,17 +146,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Text = "Settings";
             this.TopMost = true;
             this.BackColor = Stylesheet.Color_BGColorA;
-            ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoostSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+        public System.Windows.Forms.BindingSource BoostSettingsBindingSource;
+        public System.Windows.Forms.ComboBox DefaultAnalyticsTimeFrameComboBox;
+        public System.Windows.Forms.CheckBox RememberUserCheckBox;
         private System.Windows.Forms.Label labelSettings;
-        public System.Windows.Forms.BindingSource boostSettingsBindingSource;
-        public System.Windows.Forms.ComboBox defaultAnalyticsTimeFrameComboBox;
-        public System.Windows.Forms.CheckBox rememberUserCheckBox;
         private System.Windows.Forms.Button buttonOK;
     }
 }

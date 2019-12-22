@@ -1,5 +1,4 @@
-﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-
     public delegate void SaveSettingEventHandler();
     
     public partial class Settings : Form
     {
-
         public SaveSettingEventHandler m_SaveSettingEvent;
 
         public Settings()
@@ -33,7 +31,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 enumVals.Add(m);
             }
 
-            defaultAnalyticsTimeFrameComboBox.DataSource = enumVals;
+            DefaultAnalyticsTimeFrameComboBox.DataSource = enumVals;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

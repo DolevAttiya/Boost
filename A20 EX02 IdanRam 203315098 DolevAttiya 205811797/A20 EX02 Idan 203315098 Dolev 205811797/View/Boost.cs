@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading;
 using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using System.Threading;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -40,13 +40,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Methods
         private void boostFormInitialSetup()
         {
-            if (!m_InitialLogin)
+            if(!m_InitialLogin)
             {
                 // Add event handler to dynamically added buttons
-                foreach (Button button in navbar.m_NavbarButtons)
+                foreach(Button button in navbar.m_NavbarButtons)
                 {
                     button.Click += new EventHandler(this.NavbarButton_Click);
                 }
+
                 navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUserOptionPanel);
 
                 // Boost Frame properties
@@ -57,13 +58,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 this.BackColor = Stylesheet.Color_BGColorA;
             }
 
-
             //// Adjust UI before login
             // Clear Charts
             foreach(var series in DashboardPage.ChartEngagement.Series)
             {
                 series.Points.Clear();
             }
+
             foreach (var series in DashboardPage.ChartFriends.Series)
             {
                 series.Points.Clear();
@@ -75,7 +76,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;
             userOptions.AdjustUserOptionsSize();
-            userOptions.Location = new System.Drawing.Point(navbar.BtnUsername.Right-userOptions.Width + (navbar.Location.X), navbar.BtnUsername.Bottom);
+            userOptions.Location = new System.Drawing.Point(
+                navbar.BtnUsername.Right - userOptions.Width + navbar.Location.X,
+                navbar.BtnUsername.Bottom);
             initializeLoginPage();
             ////
         }
@@ -91,7 +94,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void initializeSettingsPopUp()
         {
             m_SettingsPopup = new Settings();
-            m_SettingsPopup.boostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
+            m_SettingsPopup.BoostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
         }
 
         private void toggleUserOptionPanel()
@@ -116,6 +119,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
             }
+
             navbar.SelectButton(i_Button);
 
             switch(i_Button.Name)
@@ -178,6 +182,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 {
                     m_InitialLogin = true;
                 }
+
                 // Identify Login (Email as ID + First login)
                 string currentUserEmail = m_BoostEn.LoggedInUser.Email;
                 if (currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
@@ -199,19 +204,20 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
 
-        private void overwriteBoostSettings(string i_userEmail){
+        private void overwriteBoostSettings(string i_userEmail)
+        {
             // Overwrite Boost Settings
             m_BoostEn.m_BoostSettings.LastLoggedInEmail = i_userEmail;
             m_BoostEn.m_BoostSettings.FirstLogin = false;
             m_BoostEn.m_BoostSettings.LastAccessToken = m_BoostEn.LoginResult.AccessToken;
             m_BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
             m_BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
-            m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.r_CurrentVersion;
+            m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
         }
 
         private void displayWhatsNewPopup()
         {
-            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.r_CurrentVersion)
+            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.R_CurrentVersion)
             {
                 WhatsNew whatsNew = new WhatsNew();
                 whatsNew.Visible = true;
@@ -236,7 +242,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 ///BestTimes
-                new Thread(new ThreadStart( () => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid();})).Start();
+                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(); })).Start();
                 
                 ///BiggestFans
                 this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans()));
@@ -262,7 +268,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             displayFriendChange();
 
             /// Engagement Panel
-            this.Invoke(new Action(() =>DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)"));
+            this.Invoke(
+                new Action(
+                    () => DashboardPage.LabelEngagement.Text =
+                              $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)"));
 
             // Update dashboard UI after data fetch
             new Thread(DashboardPage.UpdateDashboardUI).Start();
@@ -291,10 +300,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     lastStatus = m_BoostEn.GetLastStatus();
                     DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
                     DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
-
                 }));
-                
-
             }
             catch (NullReferenceException)
             {
@@ -356,9 +362,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                                 {
                                     DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
                                 }
-
-
-
                             }));
             }
             catch (NullReferenceException)

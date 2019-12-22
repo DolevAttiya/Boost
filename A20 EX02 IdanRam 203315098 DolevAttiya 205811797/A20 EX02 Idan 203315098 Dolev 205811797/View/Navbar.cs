@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public delegate void UsernameButtonEventHandler();
+
     public partial class Navbar : UserControl
     {
         #region Data Members
@@ -31,24 +32,25 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             int startX = 135;
             int X = startX;
-            // int Y = 20;
             int Y = 0;
             int buttonWidth = 135;
-            //int buttonHeight = 32;
             int buttonHeight = this.Height;
             int buttonSpacing = 0;
 
             foreach(Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
             {
                 Button button = new Button();
-                //button.BackColor = Color.Transparent;
+
+                // button.BackColor = Color.Transparent;
                 button.Cursor = Cursors.Hand;
                 button.FlatAppearance.BorderSize = 0;
-                //button.FlatAppearance.MouseDownBackColor = Color.Transparent;
+
+                // button.FlatAppearance.MouseDownBackColor = Color.Transparent;
                 button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
                 button.FlatStyle = FlatStyle.Flat;
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
-               // button.ForeColor = Stylesheet.Color_NavbarButtonColor;
+
+                // button.ForeColor = Stylesheet.Color_NavbarButtonColor;
                 button.Location = new Point(X, Y);
                 button.Margin = new Padding(2, 3, 2, 3);
                 button.Name = "btn" + page.ToString();
@@ -72,6 +74,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 {
                     SetButtonStyleToDefault(button);
                 }
+
                 i_Button.BackColor = Stylesheet.Color_NavbarSelected;
                 i_Button.ForeColor = Color.Black;
             }
@@ -82,14 +85,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 i_Button.BackColor = Stylesheet.Color_Main;
                 i_Button.ForeColor = Color.White;
             }
-
         }
 
         public void SetButtonStyleToDefault(Button i_Button)
         {
             i_Button.BackColor = Color.Transparent;
             i_Button.ForeColor = Stylesheet.Color_NavbarButtonColor;
-
         }
 
         public void DeselectBtnUsername()
@@ -113,6 +114,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 DeselectBtnUsername();
             }
+
             m_UsernameButtonEvent.Invoke();
         }
 

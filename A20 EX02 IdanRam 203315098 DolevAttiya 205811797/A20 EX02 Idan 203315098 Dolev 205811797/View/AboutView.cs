@@ -5,7 +5,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public partial class AboutView : UserControl
     {
-
         private string m_ResourceName = "About";
         private WebBrowser m_WebBrowser = null;
 
@@ -19,7 +18,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayAboutContent()
         {
-            this.labelVersion.Text = string.Format(@"Version: {0}",BoostEngine.r_CurrentVersion);
+            this.labelVersion.Text = string.Format(@"Version: {0}", BoostEngine.R_CurrentVersion);
             UITools.displayHTMLPage(m_WebBrowser, m_ResourceName);
         }
 

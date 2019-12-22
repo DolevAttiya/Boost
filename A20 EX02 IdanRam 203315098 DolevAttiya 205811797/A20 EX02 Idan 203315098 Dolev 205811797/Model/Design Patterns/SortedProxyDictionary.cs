@@ -5,12 +5,11 @@ using System.Linq;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 {
-    public class SortedProxyDictionary<TK,TV> : IDictionary<TK,TV>
+    public class SortedProxyDictionary<TK, TV> : IDictionary<TK, TV>
     where TV : IComparable
     {
-
         // The array of items
-        private readonly Dictionary<TK,TV> r_Dictionary;
+        private readonly Dictionary<TK, TV> r_Dictionary;
 
         // Construct the SimpleDictionary with the desired number of items.
         // The number of items cannot change for the life time of this SimpleDictionary.
@@ -31,7 +30,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 
         public void Add(KeyValuePair<TK, TV> i_Item)
         {
-            r_Dictionary.Add(i_Item.Key,i_Item.Value);
+            r_Dictionary.Add(i_Item.Key, i_Item.Value);
         }
 
         public void Clear()
@@ -46,8 +45,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 
         public void CopyTo(KeyValuePair<TK, TV>[] i_Array, int i_ArrayIndex)
         {
-            if(i_Array.Length-i_ArrayIndex<r_Dictionary.Count)
+            if(i_Array.Length - i_ArrayIndex < r_Dictionary.Count)
+            {
                 throw new IndexOutOfRangeException("Not enough place");
+            }
+
             foreach(KeyValuePair<TK, TV> item in r_Dictionary)
             {
                 i_Array[i_ArrayIndex++] = item;
