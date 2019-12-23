@@ -101,10 +101,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void BtnUsername_Click(object sender, EventArgs e)
         {
-            usernameClick();
+            UsernameClick();
         }
 
-        private void usernameClick()
+        public void UsernameClick()
         {
             if (m_UsernameSelected == false)
             {
@@ -120,7 +120,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void BtnUsername_LostFocus(object sender, EventArgs e)
         {
-            //usernameClick(); // TODO
+            // usernameClick(); // TODO
         }
         #endregion
     }

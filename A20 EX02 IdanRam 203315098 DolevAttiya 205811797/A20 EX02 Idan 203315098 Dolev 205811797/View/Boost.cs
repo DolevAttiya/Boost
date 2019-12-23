@@ -12,7 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
 
         public BoostEngine m_BoostEn;
-        private bool m_InitialLogin;
+        private bool m_PreInitialLogin;
         private Settings m_SettingsPopup = null;
 
         public enum eBoostPages : byte
@@ -27,7 +27,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Boost()
         {
             m_BoostEn = BoostEngine.Instance;
-            m_InitialLogin = false;
+            m_PreInitialLogin = true;
             InitializeComponent();
             boostFormInitialSetup();
             LoginPage.m_LoginEvent += FacebookLogin;
@@ -40,7 +40,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Methods
         private void boostFormInitialSetup()
         {
-            if(!m_InitialLogin)
+            if(m_PreInitialLogin)
             {
                 // Add event handler to dynamically added buttons
                 foreach(Button button in navbar.m_NavbarButtons)
@@ -137,7 +137,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             if(userOptions.Visible)
             {
-                userOptions.BringToFront();
+                // userOptions.BringToFront();
+                navbar.UsernameClick();
             }
         }
 
@@ -178,9 +179,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
-                if (!m_InitialLogin)
+                if (m_PreInitialLogin)
                 {
-                    m_InitialLogin = true;
+                    m_PreInitialLogin = false;
                 }
 
                 // Identify Login (Email as ID + First login)
@@ -219,8 +220,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.R_CurrentVersion)
             {
-                WhatsNew whatsNew = new WhatsNew();
-                whatsNew.Visible = true;
+                WhatsNew whatsNew = new WhatsNew { Visible = true };
             }
         }
 
