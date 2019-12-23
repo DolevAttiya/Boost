@@ -67,14 +67,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
         ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
         ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; /&gt;
         ///    &lt;title&gt;About Boost&lt;/title&gt;
         ///  &lt;/head&gt;
-        ///  &lt;body
-        ///    style=&quot;font-family: &apos;Century Gothic&apos;, CenturyGothic, AppleGothic, sans-serif;font-size: 1.1rem;color:#203458;margin: 1rem 1rem 2rem 2rem;&quot;
-        ///  &gt;
+        ///  &lt;body&gt;
         ///    &lt;p class=&quot;about&quot;&gt;
-        ///      Boost for Facebo [rest of string was truncated]&quot;;.
+        ///      Boost for Facebook is a social media management desktop application
+        ///      developed by Idan Ram and Dolev Attiya.
+        ///    &lt;/p&gt;
+        ///  &lt;/body&gt;
+        ///&lt;/html&gt;
+        ///.
         /// </summary>
         internal static string About {
             get {
@@ -105,6 +108,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoginBG {
+            get {
+                object obj = ResourceManager.GetObject("LoginBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_login {
             get {
                 object obj = ResourceManager.GetObject("Logo_login", resourceCulture);
@@ -123,14 +136,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :root {
-        ///  --main-color: #203458;
-        ///}
-        ///
-        ///* {
+        ///   Looks up a localized string similar to * {
         ///  font-family: &quot;Century Gothic&quot;, CenturyGothic, AppleGothic, sans-serif;
-        ///  color: var(--main-color);
-        ///  /*margin: 0.5rem;*/
+        ///  color: #203458;
+        ///  margin: 0.5rem;
         ///}
         ///
         ///h1 {
@@ -142,7 +151,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///}
         ///
         ///li {
-        ///  /*margin: 1rem;*/
+        ///  margin: 1rem;
         ///}
         ///
         ///.about {
@@ -163,15 +172,20 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
         ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
         ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; /&gt;
         ///    &lt;title&gt;What&apos;s New&lt;/title&gt;
         ///  &lt;/head&gt;
-        ///  &lt;body
-        ///    style=&quot;font-family: &apos;Century Gothic&apos;, CenturyGothic, AppleGothic, sans-serif;color:#203458;margin: 1rem 1rem 2rem 2rem;&quot;
-        ///  &gt;
+        ///  &lt;body&gt;
         ///    &lt;h1&gt;What&apos;s New&lt;/h1&gt;
         ///    &lt;div&gt;
-        ///      &lt;h2 style=&quot;font-size:1. [rest of string was truncated]&quot;;.
+        ///      &lt;h2&gt;version 0.2.0&lt;/h2&gt;
+        ///      &lt;div&gt;
+        ///        &lt;ul&gt;
+        ///          &lt;li&gt;
+        ///            &lt;text&gt;Added user options:&lt;/text&gt;
+        ///            &lt;ul&gt;
+        ///              &lt;li&gt;
+        ///         [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WhatsNew {
             get {

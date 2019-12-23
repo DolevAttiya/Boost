@@ -232,6 +232,7 @@
   <ItemGroup>
     <Content Include="Resources\htmlResources\WhatNew_UserSettings.gif" />
     <Content Include="Resources\htmlResources\WhatNew_UserSettings_small.gif" />
+    <None Include="Resources\LoginBG.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
