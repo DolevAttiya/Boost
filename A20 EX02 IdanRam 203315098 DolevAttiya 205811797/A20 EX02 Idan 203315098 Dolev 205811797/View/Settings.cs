@@ -26,21 +26,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void populateControls()
         {
-            List<eTimeSelector> timeSelectorEnumVals = new List<eTimeSelector>();
-            List<Analysis.eAnalysisDataBasis> analysisDataBasisEnumVals = new List<Analysis.eAnalysisDataBasis>();
+            List<eTimeSelector> analysisTimeFrames = Analysis.GetAnalysisTimeFrames();
+            List<Analysis.eAnalysisDataBasis> analysisDataBases = Analysis.GetAnalysisDataBases();
 
-            foreach (eTimeSelector val in Enum.GetValues(typeof(eTimeSelector)))
-            {
-                timeSelectorEnumVals.Add(val);
-            }
-
-            foreach (Analysis.eAnalysisDataBasis val in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
-            {
-                analysisDataBasisEnumVals.Add(val);
-            }
-
-            DefaultAnalysisTimeFrameComboBox.DataSource = timeSelectorEnumVals;
-            DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBasisEnumVals;
+            DefaultAnalysisTimeFrameComboBox.DataSource = analysisTimeFrames;
+            DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBases;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

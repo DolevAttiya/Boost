@@ -94,6 +94,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.DefaultAnalysisTimeFrameComboBox.DataSource = this.BoostSettingsBindingSource;
             this.DefaultAnalysisTimeFrameComboBox.DisplayMember = "DefaultAnalysisTimeFrame";
             this.DefaultAnalysisTimeFrameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DefaultAnalysisTimeFrameComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.DefaultAnalysisTimeFrameComboBox.FormattingEnabled = true;
             this.DefaultAnalysisTimeFrameComboBox.Location = new System.Drawing.Point(266, 100);
             this.DefaultAnalysisTimeFrameComboBox.Name = "DefaultAnalysisTimeFrameComboBox";
@@ -106,7 +107,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.RememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.BoostSettingsBindingSource, "RememberUser", true));
             this.RememberUserCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.BoostSettingsBindingSource, "RememberUser", true));
             this.RememberUserCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RememberUserCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.RememberUserCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.RememberUserCheckBox.Location = new System.Drawing.Point(266, 66);
             this.RememberUserCheckBox.Name = "RememberUserCheckBox";
             this.RememberUserCheckBox.Size = new System.Drawing.Size(121, 24);
@@ -150,6 +151,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.DefaultAnalysisDataBasisComboBox.DataSource = this.BoostSettingsBindingSource;
             this.DefaultAnalysisDataBasisComboBox.DisplayMember = "DefaultAnalysisDataBasis";
             this.DefaultAnalysisDataBasisComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DefaultAnalysisDataBasisComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.DefaultAnalysisDataBasisComboBox.FormattingEnabled = true;
             this.DefaultAnalysisDataBasisComboBox.Location = new System.Drawing.Point(266, 131);
             this.DefaultAnalysisDataBasisComboBox.Name = "DefaultAnalysisDataBasisComboBox";

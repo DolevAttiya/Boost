@@ -1,4 +1,6 @@
-﻿using System;
+﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -33,6 +35,24 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
+            populateComboBoxes();
+        }
+
+
+        private void populateComboBoxes()
+        {
+            List<eTimeSelector> analysisTimeFrames = Analysis.GetAnalysisTimeFrames();
+            List<Analysis.eAnalysisDataBasis> analysisDataBases = Analysis.GetAnalysisDataBases();
+
+            foreach(eTimeSelector timeFrame in analysisTimeFrames)
+            {
+                TimeFrameComboBox.Items.Add(timeFrame.ToString());
+            }
+
+            foreach (Analysis.eAnalysisDataBasis dataBasis in analysisDataBases)
+            {
+                DataBasisComboBox.Items.Add(dataBasis.ToString());
+            }
         }
 
         private void ButtonBestTimes_Click(object sender, EventArgs e)
