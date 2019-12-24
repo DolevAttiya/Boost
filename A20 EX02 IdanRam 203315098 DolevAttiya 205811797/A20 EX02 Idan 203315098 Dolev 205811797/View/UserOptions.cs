@@ -92,14 +92,23 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 case "btnSettings":
                     {
-                        m_OptionClickEvent.Invoke();
-                        m_SettingsEvent.Invoke();
+                        if(m_OptionClickEvent != null)
+                        {
+                            m_OptionClickEvent.Invoke();
+                        }
+                        if(m_SettingsEvent != null)
+                        {
+                            m_SettingsEvent.Invoke();
+                        }
                         break;
                     }
 
                 case "btnLogout":
                     {
-                        m_OptionClickEvent.Invoke();
+                        if (m_OptionClickEvent != null)
+                        {
+                            m_OptionClickEvent.Invoke();
+                        }
                         DialogResult result = MessageBox.Show(
                             "Are you sure you want to logout?\n\nLogging out would delete any locally saved settings and cached data from your machine",
                             "Logout",
@@ -107,7 +116,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                             MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            m_LogoutEvent.Invoke(); // TODO SINGLETON
+                            if(m_LogoutEvent != null)
+                            {
+                                m_LogoutEvent.Invoke(); // TODO SINGLETON
+                            }
                         }
 
                         break;

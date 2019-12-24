@@ -11,6 +11,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
         private SortedProxyDictionary<object, int> m_VideosDictionary;
         private SortedProxyDictionary<object, int> m_StatusDictionary;
         private SortedProxyDictionary<object, int> m_CombinedAnalysisHolders;
+
+        public enum eAnalysisDataBasis
+        {
+            Combined,
+            Status,
+            Photo,
+            Video
+        }
         #endregion
 
         #region Properties

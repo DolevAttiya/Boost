@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 using System.Threading;
+using System.Windows.Documents;
 using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using System.Collections.Generic;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -14,6 +17,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public BoostEngine m_BoostEn;
         private bool m_PreInitialLogin;
         private Settings m_SettingsPopup = null;
+        private List<UserControl> m_BoostPages = null;
+        private List<string> m_BoostViewNames = null;
 
         public enum eBoostPages : byte
         {
@@ -142,6 +147,80 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
 
+        private void switchPage_NEW(Button i_Button)
+        {
+            foreach (Button button in navbar.m_NavbarButtons)
+            {
+                navbar.SetButtonStyleToDefault(button);
+            }
+
+            navbar.SelectButton(i_Button);
+
+            /*switch (i_Button.Name)
+            {
+                case "btnDashboard":
+                    DashboardPage.BringToFront();
+                    break;
+                case "btnAnalytics":
+                    AnalyticsPage.BringToFront();
+                    break;
+                case "btnAbout":
+                    AboutPage.BringToFront();
+                    break;
+            }*/
+
+
+            if (userOptions.Visible)
+            {
+                // userOptions.BringToFront();
+                navbar.UsernameClick();
+            }
+        }
+
+        private List<string> getBoostViewNames()
+        {
+            Type[] allTypes =  Assembly.GetExecutingAssembly().GetTypes();
+            List<string> boostViews = new List<string>();
+            string[] keyWord = {"View"};
+
+            foreach(Type type in allTypes)
+            {
+                if(type.FullName.Contains(keyWord[0]))
+                {
+                    string pageName = type.FullName.Split(keyWord, StringSplitOptions.None)[0];
+                    boostViews.Add(pageName);
+                }
+            }
+
+            return boostViews;
+        }
+
+        private List<UserControl> getBoostPages()
+        {
+            List<UserControl> boostPages = new List<UserControl>();
+            string keyWord = "Page";
+
+            /*foreach(FieldInfo field in typeof(Boost).GetFields())
+            {
+                if(field.Name.Contains(keyWord) && typeof(FieldInfo) == typeof(UserControl))
+                {
+                    boostPages.add
+                }
+            }
+
+            foreach (Type type in allTypes)
+            {
+                if (type.FullName.Contains(keyWord[0]))
+                {
+                    string pageName = type.FullName.Split(keyWord, StringSplitOptions.None)[0];
+                    boostPages.Add(pageName);
+                }
+            }*/
+
+            return boostPages;
+        }
+
+
         public void FacebookLogout()
         {
             try
@@ -226,7 +305,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displaySettingsPopup()
         {
-            m_SettingsPopup.Show();
+            m_SettingsPopup.ShowDialog();
         }
 
         public void FetchUserData()

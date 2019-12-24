@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
+
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public delegate void SaveSettingEventHandler();
@@ -22,16 +23,24 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             populateControls();
         }
 
+
         private void populateControls()
         {
-            List<eTimeSelector> enumVals = new List<eTimeSelector>();
+            List<eTimeSelector> timeSelectorEnumVals = new List<eTimeSelector>();
+            List<Analysis.eAnalysisDataBasis> analysisDataBasisEnumVals = new List<Analysis.eAnalysisDataBasis>();
 
-            foreach (eTimeSelector m in Enum.GetValues(typeof(eTimeSelector)))
+            foreach (eTimeSelector val in Enum.GetValues(typeof(eTimeSelector)))
             {
-                enumVals.Add(m);
+                timeSelectorEnumVals.Add(val);
             }
 
-            DefaultAnalyticsTimeFrameComboBox.DataSource = enumVals;
+            foreach (Analysis.eAnalysisDataBasis val in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
+            {
+                analysisDataBasisEnumVals.Add(val);
+            }
+
+            DefaultAnalysisTimeFrameComboBox.DataSource = timeSelectorEnumVals;
+            DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBasisEnumVals;
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -43,6 +52,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.Close();
-        }   
+        }
     }
 }

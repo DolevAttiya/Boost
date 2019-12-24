@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public List<Button> m_NavbarButtons = new List<Button>();
         public UsernameButtonEventHandler m_UsernameButtonEvent;
         private bool m_UsernameSelected = false;
+        private const int k_ButtonLimit = 5;
         #endregion
 
         #region Ctor
@@ -37,33 +39,38 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             int buttonHeight = this.Height;
             int buttonSpacing = 0;
 
-            foreach(Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
+            int numOfBoostPages = Enum.GetNames(typeof(Boost.eBoostPages)).Length;
+
+            if(numOfBoostPages <= k_ButtonLimit)
             {
-                Button button = new Button();
+                foreach (Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
+                {
+                    Button button = new Button();
 
-                // button.BackColor = Color.Transparent;
-                button.Cursor = Cursors.Hand;
-                button.FlatAppearance.BorderSize = 0;
+                    button.Cursor = Cursors.Hand;
+                    button.FlatAppearance.BorderSize = 0;
+                    button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.Font = Stylesheet.Font_NavbarButtonDefault;
+                    button.Location = new Point(X, Y);
+                    button.Margin = new Padding(2, 3, 2, 3);
+                    button.Name = "btn" + page.ToString();
+                    button.Size = new Size(buttonWidth, buttonHeight);
+                    button.TabIndex = (byte)page + 2;
+                    button.Text = page.ToString().ToUpper();
+                    button.UseVisualStyleBackColor = false;
+                    this.Controls.Add(button);
+                    m_NavbarButtons.Add(button);
+                    SetButtonStyleToDefault(button);
 
-                // button.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
-                button.FlatStyle = FlatStyle.Flat;
-                button.Font = Stylesheet.Font_NavbarButtonDefault;
-
-                // button.ForeColor = Stylesheet.Color_NavbarButtonColor;
-                button.Location = new Point(X, Y);
-                button.Margin = new Padding(2, 3, 2, 3);
-                button.Name = "btn" + page.ToString();
-                button.Size = new Size(buttonWidth, buttonHeight);
-                button.TabIndex = (byte)page + 2;
-                button.Text = page.ToString().ToUpper();
-                button.UseVisualStyleBackColor = false;
-                this.Controls.Add(button);
-                m_NavbarButtons.Add(button);
-                SetButtonStyleToDefault(button);
-
-                X += buttonWidth + buttonSpacing;
+                    X += buttonWidth + buttonSpacing;
+                }
             }
+            else
+            {
+                // TODO - display error message
+            }
+
         }
 
         public void SelectButton(Button i_Button)
@@ -115,7 +122,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 DeselectBtnUsername();
             }
 
-            m_UsernameButtonEvent.Invoke();
+            if(m_UsernameButtonEvent != null)
+            {
+                m_UsernameButtonEvent.Invoke();
+            }
         }
 
         private void BtnUsername_LostFocus(object sender, EventArgs e)

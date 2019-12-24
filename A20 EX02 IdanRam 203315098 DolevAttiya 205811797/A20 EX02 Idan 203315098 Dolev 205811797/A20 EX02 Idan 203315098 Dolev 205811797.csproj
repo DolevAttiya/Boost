@@ -102,7 +102,7 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UITools.cs" />
-    <Compile Include="View\UI_Controls\GradientForm.cs">
+    <Compile Include="View\UI_Controls\StylizedForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\UI_Controls\StylizedPanel.cs">

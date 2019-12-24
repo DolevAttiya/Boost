@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -38,7 +39,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.LabelError = new System.Windows.Forms.Label();
-            this.panelTopPost = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.panelTopPost = new StylizedPanel();
             this.LabelTopPostError = new System.Windows.Forms.Label();
             this.PictureBoxTopPost = new System.Windows.Forms.PictureBox();
             this.LabelTopPostCaptionDateTime = new System.Windows.Forms.Label();
@@ -47,14 +48,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.LabelTopPostComments = new System.Windows.Forms.Label();
             this.LabelTopPostLikes = new System.Windows.Forms.Label();
             this.LabelTopPost = new System.Windows.Forms.Label();
-            this.panelFriends = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.panelFriends = new StylizedPanel();
             this.LabelFriendsChange = new System.Windows.Forms.Label();
             this.ChartFriends = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LabelFriends = new System.Windows.Forms.Label();
-            this.panelEngagement = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.panelEngagement = new StylizedPanel();
             this.ChartEngagement = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.LabelEngagement = new System.Windows.Forms.Label();
-            this.panelUserBio = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.panelUserBio = new StylizedPanel();
             this.LabelRecentStatusUpdateDateTime = new System.Windows.Forms.Label();
             this.LabelRecentStatusUpdateContent = new System.Windows.Forms.Label();
             this.LabelRecentStatusUpdateTitle = new System.Windows.Forms.Label();

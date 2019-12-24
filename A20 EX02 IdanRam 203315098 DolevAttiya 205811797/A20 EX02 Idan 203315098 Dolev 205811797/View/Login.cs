@@ -44,7 +44,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void PictureBoxFBLogin_Click(object sender, EventArgs e) // TODO SINGELTON ?
         {
             this.LabelLoading.Visible = true;
-            m_LoginEvent.Invoke();
+            if(m_LoginEvent != null)
+            {
+                m_LoginEvent.Invoke();
+            }
         }
         #endregion
     }

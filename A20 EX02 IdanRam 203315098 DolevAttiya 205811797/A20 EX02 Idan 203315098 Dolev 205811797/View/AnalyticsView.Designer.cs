@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -32,7 +33,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void InitializeComponent()
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
-            this.panelAnalytics = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.panelAnalytics = new StylizedPanel();
             this.BiggestFansPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BiggestFansView();
             this.BestTimesPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BestTimesView();
             this.buttonBestTimes = new System.Windows.Forms.Button();
