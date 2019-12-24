@@ -2,11 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
+    public delegate void SaveAnalysisSettingsEventHandler();
+    
     public partial class AnalyticsView : UserControl
     {
+        #region Properties
+
+        public List<Button> AnalysisBasisButtons { get; set; }
+
+        public List<Button> AnalyticsTabButtons { get; set; }
+
+        public Button m_SelectedAnalysisBasisButton = null;
+
+        public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
+        #endregion
+
         #region Ctor
         public AnalyticsView()
         {
@@ -36,22 +50,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
             populateComboBoxes();
+            addButtonsToLists();
         }
 
 
         private void populateComboBoxes()
         {
             List<eTimeSelector> analysisTimeFrames = Analysis.GetAnalysisTimeFrames();
-            List<Analysis.eAnalysisDataBasis> analysisDataBases = Analysis.GetAnalysisDataBases();
 
             foreach(eTimeSelector timeFrame in analysisTimeFrames)
             {
                 TimeFrameComboBox.Items.Add(timeFrame.ToString());
-            }
-
-            foreach (Analysis.eAnalysisDataBasis dataBasis in analysisDataBases)
-            {
-                DataBasisComboBox.Items.Add(dataBasis.ToString());
             }
         }
 
@@ -68,6 +77,97 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBiggestFans.BackColor = Stylesheet.Color_Secondary;
             this.buttonBestTimes.BackColor = Stylesheet.Color_Main;
         }
+
+        private void analysisTab_Click(object sender, EventArgs e)
+        {
+            switchAnalysisTab((Button)sender);
+        }
+
+        private void analysisBasis_Click(object sender, EventArgs e)
+        {
+            switchAnalysisBasis((Button)sender);
+        }
+
+        private void addButtonsToLists() // TODO - better way with reflection?
+        {
+            AnalyticsTabButtons = new List<Button>();
+            AnalysisBasisButtons = new List<Button>();
+            
+            AnalyticsTabButtons.Add(this.buttonBestTimes);
+            AnalyticsTabButtons.Add(this.buttonBiggestFans);
+            AnalysisBasisButtons.Add(this.buttonCombined);
+            AnalysisBasisButtons.Add(this.buttonStatus);
+            AnalysisBasisButtons.Add(this.buttonPhotos);
+            AnalysisBasisButtons.Add(this.buttonVideos);
+        }
+
+        public void SelectButton(Button i_Button, List<Button> i_RelevantButtonList)
+        {
+            foreach(Button button in i_RelevantButtonList)
+            {
+                button.BackColor = Stylesheet.Color_Main;
+            }
+            
+            i_Button.BackColor = Stylesheet.Color_Secondary;
+        }
+
+        private void switchAnalysisTab(Button i_Tab)
+        {
+            SelectButton(i_Tab, AnalyticsTabButtons);
+
+            switch(i_Tab.Name)
+            {
+                case "buttonBestTimes":
+                    BestTimesPage.BringToFront();
+                    break;
+                case "buttonBiggestFans":
+                    BiggestFansPage.BringToFront();
+                    break;
+            }
+        }
+
+        // TODO
+        private void switchAnalysisBasis(Button i_Button)
+        {
+            SelectButton(i_Button, AnalysisBasisButtons);
+            m_SelectedAnalysisBasisButton = i_Button;
+
+            switch(i_Button.Name)
+            {
+                case "Combined":
+                    break;
+                case "Status":
+                    break;
+                case "Photos":
+                    break;
+                case "Videos":
+                    break;
+            }
+        }
+
+
         #endregion
+
+        private void buttonReanalyze_Click(object sender, EventArgs e)
+        {
+            // DO SOMETHING
+        }
+
+        private void buttonSaveToDefaults_Click(object sender, EventArgs e)
+        {
+            if(m_AnalysisSettingsEvent != null)
+            {
+                try
+                {
+                    m_AnalysisSettingsEvent.Invoke();
+                }
+                catch(Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                }
+
+                MessageBox.Show(@"Analysis default settings saved.");
+            }
+        }
     }
 }

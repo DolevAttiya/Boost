@@ -284,6 +284,34 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
 
+        private void saveAnalysisSettings()
+        {
+            try
+            {
+                foreach (eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
+                {
+                    if (timeFrame.ToString() == AnalyticsPage.TimeFrameComboBox.SelectedItem.ToString())
+                    {
+                        m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame = timeFrame;
+                        break;
+                    }
+                }
+
+                foreach (Analysis.eAnalysisDataBasis analysisBasis in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
+                {
+                    if(analysisBasis.ToString() == AnalyticsPage.m_SelectedAnalysisBasisButton.Text)
+                    {
+                        m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis = analysisBasis;
+                        break;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
         private void overwriteBoostSettings(string i_userEmail)
         {
             // Overwrite Boost Settings
@@ -305,6 +333,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displaySettingsPopup()
         {
+            initializeSettingsPopUp();
             m_SettingsPopup.ShowDialog();
         }
 
@@ -320,16 +349,36 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
+                AnalyticsPage.m_AnalysisSettingsEvent += saveAnalysisSettings;
                 ///BestTimes
-                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(); })).Start();
+                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame); })).Start();
                 
                 ///BiggestFans
-                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans()));
+                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame)));
+
+                foreach(object timeFrame in AnalyticsPage.TimeFrameComboBox.Items)
+                {
+                    if(timeFrame.ToString() == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
+                    {
+                        AnalyticsPage.TimeFrameComboBox.SelectedItem = timeFrame;
+                        break;
+                    }
+                }
+
+                foreach(Button button in AnalyticsPage.AnalysisBasisButtons)
+                {
+                    if(button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis.ToString())
+                    {
+                        AnalyticsPage.SelectButton(button, AnalyticsPage.AnalysisBasisButtons);
+                        break;
+                    }
+                }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
                 AnalyticsPage.DisplayAnalyticsErrorMessage();
+
             }
         }
 

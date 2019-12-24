@@ -83,9 +83,9 @@
             this.LabelLoginError.BackColor = System.Drawing.Color.Transparent;
             this.LabelLoginError.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLoginError.ForeColor = System.Drawing.Color.Red;
-            this.LabelLoginError.Location = new System.Drawing.Point(441, 407);
+            this.LabelLoginError.Location = new System.Drawing.Point(406, 446);
             this.LabelLoginError.Name = "LabelLoginError";
-            this.LabelLoginError.Size = new System.Drawing.Size(271, 26);
+            this.LabelLoginError.Size = new System.Drawing.Size(329, 26);
             this.LabelLoginError.TabIndex = 2;
             this.LabelLoginError.Text = "LOGIN FAILED! PLEASE TRY AGAIN!";
             this.LabelLoginError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,18 +109,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.LoginBG;
-            this.Name = "Login";
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.CheckBoxRememberUser);
             this.Controls.Add(this.LabelLoading);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.LabelLoginError);
             this.Controls.Add(this.PictureBoxFBLogin);
+            this.Name = "Login";
             this.Size = new System.Drawing.Size(1151, 677);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

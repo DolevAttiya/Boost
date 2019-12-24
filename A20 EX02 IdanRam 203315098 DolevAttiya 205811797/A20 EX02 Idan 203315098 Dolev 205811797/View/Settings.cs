@@ -33,14 +33,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBases;
         }
 
-        protected override void OnFormClosing(FormClosingEventArgs e)
+        /*protected override void OnFormClosing(FormClosingEventArgs e)
         {
             this.Hide();
             e.Cancel = true;
-        }
+        }*/
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Any changes will take effect once Boost restarts.");
             this.Close();
         }
     }
