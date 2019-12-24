@@ -138,14 +138,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             // buttonReanalyze
             // 
-            this.buttonReanalyze.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(32)))), ((int)(((byte)(69)))));
+            this.buttonReanalyze.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
             this.buttonReanalyze.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonReanalyze.FlatAppearance.BorderSize = 0;
             this.buttonReanalyze.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonReanalyze.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
             this.buttonReanalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonReanalyze.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonReanalyze.ForeColor = System.Drawing.Color.White;
+            this.buttonReanalyze.ForeColor = System.Drawing.Color.Black;
             this.buttonReanalyze.Location = new System.Drawing.Point(773, 8);
             this.buttonReanalyze.Margin = new System.Windows.Forms.Padding(0);
             this.buttonReanalyze.Name = "buttonReanalyze";
@@ -157,14 +157,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             // buttonSaveToDefaults
             // 
-            this.buttonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(32)))), ((int)(((byte)(69)))));
+            this.buttonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
             this.buttonSaveToDefaults.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSaveToDefaults.FlatAppearance.BorderSize = 0;
             this.buttonSaveToDefaults.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
             this.buttonSaveToDefaults.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
             this.buttonSaveToDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveToDefaults.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonSaveToDefaults.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveToDefaults.ForeColor = System.Drawing.Color.Black;
             this.buttonSaveToDefaults.Location = new System.Drawing.Point(895, 8);
             this.buttonSaveToDefaults.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSaveToDefaults.Name = "buttonSaveToDefaults";
