@@ -493,7 +493,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                                 }
 
                                 DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-                                if(!string.IsNullOrWhiteSpace(topPost.PictureURL))
+                                DashboardPage.PictureBoxTopPost.Image = null;
+                                if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
                                 {
                                     DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
                                 }

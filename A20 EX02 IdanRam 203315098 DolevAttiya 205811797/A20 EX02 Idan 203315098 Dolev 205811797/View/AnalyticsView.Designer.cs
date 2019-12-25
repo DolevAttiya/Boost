@@ -84,10 +84,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBestTimes.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBestTimes.ForeColor = System.Drawing.Color.White;
-            this.buttonBestTimes.Location = new System.Drawing.Point(9, 49);
+            this.buttonBestTimes.Location = new System.Drawing.Point(9, 43);
             this.buttonBestTimes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBestTimes.Name = "buttonBestTimes";
-            this.buttonBestTimes.Size = new System.Drawing.Size(221, 32);
+            this.buttonBestTimes.Size = new System.Drawing.Size(221, 38);
             this.buttonBestTimes.TabIndex = 2;
             this.buttonBestTimes.Text = "Best Times to Post";
             this.buttonBestTimes.UseVisualStyleBackColor = false;
@@ -103,10 +103,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBiggestFans.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBiggestFans.ForeColor = System.Drawing.Color.White;
-            this.buttonBiggestFans.Location = new System.Drawing.Point(230, 49);
+            this.buttonBiggestFans.Location = new System.Drawing.Point(230, 43);
             this.buttonBiggestFans.Margin = new System.Windows.Forms.Padding(0);
             this.buttonBiggestFans.Name = "buttonBiggestFans";
-            this.buttonBiggestFans.Size = new System.Drawing.Size(221, 32);
+            this.buttonBiggestFans.Size = new System.Drawing.Size(221, 38);
             this.buttonBiggestFans.TabIndex = 3;
             this.buttonBiggestFans.Text = "Biggest Fans";
             this.buttonBiggestFans.UseVisualStyleBackColor = false;

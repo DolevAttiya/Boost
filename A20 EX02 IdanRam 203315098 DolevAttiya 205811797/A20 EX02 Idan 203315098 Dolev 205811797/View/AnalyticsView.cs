@@ -51,6 +51,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
+
             populateComboBoxes();
             addButtonsToLists();
             addSubPagesToList();
@@ -106,6 +107,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void addSubPagesToList()
         {
+            AnalyticsSubPages = new List<UserControl>();
+
             AnalyticsSubPages.Add(BestTimesPage);
             AnalyticsSubPages.Add(BiggestFansPage);
         }
@@ -131,6 +134,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 if("button" + subPage.Name == i_Tab.Name + "Page")
                 {
                     subPage.BringToFront();
+                    tabSwitched = true;
+                    break;
                 }
             }
 
@@ -139,15 +144,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 throw new Exception("Sub-page could not be found");
             }
 
-            /*switch(i_Tab.Name)
-            {
-                case "buttonBestTimes":
-                    BestTimesPage.BringToFront();
-                    break;
-                case "buttonBiggestFans":
-                    BiggestFansPage.BringToFront();
-                    break;
-            }*/
         }
 
         // TODO
