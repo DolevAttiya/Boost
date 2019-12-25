@@ -27,7 +27,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void loginPageSetup()
         {
             this.LabelLoading.Location = new Point(this.LabelLoading.Location.X, this.CheckBoxRememberUser.Bottom + 10);
-            this.LabelLoginError.Location = new Point(this.LabelLoginError.Location.X, this.LabelLoading.Location.Y);
+            this.LabelLoginError.Location = new Point(this.LabelLoginError.Location.X, this.LabelLoading.Bottom + 10);
             this.LabelLoginError.Text = k_LoginFailedMessage;
         }
 

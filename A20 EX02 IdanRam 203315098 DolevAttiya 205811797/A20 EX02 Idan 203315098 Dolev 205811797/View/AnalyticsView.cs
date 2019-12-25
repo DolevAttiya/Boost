@@ -16,6 +16,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public List<Button> AnalyticsTabButtons { get; set; }
 
+        public List<UserControl> AnalyticsSubPages { get; set; }
+
         public Button m_SelectedAnalysisBasisButton = null;
 
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
@@ -51,6 +53,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
             populateComboBoxes();
             addButtonsToLists();
+            addSubPagesToList();
         }
 
 
@@ -101,6 +104,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             AnalysisBasisButtons.Add(this.buttonVideos);
         }
 
+        private void addSubPagesToList()
+        {
+            AnalyticsSubPages.Add(BestTimesPage);
+            AnalyticsSubPages.Add(BiggestFansPage);
+        }
+
         public void SelectButton(Button i_Button, List<Button> i_RelevantButtonList)
         {
             foreach(Button button in i_RelevantButtonList)
@@ -113,9 +122,24 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void switchAnalysisTab(Button i_Tab)
         {
+            bool tabSwitched = false;
+
             SelectButton(i_Tab, AnalyticsTabButtons);
 
-            switch(i_Tab.Name)
+            foreach(UserControl subPage in AnalyticsSubPages)
+            {
+                if("button" + subPage.Name == i_Tab.Name + "Page")
+                {
+                    subPage.BringToFront();
+                }
+            }
+
+            if(!tabSwitched)
+            {
+                throw new Exception("Sub-page could not be found");
+            }
+
+            /*switch(i_Tab.Name)
             {
                 case "buttonBestTimes":
                     BestTimesPage.BringToFront();
@@ -123,7 +147,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 case "buttonBiggestFans":
                     BiggestFansPage.BringToFront();
                     break;
-            }
+            }*/
         }
 
         // TODO

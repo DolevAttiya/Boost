@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Threading;
@@ -7,6 +8,9 @@ using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -17,8 +21,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public BoostEngine m_BoostEn;
         private bool m_PreInitialLogin;
         private Settings m_SettingsPopup = null;
-        private List<UserControl> m_BoostPages = null;
-        private List<string> m_BoostViewNames = null;
+        private List<UserControl> m_BoostPages = new List<UserControl>();
 
         public enum eBoostPages : byte
         {
@@ -77,6 +80,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             // Sort elements for app startup
             NavbarSeparator.BringToFront();
+            addBoostPagesToList();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;
@@ -87,6 +91,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             initializeLoginPage();
             ////
         }
+
+        private void addBoostPagesToList()
+        {
+            m_BoostPages.Add(DashboardPage);
+            m_BoostPages.Add(AnalyticsPage);
+            m_BoostPages.Add(AboutPage);
+            m_BoostPages.Add(LoginPage);
+        }
+
+
 
         private void initializeLoginPage()
         {
@@ -118,7 +132,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             switchPage((Button)sender);
         }
 
-        private void switchPage(Button i_Button)
+        private void switchPage_Legacy(Button i_Button)
         {
             foreach(Button button in navbar.m_NavbarButtons)
             {
@@ -142,12 +156,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             if(userOptions.Visible)
             {
-                // userOptions.BringToFront();
                 navbar.UsernameClick();
             }
         }
 
-        private void switchPage_NEW(Button i_Button)
+        private void switchPage(Button i_Button)
         {
             foreach (Button button in navbar.m_NavbarButtons)
             {
@@ -156,69 +169,63 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             navbar.SelectButton(i_Button);
 
-            /*switch (i_Button.Name)
-            {
-                case "btnDashboard":
-                    DashboardPage.BringToFront();
-                    break;
-                case "btnAnalytics":
-                    AnalyticsPage.BringToFront();
-                    break;
-                case "btnAbout":
-                    AboutPage.BringToFront();
-                    break;
-            }*/
 
+            switchPage_Reflection(i_Button);
 
             if (userOptions.Visible)
             {
-                // userOptions.BringToFront();
                 navbar.UsernameClick();
             }
         }
 
-        private List<string> getBoostViewNames()
+        private List<Type> getBoostViewTypes()
         {
             Type[] allTypes =  Assembly.GetExecutingAssembly().GetTypes();
-            List<string> boostViews = new List<string>();
-            string[] keyWord = {"View"};
+            List<Type> boostViews = new List<Type>();
+            string keyWord = "View";
 
             foreach(Type type in allTypes)
             {
-                if(type.FullName.Contains(keyWord[0]))
+                if(type.Name != null && type.Name.Contains(keyWord))
                 {
-                    string pageName = type.FullName.Split(keyWord, StringSplitOptions.None)[0];
-                    boostViews.Add(pageName);
+                    boostViews.Add(type);
                 }
             }
 
             return boostViews;
         }
 
-        private List<UserControl> getBoostPages()
+        private void switchPage_Reflection(Button i_Button)
         {
-            List<UserControl> boostPages = new List<UserControl>();
-            string keyWord = "Page";
+            string[] keyword = {"Page"};
+            List<Type> viewTypes = getBoostViewTypes();
+            Type buttonType = null;
+            bool pageSwitched = false;
 
-            /*foreach(FieldInfo field in typeof(Boost).GetFields())
+            foreach(Type type in viewTypes)
             {
-                if(field.Name.Contains(keyWord) && typeof(FieldInfo) == typeof(UserControl))
+                if("btn" + type.Name == i_Button.Name + "View")
                 {
-                    boostPages.add
+                    buttonType = type;
+                    break;
                 }
             }
-
-            foreach (Type type in allTypes)
+            foreach(UserControl page in m_BoostPages)
             {
-                if (type.FullName.Contains(keyWord[0]))
+                if (page.GetType().Name == buttonType.Name)
                 {
-                    string pageName = type.FullName.Split(keyWord, StringSplitOptions.None)[0];
-                    boostPages.Add(pageName);
+                    page.BringToFront();
+                    pageSwitched = true;
+                    break;
                 }
-            }*/
+            }
+            if (!pageSwitched)
+            {
+                throw new Exception("Desired page could not be found in m_BoostPages");
+            }
 
-            return boostPages;
         }
+
 
 
         public void FacebookLogout()
