@@ -29,6 +29,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         private static readonly string sr_FilePath = $@"{Application.StartupPath}\BoostSettings.xml";
         
         // User Settings
+        public string FirstName { get; set; }
+
         public bool RememberUser { get; set; }
 
         public eTimeSelector DefaultAnalysisTimeFrame { get; set; }
@@ -78,6 +80,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public void ResetSettingsToDefault()
         {
+            FirstName = null;
             FirstLogin = true;
             LastAccessToken = null;
             RememberUser = false;

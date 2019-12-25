@@ -28,5 +28,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             return filePath;
         }
+
+        public static void centerControlHorizontally(Control i_Control, UserControl i_Client)
+        {
+            i_Control.Left = (i_Client.Width - i_Control.Width) / 2;
+        }
     }
 }

@@ -38,8 +38,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_PreInitialLogin = true;
             InitializeComponent();
             boostFormInitialSetup();
+
             LoginPage.m_LoginEvent += FacebookLogin;
+
+            LoginPage.m_ContinueAsEvent += FacebookLogin;
+
+            LoginPage.m_SwitchUserEvent += FacebookLogout;
+            LoginPage.m_SwitchUserEvent += initializeLoginPage;
+
             userOptions.m_LogoutEvent += FacebookLogout;
+            userOptions.m_LogoutEvent += boostFormInitialSetup;
+            userOptions.m_LogoutEvent += LoginPage.LoginPageSetup;
+
             userOptions.m_SettingsEvent += displaySettingsPopup;
             userOptions.m_OptionClickEvent += navbar.DeselectBtnUsername;
         }
@@ -105,6 +115,25 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void initializeLoginPage()
         {
             LoginPage.CheckBoxRememberUser.Checked = m_BoostEn.m_BoostSettings.RememberUser;
+            if (m_BoostEn.m_BoostSettings.RememberUser == true
+                && m_BoostEn.m_BoostSettings.FirstName != null)
+            {
+                LoginPage.ButtonContinueAs.Visible = true;
+                LoginPage.ButtonContinueAs.BringToFront();
+                LoginPage.ButtonContinueAs.Text = $@"Continue as {m_BoostEn.m_BoostSettings.FirstName}";
+                LoginPage.ButtonSwitchUser.BringToFront();
+                LoginPage.ButtonSwitchUser.Visible = true;
+
+                UITools.centerControlHorizontally(LoginPage.ButtonContinueAs, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.ButtonSwitchUser, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.PictureBoxFBLogin, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.CheckBoxRememberUser, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.LabelLoading, LoginPage);
+
+
+                LoginPage.PictureBoxFBLogin.Visible = false;
+                LoginPage.CheckBoxRememberUser.Visible = false;
+            }
             LoginPage.BringToFront();
             LoginPage.LabelLoading.Visible = false;
             LoginPage.Visible = true; // true
@@ -233,8 +262,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_BoostEn.FacebookLogout();
-                MessageBox.Show(@"Logout successful!");
-                boostFormInitialSetup();
             }
             catch(Exception e)
             {
@@ -326,6 +353,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_BoostEn.m_BoostSettings.FirstLogin = false;
             m_BoostEn.m_BoostSettings.LastAccessToken = m_BoostEn.LoginResult.AccessToken;
             m_BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
+            m_BoostEn.m_BoostSettings.FirstName = m_BoostEn.LoggedInUser.FirstName;
             m_BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
             m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
         }

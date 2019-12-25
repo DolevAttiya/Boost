@@ -34,6 +34,8 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.LabelLoginError = new System.Windows.Forms.Label();
             this.PictureBoxFBLogin = new System.Windows.Forms.PictureBox();
+            this.ButtonContinueAs = new System.Windows.Forms.Button();
+            this.ButtonSwitchUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +49,7 @@
             this.CheckBoxRememberUser.BackColor = System.Drawing.Color.Transparent;
             this.CheckBoxRememberUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckBoxRememberUser.ForeColor = System.Drawing.Color.White;
-            this.CheckBoxRememberUser.Location = new System.Drawing.Point(516, 369);
+            this.CheckBoxRememberUser.Location = new System.Drawing.Point(515, 369);
             this.CheckBoxRememberUser.Name = "CheckBoxRememberUser";
             this.CheckBoxRememberUser.Size = new System.Drawing.Size(121, 21);
             this.CheckBoxRememberUser.TabIndex = 4;
@@ -59,7 +61,7 @@
             this.LabelLoading.BackColor = System.Drawing.Color.Transparent;
             this.LabelLoading.Font = new System.Drawing.Font("Century Gothic", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLoading.ForeColor = System.Drawing.Color.White;
-            this.LabelLoading.Location = new System.Drawing.Point(488, 407);
+            this.LabelLoading.Location = new System.Drawing.Point(487, 407);
             this.LabelLoading.Name = "LabelLoading";
             this.LabelLoading.Size = new System.Drawing.Size(177, 26);
             this.LabelLoading.TabIndex = 3;
@@ -72,7 +74,7 @@
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_login;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(441, 194);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(440, 194);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(271, 97);
             this.pictureBoxLogo.TabIndex = 0;
@@ -83,7 +85,7 @@
             this.LabelLoginError.BackColor = System.Drawing.Color.Transparent;
             this.LabelLoginError.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLoginError.ForeColor = System.Drawing.Color.Red;
-            this.LabelLoginError.Location = new System.Drawing.Point(406, 446);
+            this.LabelLoginError.Location = new System.Drawing.Point(411, 459);
             this.LabelLoginError.Name = "LabelLoginError";
             this.LabelLoginError.Size = new System.Drawing.Size(329, 26);
             this.LabelLoginError.TabIndex = 2;
@@ -104,6 +106,52 @@
             this.PictureBoxFBLogin.TabStop = false;
             this.PictureBoxFBLogin.Click += new System.EventHandler(this.PictureBoxFBLogin_Click);
             // 
+            // ButtonContinueAs
+            // 
+            this.ButtonContinueAs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonContinueAs.AutoSize = true;
+            this.ButtonContinueAs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonContinueAs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonContinueAs.FlatAppearance.BorderSize = 0;
+            this.ButtonContinueAs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
+            this.ButtonContinueAs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonContinueAs.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonContinueAs.ForeColor = System.Drawing.Color.White;
+            this.ButtonContinueAs.Location = new System.Drawing.Point(487, 318);
+            this.ButtonContinueAs.MaximumSize = new System.Drawing.Size(271, 37);
+            this.ButtonContinueAs.MinimumSize = new System.Drawing.Size(177, 37);
+            this.ButtonContinueAs.Name = "ButtonContinueAs";
+            this.ButtonContinueAs.Padding = new System.Windows.Forms.Padding(3);
+            this.ButtonContinueAs.Size = new System.Drawing.Size(177, 37);
+            this.ButtonContinueAs.TabIndex = 13;
+            this.ButtonContinueAs.Text = "Continue as John";
+            this.ButtonContinueAs.UseVisualStyleBackColor = false;
+            this.ButtonContinueAs.Click += new System.EventHandler(this.ButtonContinueAs_Click);
+            // 
+            // ButtonSwitchUser
+            // 
+            this.ButtonSwitchUser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonSwitchUser.AutoSize = true;
+            this.ButtonSwitchUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(28)))), ((int)(((byte)(48)))));
+            this.ButtonSwitchUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSwitchUser.FlatAppearance.BorderSize = 0;
+            this.ButtonSwitchUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(89)))), ((int)(((byte)(124)))), ((int)(((byte)(194)))));
+            this.ButtonSwitchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSwitchUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ButtonSwitchUser.ForeColor = System.Drawing.Color.White;
+            this.ButtonSwitchUser.Location = new System.Drawing.Point(525, 367);
+            this.ButtonSwitchUser.Name = "ButtonSwitchUser";
+            this.ButtonSwitchUser.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.ButtonSwitchUser.Size = new System.Drawing.Size(100, 26);
+            this.ButtonSwitchUser.TabIndex = 14;
+            this.ButtonSwitchUser.Text = "Switch User";
+            this.ButtonSwitchUser.UseVisualStyleBackColor = false;
+            this.ButtonSwitchUser.Click += new System.EventHandler(this.ButtonSwitchUser_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +159,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.LoginBG;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.ButtonSwitchUser);
+            this.Controls.Add(this.ButtonContinueAs);
             this.Controls.Add(this.CheckBoxRememberUser);
             this.Controls.Add(this.LabelLoading);
             this.Controls.Add(this.pictureBoxLogo);
@@ -132,5 +182,7 @@
         public System.Windows.Forms.Label LabelLoading;
         public System.Windows.Forms.PictureBox PictureBoxFBLogin;
         public System.Windows.Forms.CheckBox CheckBoxRememberUser;
+        public System.Windows.Forms.Button ButtonContinueAs;
+        public System.Windows.Forms.Button ButtonSwitchUser;
     }
 }

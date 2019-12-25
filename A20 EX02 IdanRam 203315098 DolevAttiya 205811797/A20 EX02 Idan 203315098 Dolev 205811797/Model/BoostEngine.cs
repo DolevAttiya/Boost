@@ -87,8 +87,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         {
             try
             {
-                m_BoostSettings.DeleteAppSettingsFile();
                 m_BoostSettings.ResetSettingsToDefault();
+                m_BoostSettings.DeleteAppSettingsFile();
                 m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
             }
             catch(Exception e)
