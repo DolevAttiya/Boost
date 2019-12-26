@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
@@ -69,7 +70,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         #endregion
 
-       #region Methods
+        #region Methods
 
         public void FacebookLogout()
         {
@@ -275,6 +276,31 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             return mostLikedPost;
         }
+
+        public List<eTimeSelector> GetAnalysisTimeFrames()
+        {
+            List<eTimeSelector> analysisTimeFrames = new List<eTimeSelector>();
+
+            foreach(eTimeSelector val in Enum.GetValues(typeof(eTimeSelector)))
+            {
+                analysisTimeFrames.Add(val);
+            }
+
+            return analysisTimeFrames;
+        }
+
+        public List<eAnalysisDataBasis> GetAnalysisDataBases()
+        {
+            List<eAnalysisDataBasis> analysisDataBases = new List<eAnalysisDataBasis>();
+
+            foreach(eAnalysisDataBasis val in Enum.GetValues(typeof(eAnalysisDataBasis)))
+            {
+                analysisDataBases.Add(val);
+            }
+
+            return analysisDataBases;
+        }
+
         #endregion
     }
 }

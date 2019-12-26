@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
 
@@ -26,8 +27,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void populateControls()
         {
-            List<eTimeSelector> analysisTimeFrames = Analysis.GetAnalysisTimeFrames();
-            List<Analysis.eAnalysisDataBasis> analysisDataBases = Analysis.GetAnalysisDataBases();
+            List<eTimeSelector> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
+            List<eAnalysisDataBasis> analysisDataBases = BoostEngine.Instance.GetAnalysisDataBases();
 
             DefaultAnalysisTimeFrameComboBox.DataSource = analysisTimeFrames;
             DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBases;

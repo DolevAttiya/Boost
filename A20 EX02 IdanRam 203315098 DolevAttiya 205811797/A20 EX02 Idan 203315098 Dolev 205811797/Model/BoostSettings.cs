@@ -35,7 +35,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public eTimeSelector DefaultAnalysisTimeFrame { get; set; }
 
-        public Analysis.eAnalysisDataBasis DefaultAnalysisDataBasis { get; set; }
+        public eAnalysisDataBasis DefaultAnalysisDataBasis { get; set; }
         
         public List<DateAndValue> FriendCounter;
         #endregion
@@ -89,7 +89,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             StartupPath = Application.StartupPath;
             FriendCounter = new List<DateAndValue>();
             DefaultAnalysisTimeFrame = eTimeSelector.Month;
-            DefaultAnalysisDataBasis = Analysis.eAnalysisDataBasis.Combined;
+            DefaultAnalysisDataBasis = eAnalysisDataBasis.Combined;
         }
 
         public void SaveAppSettingsToFile()

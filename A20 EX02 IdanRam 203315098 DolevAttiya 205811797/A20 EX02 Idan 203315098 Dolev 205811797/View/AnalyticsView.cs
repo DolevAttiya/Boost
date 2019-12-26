@@ -60,7 +60,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void populateComboBoxes()
         {
-            List<eTimeSelector> analysisTimeFrames = Analysis.GetAnalysisTimeFrames();
+            List<eTimeSelector> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
 
             foreach(eTimeSelector timeFrame in analysisTimeFrames)
             {
