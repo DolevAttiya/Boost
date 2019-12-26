@@ -129,6 +129,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 UITools.centerControlHorizontally(LoginPage.PictureBoxFBLogin, LoginPage);
                 UITools.centerControlHorizontally(LoginPage.CheckBoxRememberUser, LoginPage);
                 UITools.centerControlHorizontally(LoginPage.LabelLoading, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.PictureBoxLogo, LoginPage);
 
 
                 LoginPage.PictureBoxFBLogin.Visible = false;
@@ -262,6 +263,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_BoostEn.FacebookLogout();
+                m_BoostEn.m_BoostSettings.ResetSettingsToDefault();
+                m_BoostEn.m_BoostSettings.DeleteAppSettingsFile();
+                m_BoostEn.m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
             }
             catch(Exception e)
             {

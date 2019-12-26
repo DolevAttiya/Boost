@@ -31,12 +31,12 @@
         {
             this.CheckBoxRememberUser = new System.Windows.Forms.CheckBox();
             this.LabelLoading = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.LabelLoginError = new System.Windows.Forms.Label();
             this.PictureBoxFBLogin = new System.Windows.Forms.PictureBox();
             this.ButtonContinueAs = new System.Windows.Forms.Button();
             this.ButtonSwitchUser = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,16 +69,16 @@
             this.LabelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LabelLoading.Visible = false;
             // 
-            // pictureBoxLogo
+            // PictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxLogo.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_login;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(440, 194);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(271, 97);
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
+            this.PictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
+            this.PictureBoxLogo.BackgroundImage = global::A20_EX02_Idan_203315098_Dolev_205811797.Properties.Resources.Logo_login;
+            this.PictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PictureBoxLogo.Location = new System.Drawing.Point(440, 194);
+            this.PictureBoxLogo.Name = "PictureBoxLogo";
+            this.PictureBoxLogo.Size = new System.Drawing.Size(271, 97);
+            this.PictureBoxLogo.TabIndex = 0;
+            this.PictureBoxLogo.TabStop = false;
             // 
             // LabelLoginError
             // 
@@ -120,7 +120,7 @@
             this.ButtonContinueAs.Font = new System.Drawing.Font("Century Gothic", 10.875F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonContinueAs.ForeColor = System.Drawing.Color.White;
             this.ButtonContinueAs.Location = new System.Drawing.Point(487, 318);
-            this.ButtonContinueAs.MaximumSize = new System.Drawing.Size(271, 37);
+            this.ButtonContinueAs.MaximumSize = new System.Drawing.Size(400, 37);
             this.ButtonContinueAs.MinimumSize = new System.Drawing.Size(177, 37);
             this.ButtonContinueAs.Name = "ButtonContinueAs";
             this.ButtonContinueAs.Padding = new System.Windows.Forms.Padding(3);
@@ -163,12 +163,12 @@
             this.Controls.Add(this.ButtonContinueAs);
             this.Controls.Add(this.CheckBoxRememberUser);
             this.Controls.Add(this.LabelLoading);
-            this.Controls.Add(this.pictureBoxLogo);
+            this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.LabelLoginError);
             this.Controls.Add(this.PictureBoxFBLogin);
             this.Name = "Login";
             this.Size = new System.Drawing.Size(1151, 677);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,7 +177,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        public System.Windows.Forms.PictureBox PictureBoxLogo;
         public System.Windows.Forms.Label LabelLoginError;
         public System.Windows.Forms.Label LabelLoading;
         public System.Windows.Forms.PictureBox PictureBoxFBLogin;
