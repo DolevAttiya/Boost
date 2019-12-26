@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 {
-    public class SortedDictionary<TK,TV> : DictionaryDecorator<TK,TV> where TV:IComparable
+    public class SortedValueDictionary<TK,TV> : DictionaryDecorator<TK,TV> where TV:IComparable
     {
 
         public KeyValuePair<TK, TV>[] SortByValue()
@@ -15,7 +15,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
             return o_SortedDictionaryValues;
         }
 
-        public SortedDictionary(IDictionary<TK, TV> i_Dictionary)
+        public SortedValueDictionary(IDictionary<TK, TV> i_Dictionary)
             : base(i_Dictionary)
         {
         }

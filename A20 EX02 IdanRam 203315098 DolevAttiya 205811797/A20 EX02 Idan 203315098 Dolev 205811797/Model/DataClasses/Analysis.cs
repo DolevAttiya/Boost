@@ -8,32 +8,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
     public abstract class Analysis
     {
         #region Data Members
-        private SortedDictionary<object, int> m_PhotosDictionary;
-        private SortedDictionary<object, int> m_VideosDictionary;
-        private SortedDictionary<object, int> m_StatusDictionary;
-        private SortedDictionary<object, int> m_CombinedAnalysisHolders;
+        private SortedValueDictionary<object, int> m_PhotosDictionary;
+        private SortedValueDictionary<object, int> m_VideosDictionary;
+        private SortedValueDictionary<object, int> m_StatusDictionary;
+        private SortedValueDictionary<object, int> m_CombinedAnalysisHolders;
         #endregion
 
         #region Properties
-        public SortedDictionary<object, int> PhotosDictionary
+        public SortedValueDictionary<object, int> PhotosDictionary
         {
             get => m_PhotosDictionary;
             protected set => m_PhotosDictionary = value;
         }
 
-        public SortedDictionary<object, int> VideosDictionary
+        public SortedValueDictionary<object, int> VideosDictionary
         {
             get => m_VideosDictionary;
             protected set => m_VideosDictionary = value;
         }
 
-        public SortedDictionary<object, int> StatusDictionary
+        public SortedValueDictionary<object, int> StatusDictionary
         {
             get => m_StatusDictionary;
             protected set => m_StatusDictionary = value;
         }
 
-        public SortedDictionary<object, int> CombinedAnalysisHolders
+        public SortedValueDictionary<object, int> CombinedAnalysisHolders
         {
             get => m_CombinedAnalysisHolders;
             protected set => m_CombinedAnalysisHolders = value;
@@ -78,7 +78,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
         protected abstract void PostParser(
             Post i_PostToAnalysis,
-            ref SortedDictionary<object, int> io_ArrayToAnalysisHolders);
+            ref SortedValueDictionary<object, int> io_ArrayToAnalysisHolders);
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
@@ -16,15 +17,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
         #region Methods
         private void initializeComponents()
         {
-            PhotosDictionary = new Design_Patterns.SortedDictionary<object, int>(new Dictionary<object, int>());
-            VideosDictionary = new Design_Patterns.SortedDictionary<object, int>(new Dictionary<object, int>());
-            StatusDictionary = new Design_Patterns.SortedDictionary<object, int>(new Dictionary<object, int>());
-            CombinedAnalysisHolders = new Design_Patterns.SortedDictionary<object, int>(new Dictionary<object, int>());
+            PhotosDictionary = new SortedValueDictionary<object, int>(new Dictionary<object, int>());
+            VideosDictionary = new SortedValueDictionary<object, int>(new Dictionary<object, int>());
+            StatusDictionary = new SortedValueDictionary<object, int>(new Dictionary<object, int>());
+            CombinedAnalysisHolders = new SortedValueDictionary<object, int>(new Dictionary<object, int>());
         }
 
         protected override void PostParser(
             Post i_PostToAnalysis,
-            ref Design_Patterns.SortedDictionary<object, int> io_ArrayToAnalysisHolders)
+            ref SortedValueDictionary<object, int> io_ArrayToAnalysisHolders)
         {
             const int k_LikeByUser = 1;
             try
