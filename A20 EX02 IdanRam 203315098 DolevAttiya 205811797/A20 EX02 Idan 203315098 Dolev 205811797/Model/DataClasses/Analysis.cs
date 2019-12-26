@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Windows.Documents;
 using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
+using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 {
@@ -69,8 +72,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             }
             catch(Exception e)
             {
-                throw new Exception("Couldn't Get Post", e);
+                throw new Exception("Could not get post", e);
             }
+        }
+
+        public static List<eTimeSelector> GetAnalysisTimeFrames()
+        {
+            List<eTimeSelector> analysisTimeFrames = new List<eTimeSelector>();
+
+            foreach (eTimeSelector val in Enum.GetValues(typeof(eTimeSelector)))
+            {
+                analysisTimeFrames.Add(val);
+            }
+
+            return analysisTimeFrames;
+        }
+
+        public static List<eAnalysisDataBasis> GetAnalysisDataBases()
+        {
+            List<eAnalysisDataBasis> analysisDataBases = new List<eAnalysisDataBasis>();
+
+            foreach (Analysis.eAnalysisDataBasis val in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
+            {
+                analysisDataBases.Add(val);
+            }
+
+            return analysisDataBases;
         }
 
         protected abstract void PostParser(

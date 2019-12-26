@@ -1,11 +1,7 @@
-:root {
-  --main-color: #203458;
-}
-
 * {
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-  color: var(--main-color);
-  /*margin: 0.5rem;*/
+  color: #203458;
+  margin: 0.5rem;
 }
 
 h1 {
@@ -17,7 +13,7 @@ h2 {
 }
 
 li {
-  /*margin: 1rem;*/
+  margin: 1rem;
 }
 
 .about {

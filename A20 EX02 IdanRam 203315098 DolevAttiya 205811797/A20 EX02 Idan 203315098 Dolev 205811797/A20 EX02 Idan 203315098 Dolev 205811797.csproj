@@ -103,7 +103,7 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
     <Compile Include="View\UITools.cs" />
-    <Compile Include="View\UI_Controls\GradientForm.cs">
+    <Compile Include="View\UI_Controls\StylizedForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\UI_Controls\StylizedPanel.cs">
@@ -138,12 +138,6 @@
     </Compile>
     <Compile Include="View\UserOptions.Designer.cs">
       <DependentUpon>UserOptions.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\WelcomeScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\WelcomeScreen.Designer.cs">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Launcher\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,9 +179,6 @@
     <EmbeddedResource Include="View\UserOptions.resx">
       <DependentUpon>UserOptions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WelcomeScreen.resx">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -228,18 +219,6 @@
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WelcomeScreen_StartDefault.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_v3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_StartRollover.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\WelcomeScreen_v4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +229,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings.gif" />
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings_small.gif" />
+    <None Include="Resources\LoginBG.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

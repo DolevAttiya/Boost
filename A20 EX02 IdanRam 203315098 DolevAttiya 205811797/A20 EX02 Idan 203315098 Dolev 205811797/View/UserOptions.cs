@@ -9,28 +9,37 @@ using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-
     public delegate void LogoutEventHandler();
+
     public delegate void SettingsEventHandler();
+
+    public delegate void OptionClickEventHandler();
 
     public partial class UserOptions : UserControl
     {
-        private List<Button> m_UserOptionButtons = new List<Button>();
         private const int k_ButtonWidth = 200;
         private const int k_ButtonHeight = 40;
+        private List<Button> m_UserOptionButtons = new List<Button>();
         public LogoutEventHandler m_LogoutEvent;
         public SettingsEventHandler m_SettingsEvent;
+        public OptionClickEventHandler m_OptionClickEvent;
 
         public UserOptions()
         {
             InitializeComponent();
             initializeUserOptionButtons();
+            m_OptionClickEvent += hideUserOptions;
         }
 
-        private enum eUserOptions : byte //in reverse order
+        private enum eUserOptions : byte
         {
             Settings,
             Logout
+        }
+
+        private void hideUserOptions()
+        {
+            this.Visible = false;
         }
 
         private void initializeUserOptionButtons()
@@ -74,7 +83,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public void AdjustUserOptionsSize()
         {
-            this.Size = new Size(k_ButtonWidth, ((k_ButtonHeight+3) * m_UserOptionButtons.Count));
+            this.Size = new Size(k_ButtonWidth, (k_ButtonHeight + 3) * m_UserOptionButtons.Count);
         }
 
         private void selectUserOption(Button i_Button) 
@@ -83,23 +92,39 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 case "btnSettings":
                     {
-                        m_SettingsEvent.Invoke();
+                        if(m_OptionClickEvent != null)
+                        {
+                            m_OptionClickEvent.Invoke();
+                        }
+                        if(m_SettingsEvent != null)
+                        {
+                            m_SettingsEvent.Invoke();
+                        }
                         break;
                     }
+
                 case "btnLogout":
                     {
-                        DialogResult result = MessageBox.Show(@"Are you sure you want to logout?
-
-(Logging out would delete any locally saved settings and cached data from your machine)", "Logout",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (m_OptionClickEvent != null)
+                        {
+                            m_OptionClickEvent.Invoke();
+                        }
+                        DialogResult result = MessageBox.Show(
+                            "Are you sure you want to logout?\n\nLogging out would delete any locally saved settings and cached data from your machine",
+                            "Logout",
+                            MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            m_LogoutEvent.Invoke(); // TODO SINGLETON
+                            if(m_LogoutEvent != null)
+                            {
+                                m_LogoutEvent.Invoke(); // TODO SINGLETON
+                            }
                         }
+
                         break;
                     }
             }
         }
-
     }
 }

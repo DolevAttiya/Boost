@@ -12,6 +12,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
     {
         #region Data Members & Properties
 
+        #region Instance
+
+        public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
+
+        #endregion
+
         #region Data Members
 
         private const int k_CollectionLimit = /*50*/15; // For Login method
@@ -28,7 +34,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public const string k_PostErrorMessage = "Could not get Post!";
 
-        public static readonly string r_CurrentVersion = "0.2.0";
+        public static readonly string R_CurrentVersion = "0.2.0";
 
         #endregion
 
@@ -63,13 +69,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         #endregion
 
-        #region Instance
-
-        public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
-
-        #endregion
-
-        #region Methods
+       #region Methods
 
         public void FacebookLogout()
         {
@@ -87,9 +87,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         {
             try
             {
-                m_BoostSettings.DeleteAppSettingsFile();
-                m_BoostSettings.ResetSettingsToDefault();
-                m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+                // DO SOMETHING
             }
             catch(Exception e)
             {

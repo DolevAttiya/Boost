@@ -36,9 +36,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector= eTimeSelector.Month) 
+        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month) 
         {
-            
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
             const int k_StartX = 5;
@@ -68,44 +67,47 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
 
                     // Multithreading
-                    this.Invoke(new Action(() => { 
-                        this.Controls.Add(m_BestTimesGrid[i, j]); 
-                    
-                    //// Column titles
-                    if(i == 0)
-                    {
-                        m_BestTimesGrid[i, j].Height -= 20;
-                        m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
-                        if(j == 0)
-                        {
-                            m_BestTimesGrid[i, j].Width += widthExpansion;
-                        }
-                        else
-                        {
-                            m_BestTimesGrid[i, j].Text = $@"{currentDayAndHour.HourOfDay.Hours}:00";
-                        }
-                    }
-                    else
-                    {                   
-                        //// Row titles
-                        if(j == 0)
-                        {
-                            m_BestTimesGrid[i, j].Width += widthExpansion;
-                            m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
-                            m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
-                        }
-                        else
-                        {
-                            defineBestTimesGridCell(currentValue, i, j);
-                        }
-                    }
+                    this.Invoke(
+                        new Action(
+                            () =>
+                                {
+                                    this.Controls.Add(m_BestTimesGrid[i, j]);
 
-                    labelX += m_BestTimesGrid[i, j].Width + 2;
-                    if(j == sk_NumOfHours)
-                    {
-                        lastHeight = m_BestTimesGrid[i, j].Height + 2;
-                    }
-                    }));
+                                    //// Column titles
+                                    if(i == 0)
+                                    {
+                                        m_BestTimesGrid[i, j].Height -= 20;
+                                        m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
+                                        if(j == 0)
+                                        {
+                                            m_BestTimesGrid[i, j].Width += widthExpansion;
+                                        }
+                                        else
+                                        {
+                                            m_BestTimesGrid[i, j].Text = $@"{currentDayAndHour.HourOfDay.Hours}:00";
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //// Row titles
+                                        if(j == 0)
+                                        {
+                                            m_BestTimesGrid[i, j].Width += widthExpansion;
+                                            m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
+                                            m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
+                                        }
+                                        else
+                                        {
+                                            defineBestTimesGridCell(currentValue, i, j);
+                                        }
+                                    }
+
+                                    labelX += m_BestTimesGrid[i, j].Width + 2;
+                                    if(j == sk_NumOfHours)
+                                    {
+                                        lastHeight = m_BestTimesGrid[i, j].Height + 2;
+                                    }
+                                }));
                 }
 
                 labelX = k_StartX;

@@ -1,9 +1,16 @@
 ﻿using System;
+using System.CodeDom;
+using System.Reflection;
 using System.Windows.Forms;
+using System.Threading;
+using System.Windows.Documents;
 using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using System.Threading;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -12,8 +19,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
 
         public BoostEngine m_BoostEn;
-        private bool m_InitialLogin;
+        private bool m_PreInitialLogin;
         private Settings m_SettingsPopup = null;
+        private List<UserControl> m_BoostPages = new List<UserControl>();
 
         public enum eBoostPages : byte
         {
@@ -27,26 +35,38 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Boost()
         {
             m_BoostEn = BoostEngine.Instance;
-            m_InitialLogin = false;
+            m_PreInitialLogin = true;
             InitializeComponent();
             boostFormInitialSetup();
+
             LoginPage.m_LoginEvent += FacebookLogin;
+
+            LoginPage.m_ContinueAsEvent += FacebookLogin;
+
+            LoginPage.m_SwitchUserEvent += FacebookLogout;
+            LoginPage.m_SwitchUserEvent += initializeLoginPage;
+
             userOptions.m_LogoutEvent += FacebookLogout;
+            userOptions.m_LogoutEvent += boostFormInitialSetup;
+            userOptions.m_LogoutEvent += LoginPage.LoginPageSetup;
+
             userOptions.m_SettingsEvent += displaySettingsPopup;
+            userOptions.m_OptionClickEvent += navbar.DeselectBtnUsername;
         }
         #endregion
 
         #region Methods
         private void boostFormInitialSetup()
         {
-            if (!m_InitialLogin)
+            if(m_PreInitialLogin)
             {
                 // Add event handler to dynamically added buttons
-                foreach (Button button in navbar.m_NavbarButtons)
+                foreach(Button button in navbar.m_NavbarButtons)
                 {
                     button.Click += new EventHandler(this.NavbarButton_Click);
                 }
-                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUsernameOptionPanel);
+
+                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUserOptionPanel);
 
                 // Boost Frame properties
                 this.MaximizeBox = false;
@@ -56,13 +76,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 this.BackColor = Stylesheet.Color_BGColorA;
             }
 
-
             //// Adjust UI before login
             // Clear Charts
             foreach(var series in DashboardPage.ChartEngagement.Series)
             {
                 series.Points.Clear();
             }
+
             foreach (var series in DashboardPage.ChartFriends.Series)
             {
                 series.Points.Clear();
@@ -70,20 +90,51 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             // Sort elements for app startup
             NavbarSeparator.BringToFront();
+            addBoostPagesToList();
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
-            welcomeScreen.Visible = false;
-            welcomeScreen.BringToFront();
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;
             userOptions.AdjustUserOptionsSize();
-            userOptions.Location = new System.Drawing.Point(navbar.BtnUsername.Right-userOptions.Width + (navbar.Location.X), navbar.BtnUsername.Bottom);
+            userOptions.Location = new System.Drawing.Point(
+                navbar.BtnUsername.Right - userOptions.Width + navbar.Location.X,
+                navbar.BtnUsername.Bottom);
             initializeLoginPage();
             ////
         }
 
+        private void addBoostPagesToList()
+        {
+            m_BoostPages.Add(DashboardPage);
+            m_BoostPages.Add(AnalyticsPage);
+            m_BoostPages.Add(AboutPage);
+            m_BoostPages.Add(LoginPage);
+        }
+
+
+
         private void initializeLoginPage()
         {
             LoginPage.CheckBoxRememberUser.Checked = m_BoostEn.m_BoostSettings.RememberUser;
+            if (m_BoostEn.m_BoostSettings.RememberUser == true
+                && m_BoostEn.m_BoostSettings.FirstName != null)
+            {
+                LoginPage.ButtonContinueAs.Visible = true;
+                LoginPage.ButtonContinueAs.BringToFront();
+                LoginPage.ButtonContinueAs.Text = $@"Continue as {m_BoostEn.m_BoostSettings.FirstName}";
+                LoginPage.ButtonSwitchUser.BringToFront();
+                LoginPage.ButtonSwitchUser.Visible = true;
+
+                UITools.centerControlHorizontally(LoginPage.ButtonContinueAs, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.ButtonSwitchUser, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.PictureBoxFBLogin, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.CheckBoxRememberUser, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.LabelLoading, LoginPage);
+                UITools.centerControlHorizontally(LoginPage.PictureBoxLogo, LoginPage);
+
+
+                LoginPage.PictureBoxFBLogin.Visible = false;
+                LoginPage.CheckBoxRememberUser.Visible = false;
+            }
             LoginPage.BringToFront();
             LoginPage.LabelLoading.Visible = false;
             LoginPage.Visible = true; // true
@@ -92,12 +143,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void initializeSettingsPopUp()
         {
             m_SettingsPopup = new Settings();
-            m_SettingsPopup.boostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
-            //m_SettingsPopup.rememberUserCheckBox.Checked = m_BoostEn.m_BoostSettings.RememberUser;
-            //m_SettingsPopup.defaultAnalyticsTimeFrameComboBox.SelectedItem = m_BoostEn.m_BoostSettings.DefaultAnalyticsTimeFrame;
+            m_SettingsPopup.BoostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
         }
 
-        private void toggleUsernameOptionPanel()
+        private void toggleUserOptionPanel()
         {
             userOptions.BringToFront();
             userOptions.Visible = !userOptions.Visible; // Toggle visibility
@@ -113,12 +162,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             switchPage((Button)sender);
         }
 
-        private void switchPage(Button i_Button)
+        private void switchPage_Legacy(Button i_Button)
         {
             foreach(Button button in navbar.m_NavbarButtons)
             {
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
             }
+
             navbar.SelectButton(i_Button);
 
             switch(i_Button.Name)
@@ -136,21 +186,90 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             if(userOptions.Visible)
             {
-                userOptions.BringToFront();
+                navbar.UsernameClick();
             }
         }
+
+        private void switchPage(Button i_Button)
+        {
+            foreach (Button button in navbar.m_NavbarButtons)
+            {
+                navbar.SetButtonStyleToDefault(button);
+            }
+
+            navbar.SelectButton(i_Button);
+
+
+            switchPage_Reflection(i_Button);
+
+            if (userOptions.Visible)
+            {
+                navbar.UsernameClick();
+            }
+        }
+
+        private List<Type> getBoostViewTypes()
+        {
+            Type[] allTypes =  Assembly.GetExecutingAssembly().GetTypes();
+            List<Type> boostViews = new List<Type>();
+            string keyWord = "View";
+
+            foreach(Type type in allTypes)
+            {
+                if(type.Name != null && type.Name.Contains(keyWord))
+                {
+                    boostViews.Add(type);
+                }
+            }
+
+            return boostViews;
+        }
+
+        private void switchPage_Reflection(Button i_Button)
+        {
+            string[] keyword = {"Page"};
+            List<Type> viewTypes = getBoostViewTypes();
+            Type buttonType = null;
+            bool pageSwitched = false;
+
+            foreach(Type type in viewTypes)
+            {
+                if("btn" + type.Name == i_Button.Name + "View")
+                {
+                    buttonType = type;
+                    break;
+                }
+            }
+            foreach(UserControl page in m_BoostPages)
+            {
+                if (page.GetType().Name == buttonType.Name)
+                {
+                    page.BringToFront();
+                    pageSwitched = true;
+                    break;
+                }
+            }
+            if (!pageSwitched)
+            {
+                throw new Exception("Desired page could not be found in m_BoostPages");
+            }
+
+        }
+
+
 
         public void FacebookLogout()
         {
             try
             {
                 m_BoostEn.FacebookLogout();
-                MessageBox.Show("Logout successful!");
-                boostFormInitialSetup();
+                m_BoostEn.m_BoostSettings.ResetSettingsToDefault();
+                m_BoostEn.m_BoostSettings.DeleteAppSettingsFile();
+                m_BoostEn.m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message, "Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(e.Message, @"Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -168,22 +287,27 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             bool isTheUserLoggedIn = m_BoostEn.LoggedInUser != null;
             if(isTheUserLoggedIn)
             {
-                if(!m_InitialLogin)
+                fetchAndInitialize();
+                LoginPage.Visible = false;
+            }
+        }
+
+        private void fetchAndInitialize()
+        {
+            try
+            {
+                if (m_PreInitialLogin)
                 {
-                    m_InitialLogin = true;
+                    m_PreInitialLogin = false;
                 }
+
                 // Identify Login (Email as ID + First login)
                 string currentUserEmail = m_BoostEn.LoggedInUser.Email;
-                if(currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
+                if (currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
                 {
                     m_BoostEn.m_BoostSettings.LastLogin = null;
                     m_BoostEn.m_BoostSettings.FirstLogin = true;
                 }
-                /*if(m_BoostEn.m_BoostSettings.IsFirstLogin()) // TODO - remove welcome screen?
-                {
-                    welcomeScreen.Visible = true;
-                    welcomeScreen.m_Start += new WelcomeScreenEventHandler(welcomeScreenStart);
-                }*/
 
                 // Fetch and load data
                 FetchUserData();
@@ -192,35 +316,64 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 displayWhatsNewPopup();
                 overwriteBoostSettings(currentUserEmail);
             }
-            /*else
+            catch(Exception e)
             {
-                this.LoginPage.LabelLoading.Visible = true;
-                FetchUserData();
-            }*/
+                throw new Exception(e.Message);
+            }
         }
 
-        private void overwriteBoostSettings(string i_userEmail){
+        private void saveAnalysisSettings()
+        {
+            try
+            {
+                foreach (eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
+                {
+                    if (timeFrame.ToString() == AnalyticsPage.TimeFrameComboBox.SelectedItem.ToString())
+                    {
+                        m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame = timeFrame;
+                        break;
+                    }
+                }
+
+                foreach (Analysis.eAnalysisDataBasis analysisBasis in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
+                {
+                    if(analysisBasis.ToString() == AnalyticsPage.m_SelectedAnalysisBasisButton.Text)
+                    {
+                        m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis = analysisBasis;
+                        break;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void overwriteBoostSettings(string i_userEmail)
+        {
             // Overwrite Boost Settings
             m_BoostEn.m_BoostSettings.LastLoggedInEmail = i_userEmail;
             m_BoostEn.m_BoostSettings.FirstLogin = false;
             m_BoostEn.m_BoostSettings.LastAccessToken = m_BoostEn.LoginResult.AccessToken;
             m_BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
+            m_BoostEn.m_BoostSettings.FirstName = m_BoostEn.LoggedInUser.FirstName;
             m_BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
-            m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.r_CurrentVersion;
+            m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
         }
 
         private void displayWhatsNewPopup()
         {
-            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.r_CurrentVersion)
+            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.R_CurrentVersion)
             {
-                WhatsNew whatsNew = new WhatsNew();
-                whatsNew.Visible = true;
+                WhatsNew whatsNew = new WhatsNew { Visible = true };
             }
         }
 
         private void displaySettingsPopup()
         {
-            m_SettingsPopup.Show();
+            initializeSettingsPopUp();
+            m_SettingsPopup.ShowDialog();
         }
 
         public void FetchUserData()
@@ -235,17 +388,36 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             try
             {
+                AnalyticsPage.m_AnalysisSettingsEvent += saveAnalysisSettings;
                 ///BestTimes
-
-               new Thread(new ThreadStart( () => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid();})).Start();
+                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame); })).Start();
+                
                 ///BiggestFans
+                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame)));
 
-                AnalyticsPage.BiggestFansPage.DisplayBiggestFans();
+                foreach(object timeFrame in AnalyticsPage.TimeFrameComboBox.Items)
+                {
+                    if(timeFrame.ToString() == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
+                    {
+                        AnalyticsPage.TimeFrameComboBox.SelectedItem = timeFrame;
+                        break;
+                    }
+                }
+
+                foreach(Button button in AnalyticsPage.AnalysisBasisButtons)
+                {
+                    if(button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis.ToString())
+                    {
+                        AnalyticsPage.SelectButton(button, AnalyticsPage.AnalysisBasisButtons);
+                        break;
+                    }
+                }
             }
             catch(Exception e)
             {
                 Console.WriteLine(e.ToString());
                 AnalyticsPage.DisplayAnalyticsErrorMessage();
+
             }
         }
 
@@ -254,10 +426,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             const string k_Quotes = "\"";
             string name = m_BoostEn.LoggedInUser.Name;
 
-            new Thread(new ThreadStart(() =>
-            {
-                fetchUserBioAndPhoto(k_Quotes, name);
-            })).Start();
+            fetchUserBioAndPhoto(k_Quotes, name);
 
             ///Top Post
             fetchTopPost(k_Quotes);
@@ -266,7 +435,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             displayFriendChange();
 
             /// Engagement Panel
-            DashboardPage.LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
+            this.Invoke(
+                new Action(
+                    () => DashboardPage.LabelEngagement.Text =
+                              $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)"));
 
             // Update dashboard UI after data fetch
             new Thread(DashboardPage.UpdateDashboardUI).Start();
@@ -295,10 +467,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     lastStatus = m_BoostEn.GetLastStatus();
                     DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
                     DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
-
                 }));
-                
-
             }
             catch (NullReferenceException)
             {
@@ -328,7 +497,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             catch (Exception)
             {
                 DashboardPage.DisplayDashboardErrorMessage();
-                DashboardPage.LabelError.Text = "Could not fetch data from boostSettings.xml";
+                DashboardPage.LabelError.Text = @"Could not fetch data from boostSettings.xml";
             }
         }
 
@@ -337,24 +506,31 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             Post topPost;
             try
             {
-                topPost = m_BoostEn.GetTopPost();
-                DashboardPage.LabelTopPostLikes.Text = string.Format(@"Likes: {0}" ,topPost.LikedBy.Count);
-                DashboardPage.LabelTopPostComments.Text = string.Format(@"Comments: {0}" ,topPost.Comments.Count);
-                if (string.IsNullOrEmpty(topPost.Message))
-                {
-                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
-                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
-                }
-                else
-                {
-                    DashboardPage.LabelTopPostCaptionContent.Text = $@"{k_Quotes}{topPost.Message}{k_Quotes}";
-                }
+                this.Invoke(
+                    new Action(
+                        () =>
+                            {
+                                topPost = m_BoostEn.GetTopPost();
+                                DashboardPage.LabelTopPostLikes.Text = $@"Likes: {topPost.LikedBy.Count}";
+                                DashboardPage.LabelTopPostComments.Text = $@"Comments: {topPost.Comments.Count}";
+                                if(string.IsNullOrEmpty(topPost.Message))
+                                {
+                                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
+                                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
+                                }
+                                else
+                                {
+                                    DashboardPage.LabelTopPostCaptionContent.Text =
+                                        $@"{k_Quotes}{topPost.Message}{k_Quotes}";
+                                }
 
-                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-                if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
-                {
-                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
-                }
+                                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
+                                DashboardPage.PictureBoxTopPost.Image = null;
+                                if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
+                                {
+                                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
+                                }
+                            }));
             }
             catch (NullReferenceException)
             {
@@ -369,50 +545,32 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void dashboardChartSetup()
         {
-            // Friend Chart
-            foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
+            this.Invoke(new Action(() =>
             {
-                this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
-                    friendCounter.Date.Date.ToString("d/M/yy"),
-                    friendCounter.Value);
-            }
+                // Friend Chart
+                foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
+                {
+                    this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
+                        friendCounter.Date.Date.ToString("d/M/yy"),
+                        friendCounter.Value);
+                }
 
-            this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+                this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
 
-            // Engagement Chart
-            for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
-            {
-                DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
-                DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
+                // Engagement Chart
+                for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
+                {
+                    DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
+                    DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
 
-                this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
-                    currentLikes.Date.ToString(),
-                    currentLikes.Value);
-                this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
-                    currentComments.Date.ToString(),
-                    currentComments.Value);
-            }
-        }
-
-        private void TimerWelcomeScreen_Tick(object sender, EventArgs e)
-        {
-            int currentY = this.welcomeScreen.Location.Y;
-            if(currentY >= 1300)
-            {
-                timerWelcomeScreen.Stop();
-                this.welcomeScreen.Visible = false;
-            }
-            else
-            {
-                currentY += 30;
-                this.welcomeScreen.Location = new System.Drawing.Point(this.welcomeScreen.Location.X, currentY);
-            }
-        }
-
-        private void welcomeScreenStart()
-        {
-            timerWelcomeScreen.Interval = 1;
-            timerWelcomeScreen.Start();
+                    this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
+                        currentLikes.Date.ToString(),
+                        currentLikes.Value);
+                    this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
+                        currentComments.Date.ToString(),
+                        currentComments.Value);
+                }
+            }));
         }
         #endregion
     }

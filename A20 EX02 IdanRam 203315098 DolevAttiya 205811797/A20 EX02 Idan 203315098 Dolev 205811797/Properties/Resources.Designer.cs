@@ -67,7 +67,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
         ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
         ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; /&gt;
         ///    &lt;title&gt;About Boost&lt;/title&gt;
         ///  &lt;/head&gt;
         ///  &lt;body&gt;
@@ -108,6 +108,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LoginBG {
+            get {
+                object obj = ResourceManager.GetObject("LoginBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_login {
             get {
                 object obj = ResourceManager.GetObject("Logo_login", resourceCulture);
@@ -126,13 +136,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to :root {
-        ///  --main-color: #203458;
-        ///}
-        ///
-        ///* {
+        ///   Looks up a localized string similar to * {
         ///  font-family: &quot;Century Gothic&quot;, CenturyGothic, AppleGothic, sans-serif;
-        ///  color: var(--main-color);
+        ///  color: #203458;
         ///  margin: 0.5rem;
         ///}
         ///
@@ -160,43 +166,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_StartDefault {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_StartDefault", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_StartRollover {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_StartRollover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap WelcomeScreen_v4 {
-            get {
-                object obj = ResourceManager.GetObject("WelcomeScreen_v4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to &lt;!DOCTYPE html&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
         ///  &lt;head&gt;
         ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
         ///    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
         ///    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot; /&gt;
-        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/style.css&quot; /&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot; /&gt;
         ///    &lt;title&gt;What&apos;s New&lt;/title&gt;
         ///  &lt;/head&gt;
         ///  &lt;body&gt;
@@ -209,7 +185,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Properties {
         ///            &lt;text&gt;Added user options:&lt;/text&gt;
         ///            &lt;ul&gt;
         ///              &lt;li&gt;
-        ///        [rest of string was truncated]&quot;;.
+        ///         [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string WhatsNew {
             get {

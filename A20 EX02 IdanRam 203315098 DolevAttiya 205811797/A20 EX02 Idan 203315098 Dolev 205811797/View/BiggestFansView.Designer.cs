@@ -1,4 +1,6 @@
-﻿namespace A20_EX02_Idan_203315098_Dolev_205811797.View
+﻿using A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls;
+
+namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public partial class BiggestFansView
     {
@@ -29,11 +31,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gradientPanel3 = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.gradientPanel3 = new StylizedPanel();
             this.BiggestFanBronzeLable = new System.Windows.Forms.Label();
-            this.gradientPanel2 = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.gradientPanel2 = new StylizedPanel();
             this.BiggestFanSilverLable = new System.Windows.Forms.Label();
-            this.gradientPanel1 = new A20_EX02_Idan_203315098_Dolev_205811797.View.StylizedPanel();
+            this.gradientPanel1 = new StylizedPanel();
             this.BiggestFanGoldLable = new System.Windows.Forms.Label();
             this.gradientPanel3.SuspendLayout();
             this.gradientPanel2.SuspendLayout();
@@ -140,11 +142,11 @@
 
         #endregion
 
-        private View.StylizedPanel gradientPanel1;
+        private StylizedPanel gradientPanel1;
         private System.Windows.Forms.Label BiggestFanGoldLable;
         private System.Windows.Forms.Label BiggestFanSilverLable;
-        private View.StylizedPanel gradientPanel2;
-        private View.StylizedPanel gradientPanel3;
+        private StylizedPanel gradientPanel2;
+        private StylizedPanel gradientPanel3;
         private System.Windows.Forms.Label BiggestFanBronzeLable;
     }
 }

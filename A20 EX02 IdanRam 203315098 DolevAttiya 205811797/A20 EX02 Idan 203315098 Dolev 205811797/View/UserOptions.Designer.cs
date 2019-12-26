@@ -1,6 +1,6 @@
 ﻿namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-    partial class UserOptions
+    public partial class UserOptions
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

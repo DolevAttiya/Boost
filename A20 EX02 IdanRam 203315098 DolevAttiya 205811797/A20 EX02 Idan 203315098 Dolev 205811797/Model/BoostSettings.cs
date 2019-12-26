@@ -21,52 +21,42 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public string LastAccessToken { get; set; }
 
         public string LastLoggedInEmail { get; set; }
+
         public string LastUsedVersion { get; set; }
 
         public string StartupPath { get; set; }
 
-        private static string m_FilePath = string.Format(@"{0}\BoostSettings.xml", Application.StartupPath);
+        private static readonly string sr_FilePath = $@"{Application.StartupPath}\BoostSettings.xml";
         
         // User Settings
-        
+        public string FirstName { get; set; }
+
         public bool RememberUser { get; set; }
-        public eTimeSelector DefaultAnalyticsTimeFrame { get; set; }
+
+        public eTimeSelector DefaultAnalysisTimeFrame { get; set; }
+
+        public Analysis.eAnalysisDataBasis DefaultAnalysisDataBasis { get; set; }
         
         public List<DateAndValue> FriendCounter;
-
-
         #endregion
 
         #region Ctor
         private BoostSettings()
         {
-
             ResetSettingsToDefault();
         }
         #endregion
 
         #region Methods
-        public void ResetSettingsToDefault()
-        {
-            FirstLogin = true;
-            LastAccessToken = null;
-            RememberUser = false;
-            LastLogin = null;
-            LastUsedVersion = null;
-            StartupPath = Application.StartupPath;
-            FriendCounter = new List<DateAndValue>();
-            DefaultAnalyticsTimeFrame = eTimeSelector.Month;
-        }
-
         public static BoostSettings LoadAppSettingsFromFile()
         {
             BoostSettings appSettings = null;
 
-            if (File.Exists(m_FilePath))
+            if (File.Exists(sr_FilePath))
             {
                 try
                 {
-                    using (Stream stream = new FileStream(m_FilePath, FileMode.Open))
+                    using (Stream stream = new FileStream(sr_FilePath, FileMode.Open))
                     {
                         XmlSerializer serializer = new XmlSerializer(typeof(BoostSettings));
                         appSettings = serializer.Deserialize(stream) as BoostSettings;
@@ -74,7 +64,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                 }
                 catch
                 {
-                    File.Delete(m_FilePath);
+                    File.Delete(sr_FilePath);
                     appSettings = new BoostSettings();
                     createNewFile();
                 }
@@ -88,14 +78,28 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             return appSettings;
         }
 
+        public void ResetSettingsToDefault()
+        {
+            FirstName = null;
+            FirstLogin = true;
+            LastAccessToken = null;
+            RememberUser = false;
+            LastLogin = null;
+            LastUsedVersion = null;
+            StartupPath = Application.StartupPath;
+            FriendCounter = new List<DateAndValue>();
+            DefaultAnalysisTimeFrame = eTimeSelector.Month;
+            DefaultAnalysisDataBasis = Analysis.eAnalysisDataBasis.Combined;
+        }
+
         public void SaveAppSettingsToFile()
         {
-            if (!File.Exists(m_FilePath))
+            if (!File.Exists(sr_FilePath))
             {
                 createNewFile();
             }
 
-            using (Stream streamSave = new FileStream(m_FilePath, FileMode.Truncate))
+            using (Stream streamSave = new FileStream(sr_FilePath, FileMode.Truncate))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
                 serializer.Serialize(streamSave, this);
@@ -104,16 +108,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         private static void createNewFile()
         {
-            Stream streamCreateNew = new FileStream(m_FilePath, FileMode.CreateNew);
+            Stream streamCreateNew = new FileStream(sr_FilePath, FileMode.CreateNew);
             streamCreateNew.Close();
         }
 
         public void DeleteAppSettingsFile()
         {
-            File.Delete(m_FilePath);
+            File.Delete(sr_FilePath);
         }
         
-
         public bool IsFirstLogin()
         {
             if(LastLogin != null)

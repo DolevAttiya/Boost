@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -75,7 +76,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             this.Invoke(new Action(() =>
             {
-
                 //// Dynamic Label Positions
                 //// BioPanel
                 //// LabelName
