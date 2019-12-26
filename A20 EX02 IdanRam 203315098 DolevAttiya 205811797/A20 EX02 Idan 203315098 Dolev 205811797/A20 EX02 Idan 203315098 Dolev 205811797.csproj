@@ -62,6 +62,7 @@
     <Compile Include="Model\DataClasses\Analysis.cs" />
     <Compile Include="Model\BoostEngine.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
+    <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
     <Compile Include="Model\Design Patterns\Singleton.cs" />
     <Compile Include="Model\DataClasses\eTimerSelector.cs" />
     <Compile Include="Model\DataClasses\IAnalysis.cs" />
