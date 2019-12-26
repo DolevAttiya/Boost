@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 {
-    public class SortedProxyDictionary<TK,TV> : IDictionary<TK,TV>
-    where TV : IComparable
+    public class DictionaryDecorator<TK,TV> : IDictionary<TK,TV>
     {
 
         // The array of items
-        private readonly Dictionary<TK,TV> r_Dictionary;
+        protected readonly IDictionary<TK,TV> r_Dictionary;
 
         // Construct the SimpleDictionary with the desired number of items.
         // The number of items cannot change for the life time of this SimpleDictionary.
-        public SortedProxyDictionary()
+        public DictionaryDecorator()
         {
             r_Dictionary = new Dictionary<TK, TV>();
         }
@@ -93,12 +91,5 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 
         public ICollection<TV> Values => r_Dictionary.Values;
 
-        public KeyValuePair<TK, TV>[] SortByValue()
-        {
-            KeyValuePair<TK, TV>[] o_SortedDictionaryValues = r_Dictionary.ToArray();
-
-            Array.Sort(o_SortedDictionaryValues, (pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
-            return o_SortedDictionaryValues;
-        }
     }
 }
