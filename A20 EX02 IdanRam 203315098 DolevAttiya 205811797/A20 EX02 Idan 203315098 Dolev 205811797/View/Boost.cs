@@ -335,7 +335,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     }
                 }
 
-                foreach (Analysis.eAnalysisDataBasis analysisBasis in Enum.GetValues(typeof(Analysis.eAnalysisDataBasis)))
+                foreach (eAnalysisDataBasis analysisBasis in Enum.GetValues(typeof(eAnalysisDataBasis)))
                 {
                     if(analysisBasis.ToString() == AnalyticsPage.m_SelectedAnalysisBasisButton.Text)
                     {
