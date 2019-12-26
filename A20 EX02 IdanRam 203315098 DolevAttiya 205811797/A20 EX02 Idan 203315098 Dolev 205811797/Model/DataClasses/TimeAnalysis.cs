@@ -17,10 +17,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
         #region Methods
         private void initializeComponents()
         {
-            PhotosDictionary = new SortedProxyDictionary<object, int>();
-            VideosDictionary = new SortedProxyDictionary<object, int>();
-            StatusDictionary = new SortedProxyDictionary<object, int>();
-            CombinedAnalysisHolders = new SortedProxyDictionary<object, int>();
+            PhotosDictionary = new SortedDictionary<object, int>();
+            VideosDictionary = new SortedDictionary<object, int>();
+            StatusDictionary = new SortedDictionary<object, int>();
+            CombinedAnalysisHolders = new SortedDictionary<object, int>();
             const int k_ZeroLikesYet = 0;
 
             for(int days = 0; days < DayAndHour.k_NumOfWeekDays; days++)
@@ -39,7 +39,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
         protected override void PostParser(
             Post i_PostToAnalysis,
-            ref SortedProxyDictionary<object, int> io_DictionaryToAnalysis)
+            ref SortedDictionary<object, int> io_DictionaryToAnalysis)
         {
             try
             {
