@@ -11,9 +11,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
 
         // Construct the SimpleDictionary with the desired number of items.
         // The number of items cannot change for the life time of this SimpleDictionary.
-        public DictionaryDecorator()
+        public DictionaryDecorator(IDictionary<TK,TV> i_Dictionary)
         {
-            r_Dictionary = new Dictionary<TK, TV>();
+            r_Dictionary = i_Dictionary;
         }
 
         public IEnumerator<KeyValuePair<TK, TV>> GetEnumerator()
