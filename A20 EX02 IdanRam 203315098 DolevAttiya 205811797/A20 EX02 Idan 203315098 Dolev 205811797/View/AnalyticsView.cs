@@ -54,21 +54,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
 
-            //populateComboBoxes();
             addButtonsToLists();
             addSubPagesToList();
         }
-
-
-        /*private void populateComboBoxes()
-        {
-            List<eTimeSelector> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
-
-            foreach(eTimeSelector timeFrame in analysisTimeFrames)
-            {
-                TimeFrameComboBox.Items.Add(timeFrame.ToString());
-            }
-        }*/
 
         private void ButtonBestTimes_Click(object sender, EventArgs e)
         {
@@ -220,23 +208,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis);
-            BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis);
+            new Thread(new ThreadStart(() => BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis)));
+            new Thread(new ThreadStart(() => BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis)));
+
+            this.labelAnalytics.Text = $@"{i_TimeFrame}{i_AnalysisDataBasis}";
         }
 
-        #endregion
-
-        /*private void buttonReanalyze_Click(object sender, EventArgs e)
-        {
-            foreach(eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
-            {
-                if(timeFrame.ToString() == TimeFrameComboBox.SelectedItem.ToString())
-                {
-                    BoostEngine.Instance.m_CurrentAnalysisTimeFrame = timeFrame;
-                }
-            }
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
-        }*/
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)
         {
@@ -254,5 +231,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 MessageBox.Show(@"Analysis default settings saved.");
             }
         }
+        #endregion
     }
 }

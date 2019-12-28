@@ -397,15 +397,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 ///BiggestFans
                 this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
 
-                /*foreach(object timeFrame in AnalyticsPage.TimeFrameComboBox.Items)
-                {
-                    if(timeFrame.ToString() == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
-                    {
-                        AnalyticsPage.TimeFrameComboBox.SelectedItem = timeFrame;
-                        break;
-                    }
-                }*/
-
                 foreach (Button button in AnalyticsPage.AnalysisTimeFrameButtons)
                 {
                     if (button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
