@@ -36,7 +36,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month) 
+        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month, eAnalysisDataBasis i_AnalysisDataBasis = eAnalysisDataBasis.Combined) 
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);

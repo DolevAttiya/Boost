@@ -31,7 +31,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         private const string k_AppId = "748532218946260";
 
-        public BoostSettings m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+        public BoostSettings m_BoostSettings = null;
 
         public const string k_PostErrorMessage = "Could not get Post!";
 
@@ -63,6 +63,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         private BoostEngine()
         {
+            try
+            {
+                m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+
             TimeAnalysis = new TimeAnalysis();
             BiggestFanAnalysis = new BiggestFanAnalysis();
             FriendChange = 0;
