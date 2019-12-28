@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -23,7 +24,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DisplayBiggestFans(eTimeSelector i_TimeSelector = eTimeSelector.Month)
+        public void DisplayBiggestFans(eTimeSelector i_TimeSelector = eTimeSelector.Month, eAnalysisDataBasis i_AnalysisDataBasis = eAnalysisDataBasis.Combined)
         {
             int numberOfIterations = 0;
 
@@ -35,8 +36,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             BoostEngine.Instance.BiggestFanAnalysis.CreateAnalysisByTimeFrame(
                 BoostEngine.Instance.LoggedInUser,
                 i_TimeSelector);
-            KeyValuePair<object, int>[] sortedCombinedValues =
-                BoostEngine.Instance.BiggestFanAnalysis.CombinedAnalysisHolders.SortByValue();
+
+            SortedValueDictionary<object, int> analysisCollection =
+                BoostEngine.Instance.BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
+
+            KeyValuePair<object, int>[] sortedValues =
+                analysisCollection.SortByValue();
             numberOfIterations = 0;
             foreach(Label varAnalysisHolder in r_BiggestFanLeaderboard)
             {
@@ -45,8 +50,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     break;
                 }
 
-                User userToGet = sortedCombinedValues[numberOfIterations].Key as User;
-                int value = sortedCombinedValues[numberOfIterations].Value;
+                User userToGet = sortedValues[numberOfIterations].Key as User;
+                int value = sortedValues[numberOfIterations].Value;
                 try
                 {
                     varAnalysisHolder.Text = $@"{userToGet.FirstName} | Likes: {value}";

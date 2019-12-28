@@ -74,7 +74,31 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             }
         }
 
-        
+
+        public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(
+            eAnalysisDataBasis i_AnalysisDataBasis)
+        {
+
+            SortedValueDictionary<object, int> analysisCollection = null;
+
+            switch (i_AnalysisDataBasis)
+            {
+                case eAnalysisDataBasis.Combined:
+                    analysisCollection = this.CombinedAnalysisHolders;
+                    break;
+                case eAnalysisDataBasis.Photo:
+                    analysisCollection = this.PhotosDictionary;
+                    break;
+                case eAnalysisDataBasis.Status:
+                    analysisCollection = this.StatusDictionary;
+                    break;
+                case eAnalysisDataBasis.Video:
+                    analysisCollection = this.VideosDictionary;
+                    break;
+            }
+
+            return analysisCollection;
+        }
 
         protected abstract void PostParser(
             Post i_PostToAnalysis,

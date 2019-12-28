@@ -1,13 +1,16 @@
 ﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public delegate void SaveAnalysisSettingsEventHandler();
-    
+
+    public delegate void DisplayNewAnalysisBasisEventHandler(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis);
+
     public partial class AnalyticsView : UserControl
     {
         #region Properties
@@ -21,6 +24,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Button m_SelectedAnalysisBasisButton = null;
 
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
+
+        public DisplayNewAnalysisBasisEventHandler m_DisplayNewAnalysisBasisEvent;
         #endregion
 
         #region Ctor
@@ -150,27 +155,54 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
-            m_SelectedAnalysisBasisButton = i_Button;
+            eTimeSelector timeFrame = BoostEngine.Instance.m_CurrentAnalysisTimeFrame;
 
             switch(i_Button.Name)
             {
                 case "Combined":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Combined;
+                        break;
+                    }
                 case "Status":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Status;
+                        break;
+                    }
                 case "Photos":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Photo;
+                        break;
+                    }
                 case "Videos":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Video;
+                        break;
+                    }
             }
+
+            reanalyzeAll(timeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
         }
 
+
+        private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        {
+            BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis);
+            BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis);
+        }
 
         #endregion
 
         private void buttonReanalyze_Click(object sender, EventArgs e)
         {
-            // DO SOMETHING
+            foreach(eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
+            {
+                if(timeFrame.ToString() == TimeFrameComboBox.SelectedItem.ToString())
+                {
+                    BoostEngine.Instance.m_CurrentAnalysisTimeFrame = timeFrame;
+                }
+            }
+            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
         }
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)

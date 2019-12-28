@@ -37,6 +37,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public static readonly string R_CurrentVersion = "0.2.0";
 
+        public eTimeSelector m_CurrentAnalysisTimeFrame;
+
+        public eAnalysisDataBasis m_CurrentAnalysisDataBasis;
+
         #endregion
 
         #region Properties
@@ -66,6 +70,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             try
             {
                 m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
+                m_CurrentAnalysisTimeFrame = m_BoostSettings.DefaultAnalysisTimeFrame;
+                m_CurrentAnalysisDataBasis = m_BoostSettings.DefaultAnalysisDataBasis;
             }
             catch(Exception e)
             {

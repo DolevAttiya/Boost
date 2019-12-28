@@ -390,10 +390,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 AnalyticsPage.m_AnalysisSettingsEvent += saveAnalysisSettings;
                 ///BestTimes
-                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame); })).Start();
+                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
                 
                 ///BiggestFans
-                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame)));
+                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
 
                 foreach(object timeFrame in AnalyticsPage.TimeFrameComboBox.Items)
                 {
