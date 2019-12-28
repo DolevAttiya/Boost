@@ -32,36 +32,23 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label defaultAnalysisTimeFrameLabel;
             this.labelAnalytics = new System.Windows.Forms.Label();
             this.buttonBestTimes = new System.Windows.Forms.Button();
             this.buttonBiggestFans = new System.Windows.Forms.Button();
             this.LabelError = new System.Windows.Forms.Label();
-            this.TimeFrameComboBox = new System.Windows.Forms.ComboBox();
-            this.buttonReanalyze = new System.Windows.Forms.Button();
             this.buttonSaveToDefaults = new System.Windows.Forms.Button();
             this.buttonCombined = new System.Windows.Forms.Button();
             this.buttonStatus = new System.Windows.Forms.Button();
             this.buttonPhotos = new System.Windows.Forms.Button();
             this.buttonVideos = new System.Windows.Forms.Button();
+            this.buttonYear = new System.Windows.Forms.Button();
+            this.buttonMonth = new System.Windows.Forms.Button();
+            this.buttonWeek = new System.Windows.Forms.Button();
             this.panelAnalytics = new A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls.StylizedPanel();
             this.BiggestFansPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BiggestFansView();
             this.BestTimesPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BestTimesView();
-            defaultAnalysisTimeFrameLabel = new System.Windows.Forms.Label();
             this.panelAnalytics.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // defaultAnalysisTimeFrameLabel
-            // 
-            defaultAnalysisTimeFrameLabel.BackColor = System.Drawing.Color.Transparent;
-            defaultAnalysisTimeFrameLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            defaultAnalysisTimeFrameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            defaultAnalysisTimeFrameLabel.Location = new System.Drawing.Point(533, 13);
-            defaultAnalysisTimeFrameLabel.Margin = new System.Windows.Forms.Padding(0);
-            defaultAnalysisTimeFrameLabel.Name = "defaultAnalysisTimeFrameLabel";
-            defaultAnalysisTimeFrameLabel.Size = new System.Drawing.Size(86, 21);
-            defaultAnalysisTimeFrameLabel.TabIndex = 15;
-            defaultAnalysisTimeFrameLabel.Text = "Time Frame:";
             // 
             // labelAnalytics
             // 
@@ -126,35 +113,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.LabelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LabelError.Visible = false;
             // 
-            // TimeFrameComboBox
-            // 
-            this.TimeFrameComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TimeFrameComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.TimeFrameComboBox.FormattingEnabled = true;
-            this.TimeFrameComboBox.Location = new System.Drawing.Point(622, 11);
-            this.TimeFrameComboBox.Name = "TimeFrameComboBox";
-            this.TimeFrameComboBox.Size = new System.Drawing.Size(137, 21);
-            this.TimeFrameComboBox.TabIndex = 16;
-            // 
-            // buttonReanalyze
-            // 
-            this.buttonReanalyze.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
-            this.buttonReanalyze.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonReanalyze.FlatAppearance.BorderSize = 0;
-            this.buttonReanalyze.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonReanalyze.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonReanalyze.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReanalyze.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonReanalyze.ForeColor = System.Drawing.Color.Black;
-            this.buttonReanalyze.Location = new System.Drawing.Point(773, 8);
-            this.buttonReanalyze.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonReanalyze.Name = "buttonReanalyze";
-            this.buttonReanalyze.Size = new System.Drawing.Size(119, 26);
-            this.buttonReanalyze.TabIndex = 19;
-            this.buttonReanalyze.Text = "Reanalyze";
-            this.buttonReanalyze.UseVisualStyleBackColor = false;
-            this.buttonReanalyze.Click += new System.EventHandler(this.buttonReanalyze_Click);
-            // 
             // buttonSaveToDefaults
             // 
             this.buttonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
@@ -165,10 +123,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonSaveToDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveToDefaults.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.buttonSaveToDefaults.ForeColor = System.Drawing.Color.Black;
-            this.buttonSaveToDefaults.Location = new System.Drawing.Point(895, 8);
+            this.buttonSaveToDefaults.Location = new System.Drawing.Point(899, 12);
             this.buttonSaveToDefaults.Margin = new System.Windows.Forms.Padding(0);
             this.buttonSaveToDefaults.Name = "buttonSaveToDefaults";
-            this.buttonSaveToDefaults.Size = new System.Drawing.Size(119, 26);
+            this.buttonSaveToDefaults.Size = new System.Drawing.Size(115, 24);
             this.buttonSaveToDefaults.TabIndex = 20;
             this.buttonSaveToDefaults.Text = "Save To Defaults";
             this.buttonSaveToDefaults.UseVisualStyleBackColor = false;
@@ -184,10 +142,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonCombined.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCombined.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.buttonCombined.ForeColor = System.Drawing.Color.White;
-            this.buttonCombined.Location = new System.Drawing.Point(529, 43);
+            this.buttonCombined.Location = new System.Drawing.Point(533, 44);
             this.buttonCombined.Margin = new System.Windows.Forms.Padding(0);
             this.buttonCombined.Name = "buttonCombined";
-            this.buttonCombined.Size = new System.Drawing.Size(119, 24);
+            this.buttonCombined.Size = new System.Drawing.Size(115, 24);
             this.buttonCombined.TabIndex = 21;
             this.buttonCombined.Text = "Combined";
             this.buttonCombined.UseVisualStyleBackColor = false;
@@ -203,10 +161,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStatus.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.buttonStatus.ForeColor = System.Drawing.Color.White;
-            this.buttonStatus.Location = new System.Drawing.Point(651, 43);
+            this.buttonStatus.Location = new System.Drawing.Point(655, 44);
             this.buttonStatus.Margin = new System.Windows.Forms.Padding(0);
             this.buttonStatus.Name = "buttonStatus";
-            this.buttonStatus.Size = new System.Drawing.Size(119, 24);
+            this.buttonStatus.Size = new System.Drawing.Size(115, 24);
             this.buttonStatus.TabIndex = 22;
             this.buttonStatus.Text = "Status";
             this.buttonStatus.UseVisualStyleBackColor = false;
@@ -222,10 +180,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPhotos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.buttonPhotos.ForeColor = System.Drawing.Color.White;
-            this.buttonPhotos.Location = new System.Drawing.Point(773, 43);
+            this.buttonPhotos.Location = new System.Drawing.Point(777, 44);
             this.buttonPhotos.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPhotos.Name = "buttonPhotos";
-            this.buttonPhotos.Size = new System.Drawing.Size(119, 24);
+            this.buttonPhotos.Size = new System.Drawing.Size(115, 24);
             this.buttonPhotos.TabIndex = 23;
             this.buttonPhotos.Text = "Photos";
             this.buttonPhotos.UseVisualStyleBackColor = false;
@@ -241,14 +199,71 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonVideos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             this.buttonVideos.ForeColor = System.Drawing.Color.White;
-            this.buttonVideos.Location = new System.Drawing.Point(895, 43);
+            this.buttonVideos.Location = new System.Drawing.Point(899, 44);
             this.buttonVideos.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVideos.Name = "buttonVideos";
-            this.buttonVideos.Size = new System.Drawing.Size(119, 24);
+            this.buttonVideos.Size = new System.Drawing.Size(115, 24);
             this.buttonVideos.TabIndex = 24;
             this.buttonVideos.Text = "Videos";
             this.buttonVideos.UseVisualStyleBackColor = false;
             this.buttonVideos.Click += new System.EventHandler(this.analysisBasis_Click);
+            // 
+            // buttonYear
+            // 
+            this.buttonYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonYear.FlatAppearance.BorderSize = 0;
+            this.buttonYear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonYear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.buttonYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonYear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonYear.ForeColor = System.Drawing.Color.White;
+            this.buttonYear.Location = new System.Drawing.Point(777, 12);
+            this.buttonYear.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonYear.Name = "buttonYear";
+            this.buttonYear.Size = new System.Drawing.Size(115, 24);
+            this.buttonYear.TabIndex = 27;
+            this.buttonYear.Text = "Year";
+            this.buttonYear.UseVisualStyleBackColor = false;
+            this.buttonYear.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            // 
+            // buttonMonth
+            // 
+            this.buttonMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.buttonMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonMonth.FlatAppearance.BorderSize = 0;
+            this.buttonMonth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.buttonMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMonth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonMonth.ForeColor = System.Drawing.Color.White;
+            this.buttonMonth.Location = new System.Drawing.Point(655, 12);
+            this.buttonMonth.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonMonth.Name = "buttonMonth";
+            this.buttonMonth.Size = new System.Drawing.Size(115, 24);
+            this.buttonMonth.TabIndex = 26;
+            this.buttonMonth.Text = "Month";
+            this.buttonMonth.UseVisualStyleBackColor = false;
+            this.buttonMonth.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            // 
+            // buttonWeek
+            // 
+            this.buttonWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
+            this.buttonWeek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonWeek.FlatAppearance.BorderSize = 0;
+            this.buttonWeek.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.buttonWeek.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.buttonWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWeek.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.buttonWeek.ForeColor = System.Drawing.Color.White;
+            this.buttonWeek.Location = new System.Drawing.Point(533, 12);
+            this.buttonWeek.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonWeek.Name = "buttonWeek";
+            this.buttonWeek.Size = new System.Drawing.Size(115, 24);
+            this.buttonWeek.TabIndex = 25;
+            this.buttonWeek.Text = "Week";
+            this.buttonWeek.UseVisualStyleBackColor = false;
+            this.buttonWeek.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
             // panelAnalytics
             // 
@@ -286,14 +301,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.buttonYear);
+            this.Controls.Add(this.buttonMonth);
+            this.Controls.Add(this.buttonWeek);
             this.Controls.Add(this.buttonVideos);
             this.Controls.Add(this.buttonPhotos);
             this.Controls.Add(this.buttonStatus);
             this.Controls.Add(this.buttonCombined);
             this.Controls.Add(this.buttonSaveToDefaults);
-            this.Controls.Add(this.buttonReanalyze);
-            this.Controls.Add(defaultAnalysisTimeFrameLabel);
-            this.Controls.Add(this.TimeFrameComboBox);
             this.Controls.Add(this.LabelError);
             this.Controls.Add(this.buttonBiggestFans);
             this.Controls.Add(this.buttonBestTimes);
@@ -316,12 +331,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public BestTimesView BestTimesPage;
         public BiggestFansView BiggestFansPage;
         public System.Windows.Forms.Label LabelError;
-        public System.Windows.Forms.ComboBox TimeFrameComboBox;
-        private System.Windows.Forms.Button buttonReanalyze;
         private System.Windows.Forms.Button buttonSaveToDefaults;
         private System.Windows.Forms.Button buttonCombined;
         private System.Windows.Forms.Button buttonStatus;
         private System.Windows.Forms.Button buttonPhotos;
         private System.Windows.Forms.Button buttonVideos;
+        private System.Windows.Forms.Button buttonYear;
+        private System.Windows.Forms.Button buttonMonth;
+        private System.Windows.Forms.Button buttonWeek;
     }
 }
