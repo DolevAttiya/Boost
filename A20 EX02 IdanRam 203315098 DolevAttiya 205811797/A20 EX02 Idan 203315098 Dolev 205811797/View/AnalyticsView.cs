@@ -210,8 +210,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             new Thread(new ThreadStart(() => BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis)));
             new Thread(new ThreadStart(() => BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis)));
-
-            this.labelAnalytics.Text = $@"{i_TimeFrame}{i_AnalysisDataBasis}";
         }
 
 
