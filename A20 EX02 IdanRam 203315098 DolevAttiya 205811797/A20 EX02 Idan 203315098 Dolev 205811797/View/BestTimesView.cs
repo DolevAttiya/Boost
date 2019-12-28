@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -36,7 +37,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #endregion
 
         #region Methods
-        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month) 
+        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month, eAnalysisDataBasis i_AnalysisDataBasis = eAnalysisDataBasis.Combined) 
         {
             k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
             k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
@@ -47,8 +48,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             int lastHeight = 0;
             int widthExpansion = 35;
             int currentValue = 0;
+
+
+            //BoostEngine.Instance.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEngine.Instance.LoggedInUser, i_TimeSelector);
+            //m_MaxTimeValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders.Values.Max();
+            
             BoostEngine.Instance.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEngine.Instance.LoggedInUser, i_TimeSelector);
-            m_MaxTimeValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders.Values.Max();
+
+            SortedValueDictionary<object, int> analysisCollection =
+                BoostEngine.Instance.TimeAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
+
+            m_MaxTimeValue = analysisCollection.Values.Max();
 
             for(int i = 0; i <= sk_NumOfDays; i++)
             {
@@ -61,7 +71,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
  
                     if(i != 0 && j != 0)
                     {
-                        currentValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders[currentDayAndHour];
+                        currentValue = analysisCollection[currentDayAndHour];
                     }
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);

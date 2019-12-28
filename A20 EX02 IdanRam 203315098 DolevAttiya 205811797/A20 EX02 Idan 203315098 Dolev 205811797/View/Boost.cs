@@ -324,7 +324,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void saveAnalysisSettings()
         {
-            try
+            /*try
             {
                 foreach (eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
                 {
@@ -343,11 +343,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         break;
                     }
                 }
-            }
+            }(
             catch(Exception e)
             {
                 MessageBox.Show(e.Message);
-            }
+            }*/
+            m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame = m_BoostEn.m_CurrentAnalysisTimeFrame;
+            m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis = m_BoostEn.m_CurrentAnalysisDataBasis;
         }
 
         private void overwriteBoostSettings(string i_userEmail)
@@ -390,21 +392,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 AnalyticsPage.m_AnalysisSettingsEvent += saveAnalysisSettings;
                 ///BestTimes
-                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame); })).Start();
+                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
                 
                 ///BiggestFans
-                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame)));
+                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
 
-                foreach(object timeFrame in AnalyticsPage.TimeFrameComboBox.Items)
+                foreach (Button button in AnalyticsPage.AnalysisTimeFrameButtons)
                 {
-                    if(timeFrame.ToString() == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
+                    if (button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
                     {
-                        AnalyticsPage.TimeFrameComboBox.SelectedItem = timeFrame;
+                        AnalyticsPage.SelectButton(button, AnalyticsPage.AnalysisTimeFrameButtons);
                         break;
                     }
                 }
 
-                foreach(Button button in AnalyticsPage.AnalysisBasisButtons)
+                foreach (Button button in AnalyticsPage.AnalysisBasisButtons)
                 {
                     if(button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis.ToString())
                     {

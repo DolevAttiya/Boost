@@ -1,18 +1,20 @@
 ﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public delegate void SaveAnalysisSettingsEventHandler();
-    
     public partial class AnalyticsView : UserControl
     {
         #region Properties
 
         public List<Button> AnalysisBasisButtons { get; set; }
+
+        public List<Button> AnalysisTimeFrameButtons { get; set; }
 
         public List<Button> AnalyticsTabButtons { get; set; }
 
@@ -52,20 +54,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             this.labelAnalytics.Font = Stylesheet.Font_Header1;
 
-            populateComboBoxes();
             addButtonsToLists();
             addSubPagesToList();
-        }
-
-
-        private void populateComboBoxes()
-        {
-            List<eTimeSelector> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
-
-            foreach(eTimeSelector timeFrame in analysisTimeFrames)
-            {
-                TimeFrameComboBox.Items.Add(timeFrame.ToString());
-            }
         }
 
         private void ButtonBestTimes_Click(object sender, EventArgs e)
@@ -91,18 +81,29 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             switchAnalysisBasis((Button)sender);
         }
+        
+        private void analysisTimeFrame_Click(object sender, EventArgs e)
+        {
+            switchAnalysisTimeFrame((Button)sender);
+        }
 
         private void addButtonsToLists() // TODO - better way with reflection?
         {
             AnalyticsTabButtons = new List<Button>();
             AnalysisBasisButtons = new List<Button>();
+            AnalysisTimeFrameButtons = new List<Button>();
             
             AnalyticsTabButtons.Add(this.buttonBestTimes);
             AnalyticsTabButtons.Add(this.buttonBiggestFans);
+
             AnalysisBasisButtons.Add(this.buttonCombined);
             AnalysisBasisButtons.Add(this.buttonStatus);
             AnalysisBasisButtons.Add(this.buttonPhotos);
             AnalysisBasisButtons.Add(this.buttonVideos);
+            
+            AnalysisTimeFrameButtons.Add(this.buttonWeek);
+            AnalysisTimeFrameButtons.Add(this.buttonMonth);
+            AnalysisTimeFrameButtons.Add(this.buttonYear);
         }
 
         private void addSubPagesToList()
@@ -150,28 +151,67 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
-            m_SelectedAnalysisBasisButton = i_Button;
+            eTimeSelector timeFrame = BoostEngine.Instance.m_CurrentAnalysisTimeFrame;
 
-            switch(i_Button.Name)
+            switch(i_Button.Text)
             {
                 case "Combined":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Combined;
+                        break;
+                    }
                 case "Status":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Status;
+                        break;
+                    }
                 case "Photos":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Photo;
+                        break;
+                    }
                 case "Videos":
-                    break;
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Video;
+                        break;
+                    }
             }
+            reanalyzeAll(timeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
         }
 
-
-        #endregion
-
-        private void buttonReanalyze_Click(object sender, EventArgs e)
+        private void switchAnalysisTimeFrame(Button i_Button)
         {
-            // DO SOMETHING
+            SelectButton(i_Button, AnalysisTimeFrameButtons);
+            eAnalysisDataBasis dataBasis = BoostEngine.Instance.m_CurrentAnalysisDataBasis;
+
+            switch (i_Button.Text)
+            {
+                case "Week":
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Week;
+                        break;
+                    }
+                case "Month":
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Month;
+                        break;
+                    }
+                case "Year":
+                    {
+                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Year;
+                        break;
+                    }
+            }
+            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, dataBasis);
         }
+
+
+        private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        {
+            new Thread(new ThreadStart(() => BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis)));
+            new Thread(new ThreadStart(() => BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis)));
+        }
+
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)
         {
@@ -189,5 +229,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 MessageBox.Show(@"Analysis default settings saved.");
             }
         }
+        #endregion
     }
 }

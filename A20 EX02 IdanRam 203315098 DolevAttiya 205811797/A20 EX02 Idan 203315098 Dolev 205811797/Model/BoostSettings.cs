@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using static System.Environment;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 {
@@ -26,7 +24,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public string StartupPath { get; set; }
 
-        private static readonly string sr_FilePath = $@"{Application.StartupPath}\BoostSettings.xml";
+        private static string s_FilePath = $@"{Environment.GetFolderPath(SpecialFolder.ApplicationData)}\BoostSettings.xml";
         
         // User Settings
         public string FirstName { get; set; }
@@ -52,27 +50,34 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         {
             BoostSettings appSettings = null;
 
-            if (File.Exists(sr_FilePath))
+            try
             {
-                try
+                if (File.Exists(s_FilePath))
                 {
-                    using (Stream stream = new FileStream(sr_FilePath, FileMode.Open))
+                    try
                     {
-                        XmlSerializer serializer = new XmlSerializer(typeof(BoostSettings));
-                        appSettings = serializer.Deserialize(stream) as BoostSettings;
+                        using (Stream stream = new FileStream(s_FilePath, FileMode.Open))
+                        {
+                            XmlSerializer serializer = new XmlSerializer(typeof(BoostSettings));
+                            appSettings = serializer.Deserialize(stream) as BoostSettings;
+                        }
+                    }
+                    catch
+                    {
+                        File.Delete(s_FilePath);
+                        appSettings = new BoostSettings();
+                        createNewFile();
                     }
                 }
-                catch
+                else
                 {
-                    File.Delete(sr_FilePath);
                     appSettings = new BoostSettings();
                     createNewFile();
                 }
             }
-            else
+            catch(UnauthorizedAccessException e)
             {
-                appSettings = new BoostSettings();
-                createNewFile();
+                throw new Exception(e.Message);
             }
 
             return appSettings;
@@ -94,12 +99,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public void SaveAppSettingsToFile()
         {
-            if (!File.Exists(sr_FilePath))
+            if (!File.Exists(s_FilePath))
             {
                 createNewFile();
             }
 
-            using (Stream streamSave = new FileStream(sr_FilePath, FileMode.Truncate))
+            using (Stream streamSave = new FileStream(s_FilePath, FileMode.Truncate))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
                 serializer.Serialize(streamSave, this);
@@ -108,13 +113,35 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         private static void createNewFile()
         {
-            Stream streamCreateNew = new FileStream(sr_FilePath, FileMode.CreateNew);
+            Stream streamCreateNew = new FileStream(s_FilePath, FileMode.CreateNew);
             streamCreateNew.Close();
         }
 
         public void DeleteAppSettingsFile()
         {
-            File.Delete(sr_FilePath);
+            try
+            {
+                if(File.Exists(s_FilePath))
+                {
+                  File.Delete(s_FilePath);
+                }
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public static void CreateFilePath()
+        {
+            try
+            {
+                //s_FilePath = $@"{Application.StartupPath}\BoostSettings.xml";
+            }
+            catch(UnauthorizedAccessException)
+            {
+
+            }
         }
         
         public bool IsFirstLogin()
