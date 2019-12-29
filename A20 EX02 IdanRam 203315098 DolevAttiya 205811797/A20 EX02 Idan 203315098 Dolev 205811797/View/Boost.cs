@@ -1,16 +1,9 @@
 ﻿using System;
-using System.CodeDom;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Threading;
-using System.Windows.Documents;
-using FacebookWrapper.ObjectModel;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model;
+using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -19,9 +12,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
 
         public BoostEngine m_BoostEn;
-        private bool m_PreInitialLogin;
         private Settings m_SettingsPopup = null;
         private List<UserControl> m_BoostPages = new List<UserControl>();
+        private BoostViewModel m_BoostViewModel = new BoostViewModel();
 
         public enum eBoostPages : byte
         {
@@ -35,18 +28,27 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Boost()
         {
             m_BoostEn = BoostEngine.Instance;
-            m_PreInitialLogin = true;
+            m_BoostViewModel.PreInitialLogin = true;
             InitializeComponent();
             boostFormInitialSetup();
+            addMethodsToEvents();
+        }
 
-            LoginPage.m_LoginEvent += FacebookLogin;
+        private void addMethodsToEvents()
+        {
+            m_BoostViewModel.m_LoginErrorEvent += LoginPage.DisplayLoginErrorMessage;
 
-            LoginPage.m_ContinueAsEvent += FacebookLogin;
+            m_BoostViewModel.m_PostLoginEvent += setupAndLoad;
+            m_BoostViewModel.m_PostLoginEvent += LoginPage.HideLoginPage;
 
-            LoginPage.m_SwitchUserEvent += FacebookLogout;
-            LoginPage.m_SwitchUserEvent += initializeLoginPage;
+            LoginPage.m_LoginEvent += m_BoostViewModel.FacebookLogin;
 
-            userOptions.m_LogoutEvent += FacebookLogout;
+            LoginPage.m_ContinueAsEvent += m_BoostViewModel.FacebookLogin;
+
+            LoginPage.m_SwitchUserEvent += m_BoostViewModel.FacebookLogout;
+            LoginPage.m_SwitchUserEvent += LoginPage.UpdateLoginPage;
+
+            userOptions.m_LogoutEvent += m_BoostViewModel.FacebookLogout;
             userOptions.m_LogoutEvent += boostFormInitialSetup;
             userOptions.m_LogoutEvent += LoginPage.LoginPageSetup;
 
@@ -58,7 +60,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Methods
         private void boostFormInitialSetup()
         {
-            if(m_PreInitialLogin)
+            if(m_BoostViewModel.PreInitialLogin)
             {
                 // Add event handler to dynamically added buttons
                 foreach(Button button in navbar.m_NavbarButtons)
@@ -98,7 +100,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             userOptions.Location = new System.Drawing.Point(
                 navbar.BtnUsername.Right - userOptions.Width + navbar.Location.X,
                 navbar.BtnUsername.Bottom);
-            initializeLoginPage();
+            LoginPage.UpdateLoginPage();
             ////
         }
 
@@ -108,36 +110,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_BoostPages.Add(AnalyticsPage);
             m_BoostPages.Add(AboutPage);
             m_BoostPages.Add(LoginPage);
-        }
-
-
-
-        private void initializeLoginPage()
-        {
-            LoginPage.CheckBoxRememberUser.Checked = m_BoostEn.m_BoostSettings.RememberUser;
-            if (m_BoostEn.m_BoostSettings.RememberUser == true
-                && m_BoostEn.m_BoostSettings.FirstName != null)
-            {
-                LoginPage.ButtonContinueAs.Visible = true;
-                LoginPage.ButtonContinueAs.BringToFront();
-                LoginPage.ButtonContinueAs.Text = $@"Continue as {m_BoostEn.m_BoostSettings.FirstName}";
-                LoginPage.ButtonSwitchUser.BringToFront();
-                LoginPage.ButtonSwitchUser.Visible = true;
-
-                UITools.centerControlHorizontally(LoginPage.ButtonContinueAs, LoginPage);
-                UITools.centerControlHorizontally(LoginPage.ButtonSwitchUser, LoginPage);
-                UITools.centerControlHorizontally(LoginPage.PictureBoxFBLogin, LoginPage);
-                UITools.centerControlHorizontally(LoginPage.CheckBoxRememberUser, LoginPage);
-                UITools.centerControlHorizontally(LoginPage.LabelLoading, LoginPage);
-                UITools.centerControlHorizontally(LoginPage.PictureBoxLogo, LoginPage);
-
-
-                LoginPage.PictureBoxFBLogin.Visible = false;
-                LoginPage.CheckBoxRememberUser.Visible = false;
-            }
-            LoginPage.BringToFront();
-            LoginPage.LabelLoading.Visible = false;
-            LoginPage.Visible = true; // true
         }
 
         private void initializeSettingsPopUp()
@@ -162,34 +134,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             switchPage((Button)sender);
         }
 
-        private void switchPage_Legacy(Button i_Button)
-        {
-            foreach(Button button in navbar.m_NavbarButtons)
-            {
-                button.Font = Stylesheet.Font_NavbarButtonDefault;
-            }
-
-            navbar.SelectButton(i_Button);
-
-            switch(i_Button.Name)
-            {
-                case "btnDashboard":
-                    DashboardPage.BringToFront();
-                    break;
-                case "btnAnalytics":
-                    AnalyticsPage.BringToFront();
-                    break;
-                case "btnAbout":
-                    AboutPage.BringToFront();
-                    break;
-            }
-
-            if(userOptions.Visible)
-            {
-                navbar.UsernameClick();
-            }
-        }
-
         private void switchPage(Button i_Button)
         {
             foreach (Button button in navbar.m_NavbarButtons)
@@ -198,7 +142,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
 
             navbar.SelectButton(i_Button);
-
 
             switchPage_Reflection(i_Button);
 
@@ -210,7 +153,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private List<Type> getBoostViewTypes()
         {
-            Type[] allTypes =  Assembly.GetExecutingAssembly().GetTypes();
+            Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             List<Type> boostViews = new List<Type>();
             string keyWord = "View";
 
@@ -227,7 +170,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void switchPage_Reflection(Button i_Button)
         {
-            string[] keyword = {"Page"};
+            string[] keyword = { "Page" };
             List<Type> viewTypes = getBoostViewTypes();
             Type buttonType = null;
             bool pageSwitched = false;
@@ -240,6 +183,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     break;
                 }
             }
+
             foreach(UserControl page in m_BoostPages)
             {
                 if (page.GetType().Name == buttonType.Name)
@@ -249,119 +193,35 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     break;
                 }
             }
-            if (!pageSwitched)
+
+            if(!pageSwitched)
             {
                 throw new Exception("Desired page could not be found in m_BoostPages");
             }
-
         }
 
-
-
-        public void FacebookLogout()
+        private void setupAndLoad()
         {
             try
             {
-                m_BoostEn.FacebookLogout();
-                m_BoostEn.m_BoostSettings.ResetSettingsToDefault();
-                m_BoostEn.m_BoostSettings.DeleteAppSettingsFile();
-                m_BoostEn.m_BoostSettings = BoostSettings.LoadAppSettingsFromFile();
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message, @"Logout failed!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        public void FacebookLogin()
-        {
-            try
-            {
-                m_BoostEn.FacebookLogin(m_BoostEn.m_BoostSettings.LastAccessToken, m_BoostEn.m_BoostSettings.RememberUser);
-            }
-            catch(Exception)
-            {
-                LoginPage.LabelLoginError.Visible = true;
-            }
-
-            bool isTheUserLoggedIn = m_BoostEn.LoggedInUser != null;
-            if(isTheUserLoggedIn)
-            {
-                fetchAndInitialize();
-                LoginPage.Visible = false;
-            }
-        }
-
-        private void fetchAndInitialize()
-        {
-            try
-            {
-                if (m_PreInitialLogin)
+                if (m_BoostViewModel.PreInitialLogin)
                 {
-                    m_PreInitialLogin = false;
+                    m_BoostViewModel.PreInitialLogin = false;
                 }
 
                 // Identify Login (Email as ID + First login)
-                string currentUserEmail = m_BoostEn.LoggedInUser.Email;
-                if (currentUserEmail != m_BoostEn.m_BoostSettings.LastLoggedInEmail)
-                {
-                    m_BoostEn.m_BoostSettings.LastLogin = null;
-                    m_BoostEn.m_BoostSettings.FirstLogin = true;
-                }
+                m_BoostEn.m_BoostSettings.IsFirstLogin(m_BoostEn.LoggedInUser.Email);
 
                 // Fetch and load data
-                FetchUserData();
+                FetchAndDisplayUserData();
                 initializeSettingsPopUp();
-                dashboardChartSetup();
                 displayWhatsNewPopup();
-                overwriteBoostSettings(currentUserEmail);
+                m_BoostEn.OverwriteBoostSettings();
             }
             catch(Exception e)
             {
                 throw new Exception(e.Message);
             }
-        }
-
-        private void saveAnalysisSettings()
-        {
-            /*try
-            {
-                foreach (eTimeSelector timeFrame in Enum.GetValues(typeof(eTimeSelector)))
-                {
-                    if (timeFrame.ToString() == AnalyticsPage.TimeFrameComboBox.SelectedItem.ToString())
-                    {
-                        m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame = timeFrame;
-                        break;
-                    }
-                }
-
-                foreach (eAnalysisDataBasis analysisBasis in Enum.GetValues(typeof(eAnalysisDataBasis)))
-                {
-                    if(analysisBasis.ToString() == AnalyticsPage.m_SelectedAnalysisBasisButton.Text)
-                    {
-                        m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis = analysisBasis;
-                        break;
-                    }
-                }
-            }(
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }*/
-            m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame = m_BoostEn.m_CurrentAnalysisTimeFrame;
-            m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis = m_BoostEn.m_CurrentAnalysisDataBasis;
-        }
-
-        private void overwriteBoostSettings(string i_userEmail)
-        {
-            // Overwrite Boost Settings
-            m_BoostEn.m_BoostSettings.LastLoggedInEmail = i_userEmail;
-            m_BoostEn.m_BoostSettings.FirstLogin = false;
-            m_BoostEn.m_BoostSettings.LastAccessToken = m_BoostEn.LoginResult.AccessToken;
-            m_BoostEn.m_BoostSettings.LastLogin = DateTime.Now;
-            m_BoostEn.m_BoostSettings.FirstName = m_BoostEn.LoggedInUser.FirstName;
-            m_BoostEn.m_BoostSettings.RememberUser = this.LoginPage.CheckBoxRememberUser.Checked;
-            m_BoostEn.m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
         }
 
         private void displayWhatsNewPopup()
@@ -378,202 +238,23 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_SettingsPopup.ShowDialog();
         }
 
-        public void FetchUserData()
+        public void FetchAndDisplayUserData()
         {
-            m_BoostEn.FriendCountSetup();
-            m_BoostEn.SetupEngagementArrays();
-            fetchDashboardData();
-            fetchAnalyticsPageData();
+            DashboardPage.SetupFetchAndDisplay();
+            navbar.FetchAndDisplayData();
+            AnalyticsPage.FetchAndDisplayData();
         }
 
-        private void fetchAnalyticsPageData()
+        protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            try
+            if(!m_BoostEn.m_BoostSettings.RememberUser)
             {
-                AnalyticsPage.m_AnalysisSettingsEvent += saveAnalysisSettings;
-                ///BestTimes
-                new Thread(new ThreadStart(() => { AnalyticsPage.BestTimesPage.DrawBestTimesGrid(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
-                
-                ///BiggestFans
-                this.Invoke(new Action(() => AnalyticsPage.BiggestFansPage.DisplayBiggestFans(m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
-
-                foreach (Button button in AnalyticsPage.AnalysisTimeFrameButtons)
-                {
-                    if (button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
-                    {
-                        AnalyticsPage.SelectButton(button, AnalyticsPage.AnalysisTimeFrameButtons);
-                        break;
-                    }
-                }
-
-                foreach (Button button in AnalyticsPage.AnalysisBasisButtons)
-                {
-                    if(button.Text == m_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis.ToString())
-                    {
-                        AnalyticsPage.SelectButton(button, AnalyticsPage.AnalysisBasisButtons);
-                        break;
-                    }
-                }
+                m_BoostViewModel.FacebookLogout();
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-                AnalyticsPage.DisplayAnalyticsErrorMessage();
 
-            }
+            base.OnFormClosing(e);
         }
 
-        private void fetchDashboardData()
-        {
-            const string k_Quotes = "\"";
-            string name = m_BoostEn.LoggedInUser.Name;
-
-            fetchUserBioAndPhoto(k_Quotes, name);
-
-            ///Top Post
-            fetchTopPost(k_Quotes);
-
-            /// Friends Panel
-            displayFriendChange();
-
-            /// Engagement Panel
-            this.Invoke(
-                new Action(
-                    () => DashboardPage.LabelEngagement.Text =
-                              $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)"));
-
-            // Update dashboard UI after data fetch
-            new Thread(DashboardPage.UpdateDashboardUI).Start();
-        }
-
-        private void fetchUserBioAndPhoto(string k_Quotes, string name)
-        {
-            Post lastStatus;
-            try
-            {
-                this.Invoke(new Action(() =>
-                {
-                    ///Navigation bar
-                    navbar.BtnUsername.Text = name;
-                    navbar.NavbarProfilePic.LoadAsync(m_BoostEn.LoggedInUser.PictureSmallURL);
-                    navbar.NavbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
-                    ///Bio Panel
-                    DashboardPage.LabelName.Text = name;
-                    DashboardPage.PictureBoxBioProfilePic.LoadAsync(m_BoostEn.LoggedInUser.PictureLargeURL);
-                    DashboardPage.PictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
-                    DashboardPage.LabelBio1.Text = $@"Location: {m_BoostEn.LoggedInUser.Location.Name}";
-                    DashboardPage.LabelBio2.Text = $@"Friends using Boost: {m_BoostEn.LoggedInUser.Friends.Count}";
-                    DashboardPage.LabelBio3.Text = $@"Verified?: {(m_BoostEn.LoggedInUser.Verfied == true ? "Yes" : "No")}";
-
-                    // Recent Status Update
-                    lastStatus = m_BoostEn.GetLastStatus();
-                    DashboardPage.LabelRecentStatusUpdateContent.Text = $@"{k_Quotes}{lastStatus.Message}{k_Quotes}";
-                    DashboardPage.LabelRecentStatusUpdateDateTime.Text = $@"- {lastStatus.CreatedTime.ToString()}";
-                }));
-            }
-            catch (NullReferenceException)
-            {
-                DashboardPage.DisplayDashboardErrorMessage();
-            }
-        }
-
-        private void displayFriendChange()
-        {
-            try
-            {
-                if (m_BoostEn.FriendChange != 0)
-                {
-                    DashboardPage.LabelFriendsChange.Visible = true;
-                    if (m_BoostEn.FriendChange > 0)
-                    {
-                        DashboardPage.LabelFriendsChange.Text = "+" + m_BoostEn.FriendChange.ToString();
-                        DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
-                    }
-                    else
-                    {
-                        DashboardPage.LabelFriendsChange.Text = m_BoostEn.FriendChange.ToString();
-                        DashboardPage.LabelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                DashboardPage.DisplayDashboardErrorMessage();
-                DashboardPage.LabelError.Text = @"Could not fetch data from boostSettings.xml";
-            }
-        }
-
-        private void fetchTopPost(string k_Quotes)
-        {
-            Post topPost;
-            try
-            {
-                this.Invoke(
-                    new Action(
-                        () =>
-                            {
-                                topPost = m_BoostEn.GetTopPost();
-                                DashboardPage.LabelTopPostLikes.Text = $@"Likes: {topPost.LikedBy.Count}";
-                                DashboardPage.LabelTopPostComments.Text = $@"Comments: {topPost.Comments.Count}";
-                                if(string.IsNullOrEmpty(topPost.Message))
-                                {
-                                    DashboardPage.LabelTopPostCaptionTitle.Visible = false;
-                                    DashboardPage.LabelTopPostCaptionContent.Visible = false;
-                                }
-                                else
-                                {
-                                    DashboardPage.LabelTopPostCaptionContent.Text =
-                                        $@"{k_Quotes}{topPost.Message}{k_Quotes}";
-                                }
-
-                                DashboardPage.LabelTopPostCaptionDateTime.Text = $@"- {topPost.CreatedTime.ToString()}";
-                                DashboardPage.PictureBoxTopPost.Image = null;
-                                if (!string.IsNullOrWhiteSpace(topPost.PictureURL))
-                                {
-                                    DashboardPage.PictureBoxTopPost.LoadAsync(topPost.PictureURL);
-                                }
-                            }));
-            }
-            catch (NullReferenceException)
-            {
-                DashboardPage.LabelTopPostError.Text = BoostEngine.k_PostErrorMessage;
-                DashboardPage.LabelTopPostError.Visible = true;
-                DashboardPage.LabelTopPostLikes.Visible = false;
-                DashboardPage.LabelTopPostComments.Visible = false;
-                DashboardPage.LabelTopPostCaptionDateTime.Visible = false;
-                DashboardPage.PictureBoxTopPost.Visible = false;
-            }
-        }
-
-        private void dashboardChartSetup()
-        {
-            this.Invoke(new Action(() =>
-            {
-                // Friend Chart
-                foreach(DateAndValue friendCounter in m_BoostEn.m_BoostSettings.FriendCounter)
-                {
-                    this.DashboardPage.ChartFriends.Series[0].Points.AddXY(
-                        friendCounter.Date.Date.ToString("d/M/yy"),
-                        friendCounter.Value);
-                }
-
-                this.DashboardPage.ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
-
-                // Engagement Chart
-                for(int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
-                {
-                    DateAndValue currentLikes = m_BoostEn.EngagementRecentPostLikes[i];
-                    DateAndValue currentComments = m_BoostEn.EngagementRecentPostComments[i];
-
-                    this.DashboardPage.ChartEngagement.Series["Likes"].Points.AddXY(
-                        currentLikes.Date.ToString(),
-                        currentLikes.Value);
-                    this.DashboardPage.ChartEngagement.Series["Comments"].Points.AddXY(
-                        currentComments.Date.ToString(),
-                        currentComments.Value);
-                }
-            }));
-        }
         #endregion
     }
 }

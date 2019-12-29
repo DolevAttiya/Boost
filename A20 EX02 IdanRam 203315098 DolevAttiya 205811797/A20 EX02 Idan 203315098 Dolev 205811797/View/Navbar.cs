@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -15,10 +16,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     public partial class Navbar : UserControl
     {
         #region Data Members
+        private const int k_ButtonLimit = 5;
         public List<Button> m_NavbarButtons = new List<Button>();
         public UsernameButtonEventHandler m_UsernameButtonEvent;
         private bool m_UsernameSelected = false;
-        private const int k_ButtonLimit = 5;
+        private NavbarViewModel m_NavbarViewModel = new NavbarViewModel();
         #endregion
 
         #region Ctor
@@ -41,36 +43,38 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             int numOfBoostPages = Enum.GetNames(typeof(Boost.eBoostPages)).Length;
 
-            if(numOfBoostPages <= k_ButtonLimit)
+            try
             {
-                foreach (Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
+                if (numOfBoostPages <= k_ButtonLimit)
                 {
-                    Button button = new Button();
+                    foreach (Boost.eBoostPages page in Enum.GetValues(typeof(Boost.eBoostPages)))
+                    {
+                        Button button = new Button();
 
-                    button.Cursor = Cursors.Hand;
-                    button.FlatAppearance.BorderSize = 0;
-                    button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.Font = Stylesheet.Font_NavbarButtonDefault;
-                    button.Location = new Point(X, Y);
-                    button.Margin = new Padding(2, 3, 2, 3);
-                    button.Name = "btn" + page.ToString();
-                    button.Size = new Size(buttonWidth, buttonHeight);
-                    button.TabIndex = (byte)page + 2;
-                    button.Text = page.ToString().ToUpper();
-                    button.UseVisualStyleBackColor = false;
-                    this.Controls.Add(button);
-                    m_NavbarButtons.Add(button);
-                    SetButtonStyleToDefault(button);
+                        button.Cursor = Cursors.Hand;
+                        button.FlatAppearance.BorderSize = 0;
+                        button.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+                        button.FlatStyle = FlatStyle.Flat;
+                        button.Font = Stylesheet.Font_NavbarButtonDefault;
+                        button.Location = new Point(X, Y);
+                        button.Margin = new Padding(2, 3, 2, 3);
+                        button.Name = "btn" + page.ToString();
+                        button.Size = new Size(buttonWidth, buttonHeight);
+                        button.TabIndex = (byte)page + 2;
+                        button.Text = page.ToString().ToUpper();
+                        button.UseVisualStyleBackColor = false;
+                        this.Controls.Add(button);
+                        m_NavbarButtons.Add(button);
+                        SetButtonStyleToDefault(button);
 
-                    X += buttonWidth + buttonSpacing;
+                        X += buttonWidth + buttonSpacing;
+                    }
                 }
             }
-            else
+            catch(Exception e)
             {
-                // TODO - display error message
+                throw new Exception(e.Message);
             }
-
         }
 
         public void SelectButton(Button i_Button)
@@ -106,6 +110,19 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_UsernameSelected = false;
         }
 
+        public void FetchAndDisplayData()
+        {
+            m_NavbarViewModel.FetchData();
+            DisplayData();
+        }
+
+        public void DisplayData()
+        {
+            BtnUsername.Text = m_NavbarViewModel.UserRealName;
+            NavbarProfilePic.LoadAsync(m_NavbarViewModel.PictureSmallURL);
+            NavbarProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+        }
+
         private void BtnUsername_Click(object sender, EventArgs e)
         {
             UsernameClick();
@@ -126,11 +143,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 m_UsernameButtonEvent.Invoke();
             }
-        }
-
-        private void BtnUsername_LostFocus(object sender, EventArgs e)
-        {
-            // usernameClick(); // TODO
         }
         #endregion
     }

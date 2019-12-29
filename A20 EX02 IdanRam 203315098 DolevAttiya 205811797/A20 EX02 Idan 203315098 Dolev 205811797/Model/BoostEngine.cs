@@ -14,18 +14,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         #region Data Members & Properties
 
         #region Instance
-
         public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
 
         #endregion
 
         #region Data Members
 
-        private const int k_CollectionLimit = /*50*/15; // For Login method
+        private const int k_CollectionLimit = /*50*/15; // TODO
 
         public const int k_NumOfBiggestFans = 3;
-
-        public const int k_NumOfFriendCounters = 3;
 
         public const int k_NumOfPostsForEngagement = 10;
 
@@ -46,10 +43,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         #region Properties
 
         public int FriendChange { get; set; }
-
-        public DateAndValue[] EngagementRecentPostLikes { get; set; }
-
-        public DateAndValue[] EngagementRecentPostComments { get; set; }
 
         public User LoggedInUser { get; set; }
 
@@ -165,6 +158,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             LoggedInUser = o_LoggedInUser;
         }
 
+        public void OverwriteBoostSettings() // BoostEngine
+        {
+            m_BoostSettings.LastLoggedInEmail = LoggedInUser.Email;
+            m_BoostSettings.FirstLogin = false;
+            m_BoostSettings.LastAccessToken = LoginResult.AccessToken;
+            m_BoostSettings.LastLogin = DateTime.Now;
+            m_BoostSettings.FirstName = LoggedInUser.FirstName;
+            m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
+        }
+
         public Post GetLastStatus()
         {
             Post o_LastStatus = null;
@@ -185,72 +188,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             return o_LastStatus;
         }
 
-        public void FriendCountSetup()
+        public void SaveAnalysisSettings()
         {
             try
             {
-                DateAndValue friendCount = new DateAndValue { Value = LoggedInUser.Friends.Count, Date = DateTime.Now };
-                if(m_BoostSettings.FriendCounter.Count < 1)
-                {
-                    m_BoostSettings.FriendCounter.Add(friendCount);
-                }
-                else
-                {
-                    if(LoggedInUser.Friends.Count
-                       != m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value)
-                    {
-                        m_BoostSettings.FriendCounter.Add(friendCount);
-
-                        if(m_BoostSettings.FriendCounter.Count > k_NumOfFriendCounters)
-                        {
-                            m_BoostSettings.FriendCounter.RemoveAt(0);
-                        }
-                    }
-
-                    if(m_BoostSettings.FriendCounter.Count > 1)
-                    {
-                        FriendChange = m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 1].Value
-                                       - m_BoostSettings.FriendCounter[m_BoostSettings.FriendCounter.Count - 2].Value;
-                    }
-                }
+                m_BoostSettings.DefaultAnalysisTimeFrame = m_CurrentAnalysisTimeFrame;
+                m_BoostSettings.DefaultAnalysisDataBasis = m_CurrentAnalysisDataBasis;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                throw new Exception("Couldn't get user's friends", e);
-            }
-        }
-
-        public void SetupEngagementArrays()
-        {
-            EngagementRecentPostLikes = new DateAndValue[k_NumOfPostsForEngagement];
-            EngagementRecentPostComments = new DateAndValue[k_NumOfPostsForEngagement];
-
-            for(int i = k_NumOfPostsForEngagement - 1; i >= 0; i--)
-            {
-                EngagementRecentPostLikes[i] = new DateAndValue();
-                EngagementRecentPostComments[i] = new DateAndValue();
-                try
-                {
-                    EngagementRecentPostLikes[i].Value = LoggedInUser.Posts[i].LikedBy.Count;
-                    EngagementRecentPostComments[i].Value = LoggedInUser.Posts[i].Comments.Count;
-                }
-                catch(Exception e)
-                {
-                    throw new FacebookApiException(k_PostErrorMessage, e);
-                }
-
-                if(LoggedInUser.Posts[i].CreatedTime.HasValue)
-                {
-                    try
-                    {
-                        EngagementRecentPostComments[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
-                        EngagementRecentPostLikes[i].Date = LoggedInUser.Posts[i].CreatedTime.Value;
-                    }
-                    catch(Exception e)
-                    {
-                        throw new FacebookApiException(k_PostErrorMessage, e);
-                    }
-                }
+                MessageBox.Show(e.Message);
             }
         }
 

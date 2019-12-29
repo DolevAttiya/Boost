@@ -96,10 +96,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         {
                             m_OptionClickEvent.Invoke();
                         }
+
                         if(m_SettingsEvent != null)
                         {
                             m_SettingsEvent.Invoke();
                         }
+
                         break;
                     }
 
@@ -109,6 +111,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         {
                             m_OptionClickEvent.Invoke();
                         }
+
                         DialogResult result = MessageBox.Show(
                             "Are you sure you want to logout?\n\nLogging out would delete any locally saved settings and cached data from your machine",
                             "Logout",
