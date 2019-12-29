@@ -1,6 +1,6 @@
 ﻿namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-    public partial class Login
+    public partial class LoginView
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.CheckBoxRememberUser = new System.Windows.Forms.CheckBox();
             this.LabelLoading = new System.Windows.Forms.Label();
             this.PictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -36,8 +37,10 @@
             this.PictureBoxFBLogin = new System.Windows.Forms.PictureBox();
             this.ButtonContinueAs = new System.Windows.Forms.Button();
             this.ButtonSwitchUser = new System.Windows.Forms.Button();
+            this.boostSettingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // CheckBoxRememberUser
@@ -47,6 +50,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CheckBoxRememberUser.AutoSize = true;
             this.CheckBoxRememberUser.BackColor = System.Drawing.Color.Transparent;
+            this.CheckBoxRememberUser.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.boostSettingsBindingSource, "RememberUser", true));
+            this.CheckBoxRememberUser.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.boostSettingsBindingSource, "RememberUser", true));
             this.CheckBoxRememberUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckBoxRememberUser.ForeColor = System.Drawing.Color.White;
             this.CheckBoxRememberUser.Location = new System.Drawing.Point(515, 369);
@@ -152,7 +157,11 @@
             this.ButtonSwitchUser.UseVisualStyleBackColor = false;
             this.ButtonSwitchUser.Click += new System.EventHandler(this.ButtonSwitchUser_Click);
             // 
-            // Login
+            // boostSettingsBindingSource
+            // 
+            this.boostSettingsBindingSource.DataSource = typeof(A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings);
+            // 
+            // LoginView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,10 +175,11 @@
             this.Controls.Add(this.PictureBoxLogo);
             this.Controls.Add(this.LabelLoginError);
             this.Controls.Add(this.PictureBoxFBLogin);
-            this.Name = "Login";
+            this.Name = "LoginView";
             this.Size = new System.Drawing.Size(1151, 677);
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxFBLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boostSettingsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +194,6 @@
         public System.Windows.Forms.CheckBox CheckBoxRememberUser;
         public System.Windows.Forms.Button ButtonContinueAs;
         public System.Windows.Forms.Button ButtonSwitchUser;
+        private System.Windows.Forms.BindingSource boostSettingsBindingSource;
     }
 }

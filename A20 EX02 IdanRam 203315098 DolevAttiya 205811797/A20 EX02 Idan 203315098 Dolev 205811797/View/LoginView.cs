@@ -11,17 +11,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
     public delegate void SwitchUserEventHandler();
 
-    public partial class Login : UserControl
+    public partial class LoginView : UserControl
     {
         #region Data Members
         public const string k_LoginFailedMessage = "LOGIN FAILED! PLEASE TRY AGAIN!";
         public LoginEventHandler m_LoginEvent;
         public ContinueAsEventHandler m_ContinueAsEvent;
         public SwitchUserEventHandler m_SwitchUserEvent;
+        private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         #endregion
         
         #region Ctor
-        public Login()
+        public LoginView()
         {
             InitializeComponent();
             LoginPageSetup();
@@ -40,6 +41,35 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             CheckBoxRememberUser.Visible = true;
             ButtonContinueAs.Visible = false;
             ButtonSwitchUser.Visible = false;
+            this.boostSettingsBindingSource.DataSource = r_BoostEn.m_BoostSettings;
+        }
+
+        public void UpdateLoginPage()
+        {
+            CheckBoxRememberUser.Checked = r_BoostEn.m_BoostSettings.RememberUser;
+            if (r_BoostEn.m_BoostSettings.RememberUser == true
+                && r_BoostEn.m_BoostSettings.FirstName != null)
+            {
+                ButtonContinueAs.Visible = true;
+                ButtonContinueAs.BringToFront();
+                ButtonContinueAs.Text = $@"Continue as {r_BoostEn.m_BoostSettings.FirstName}";
+                ButtonSwitchUser.BringToFront();
+                ButtonSwitchUser.Visible = true;
+
+                UITools.centerControlHorizontally(ButtonContinueAs, this);
+                UITools.centerControlHorizontally(ButtonSwitchUser, this);
+                UITools.centerControlHorizontally(PictureBoxFBLogin, this);
+                UITools.centerControlHorizontally(CheckBoxRememberUser, this);
+                UITools.centerControlHorizontally(LabelLoading, this);
+                UITools.centerControlHorizontally(PictureBoxLogo, this);
+
+                PictureBoxFBLogin.Visible = false;
+                CheckBoxRememberUser.Visible = false;
+            }
+
+            BringToFront();
+            LabelLoading.Visible = false;
+            Visible = true; // true
         }
 
         private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
@@ -52,7 +82,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.PictureBoxFBLogin.BackgroundImage = (Image)Properties.Resources.fbLogin_rollover;
         }
 
-        private void PictureBoxFBLogin_Click(object sender, EventArgs e) // TODO SINGELTON ?
+        private void PictureBoxFBLogin_Click(object sender, EventArgs e)
         {
             this.LabelLoading.Visible = true;
             if(m_LoginEvent != null)
@@ -61,6 +91,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
         #endregion
+
+        public void DisplayLoginErrorMessage()
+        {
+            this.LabelLoginError.Visible = true;
+        }
+
+        public void HideLoginPage()
+        {
+            this.Visible = false;
+        }
 
         private void ButtonContinueAs_Click(object sender, EventArgs e)
         {
@@ -78,6 +118,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 BoostEngine.Instance.FacebookLogin(BoostEngine.Instance.m_BoostSettings.LastAccessToken, BoostEngine.Instance.m_BoostSettings.RememberUser);
                 m_SwitchUserEvent.Invoke();
             }
+
             LoginPageSetup();
         }
     }

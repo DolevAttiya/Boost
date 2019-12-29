@@ -2,7 +2,6 @@
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 using FacebookWrapper.ObjectModel;
 
-
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 {
     public abstract class Analysis
@@ -74,11 +73,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             }
         }
 
-
         public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(
             eAnalysisDataBasis i_AnalysisDataBasis)
         {
-
             SortedValueDictionary<object, int> analysisCollection = null;
 
             switch (i_AnalysisDataBasis)

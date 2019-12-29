@@ -40,7 +40,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.navbar = new A20_EX02_Idan_203315098_Dolev_205811797.View.Navbar();
             this.AnalyticsPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.AnalyticsView();
             this.DashboardPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.DashboardView();
-            this.LoginPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.Login();
+            this.LoginPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.LoginView();
             this.AboutPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.AboutView();
             this.userOptions = new A20_EX02_Idan_203315098_Dolev_205811797.View.UserOptions();
             this.SuspendLayout();
@@ -181,7 +181,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public DashboardView DashboardPage;
         public AnalyticsView AnalyticsPage;
         public AboutView AboutPage;
-        public Login LoginPage;
+        public LoginView LoginPage;
         private View.Navbar navbar;
         private Panel PanelFooterLeft;
         private Panel PanelFooterRight;

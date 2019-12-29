@@ -132,23 +132,19 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             }
         }
 
-        public static void CreateFilePath()
+        public bool IsFirstLogin(string i_CurrentUserEmail)
         {
-            try
+            if (this.LastLogin != null)
             {
-                //s_FilePath = $@"{Application.StartupPath}\BoostSettings.xml";
-            }
-            catch(UnauthorizedAccessException)
-            {
-
-            }
-        }
-        
-        public bool IsFirstLogin()
-        {
-            if(LastLogin != null)
-            {
-                FirstLogin = false;
+                if (i_CurrentUserEmail != this.LastLoggedInEmail)
+                {
+                    this.LastLogin = null;
+                    this.FirstLogin = true;
+                }
+                else
+                {
+                    this.FirstLogin = false;
+                }
             }
 
             return FirstLogin;

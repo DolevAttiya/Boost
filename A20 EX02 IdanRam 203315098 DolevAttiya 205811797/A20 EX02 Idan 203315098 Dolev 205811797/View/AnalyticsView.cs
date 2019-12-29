@@ -1,13 +1,14 @@
-﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public delegate void SaveAnalysisSettingsEventHandler();
+
     public partial class AnalyticsView : UserControl
     {
         #region Properties
@@ -23,6 +24,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public Button m_SelectedAnalysisBasisButton = null;
 
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
+        private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         #endregion
 
         #region Ctor
@@ -114,6 +116,42 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             AnalyticsSubPages.Add(BiggestFansPage);
         }
 
+        public void FetchAndDisplayData()
+        {
+            try
+            {
+                m_AnalysisSettingsEvent += r_BoostEn.SaveAnalysisSettings;
+                ///BestTimes
+                new Thread(new ThreadStart(() => { BestTimesPage.DrawBestTimesGrid(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
+
+                ///BiggestFans
+                this.Invoke(new Action(() => BiggestFansPage.DisplayBiggestFans(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
+
+                foreach (Button button in AnalysisTimeFrameButtons)
+                {
+                    if (button.Text == r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame.ToString())
+                    {
+                        SelectButton(button, AnalysisTimeFrameButtons);
+                        break;
+                    }
+                }
+
+                foreach (Button button in AnalysisBasisButtons)
+                {
+                    if (button.Text == r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis.ToString())
+                    {
+                        SelectButton(button, AnalysisBasisButtons);
+                        break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                DisplayAnalyticsErrorMessage();
+            }
+        }
+
         public void SelectButton(Button i_Button, List<Button> i_RelevantButtonList)
         {
             foreach(Button button in i_RelevantButtonList)
@@ -144,10 +182,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 throw new Exception("Sub-page could not be found");
             }
-
         }
 
-        // TODO
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
@@ -160,22 +196,26 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Combined;
                         break;
                     }
+
                 case "Status":
                     {
                         BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Status;
                         break;
                     }
+
                 case "Photos":
                     {
                         BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Photo;
                         break;
                     }
+
                 case "Videos":
                     {
                         BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Video;
                         break;
                     }
             }
+
             reanalyzeAll(timeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
         }
 
@@ -191,27 +231,28 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Week;
                         break;
                     }
+
                 case "Month":
                     {
                         BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Month;
                         break;
                     }
+
                 case "Year":
                     {
                         BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Year;
                         break;
                     }
             }
+
             reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, dataBasis);
         }
-
 
         private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
             new Thread(new ThreadStart(() => BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis)));
             new Thread(new ThreadStart(() => BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis)));
         }
-
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)
         {
