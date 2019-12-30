@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
+namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 {
     public class DateAndValue
     {
