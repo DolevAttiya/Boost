@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls;
+using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -16,6 +16,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public List<Engagement> m_EngagementList;
 
         public List<StylizedPanel> m_DashboardPanelList = new List<StylizedPanel>();
+
+        private DashboardViewModel m_DashboardViewModel = new DashboardViewModel();
+
         #endregion
 
         #region Ctor
@@ -23,12 +26,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             m_EngagementList = new List<Engagement>();
             InitializeComponent();
-            dashboardInitalSetup();
+            dashboardInitialSetup();
         }
         #endregion
 
         #region Methods
-        private void dashboardInitalSetup()
+        private void dashboardInitialSetup()
         {
             //// Add panels to list
             m_DashboardPanelList.Add(this.panelEngagement);
@@ -174,6 +177,138 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     new System.Drawing.Size(this.LabelTopPostCaptionDateTime.Width, 30);
             }));
         }
+
+        public void SetupFetchAndDisplay()
+        {
+            SetupAndFetch();
+            DisplayData();
+            UpdateDashboardUI();
+        }
+
+        public void SetupAndFetch()
+        {
+            m_DashboardViewModel.FriendCountSetup();
+            m_DashboardViewModel.EngagementArraySetup();
+            m_DashboardViewModel.FetchData();
+            ChartSetup();
+        }
+
+        public void DisplayData()
+        {
+            const string k_Quotes = "\"";
+
+            try
+            {
+                displayUserBioData(k_Quotes);
+                displayFriendChange();
+                displayTopPost(k_Quotes);
+                LabelEngagement.Text = $@"Engagement (Last {BoostEngine.k_NumOfPostsForEngagement} posts)";
+            }
+            catch (NullReferenceException)
+            {
+                DisplayDashboardErrorMessage();
+            }
+        }
+
+        private void displayUserBioData(string i_Quotes)
+        {
+            LabelName.Text = m_DashboardViewModel.UserRealName;
+            PictureBoxBioProfilePic.LoadAsync(m_DashboardViewModel.PictureLargeURL);
+            PictureBoxBioProfilePic.SizeMode = PictureBoxSizeMode.Zoom;
+            LabelBio1.Text = $@"Location: {m_DashboardViewModel.UserLocation}";
+            LabelBio2.Text = $@"Friends using Boost: {m_DashboardViewModel.FriendsUsingBoost}";
+            LabelBio3.Text = $@"Verified?: {(m_DashboardViewModel.Verified == true ? "Yes" : "No")}";
+
+            // Recent Status Update
+            LabelRecentStatusUpdateContent.Text = $@"{i_Quotes}{m_DashboardViewModel.LastStatus.Message}{i_Quotes}";
+            LabelRecentStatusUpdateDateTime.Text = $@"- {m_DashboardViewModel.LastStatus.CreatedTime.ToString()}";
+        }
+
+        private void displayFriendChange()
+        {
+            try
+            {
+                if (m_DashboardViewModel.FriendChange != 0)
+                {
+                    LabelFriendsChange.Visible = true;
+                    if (m_DashboardViewModel.FriendChange > 0)
+                    {
+                        LabelFriendsChange.Text = "+" + m_DashboardViewModel.FriendChange.ToString();
+                        LabelFriendsChange.ForeColor = System.Drawing.Color.ForestGreen;
+                    }
+                    else
+                    {
+                        LabelFriendsChange.Text = m_DashboardViewModel.FriendChange.ToString();
+                        LabelFriendsChange.ForeColor = System.Drawing.Color.DarkRed;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                LabelError.Text = @"Could not fetch data from boostSettings.xml";
+            }
+        }
+
+        private void displayTopPost(string i_Quotes)
+        {
+            try
+            {
+                LabelTopPostLikes.Text = $@"Likes: {m_DashboardViewModel.TopPost.LikedBy.Count}";
+                LabelTopPostComments.Text = $@"Comments: {m_DashboardViewModel.TopPost.Comments.Count}";
+                if (string.IsNullOrEmpty(m_DashboardViewModel.TopPost.Message))
+                {
+                    LabelTopPostCaptionTitle.Visible = false;
+                    LabelTopPostCaptionContent.Visible = false;
+                }
+                else
+                {
+                    LabelTopPostCaptionContent.Text =
+                        $@"{i_Quotes}{m_DashboardViewModel.TopPost.Message}{i_Quotes}";
+                }
+
+                LabelTopPostCaptionDateTime.Text = $@"- {m_DashboardViewModel.TopPost.CreatedTime.ToString()}";
+                PictureBoxTopPost.Image = null;
+                if (!string.IsNullOrWhiteSpace(m_DashboardViewModel.TopPost.PictureURL))
+                {
+                    PictureBoxTopPost.LoadAsync(m_DashboardViewModel.TopPost.PictureURL);
+                }
+            }
+            catch (NullReferenceException)
+            {
+                LabelTopPostError.Text = m_DashboardViewModel.R_PostErrorMessage;
+                LabelTopPostError.Visible = true;
+                LabelTopPostLikes.Visible = false;
+                LabelTopPostComments.Visible = false;
+                LabelTopPostCaptionDateTime.Visible = false;
+                PictureBoxTopPost.Visible = false;
+            }
+        }
+
+        public void ChartSetup()
+        {
+            foreach (DateAndValue friendCounter in m_DashboardViewModel.FriendCounter)
+            {
+                ChartFriends.Series[0].Points.AddXY(
+                    friendCounter.Date.Date.ToString("d/M/yy"),
+                    friendCounter.Value);
+            }
+
+            ChartFriends.ChartAreas[0].AxisX.IsMarginVisible = false;
+
+            // Engagement Chart
+            for (int i = 0; i < BoostEngine.k_NumOfPostsForEngagement; i++)
+            {
+                DateAndValue currentLikes = m_DashboardViewModel.EngagementRecentPostLikes[i];
+                DateAndValue currentComments = m_DashboardViewModel.EngagementRecentPostComments[i];
+
+                ChartEngagement.Series["Likes"].Points.AddXY(
+                    currentLikes.Date.ToString(),
+                    currentLikes.Value);
+                ChartEngagement.Series["Comments"].Points.AddXY(
+                    currentComments.Date.ToString(),
+                    currentComments.Value);
+            }
+        }
+        }
         #endregion
-    }
 }

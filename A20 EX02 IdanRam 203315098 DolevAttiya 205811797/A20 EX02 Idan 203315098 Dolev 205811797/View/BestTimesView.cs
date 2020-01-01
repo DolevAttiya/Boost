@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
+using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -24,7 +25,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private int k_CellHeight;
         public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours]; // TODO 
         public Label[,] m_BestTimesGrid = new Label[sk_NumOfDays + 1, sk_NumOfHours + 1];
-        private int m_MaxTimeValue = 0;
+        private BestTimesViewModel m_BestTimesViewModel = new BestTimesViewModel();
+        private eTimeSelector m_LastUsedTimeSelector = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
+        private eAnalysisDataBasis m_LastUsedDataBasis = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisDataBasis;
+        private bool m_FirstDrawing = true;
         #endregion
 
         #region Ctor
@@ -49,16 +53,33 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             int widthExpansion = 35;
             int currentValue = 0;
 
-
-            //BoostEngine.Instance.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEngine.Instance.LoggedInUser, i_TimeSelector);
-            //m_MaxTimeValue = BoostEngine.Instance.TimeAnalysis.CombinedAnalysisHolders.Values.Max();
-            
-            BoostEngine.Instance.TimeAnalysis.CreateAnalysisByTimeFrame(BoostEngine.Instance.LoggedInUser, i_TimeSelector);
-
-            SortedValueDictionary<object, int> analysisCollection =
-                BoostEngine.Instance.TimeAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
-
-            m_MaxTimeValue = analysisCollection.Values.Max();
+            if(m_FirstDrawing)
+            {
+                m_BestTimesViewModel.CreateTimeAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
+                m_LastUsedTimeSelector = i_TimeSelector;
+                m_LastUsedDataBasis = i_AnalysisDataBasis;
+            }
+            else
+            {
+                if(i_TimeSelector == m_LastUsedTimeSelector && m_BestTimesViewModel.TimeAnalysis != null)
+                {
+                    if(i_AnalysisDataBasis != m_LastUsedDataBasis)
+                    {
+                        m_BestTimesViewModel.SelectAnalysisCollection(m_BestTimesViewModel.TimeAnalysis, i_AnalysisDataBasis);
+                        m_LastUsedDataBasis = i_AnalysisDataBasis;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                else
+                {
+                    m_BestTimesViewModel.CreateTimeAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
+                    m_LastUsedTimeSelector = i_TimeSelector;
+                    m_LastUsedDataBasis = i_AnalysisDataBasis;
+                }
+            }
 
             for(int i = 0; i <= sk_NumOfDays; i++)
             {
@@ -71,7 +92,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
  
                     if(i != 0 && j != 0)
                     {
-                        currentValue = analysisCollection[currentDayAndHour];
+                        currentValue = m_BestTimesViewModel.AnalysisCollection[currentDayAndHour];
                     }
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
@@ -123,22 +144,30 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 labelX = k_StartX;
                 labelY += lastHeight;
             }
+
+            if(m_FirstDrawing)
+            {
+                m_FirstDrawing = false;
+            }
         }
 
         private void defineBestTimesGridCell(int currentValue, int i, int j)
         {
+            int maxValue = m_BestTimesViewModel.MaxTimeAnalysisValue;
+
             m_BestTimesGrid[i, j].TextAlign = ContentAlignment.MiddleCenter;
+
             if (currentValue != 0)
             {
-                if (currentValue <= m_MaxTimeValue * 0.1)
+                if (currentValue <= maxValue * 0.1)
                 {
                     m_BestTimesGrid[i, j].BackColor = Color.White;
                 }
-                else if (currentValue <= m_MaxTimeValue * 0.25)
+                else if (currentValue <= maxValue * 0.25)
                 {
                     m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_BestTimesLow;
                 }
-                else if (currentValue <= m_MaxTimeValue * 0.75)
+                else if (currentValue <= maxValue * 0.75)
                 {
                     m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_BestTimesMedium;
                 }
