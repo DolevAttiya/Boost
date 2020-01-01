@@ -3,10 +3,10 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 {
-    public abstract class Analysis: IAnalysis
+    public abstract class Analysis : IAnalysis
     {
-
         #region Properties
+
         public SortedValueDictionary<object, int> PhotosDictionary { get; protected set; }
 
         public SortedValueDictionary<object, int> VideosDictionary { get; protected set; }
@@ -14,16 +14,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
         public SortedValueDictionary<object, int> StatusDictionary { get; protected set; }
 
         public SortedValueDictionary<object, int> CombinedAnalysisHolders { get; protected set; }
+
         #endregion
 
         #region Methods
 
-        public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(
-            eAnalysisDataBasis i_AnalysisDataBasis)
+        public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(eAnalysisDataBasis i_AnalysisDataBasis)
         {
             SortedValueDictionary<object, int> analysisCollection = null;
 
-            switch (i_AnalysisDataBasis)
+            switch(i_AnalysisDataBasis)
             {
                 case eAnalysisDataBasis.Combined:
                     analysisCollection = CombinedAnalysisHolders;
@@ -41,8 +41,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
             return analysisCollection;
         }
-        #endregion
 
-        public abstract IAnalysis CreateAnalysisByTimeFrame(User i_AnalysisUser, eTimeSelector i_TimeFrame = eTimeSelector.Month);
+        public abstract IAnalysis CreateAnalysisByTimeFrame(
+            User i_AnalysisUser,
+            eTimeSelector i_TimeFrame = eTimeSelector.Month);
+
+        #endregion
     }
 }

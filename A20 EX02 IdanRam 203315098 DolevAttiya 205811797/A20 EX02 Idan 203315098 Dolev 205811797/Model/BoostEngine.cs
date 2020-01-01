@@ -14,6 +14,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         #region Data Members & Properties
 
         #region Instance
+
         public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
 
         #endregion
@@ -195,7 +196,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                 m_BoostSettings.DefaultAnalysisTimeFrame = m_CurrentAnalysisTimeFrame;
                 m_BoostSettings.DefaultAnalysisDataBasis = m_CurrentAnalysisDataBasis;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message);
             }

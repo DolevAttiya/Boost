@@ -7,7 +7,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
     {
         #region Methods
 
-        public override IAnalysis CreateAnalysisByTimeFrame(User i_AnalysisUser, eTimeSelector i_TimeFrame = eTimeSelector.Month)
+        public override IAnalysis CreateAnalysisByTimeFrame(
+            User i_AnalysisUser,
+            eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             PhotosDictionary = DictionaryFactory.CreateTimeAnalysisDictionary(
                 i_AnalysisUser,

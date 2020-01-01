@@ -88,7 +88,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorato
             get => r_Dictionary[i_Key];
             set => r_Dictionary[i_Key] = value;
         }
-        
+
         public ICollection<TK> Keys => r_Dictionary.Keys;
 
         public ICollection<TV> Values => r_Dictionary.Values;

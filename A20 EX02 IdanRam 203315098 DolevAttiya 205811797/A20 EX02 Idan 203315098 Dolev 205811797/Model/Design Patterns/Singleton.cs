@@ -62,7 +62,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
                             }
 
                             /// Also exclude internal constructors.
-                            if (constructor == null || constructor.IsAssembly)
+                            if(constructor == null || constructor.IsAssembly)
                             {
                                 throw new Exception(
                                     string.Format(

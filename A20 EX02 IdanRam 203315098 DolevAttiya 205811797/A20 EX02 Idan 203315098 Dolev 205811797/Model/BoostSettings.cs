@@ -11,6 +11,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
     public class BoostSettings
     {
         #region Data Members & Properties
+
         // App Settings
         public bool FirstLogin { get; set; }
 
@@ -24,8 +25,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public string StartupPath { get; set; }
 
-        private static string s_FilePath = $@"{Environment.GetFolderPath(SpecialFolder.ApplicationData)}\BoostSettings.xml";
-        
+        private static string s_FilePath =
+            $@"{Environment.GetFolderPath(SpecialFolder.ApplicationData)}\BoostSettings.xml";
+
         // User Settings
         public string FirstName { get; set; }
 
@@ -34,29 +36,33 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public eTimeSelector DefaultAnalysisTimeFrame { get; set; }
 
         public eAnalysisDataBasis DefaultAnalysisDataBasis { get; set; }
-        
+
         public List<DateAndValue> FriendCounter;
+
         #endregion
 
         #region Ctor
+
         private BoostSettings()
         {
             ResetSettingsToDefault();
         }
+
         #endregion
 
         #region Methods
+
         public static BoostSettings LoadAppSettingsFromFile()
         {
             BoostSettings appSettings = null;
 
             try
             {
-                if (File.Exists(s_FilePath))
+                if(File.Exists(s_FilePath))
                 {
                     try
                     {
-                        using (Stream stream = new FileStream(s_FilePath, FileMode.Open))
+                        using(Stream stream = new FileStream(s_FilePath, FileMode.Open))
                         {
                             XmlSerializer serializer = new XmlSerializer(typeof(BoostSettings));
                             appSettings = serializer.Deserialize(stream) as BoostSettings;
@@ -99,12 +105,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public void SaveAppSettingsToFile()
         {
-            if (!File.Exists(s_FilePath))
+            if(!File.Exists(s_FilePath))
             {
                 createNewFile();
             }
 
-            using (Stream streamSave = new FileStream(s_FilePath, FileMode.Truncate))
+            using(Stream streamSave = new FileStream(s_FilePath, FileMode.Truncate))
             {
                 XmlSerializer serializer = new XmlSerializer(GetType());
                 serializer.Serialize(streamSave, this);
@@ -123,10 +129,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             {
                 if(File.Exists(s_FilePath))
                 {
-                  File.Delete(s_FilePath);
+                    File.Delete(s_FilePath);
                 }
             }
-            catch (UnauthorizedAccessException e)
+            catch(UnauthorizedAccessException e)
             {
                 throw new Exception(e.Message);
             }
@@ -134,9 +140,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public bool IsFirstLogin(string i_CurrentUserEmail)
         {
-            if (LastLogin != null)
+            if(LastLogin != null)
             {
-                if (i_CurrentUserEmail != LastLoggedInEmail)
+                if(i_CurrentUserEmail != LastLoggedInEmail)
                 {
                     LastLogin = null;
                     FirstLogin = true;
@@ -149,6 +155,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             return FirstLogin;
         }
+
         #endregion
     }
 }
