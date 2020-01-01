@@ -4,7 +4,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
-    static class VideosDictionaryFactory
+    public static class VideosDictionaryFactory
     {
         public static SortedValueDictionary<object, int> CreateVideosTimeAnalysisDictionary(
             User i_AnalysisUser,

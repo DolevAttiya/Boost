@@ -8,7 +8,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
     internal class DictionaryFactory
     {
-
         public static SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
@@ -29,14 +28,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 
             try
             {
-
                 foreach(Post postToAnalysis in i_AnalysisUser.Posts)
                 {
                     if(i_TimeFrame.GetHashCode() < DateTime.Now.Subtract(postToAnalysis.CreatedTime.Value).Days)
                     {
                         break;
                     }
-
 
                     if(Tester.Invoke(postToAnalysis.Type))
                     {

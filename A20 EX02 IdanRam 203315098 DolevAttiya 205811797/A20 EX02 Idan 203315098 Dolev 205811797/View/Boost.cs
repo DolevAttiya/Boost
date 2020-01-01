@@ -12,7 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
 
         public BoostEngine m_BoostEn;
-        private Settings m_SettingsPopup; //default null
+        private Settings m_SettingsPopup; // default null
         private List<UserControl> m_BoostPages = new List<UserControl>();
         private BoostViewModel m_BoostViewModel = new BoostViewModel();
 
@@ -226,7 +226,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayWhatsNewPopup()
         {
-            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.r_CurrentVersion)
+            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.sr_CurrentVersion)
             {
                 WhatsNew whatsNew = new WhatsNew { Visible = true };
             }

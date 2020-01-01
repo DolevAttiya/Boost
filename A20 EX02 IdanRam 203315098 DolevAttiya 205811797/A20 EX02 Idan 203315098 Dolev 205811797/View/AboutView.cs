@@ -18,7 +18,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayAboutContent()
         {
-            labelVersion.Text = $@"Version: {BoostEngine.r_CurrentVersion}";
+            labelVersion.Text = $@"Version: {BoostEngine.sr_CurrentVersion}";
             UITools.displayHTMLPage(m_WebBrowser, m_ResourceName);
         }
 

@@ -4,7 +4,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
-    interface IAnalysisFactoryDictionary
+    public interface IAnalysisFactoryDictionary
     {
         IDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
@@ -15,6 +15,5 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
             Post.eType i_PostType);
-
     }
 }

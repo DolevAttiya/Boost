@@ -33,7 +33,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public const string k_PostErrorMessage = "Could not get Post!";
 
-        public static readonly string r_CurrentVersion = "0.2.0";
+        public static readonly string sr_CurrentVersion = "0.2.0";
 
         public eTimeSelector m_CurrentAnalysisTimeFrame;
 
@@ -166,7 +166,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             m_BoostSettings.LastAccessToken = LoginResult.AccessToken;
             m_BoostSettings.LastLogin = DateTime.Now;
             m_BoostSettings.FirstName = LoggedInUser.FirstName;
-            m_BoostSettings.LastUsedVersion = BoostEngine.r_CurrentVersion;
+            m_BoostSettings.LastUsedVersion = BoostEngine.sr_CurrentVersion;
         }
 
         public Post GetLastStatus()
