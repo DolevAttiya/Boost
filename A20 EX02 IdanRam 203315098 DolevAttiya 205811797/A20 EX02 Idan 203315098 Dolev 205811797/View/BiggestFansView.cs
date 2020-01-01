@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator;
 using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 using FacebookWrapper.ObjectModel;
 
