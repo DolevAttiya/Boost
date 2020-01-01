@@ -61,7 +61,6 @@
   <ItemGroup>
     <Compile Include="Model\DataClasses\Analysis.cs" />
     <Compile Include="Model\BoostEngine.cs" />
-    <Compile Include="Model\DataClasses\BiggestFan.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
     <Compile Include="Model\Design Patterns\Builder.cs" />
@@ -78,11 +77,6 @@
     <Compile Include="Model\DataClasses\DateAndValue.cs" />
     <Compile Include="Model\Design Patterns\DictionaryDecorator.cs" />
     <Compile Include="Model\Design Patterns\SortedDictionary.cs" />
-    <Compile Include="ViewModels\BestTimesViewModel.cs" />
-    <Compile Include="ViewModels\BiggestFansViewModel.cs" />
-    <Compile Include="ViewModels\BoostViewModel.cs" />
-    <Compile Include="ViewModels\DashboardViewModel.cs" />
-    <Compile Include="ViewModels\NavbarViewModel.cs" />
     <Compile Include="View\AboutView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -133,11 +127,9 @@
     <Compile Include="View\Boost.Designer.cs">
       <DependentUpon>Boost.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginView.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="View\LoginView.Designer.cs">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <Compile Include="View\Login.cs" />
+    <Compile Include="View\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Navbar.cs">
       <SubType>UserControl</SubType>
@@ -179,8 +171,8 @@
     <EmbeddedResource Include="View\Boost.resx">
       <DependentUpon>Boost.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LoginView.resx">
-      <DependentUpon>LoginView.cs</DependentUpon>
+    <EmbeddedResource Include="View\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Navbar.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
@@ -230,7 +222,9 @@
   <ItemGroup>
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhatsNew.html" />
   </ItemGroup>
