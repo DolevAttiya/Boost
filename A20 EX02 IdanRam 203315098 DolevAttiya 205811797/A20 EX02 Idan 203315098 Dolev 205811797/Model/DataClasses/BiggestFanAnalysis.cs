@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory;
+﻿using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory;
 using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses

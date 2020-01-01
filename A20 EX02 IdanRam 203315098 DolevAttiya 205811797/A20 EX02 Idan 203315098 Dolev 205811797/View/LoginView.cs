@@ -34,14 +34,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Methods
         public void LoginPageSetup()
         {
-            this.LabelLoading.Location = new Point(this.LabelLoading.Location.X, this.CheckBoxRememberUser.Bottom + 10);
-            this.LabelLoginError.Location = new Point(this.LabelLoginError.Location.X, this.LabelLoading.Bottom + 10);
-            this.LabelLoginError.Text = k_LoginFailedMessage;
+            LabelLoading.Location = new Point(LabelLoading.Location.X, CheckBoxRememberUser.Bottom + 10);
+            LabelLoginError.Location = new Point(LabelLoginError.Location.X, LabelLoading.Bottom + 10);
+            LabelLoginError.Text = k_LoginFailedMessage;
             PictureBoxFBLogin.Visible = true;
             CheckBoxRememberUser.Visible = true;
             ButtonContinueAs.Visible = false;
             ButtonSwitchUser.Visible = false;
-            this.boostSettingsBindingSource.DataSource = r_BoostEn.m_BoostSettings;
+            boostSettingsBindingSource.DataSource = r_BoostEn.m_BoostSettings;
         }
 
         public void UpdateLoginPage()
@@ -74,17 +74,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
         {
-            this.PictureBoxFBLogin.BackgroundImage = (Image)Properties.Resources.fbLogin;
+            PictureBoxFBLogin.BackgroundImage = (Image)Properties.Resources.fbLogin;
         }
 
         private void PictureBoxFBLogin_MouseEnter(object sender, EventArgs e)
         {
-            this.PictureBoxFBLogin.BackgroundImage = (Image)Properties.Resources.fbLogin_rollover;
+            PictureBoxFBLogin.BackgroundImage = (Image)Properties.Resources.fbLogin_rollover;
         }
 
         private void PictureBoxFBLogin_Click(object sender, EventArgs e)
         {
-            this.LabelLoading.Visible = true;
+            LabelLoading.Visible = true;
             if(m_LoginEvent != null)
             {
                 m_LoginEvent.Invoke();
@@ -94,17 +94,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public void DisplayLoginErrorMessage()
         {
-            this.LabelLoginError.Visible = true;
+            LabelLoginError.Visible = true;
         }
 
         public void HideLoginPage()
         {
-            this.Visible = false;
+            Visible = false;
         }
 
         private void ButtonContinueAs_Click(object sender, EventArgs e)
         {
-            this.LabelLoading.Visible = true;
+            LabelLoading.Visible = true;
             if (m_ContinueAsEvent != null)
             {
                 m_ContinueAsEvent.Invoke();

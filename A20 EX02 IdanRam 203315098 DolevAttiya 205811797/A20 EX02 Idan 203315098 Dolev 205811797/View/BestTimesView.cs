@@ -35,8 +35,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public BestTimesView()
         {
             InitializeComponent();
-            k_GridAreaHeight = this.Size.Height - 40;
-            k_GridAreaWidth = this.Size.Width - 100;
+            k_GridAreaHeight = Size.Height - 40;
+            k_GridAreaWidth = Size.Width - 100;
         }
         #endregion
 
@@ -98,11 +98,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
 
                     // Multithreading
-                    this.Invoke(
+                    Invoke(
                         new Action(
                             () =>
                                 {
-                                    this.Controls.Add(m_BestTimesGrid[i, j]);
+                                    Controls.Add(m_BestTimesGrid[i, j]);
 
                                     //// Column titles
                                     if(i == 0)

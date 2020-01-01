@@ -39,22 +39,22 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public void DisplayAnalyticsErrorMessage()
         {
-            this.panelAnalytics.Visible = false;
-            this.LabelError.Visible = true;
+            panelAnalytics.Visible = false;
+            LabelError.Visible = true;
         }
 
         private void analyticsInitialSetup()
         {
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.panelAnalytics.GradientColorA = Stylesheet.Color_PanelColorA;
-            this.panelAnalytics.GradientColorB = Stylesheet.Color_PanelColorB;
-            this.panelAnalytics.GradientAngle = 90F;
-            this.BestTimesPage.BringToFront();
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Main;
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
-            this.labelAnalytics.Font = Stylesheet.Font_Header1;
+            BackColor = System.Drawing.Color.Transparent;
+            panelAnalytics.GradientColorA = Stylesheet.Color_PanelColorA;
+            panelAnalytics.GradientColorB = Stylesheet.Color_PanelColorB;
+            panelAnalytics.GradientAngle = 90F;
+            BestTimesPage.BringToFront();
+            buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
+            buttonBiggestFans.BackColor = Stylesheet.Color_Main;
+            buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+            buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+            labelAnalytics.Font = Stylesheet.Font_Header1;
 
             addButtonsToLists();
             addSubPagesToList();
@@ -62,16 +62,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void ButtonBestTimes_Click(object sender, EventArgs e)
         {
-            this.BestTimesPage.BringToFront();
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Main;
+            BestTimesPage.BringToFront();
+            buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
+            buttonBiggestFans.BackColor = Stylesheet.Color_Main;
         }
 
         private void ButtonBiggestFans_Click(object sender, EventArgs e)
         {
-            this.BiggestFansPage.BringToFront();
-            this.buttonBiggestFans.BackColor = Stylesheet.Color_Secondary;
-            this.buttonBestTimes.BackColor = Stylesheet.Color_Main;
+            BiggestFansPage.BringToFront();
+            buttonBiggestFans.BackColor = Stylesheet.Color_Secondary;
+            buttonBestTimes.BackColor = Stylesheet.Color_Main;
         }
 
         private void analysisTab_Click(object sender, EventArgs e)
@@ -95,17 +95,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             AnalysisBasisButtons = new List<Button>();
             AnalysisTimeFrameButtons = new List<Button>();
             
-            AnalyticsTabButtons.Add(this.buttonBestTimes);
-            AnalyticsTabButtons.Add(this.buttonBiggestFans);
+            AnalyticsTabButtons.Add(buttonBestTimes);
+            AnalyticsTabButtons.Add(buttonBiggestFans);
 
-            AnalysisBasisButtons.Add(this.buttonCombined);
-            AnalysisBasisButtons.Add(this.buttonStatus);
-            AnalysisBasisButtons.Add(this.buttonPhotos);
-            AnalysisBasisButtons.Add(this.buttonVideos);
+            AnalysisBasisButtons.Add(buttonCombined);
+            AnalysisBasisButtons.Add(buttonStatus);
+            AnalysisBasisButtons.Add(buttonPhotos);
+            AnalysisBasisButtons.Add(buttonVideos);
             
-            AnalysisTimeFrameButtons.Add(this.buttonWeek);
-            AnalysisTimeFrameButtons.Add(this.buttonMonth);
-            AnalysisTimeFrameButtons.Add(this.buttonYear);
+            AnalysisTimeFrameButtons.Add(buttonWeek);
+            AnalysisTimeFrameButtons.Add(buttonMonth);
+            AnalysisTimeFrameButtons.Add(buttonYear);
         }
 
         private void addSubPagesToList()
@@ -125,7 +125,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 new Thread(new ThreadStart(() => { BestTimesPage.DrawBestTimesGrid(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
 
                 ///BiggestFans
-                this.Invoke(new Action(() => BiggestFansPage.DisplayBiggestFans(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
+                Invoke(new Action(() => BiggestFansPage.DisplayBiggestFans(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
 
                 foreach (Button button in AnalysisTimeFrameButtons)
                 {

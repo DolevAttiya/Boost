@@ -106,7 +106,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             using (Stream streamSave = new FileStream(s_FilePath, FileMode.Truncate))
             {
-                XmlSerializer serializer = new XmlSerializer(this.GetType());
+                XmlSerializer serializer = new XmlSerializer(GetType());
                 serializer.Serialize(streamSave, this);
             }
         }
@@ -134,16 +134,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public bool IsFirstLogin(string i_CurrentUserEmail)
         {
-            if (this.LastLogin != null)
+            if (LastLogin != null)
             {
-                if (i_CurrentUserEmail != this.LastLoggedInEmail)
+                if (i_CurrentUserEmail != LastLoggedInEmail)
                 {
-                    this.LastLogin = null;
-                    this.FirstLogin = true;
+                    LastLogin = null;
+                    FirstLogin = true;
                 }
                 else
                 {
-                    this.FirstLogin = false;
+                    FirstLogin = false;
                 }
             }
 

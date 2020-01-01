@@ -26,16 +26,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             switch (i_AnalysisDataBasis)
             {
                 case eAnalysisDataBasis.Combined:
-                    analysisCollection = this.CombinedAnalysisHolders;
+                    analysisCollection = CombinedAnalysisHolders;
                     break;
                 case eAnalysisDataBasis.Photo:
-                    analysisCollection = this.PhotosDictionary;
+                    analysisCollection = PhotosDictionary;
                     break;
                 case eAnalysisDataBasis.Status:
-                    analysisCollection = this.StatusDictionary;
+                    analysisCollection = StatusDictionary;
                     break;
                 case eAnalysisDataBasis.Video:
-                    analysisCollection = this.VideosDictionary;
+                    analysisCollection = VideosDictionary;
                     break;
             }
 

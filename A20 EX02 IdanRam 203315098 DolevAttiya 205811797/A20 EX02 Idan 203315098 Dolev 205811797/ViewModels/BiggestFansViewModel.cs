@@ -29,7 +29,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         private void createBiggestFanAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
             BiggestFanAnalysis.CreateAnalysisByTimeFrame(i_User, i_TimeFrame);
-            selectAnalysisCollection(this.BiggestFanAnalysis, i_AnalysisDataBasis);
+            selectAnalysisCollection(BiggestFanAnalysis, i_AnalysisDataBasis);
         }
 
         private void selectAnalysisCollection(BiggestFanAnalysis i_BiggestFanAnalysis, eAnalysisDataBasis i_AnalysisDataBasis)
@@ -47,11 +47,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
                 BiggestFanLeaderboard.Add(biggestFan);
             }
 
-            if (i_TimeSelector == io_LastUsedTimeSelector && this.BiggestFanAnalysis != null)
+            if (i_TimeSelector == io_LastUsedTimeSelector && BiggestFanAnalysis != null)
             {
                 if (i_AnalysisDataBasis != io_LastUsedDataBasis)
                 {
-                    selectAnalysisCollection(this.BiggestFanAnalysis, i_AnalysisDataBasis);
+                    selectAnalysisCollection(BiggestFanAnalysis, i_AnalysisDataBasis);
                     io_LastUsedDataBasis = i_AnalysisDataBasis;
                 }
                 else
