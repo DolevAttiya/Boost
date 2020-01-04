@@ -1,28 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
 using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
-using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
     public partial class BestTimesView : UserControl
     {
         #region Data Members
-        private static readonly int sk_NumOfDays = 7;
-        private static readonly int sk_NumOfHours = 24;
-        private readonly int k_GridAreaHeight;
-        private readonly int k_GridAreaWidth;
-        private int k_CellWidth;
-        private int k_CellHeight;
+        private static readonly int sk_NumOfDays = 7; // TODO read only / const ?
+        private static readonly int sk_NumOfHours = 24; // TODO read only / const ?
+        private readonly int k_GridAreaHeight; // TODO read only / const ?
+        private readonly int k_GridAreaWidth; // TODO read only / const ?
+        private int k_CellWidth; // TODO read only / const ?
+        private int k_CellHeight; // TODO read only / const ?
         public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours]; // TODO 
         public Label[,] m_BestTimesGrid = new Label[sk_NumOfDays + 1, sk_NumOfHours + 1];
         private BestTimesViewModel m_BestTimesViewModel = new BestTimesViewModel();
