@@ -13,14 +13,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
             return DictionaryFactory.CreateTimeAnalysisDictionary(
                 i_AnalysisUser,
                 i_TimeFrame,
-                i_eType => Post.eType.video == i_eType);
+                i_EType => Post.eType.video == i_EType);
         }
 
         public static SortedValueDictionary<object, int> CreateVideosBiggestFansAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, Post.eType.video);
+            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => Post.eType.video == i_EType);
         }
     }
 }

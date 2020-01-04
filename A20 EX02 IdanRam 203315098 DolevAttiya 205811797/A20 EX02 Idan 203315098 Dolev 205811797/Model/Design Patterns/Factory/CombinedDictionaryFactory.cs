@@ -10,14 +10,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_eType => true);
+            return DictionaryFactory.CreateTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => true);
         }
 
         public static SortedValueDictionary<object, int> CreateCombinedBiggestFansAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, null);
+            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => true);
         }
     }
 }

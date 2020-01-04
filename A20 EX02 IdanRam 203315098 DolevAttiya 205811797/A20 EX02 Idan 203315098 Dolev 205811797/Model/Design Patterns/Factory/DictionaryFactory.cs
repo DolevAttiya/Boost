@@ -54,7 +54,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
         public static SortedValueDictionary<object, int> CreateBiggestFanAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
-            Post.eType? i_PostType)
+            Func<Post.eType?, bool> Tester)
         {
             SortedValueDictionary<object, int> o_DictionaryToAnalysis =
                 new SortedValueDictionary<object, int>(new Dictionary<object, int>());
@@ -67,7 +67,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
                         break;
                     }
 
-                    if(i_PostType != null && i_PostType != postToAnalysis.Type)
+                    if(Tester.Invoke(postToAnalysis.Type))
                     {
                         continue;
                     }
