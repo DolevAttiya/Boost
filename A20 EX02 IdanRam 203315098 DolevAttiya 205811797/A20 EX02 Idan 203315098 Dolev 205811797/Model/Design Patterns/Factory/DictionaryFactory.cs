@@ -8,7 +8,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
     internal class DictionaryFactory
     {
-        public static SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
+        internal static SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
             Func<Post.eType?, bool> i_Tester)
@@ -51,7 +51,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
             return o_DictionaryToAnalysis;
         }
 
-        public static SortedValueDictionary<object, int> CreateBiggestFanAnalysisDictionary(
+        internal static SortedValueDictionary<object, int> CreateBiggestFanAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
             Func<Post.eType?, bool> i_Tester)
