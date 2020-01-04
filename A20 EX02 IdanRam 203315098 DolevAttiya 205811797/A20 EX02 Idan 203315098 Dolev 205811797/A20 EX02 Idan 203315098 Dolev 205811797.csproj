@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Facebook">
@@ -64,10 +66,14 @@
     <Compile Include="Model\DataClasses\BiggestFan.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
+    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\CombinedDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\DictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\IAnalysisFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\PhotosDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\StatusDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\BiggestFanAnalysiserFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\TimeAnalysiserFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\VideosDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Singleton.cs" />
     <Compile Include="Model\DataClasses\eTimerSelector.cs" />

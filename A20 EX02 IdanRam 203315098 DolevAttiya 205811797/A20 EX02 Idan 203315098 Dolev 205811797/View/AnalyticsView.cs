@@ -187,65 +187,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
-            eTimeSelector timeFrame = BoostEngine.Instance.m_CurrentAnalysisTimeFrame;
-
-            switch(i_Button.Text)
-            {
-                case "Combined":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Combined;
-                        break;
-                    }
-
-                case "Status":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Status;
-                        break;
-                    }
-
-                case "Photos":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Photo;
-                        break;
-                    }
-
-                case "Videos":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisDataBasis = eAnalysisDataBasis.Video;
-                        break;
-                    }
-            }
-
-            reanalyzeAll(timeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
+            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisDataBasis);
+            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
         }
 
         private void switchAnalysisTimeFrame(Button i_Button)
         {
             SelectButton(i_Button, AnalysisTimeFrameButtons);
-            eAnalysisDataBasis dataBasis = BoostEngine.Instance.m_CurrentAnalysisDataBasis;
+            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisTimeFrame);
+            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
 
-            switch (i_Button.Text)
-            {
-                case "Week":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Week;
-                        break;
-                    }
-
-                case "Month":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Month;
-                        break;
-                    }
-
-                case "Year":
-                    {
-                        BoostEngine.Instance.m_CurrentAnalysisTimeFrame = eTimeSelector.Year;
-                        break;
-                    }
-            }
-
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, dataBasis);
         }
 
         private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
