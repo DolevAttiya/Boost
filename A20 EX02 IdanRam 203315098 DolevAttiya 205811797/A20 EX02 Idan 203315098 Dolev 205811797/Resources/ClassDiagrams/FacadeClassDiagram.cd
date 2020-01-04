@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.Boost">
-    <Position X="10.75" Y="0.5" Width="2" />
+    <Position X="20.5" Y="1.25" Width="2" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -17,15 +17,15 @@
       <FileName>View\Boost.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="m_BoostViewModel" />
-      <Field Name="AnalyticsPage" />
-      <Field Name="DashboardPage" />
-      <Field Name="navbar" />
       <Field Name="m_BoostEn" />
+      <Field Name="m_BoostViewModel" />
+      <Field Name="DashboardPage" />
+      <Field Name="AnalyticsPage" />
+      <Field Name="navbar" />
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.BiggestFansView">
-    <Position X="17.75" Y="15.75" Width="2.5" />
+    <Position X="32.75" Y="14.75" Width="2.5" />
     <Members>
       <Method Name="DisplayBiggestFans_Legacy" Hidden="true" />
     </Members>
@@ -38,7 +38,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.BestTimesView">
-    <Position X="21.25" Y="13.75" Width="3.25" />
+    <Position X="27" Y="14.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>QAAABAwAYCACIgAAAACAAEMCAQgAAABAAAAAQggAAYA=</HashCode>
       <FileName>View\BestTimesView.cs</FileName>
@@ -48,7 +48,12 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.AnalyticsView">
-    <Position X="13.5" Y="11" Width="2.75" />
+    <Position X="30.25" Y="4.5" Width="2.75" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.203" Y="3.904" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>PkACEAAIAmCAEERARADABAIGAEEAAJJAQBAAAAABIgA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
@@ -61,7 +66,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.DashboardView">
-    <Position X="5" Y="10.75" Width="3.5" />
+    <Position X="13.25" Y="8" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AQIxBMACACdAAAUIAA2AQAkDAACAkAiAOAQABACAMAA=</HashCode>
       <FileName>View\DashboardView.cs</FileName>
@@ -71,7 +76,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.NavbarViewModel">
-    <Position X="1.5" Y="2" Width="1.5" />
+    <Position X="9.5" Y="22" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
       <FileName>ViewModels\NavbarViewModel.cs</FileName>
@@ -81,26 +86,50 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.DashboardViewModel">
-    <Position X="1.5" Y="13" Width="2.5" />
+    <Position X="14.25" Y="22" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAEESAAAAAAAIBAEAQQAAAAACoAEAAgBAAAAgACCAA=</HashCode>
       <FileName>ViewModels\DashboardViewModel.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BoostViewModel">
-    <Position X="14.5" Y="0.75" Width="1.75" />
+    <Position X="20" Y="22" Width="1.75" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine" FixedFromPoint="true">
+      <Path>
+        <Point X="20.875" Y="23.94" />
+        <Point X="20.875" Y="27.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.151" Y="3.808" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAEAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEIAAAI=</HashCode>
       <FileName>ViewModels\BoostViewModel.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="m_LoginErrorEvent" />
-      <Field Name="m_PostLoginEvent" />
       <Field Name="r_BoostEn" />
+      <Field Name="m_PostLoginEvent" />
+      <Field Name="m_LoginErrorEvent" />
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BiggestFansViewModel">
-    <Position X="17.75" Y="11" Width="2.25" />
+    <Position X="33" Y="22" Width="2.25" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="34.188" Y="24.517" />
+        <Point X="34.188" Y="29.562" />
+        <Point X="31.583" Y="29.562" Type="JumpStart" />
+        <Point X="31.417" Y="29.562" Type="JumpEnd" />
+        <Point X="22.75" Y="29.562" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="7.27" Y="0.078" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AgAAEgAAAAAAAAAAgAAAACAAAAAACAAAAAAAAAACAAA=</HashCode>
       <FileName>ViewModels\BiggestFansViewModel.cs</FileName>
@@ -110,17 +139,17 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BestTimesViewModel">
-    <Position X="22" Y="11" Width="2" />
+    <Position X="28" Y="22.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAgAA=</HashCode>
       <FileName>ViewModels\BestTimesViewModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.Navbar">
-    <Position X="4.75" Y="1.75" Width="2" />
+    <Position X="9.5" Y="8.25" Width="2" />
     <AssociationLine Name="m_UsernameButtonEvent" Type="A20_EX02_Idan_203315098_Dolev_205811797.View.UsernameButtonEventHandler">
       <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.11" Y="0.294" />
+        <Position X="0.294" Y="0.11" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -128,40 +157,40 @@
       <FileName>View\Navbar.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="m_NavbarViewModel" />
       <Field Name="m_UsernameButtonEvent" />
+      <Field Name="m_NavbarViewModel" />
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
-    <Position X="20.25" Y="3.5" Width="2.25" />
+    <Position X="20" Y="27.5" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AgFgAAECAAAgBAUAAAUAYAAAEAJAAAQAQAAABEBAEBA=</HashCode>
+      <HashCode>AgFgAAECAAAgBAUAAAUAIAAAEAJAAAQAQAAABEBAEBA=</HashCode>
       <FileName>Model\BoostEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.View.SaveAnalysisSettingsEventHandler">
-    <Position X="9.25" Y="15" Width="2.5" />
+    <Position X="26.75" Y="11" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.PostLoginEventHandler" Collapsed="true">
-    <Position X="18.25" Y="2" Width="2" />
+    <Position X="24.25" Y="23.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\BoostViewModel.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.LoginErrorEventHandler">
-    <Position X="18.25" Y="0.75" Width="2" />
+    <Position X="24.25" Y="21.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ViewModels\BoostViewModel.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.View.UsernameButtonEventHandler">
-    <Position X="4.75" Y="7.5" Width="2.25" />
+    <Position X="13.25" Y="5.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\Navbar.cs</FileName>
