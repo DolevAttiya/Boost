@@ -11,7 +11,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
         public static SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
-            Func<Post.eType?, bool> Tester)
+            Func<Post.eType?, bool> i_Tester)
         {
             SortedValueDictionary<object, int> o_DictionaryToAnalysis =
                 new SortedValueDictionary<object, int>(new Dictionary<object, int>());
@@ -35,7 +35,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
                         break;
                     }
 
-                    if(Tester.Invoke(postToAnalysis.Type))
+                    if(i_Tester.Invoke(postToAnalysis.Type))
                     {
                         o_DictionaryToAnalysis[new DayAndHour(
                             postToAnalysis.CreatedTime.Value.DayOfWeek,
@@ -54,7 +54,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
         public static SortedValueDictionary<object, int> CreateBiggestFanAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame,
-            Func<Post.eType?, bool> Tester)
+            Func<Post.eType?, bool> i_Tester)
         {
             SortedValueDictionary<object, int> o_DictionaryToAnalysis =
                 new SortedValueDictionary<object, int>(new Dictionary<object, int>());
@@ -67,7 +67,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
                         break;
                     }
 
-                    if(Tester.Invoke(postToAnalysis.Type))
+                    if(i_Tester.Invoke(postToAnalysis.Type))
                     {
                         continue;
                     }
