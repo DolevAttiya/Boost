@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
+namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator
 {
     public class DictionaryDecorator<TK, TV> : IDictionary<TK, TV>
     {
@@ -88,7 +88,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
             get => r_Dictionary[i_Key];
             set => r_Dictionary[i_Key] = value;
         }
-        
+
         public ICollection<TK> Keys => r_Dictionary.Keys;
 
         public ICollection<TV> Values => r_Dictionary.Values;

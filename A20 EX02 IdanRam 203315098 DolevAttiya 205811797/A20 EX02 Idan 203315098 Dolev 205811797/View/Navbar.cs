@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
@@ -38,7 +33,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             int X = startX;
             int Y = 0;
             int buttonWidth = 135;
-            int buttonHeight = this.Height;
+            int buttonHeight = Height;
             int buttonSpacing = 0;
 
             int numOfBoostPages = Enum.GetNames(typeof(Boost.eBoostPages)).Length;
@@ -63,7 +58,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         button.TabIndex = (byte)page + 2;
                         button.Text = page.ToString().ToUpper();
                         button.UseVisualStyleBackColor = false;
-                        this.Controls.Add(button);
+                        Controls.Add(button);
                         m_NavbarButtons.Add(button);
                         SetButtonStyleToDefault(button);
 
