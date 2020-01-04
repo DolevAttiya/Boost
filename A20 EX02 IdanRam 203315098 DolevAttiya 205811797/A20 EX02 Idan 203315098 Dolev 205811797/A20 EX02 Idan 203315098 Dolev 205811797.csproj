@@ -64,9 +64,7 @@
     <Compile Include="Model\DataClasses\BiggestFan.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
-    <Compile Include="Model\Design Patterns\Builder.cs" />
     <Compile Include="Model\Design Patterns\Factory\CombinedDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\IAnalysisFactoryDictionary.cs" />
     <Compile Include="Model\Design Patterns\Factory\DictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\PhotosDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\StatusDictionaryFactory.cs" />
