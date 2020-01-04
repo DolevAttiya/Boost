@@ -62,12 +62,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
                             }
 
                             /// Also exclude internal constructors.
-                            if (constructor == null || constructor.IsAssembly)
+                            if(constructor == null || constructor.IsAssembly)
                             {
                                 throw new Exception(
-                                    string.Format(
-                                        "A private or protected constructor is missing for '{0}'.",
-                                        typeof(T).Name));
+                                    $"A private or protected constructor is missing for '{typeof(T).Name}'.");
                             }
 
                             s_Instance = constructor.Invoke(null) as T;

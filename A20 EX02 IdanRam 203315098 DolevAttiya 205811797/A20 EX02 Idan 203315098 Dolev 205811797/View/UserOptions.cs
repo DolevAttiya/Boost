@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -19,7 +15,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     {
         private const int k_ButtonWidth = 200;
         private const int k_ButtonHeight = 40;
-        private List<Button> m_UserOptionButtons = new List<Button>();
+        private List<Button> m_UserOptionButtons = new List<Button>(); // TODO read only ?
         public LogoutEventHandler m_LogoutEvent;
         public SettingsEventHandler m_SettingsEvent;
         public OptionClickEventHandler m_OptionClickEvent;
@@ -39,7 +35,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void hideUserOptions()
         {
-            this.Visible = false;
+            Visible = false;
         }
 
         private void initializeUserOptionButtons()
@@ -55,7 +51,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 button.Dock = System.Windows.Forms.DockStyle.Bottom;
                 button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
                 button.FlatAppearance.BorderSize = 0;
-                button.FlatAppearance.BorderColor = this.BackColor;
+                button.FlatAppearance.BorderColor = BackColor;
                 button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                 button.Font = Stylesheet.Font_NavbarButtonDefault;
                 button.ForeColor = System.Drawing.Color.White;
@@ -68,7 +64,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 button.Text = option.ToString();
                 button.UseVisualStyleBackColor = true;
                 button.Cursor = Cursors.Hand;
-                this.Controls.Add(button);
+                Controls.Add(button);
                 m_UserOptionButtons.Add(button);
                 button.Click += new EventHandler(UserOptionButton_Click);
 
@@ -83,7 +79,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public void AdjustUserOptionsSize()
         {
-            this.Size = new Size(k_ButtonWidth, (k_ButtonHeight + 3) * m_UserOptionButtons.Count);
+            Size = new Size(k_ButtonWidth, (k_ButtonHeight + 3) * m_UserOptionButtons.Count);
         }
 
         private void selectUserOption(Button i_Button) 

@@ -14,9 +14,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            LinearGradientBrush lgb = new LinearGradientBrush(this.ClientRectangle, this.GradientColorA, this.GradientColorB, this.GradientAngle);
+            LinearGradientBrush lgb = new LinearGradientBrush(ClientRectangle, GradientColorA, GradientColorB, GradientAngle);
             Graphics g = e.Graphics;
-            g.FillRectangle(lgb, this.ClientRectangle);
+            g.FillRectangle(lgb, ClientRectangle);
             base.OnPaint(e);
         }
     }

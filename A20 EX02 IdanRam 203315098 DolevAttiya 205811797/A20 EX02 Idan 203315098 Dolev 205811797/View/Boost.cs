@@ -12,7 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Data Members
 
         public BoostEngine m_BoostEn;
-        private Settings m_SettingsPopup = null;
+        private Settings m_SettingsPopup; // default null
         private List<UserControl> m_BoostPages = new List<UserControl>();
         private BoostViewModel m_BoostViewModel = new BoostViewModel();
 
@@ -65,17 +65,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 // Add event handler to dynamically added buttons
                 foreach(Button button in navbar.m_NavbarButtons)
                 {
-                    button.Click += new EventHandler(this.NavbarButton_Click);
+                    button.Click += NavbarButton_Click;
                 }
 
-                navbar.m_UsernameButtonEvent += new UsernameButtonEventHandler(toggleUserOptionPanel);
+                navbar.m_UsernameButtonEvent += toggleUserOptionPanel;
 
                 // Boost Frame properties
-                this.MaximizeBox = false;
-                this.MinimizeBox = true;
-                this.FormBorderStyle = FormBorderStyle.FixedDialog;
-                this.Margin = new Padding(0, 0, 0, 0);
-                this.BackColor = Stylesheet.Color_BGColorA;
+                MaximizeBox = false;
+                MinimizeBox = true;
+                FormBorderStyle = FormBorderStyle.FixedDialog;
+                Margin = new Padding(0, 0, 0, 0);
+                BackColor = Stylesheet.Color_BGColorA;
             }
 
             //// Adjust UI before login
@@ -226,7 +226,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayWhatsNewPopup()
         {
-            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.R_CurrentVersion)
+            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.sr_CurrentVersion)
             {
                 WhatsNew whatsNew = new WhatsNew { Visible = true };
             }

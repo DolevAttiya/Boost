@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
+namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator
 {
-    public class SortedValueDictionary<TK, TV> : DictionaryDecorator<TK, TV> where TV : IComparable
+    public class SortedValueDictionary<TK, TV> : DictionaryDecorator<TK, TV>
+        where TV : IComparable
     {
         public KeyValuePair<TK, TV>[] SortByValue()
         {
@@ -19,4 +20,4 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns
         {
         }
     }
-}   
+}

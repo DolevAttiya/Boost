@@ -6,7 +6,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     public partial class AboutView : UserControl
     {
         private string m_ResourceName = "About";
-        private WebBrowser m_WebBrowser = null;
+        private WebBrowser m_WebBrowser; // default null
 
         #region Ctor
         public AboutView()
@@ -18,19 +18,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayAboutContent()
         {
-            this.labelVersion.Text = string.Format(@"Version: {0}", BoostEngine.R_CurrentVersion);
+            labelVersion.Text = $@"Version: {BoostEngine.sr_CurrentVersion}";
             UITools.displayHTMLPage(m_WebBrowser, m_ResourceName);
         }
 
         private WebBrowser initializeAboutPageWebBrowser()
         {
-            WebBrowser browser = new WebBrowser();
+            WebBrowser browser = new WebBrowser
+                                     {
+                                         Location = new System.Drawing.Point(6, 93),
+                                         Name = "webBrowserAboutPage",
+                                         Size = new System.Drawing.Size(1004, 415),
+                                         TabIndex = 2
+                                     };
 
-            browser.Location = new System.Drawing.Point(6, 93);
-            browser.Name = "webBrowserAboutPage";
-            browser.Size = new System.Drawing.Size(1004, 415);
-            browser.TabIndex = 2;
-            this.Controls.Add(browser);
+            Controls.Add(browser);
 
             return browser;
         }

@@ -14,6 +14,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         #region Data Members & Properties
 
         #region Instance
+
         public static BoostEngine Instance => Singleton<BoostEngine>.Instance;
 
         #endregion
@@ -28,11 +29,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         private const string k_AppId = "748532218946260";
 
-        public BoostSettings m_BoostSettings = null;
+        public BoostSettings m_BoostSettings; // Default null
 
         public const string k_PostErrorMessage = "Could not get Post!";
 
-        public static readonly string R_CurrentVersion = "0.2.0";
+        public static readonly string sr_CurrentVersion = "0.2.0";
 
         public eTimeSelector m_CurrentAnalysisTimeFrame;
 
@@ -165,7 +166,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             m_BoostSettings.LastAccessToken = LoginResult.AccessToken;
             m_BoostSettings.LastLogin = DateTime.Now;
             m_BoostSettings.FirstName = LoggedInUser.FirstName;
-            m_BoostSettings.LastUsedVersion = BoostEngine.R_CurrentVersion;
+            m_BoostSettings.LastUsedVersion = BoostEngine.sr_CurrentVersion;
         }
 
         public Post GetLastStatus()
@@ -195,7 +196,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                 m_BoostSettings.DefaultAnalysisTimeFrame = m_CurrentAnalysisTimeFrame;
                 m_BoostSettings.DefaultAnalysisDataBasis = m_CurrentAnalysisDataBasis;
             }
-            catch (Exception e)
+            catch(Exception e)
             {
                 MessageBox.Show(e.Message);
             }

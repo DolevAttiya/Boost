@@ -64,6 +64,11 @@
     <Compile Include="Model\DataClasses\BiggestFan.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
+    <Compile Include="Model\Design Patterns\Factory\CombinedDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\DictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\PhotosDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\StatusDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\VideosDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Singleton.cs" />
     <Compile Include="Model\DataClasses\eTimerSelector.cs" />
     <Compile Include="Model\DataClasses\IAnalysis.cs" />
@@ -71,8 +76,8 @@
     <Compile Include="Model\DataClasses\BiggestFanAnalysis.cs" />
     <Compile Include="Model\DataClasses\Engagement.cs" />
     <Compile Include="Model\DataClasses\DateAndValue.cs" />
-    <Compile Include="Model\Design Patterns\DictionaryDecorator.cs" />
-    <Compile Include="Model\Design Patterns\SortedDictionary.cs" />
+    <Compile Include="Model\Design Patterns\Decorator\DictionaryDecorator.cs" />
+    <Compile Include="Model\Design Patterns\Decorator\SortedDictionary.cs" />
     <Compile Include="ViewModels\BestTimesViewModel.cs" />
     <Compile Include="ViewModels\BiggestFansViewModel.cs" />
     <Compile Include="ViewModels\BoostViewModel.cs" />
