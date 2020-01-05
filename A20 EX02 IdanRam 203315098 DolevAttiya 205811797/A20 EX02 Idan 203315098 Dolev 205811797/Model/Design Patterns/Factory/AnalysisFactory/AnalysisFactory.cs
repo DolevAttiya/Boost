@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Windows.Documents;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator;
 using FacebookWrapper.ObjectModel;
 
-namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
+namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.AnalysisFactory
 {
     internal class AnalysisFactory 
     {
