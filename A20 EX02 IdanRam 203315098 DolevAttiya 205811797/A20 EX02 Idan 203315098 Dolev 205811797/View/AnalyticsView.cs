@@ -23,9 +23,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public List<UserControl> AnalyticsSubPages { get; set; }
 
-        public Button m_SelectedAnalysisBasisButton = null;
+        public Button m_SelectedAnalysisBasisButton;
 
-        public Button m_SelectedAnalysisTab = null;
+        public Button m_SelectedAnalysisTab;
 
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
 
@@ -118,7 +118,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_AnalysisSettingsEvent += r_BoostEn.SaveAnalysisSettings;
-                m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis, m_SelectedAnalysisBasisButton);
+                m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis, m_SelectedAnalysisTab);
 
                 foreach (Button button in AnalysisTimeFrameButtons)
                 {

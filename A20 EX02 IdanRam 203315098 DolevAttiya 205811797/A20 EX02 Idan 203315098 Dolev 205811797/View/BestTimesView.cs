@@ -49,7 +49,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             if(m_FirstDrawing)
             {
-                m_BestTimesViewModel.CreateTimeAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
+                m_BestTimesViewModel.CreateTimeAnalysis(r_BoostEn.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
                 m_LastUsedTimeSelector = i_TimeSelector;
                 m_LastUsedDataBasis = i_AnalysisDataBasis;
             }

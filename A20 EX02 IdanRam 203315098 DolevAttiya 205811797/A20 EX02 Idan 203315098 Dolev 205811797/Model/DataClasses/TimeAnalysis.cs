@@ -11,8 +11,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
-            PhotosDictionary = PhotoDictionaryFactory.CreatePhotosTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
-            VideosDictionary = VideoDictionaryFactory.CreateVideosTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
+            PhotosDictionary = PhotosDictionaryFactory.CreatePhotosTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
+            VideosDictionary = VideosDictionaryFactory.CreateVideosTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
             StatusDictionary = StatusDictionaryFactory.CreateStatusTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
             CombinedAnalysisHolders =
                 CombinedDictionaryFactory.CreateCombinedTimeAnalysisDictionary(i_AnalysisUser, i_TimeFrame);

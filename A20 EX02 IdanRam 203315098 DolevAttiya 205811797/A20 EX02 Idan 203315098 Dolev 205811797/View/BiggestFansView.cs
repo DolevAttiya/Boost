@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
@@ -104,7 +105,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     likesString = "N/A";
                 }
 
-                r_BiggestFanLeaderboardLabels[i].Text = $@"{name} | Likes: {likesString}";
+                Invoke(new Action(()=> r_BiggestFanLeaderboardLabels[i].Text = $@"{name} | Likes: {likesString}"));
+                
             }
         }
         #endregion
