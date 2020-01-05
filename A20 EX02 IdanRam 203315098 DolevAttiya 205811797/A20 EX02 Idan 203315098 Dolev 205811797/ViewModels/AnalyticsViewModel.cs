@@ -28,7 +28,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 
         public void Reanalyze(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
         {
-            if(i_SelectedAnalysisButton.Name == "buttonBestTimes")
+            if(i_SelectedAnalysisButton.Name.Contains("Time"))
             {
                 m_Thread1 = new Thread(new ThreadStart(() => m_BestTimesEvent.Invoke(i_TimeFrame, i_AnalysisDataBasis)));
                 m_Thread2 = new Thread(new ThreadStart(() => m_BiggestFansEvent.Invoke(i_TimeFrame, i_AnalysisDataBasis)));

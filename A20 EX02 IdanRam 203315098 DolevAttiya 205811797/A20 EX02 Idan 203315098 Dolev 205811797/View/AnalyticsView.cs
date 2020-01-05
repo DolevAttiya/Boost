@@ -165,14 +165,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 if("button" + subPage.Name == i_Tab.Name + "Page")
                 {
-                    if(i_Tab.Name.Contains("Time"))
+                    /*if(i_Tab.Name.Contains("Time"))
                     {
                         r_BoostEn.m_AnalysisFactory= new TimeAnalysiserFactory();
                     }
                     else
                     {
                         r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysiserFactory();
-                    }
+                    }*/
 
                     subPage.BringToFront();
                     tabSwitched = true;
