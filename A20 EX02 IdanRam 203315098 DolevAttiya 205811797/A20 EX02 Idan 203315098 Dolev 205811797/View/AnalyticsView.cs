@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -172,11 +173,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 if("button" + subPage.Name == i_Tab.Name + "Page")
                 {
+                    if(i_Tab.Name.Contains("Time"))
+                    {
+                        r_BoostEn.m_AnalysisFactory= new TimeAnalysiserFactory();
+                    }
+                    else
+                    {
+                        r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysiserFactory();
+                    }
+
                     subPage.BringToFront();
                     tabSwitched = true;
                     break;
                 }
             }
+
 
             if(!tabSwitched)
             {
@@ -187,15 +198,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
-            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisDataBasis);
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
+            Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
+            reanalyzeAll(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis);
         }
 
         private void switchAnalysisTimeFrame(Button i_Button)
         {
             SelectButton(i_Button, AnalysisTimeFrameButtons);
-            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisTimeFrame);
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
+            Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
+            reanalyzeAll(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis);
 
         }
 

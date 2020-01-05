@@ -8,44 +8,31 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
-    public class AnalysisFactory : IAnalysisFactory
+    internal class AnalysisFactory 
     {
-        public virtual SortedValueDictionary<object, int> CreateAnalysis(
+        public  Analysis Analysiser(
             Post.eType i_Type,
             User i_User,
             eTimeSelector i_TimeSelector,
-            Type i_FactoryToCreate)
+            Type i_AnalysisToCreate)
         {
-            SortedValueDictionary<object, int> o_Dictionary;
-            string className = $"{nameof(i_Type)}DictionaryFactory";
-            string methodName = $"Create{nameof(i_Type)}{i_FactoryToCreate.Name}AnalysisDictionary";
-            Type dictionaryFactoryClass = null;
-            MethodInfo createDictionaryMethod = null;
-            
-            foreach (Type type in Assembly.GetExecutingAssembly().GetTypes())
-            {
-                if(type.Name == className)
-                {
-                    dictionaryFactoryClass = type;
-                    break;
-                }
-            }
+            Analysis selectedAnalysis = (Analysis)i_AnalysisToCreate.GetConstructors()[0].Invoke(null);
+            string methodName = "CreateAnalysisByTimeFrame";
 
-            foreach(MethodInfo method in dictionaryFactoryClass.GetMethods())
+            foreach(MethodInfo method in i_AnalysisToCreate.GetMethods())
             {
                 if(method.Name == methodName)
                 {
-                    createDictionaryMethod = method;
+                    selectedAnalysis = (Analysis)method.Invoke(
+                        selectedAnalysis,
+                        new object[] { i_User, i_TimeSelector });
+                    ;
                     break;
                 }
             }
 
-            object[] passingParameters= { i_User, i_TimeSelector };
-
-                
-                o_Dictionary = (SortedValueDictionary<object, int>)createDictionaryMethod.Invoke(this, passingParameters);
-
-                return o_Dictionary;
+            return selectedAnalysis;
         }
+
     }
 }

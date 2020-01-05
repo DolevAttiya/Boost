@@ -54,11 +54,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
             else
             {
-                if(i_TimeSelector == m_LastUsedTimeSelector && m_BestTimesViewModel.TimeAnalysis != null)
+                if(i_TimeSelector == m_LastUsedTimeSelector)
                 {
                     if(i_AnalysisDataBasis != m_LastUsedDataBasis)
                     {
-                        m_BestTimesViewModel.SelectAnalysisCollection(m_BestTimesViewModel.TimeAnalysis, i_AnalysisDataBasis);
+                        m_BestTimesViewModel.SelectAnalysisCollection(i_AnalysisDataBasis);
                         m_LastUsedDataBasis = i_AnalysisDataBasis;
                     }
                     else

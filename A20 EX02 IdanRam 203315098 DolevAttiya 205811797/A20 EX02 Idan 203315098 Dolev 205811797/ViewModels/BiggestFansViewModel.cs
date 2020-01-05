@@ -9,7 +9,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 {
     public class BiggestFansViewModel
     {
-        public BiggestFanAnalysis BiggestFanAnalysis { get; set; }
 
         public SortedValueDictionary<object, int> AnalysisCollection { get; set; }
 
@@ -19,19 +18,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 
         public BiggestFansViewModel()
         {
-            BiggestFanAnalysis = new BiggestFanAnalysis();
             BiggestFanLeaderboard = new List<BiggestFan>();
         }
 
         private void createBiggestFanAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            BiggestFanAnalysis.CreateAnalysisByTimeFrame(i_User, i_TimeFrame);
-            selectAnalysisCollection(BiggestFanAnalysis, i_AnalysisDataBasis);
+            BoostEngine.Instance.BiggestFanAnalysis = BoostEngine.Instance.m_AnalysisFactory.CreateAnalysis((Post.eType)i_AnalysisDataBasis, i_User, i_TimeFrame) as BiggestFanAnalysis;
+            selectAnalysisCollection(i_AnalysisDataBasis);
         }
 
-        private void selectAnalysisCollection(BiggestFanAnalysis i_BiggestFanAnalysis, eAnalysisDataBasis i_AnalysisDataBasis)
+        private void selectAnalysisCollection( eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            AnalysisCollection = i_BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
+            AnalysisCollection = r_BoostEn.BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
         }
 
         public void CalculateBiggestFans(eTimeSelector i_TimeSelector, eAnalysisDataBasis i_AnalysisDataBasis, ref eTimeSelector io_LastUsedTimeSelector, ref eAnalysisDataBasis io_LastUsedDataBasis)
@@ -44,11 +42,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
                 BiggestFanLeaderboard.Add(biggestFan);
             }
 
-            if (i_TimeSelector == io_LastUsedTimeSelector && BiggestFanAnalysis != null)
+            if (i_TimeSelector == io_LastUsedTimeSelector)
             {
                 if (i_AnalysisDataBasis != io_LastUsedDataBasis)
                 {
-                    selectAnalysisCollection(BiggestFanAnalysis, i_AnalysisDataBasis);
+                    selectAnalysisCollection(i_AnalysisDataBasis);
                     io_LastUsedDataBasis = i_AnalysisDataBasis;
                 }
                 else
@@ -58,7 +56,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             }
             else
             {
-                createBiggestFanAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
+                createBiggestFanAnalysis(r_BoostEn.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
                 io_LastUsedTimeSelector = i_TimeSelector;
                 io_LastUsedDataBasis = i_AnalysisDataBasis;
             }

@@ -8,14 +8,15 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
-    public class TimeAnalysiserFactory : AnalysisFactory
+    public class TimeAnalysiserFactory : IAnalysisFactory
     {
-        public  SortedValueDictionary<object, int> CreateAnalysis(
+        readonly AnalysisFactory r_AnalysisFactory = new AnalysisFactory();
+        public Analysis CreateAnalysis(
             Post.eType i_Type,
             User i_User,
             eTimeSelector i_TimeSelector)
         {
-            return base.CreateAnalysis(i_Type, i_User, i_TimeSelector, typeof(TimeAnalysis));
+            return r_AnalysisFactory.Analysiser(i_Type, i_User, i_TimeSelector, typeof(TimeAnalysis));
         }
     }
 }

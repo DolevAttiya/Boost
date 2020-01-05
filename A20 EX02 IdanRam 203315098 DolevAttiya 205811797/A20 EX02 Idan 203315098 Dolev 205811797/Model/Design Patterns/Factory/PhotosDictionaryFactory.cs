@@ -6,11 +6,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
     public static class PhotosDictionaryFactory
     {
+        static readonly DictionaryFactory sr_BasicFactory = new DictionaryFactory();
         public static SortedValueDictionary<object, int> CreatePhotosTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateTimeAnalysisDictionary(
+            return sr_BasicFactory.CreateTimeAnalysisDictionary(
                 i_AnalysisUser,
                 i_TimeFrame,
                 i_EType => Post.eType.photo == i_EType);
@@ -20,7 +21,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => Post.eType.photo == i_EType);
+            return sr_BasicFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => Post.eType.photo == i_EType);
         }
-    }
+    }   
 }
