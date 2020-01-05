@@ -40,8 +40,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public eAnalysisDataBasis m_CurrentAnalysisDataBasis;
 
-        public IAnalysisFactory m_AnalysisFactory= new TimeAnalysiserFactory(); // default with TimeAnalysis
+        public IAnalysisFactory m_AnalysisFactory = new TimeAnalysiserFactory(); // default with TimeAnalysis
 
+        private static string s_AnalysisFactoryLock = "LockyLockyLock";
 
         #endregion
 
@@ -161,6 +162,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             }
 
             LoggedInUser = o_LoggedInUser;
+        }
+
+        public void SwitchAnalysisFactory()
+        {
+            lock(s_AnalysisFactoryLock)
+            {
+                if(m_AnalysisFactory.GetType() == typeof(TimeAnalysiserFactory))
+                {
+                    m_AnalysisFactory = new BiggestFanAnalysiserFactory();
+                }
+                else
+                {
+                    m_AnalysisFactory = new TimeAnalysiserFactory();
+                }
+            }
         }
 
         public void OverwriteBoostSettings() // BoostEngine

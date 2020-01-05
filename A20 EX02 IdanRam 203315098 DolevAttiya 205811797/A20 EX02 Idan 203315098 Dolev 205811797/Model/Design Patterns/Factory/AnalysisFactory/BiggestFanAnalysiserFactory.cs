@@ -7,11 +7,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
     {
         readonly AnalysisFactory r_AnalysisFactory = new AnalysisFactory();
         public Analysis CreateAnalysis(
-            Post.eType i_Type,
+           eAnalysisDataBasis i_AnalysisDataBasis,
             User i_User,
             eTimeSelector i_TimeSelector)
         {
-            return r_AnalysisFactory.Analysiser(i_Type,i_User, i_TimeSelector, typeof(BiggestFanAnalysis));
+            return r_AnalysisFactory.Analysiser(i_AnalysisDataBasis, i_User, i_TimeSelector, typeof(BiggestFanAnalysis));
         }
     }
 }

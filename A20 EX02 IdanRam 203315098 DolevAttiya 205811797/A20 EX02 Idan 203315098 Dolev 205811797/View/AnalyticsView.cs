@@ -118,7 +118,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_AnalysisSettingsEvent += r_BoostEn.SaveAnalysisSettings;
-                m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis, m_SelectedAnalysisTab);
+                m_AnalyticsViewModel.Analyze(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis, m_SelectedAnalysisTab);
 
                 foreach (Button button in AnalysisTimeFrameButtons)
                 {
@@ -165,14 +165,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             {
                 if("button" + subPage.Name == i_Tab.Name + "Page")
                 {
-                    /*if(i_Tab.Name.Contains("Time"))
+                    if(i_Tab.Name.Contains("Time"))
                     {
                         r_BoostEn.m_AnalysisFactory= new TimeAnalysiserFactory();
                     }
                     else
                     {
                         r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysiserFactory();
-                    }*/
+                    }
 
                     subPage.BringToFront();
                     tabSwitched = true;
@@ -192,14 +192,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         {
             SelectButton(i_Button, AnalysisBasisButtons);
             Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
-            m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
+            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
         }
 
         private void switchAnalysisTimeFrame(Button i_Button)
         {
             SelectButton(i_Button, AnalysisTimeFrameButtons);
             Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
-            m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
+            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
 
         }
 

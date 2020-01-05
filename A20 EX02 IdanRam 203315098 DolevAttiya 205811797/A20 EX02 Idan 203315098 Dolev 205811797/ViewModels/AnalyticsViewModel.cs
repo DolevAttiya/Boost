@@ -26,7 +26,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         private Thread m_Thread1;
         private Thread m_Thread2;
 
-        public void Reanalyze(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
+        public void Analyze(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
         {
             if(i_SelectedAnalysisButton.Name.Contains("Time"))
             {
