@@ -55,7 +55,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>PkACEAAIAmCAEERARADABAIGAEEAAJJAQBAAAAABIgA=</HashCode>
+      <HashCode>PkACEACIAmCAEERARADABAIGAEEAAJJAQBAAAAABAgA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -63,6 +63,7 @@
       <Field Name="r_BoostEn" />
       <Field Name="BestTimesPage" />
       <Field Name="BiggestFansPage" />
+      <Field Name="m_AnalyticsViewModel" />
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.DashboardView">
@@ -122,8 +123,8 @@
       <Path>
         <Point X="34.188" Y="24.517" />
         <Point X="34.188" Y="29.562" />
-        <Point X="31.583" Y="29.562" Type="JumpStart" />
-        <Point X="31.417" Y="29.562" Type="JumpEnd" />
+        <Point X="31.599" Y="29.562" Type="JumpStart" />
+        <Point X="31.432" Y="29.562" Type="JumpEnd" />
         <Point X="22.75" Y="29.562" />
       </Path>
       <MemberNameLabel ManuallyPlaced="true">
@@ -168,8 +169,20 @@
       <FileName>Model\BoostEngine.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.AnalyticsViewModel">
+    <Position X="35" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAgAAAAQAAEAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+      <Field Name="m_BiggestFansEvent" />
+      <Field Name="m_BestTimesEvent" />
+    </ShowAsAssociation>
+  </Class>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.View.SaveAnalysisSettingsEventHandler">
-    <Position X="26.75" Y="11" Width="2.5" />
+    <Position X="25.75" Y="11" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
@@ -194,6 +207,20 @@
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\Navbar.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BiggestFansEventHandler">
+    <Position X="39" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BestTimesEventHandler">
+    <Position X="39" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />

@@ -12,9 +12,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             eTimeSelector i_TimeFrame = eTimeSelector.Month)
         {
             PhotosDictionary =
-                PhotosDictionaryFactory.CreatePhotosBiggestFansAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
+                PhotoDictionaryFactory.CreatePhotosBiggestFansAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
             VideosDictionary =
-                VideosDictionaryFactory.CreateVideosBiggestFansAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
+                VideoDictionaryFactory.CreateVideosBiggestFansAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
             StatusDictionary =
                 StatusDictionaryFactory.CreateStatusBiggestFansAnalysisDictionary(i_AnalysisUser, i_TimeFrame);
             CombinedAnalysisHolders =

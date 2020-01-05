@@ -4,23 +4,23 @@ using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory
 {
-    public static class VideosDictionaryFactory
+    public static class PhotoDictionaryFactory
     {
-        public static SortedValueDictionary<object, int> CreateVideosTimeAnalysisDictionary(
+        public static SortedValueDictionary<object, int> CreatePhotosTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
             return DictionaryFactory.CreateTimeAnalysisDictionary(
                 i_AnalysisUser,
                 i_TimeFrame,
-                i_EType => Post.eType.video == i_EType);
+                i_EType => Post.eType.photo == i_EType);
         }
 
-        public static SortedValueDictionary<object, int> CreateVideosBiggestFansAnalysisDictionary(
+        public static SortedValueDictionary<object, int> CreatePhotosBiggestFansAnalysisDictionary(
             User i_AnalysisUser,
             eTimeSelector i_TimeFrame)
         {
-            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => Post.eType.video == i_EType);
+            return DictionaryFactory.CreateBiggestFanAnalysisDictionary(i_AnalysisUser, i_TimeFrame, i_EType => Post.eType.photo == i_EType);
         }
     }
 }

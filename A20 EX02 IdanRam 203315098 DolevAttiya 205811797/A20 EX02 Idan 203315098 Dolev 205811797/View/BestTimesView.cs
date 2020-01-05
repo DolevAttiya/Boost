@@ -22,6 +22,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private eTimeSelector m_LastUsedTimeSelector = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
         private eAnalysisDataBasis m_LastUsedDataBasis = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisDataBasis;
         private bool m_FirstDrawing = true;
+        private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         #endregion
 
         #region Ctor

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
+using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
@@ -23,8 +24,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         public Button m_SelectedAnalysisBasisButton = null;
 
+        public Button m_SelectedAnalysisTab = null;
+
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
+
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
+
+        private AnalyticsViewModel m_AnalyticsViewModel = new AnalyticsViewModel();
         #endregion
 
         #region Ctor
@@ -55,23 +61,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             labelAnalytics.Font = Stylesheet.Font_Header1;
+            m_SelectedAnalysisTab = buttonBestTimes;
+
+            m_AnalyticsViewModel.m_BestTimesEvent += BestTimesPage.DrawBestTimesGrid;
+            m_AnalyticsViewModel.m_BiggestFansEvent += BiggestFansPage.DisplayBiggestFans;
 
             addButtonsToLists();
             addSubPagesToList();
-        }
-
-        private void ButtonBestTimes_Click(object sender, EventArgs e)
-        {
-            BestTimesPage.BringToFront();
-            buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            buttonBiggestFans.BackColor = Stylesheet.Color_Main;
-        }
-
-        private void ButtonBiggestFans_Click(object sender, EventArgs e)
-        {
-            BiggestFansPage.BringToFront();
-            buttonBiggestFans.BackColor = Stylesheet.Color_Secondary;
-            buttonBestTimes.BackColor = Stylesheet.Color_Main;
         }
 
         private void analysisTab_Click(object sender, EventArgs e)
@@ -121,11 +117,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             try
             {
                 m_AnalysisSettingsEvent += r_BoostEn.SaveAnalysisSettings;
-                ///BestTimes
-                new Thread(new ThreadStart(() => { BestTimesPage.DrawBestTimesGrid(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis); })).Start();
-
-                ///BiggestFans
-                Invoke(new Action(() => BiggestFansPage.DisplayBiggestFans(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis)));
+                m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_BoostSettings.DefaultAnalysisTimeFrame, r_BoostEn.m_BoostSettings.DefaultAnalysisDataBasis, m_SelectedAnalysisBasisButton);
 
                 foreach (Button button in AnalysisTimeFrameButtons)
                 {
@@ -174,6 +166,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 {
                     subPage.BringToFront();
                     tabSwitched = true;
+                    m_SelectedAnalysisTab = i_Tab;
                     break;
                 }
             }
@@ -187,23 +180,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void switchAnalysisBasis(Button i_Button)
         {
             SelectButton(i_Button, AnalysisBasisButtons);
-            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisDataBasis);
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
+            Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
+            m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
         }
 
         private void switchAnalysisTimeFrame(Button i_Button)
         {
             SelectButton(i_Button, AnalysisTimeFrameButtons);
-            Enum.TryParse(i_Button.Text, out BoostEngine.Instance.m_CurrentAnalysisTimeFrame);
-            reanalyzeAll(BoostEngine.Instance.m_CurrentAnalysisTimeFrame, BoostEngine.Instance.m_CurrentAnalysisDataBasis);
-
+            Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
+            m_AnalyticsViewModel.Reanalyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
         }
 
-        private void reanalyzeAll(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
-        {
-            new Thread(new ThreadStart(() => BestTimesPage.DrawBestTimesGrid(i_TimeFrame, i_AnalysisDataBasis)));
-            new Thread(new ThreadStart(() => BiggestFansPage.DisplayBiggestFans(i_TimeFrame, i_AnalysisDataBasis)));
-        }
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)
         {
