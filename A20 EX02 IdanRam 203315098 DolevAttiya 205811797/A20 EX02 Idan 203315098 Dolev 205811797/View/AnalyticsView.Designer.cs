@@ -104,7 +104,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.LabelError.BackColor = System.Drawing.Color.White;
             this.LabelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelError.ForeColor = System.Drawing.Color.DarkRed;
-            this.LabelError.Location = new System.Drawing.Point(12, 81);
+            this.LabelError.Location = new System.Drawing.Point(8, 8);
             this.LabelError.Name = "LabelError";
             this.LabelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
             this.LabelError.Size = new System.Drawing.Size(1001, 434);
@@ -270,6 +270,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.panelAnalytics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panelAnalytics.Controls.Add(this.BiggestFansPage);
             this.panelAnalytics.Controls.Add(this.BestTimesPage);
+            this.panelAnalytics.Controls.Add(this.LabelError);
             this.panelAnalytics.GradientAngle = 90F;
             this.panelAnalytics.GradientColorA = System.Drawing.Color.White;
             this.panelAnalytics.GradientColorB = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(245)))));
@@ -309,7 +310,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.Controls.Add(this.buttonStatus);
             this.Controls.Add(this.buttonCombined);
             this.Controls.Add(this.buttonSaveToDefaults);
-            this.Controls.Add(this.LabelError);
             this.Controls.Add(this.buttonBiggestFans);
             this.Controls.Add(this.buttonBestTimes);
             this.Controls.Add(this.panelAnalytics);

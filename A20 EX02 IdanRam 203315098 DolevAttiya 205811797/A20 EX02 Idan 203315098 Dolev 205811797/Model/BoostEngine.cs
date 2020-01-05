@@ -6,7 +6,7 @@ using FacebookWrapper.ObjectModel;
 using Facebook;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory;
+using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.AnalysisFactory;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 {
@@ -40,7 +40,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public eAnalysisDataBasis m_CurrentAnalysisDataBasis;
 
-        public IAnalysisFactory m_AnalysisFactory;
+        public IAnalysisFactory m_AnalysisFactory= new TimeAnalysiserFactory(); // default with TimeAnalysis
+
 
         #endregion
 
@@ -52,9 +53,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public LoginResult LoginResult { get; set; }
 
-        public TimeAnalysis TimeAnalysis { get; }
+        public TimeAnalysis TimeAnalysis { get; set; }
 
-        public BiggestFanAnalysis BiggestFanAnalysis { get; }
+        public BiggestFanAnalysis BiggestFanAnalysis { get; set; }
 
         #endregion
 
