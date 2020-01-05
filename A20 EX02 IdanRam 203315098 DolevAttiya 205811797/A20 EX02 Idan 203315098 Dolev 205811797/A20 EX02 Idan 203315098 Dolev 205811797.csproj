@@ -211,6 +211,7 @@
       <DependentUpon>WhatsNew.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings.datasource" />
+    <None Include="Resources\ClassDiagrams\FacadeClassDiagram.cd" />
     <None Include="Resources\ClassDiagrams\EngineClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
