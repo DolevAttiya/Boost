@@ -21,11 +21,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         public void CreateTimeAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
             //BoostEngine.Instance.TimeAnalysis = BoostEngine.Instance.m_AnalysisFactory.CreateAnalysis((Post.eType)i_AnalysisDataBasis, i_User, i_TimeFrame) as TimeAnalysis;
-            r_BoostEn.SwitchAnalysisFactory();
-            TimeAnalysis = (TimeAnalysis) r_BoostEn.m_AnalysisFactory.CreateAnalysis(
-                i_AnalysisDataBasis,
-                r_BoostEn.LoggedInUser,
-                i_TimeFrame);
+            if(r_BoostEn.m_AnalysisFactory.GetType() != typeof(TimeAnalysiserFactory))
+            {
+                r_BoostEn.SwitchAnalysisFactory();
+            }
+            TimeAnalysis = (TimeAnalysis) r_BoostEn.CreateAnalysisUsingFactory(i_TimeFrame, i_AnalysisDataBasis);
             SelectAnalysisCollection(i_AnalysisDataBasis);
             MaxTimeAnalysisValue = AnalysisCollection.Values.Max();
         }

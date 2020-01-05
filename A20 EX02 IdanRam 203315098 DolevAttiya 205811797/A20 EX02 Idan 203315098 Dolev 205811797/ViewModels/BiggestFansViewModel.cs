@@ -29,11 +29,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         private void createBiggestFanAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
             //BoostEngine.Instance.BiggestFanAnalysis = BoostEngine.Instance.m_AnalysisFactory.CreateAnalysis((Post.eType)i_AnalysisDataBasis, i_User, i_TimeFrame) as BiggestFanAnalysis;
-            r_BoostEn.SwitchAnalysisFactory();
-            BiggestFanAnalysis = (BiggestFanAnalysis)r_BoostEn.m_AnalysisFactory.CreateAnalysis(
-                i_AnalysisDataBasis,
-                r_BoostEn.LoggedInUser,
-                i_TimeFrame);
+            if (r_BoostEn.m_AnalysisFactory.GetType() != typeof(BiggestFanAnalysiserFactory))
+            {
+                r_BoostEn.SwitchAnalysisFactory();
+            }
+            BiggestFanAnalysis = (BiggestFanAnalysis) r_BoostEn.CreateAnalysisUsingFactory(i_TimeFrame, i_AnalysisDataBasis);
             selectAnalysisCollection(i_AnalysisDataBasis);
         }
 

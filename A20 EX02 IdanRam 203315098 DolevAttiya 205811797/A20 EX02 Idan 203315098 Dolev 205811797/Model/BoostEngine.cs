@@ -42,7 +42,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public IAnalysisFactory m_AnalysisFactory = new TimeAnalysiserFactory(); // default with TimeAnalysis
 
-        private static string s_AnalysisFactoryLock = "LockyLockyLock";
+        private static string s_AnalysisFactoryLock = "LockyLockyAnalysisLock";
+
+        private static string s_FactorySwitchLock = "LockyLockySwitchLock";
 
         #endregion
 
@@ -166,7 +168,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public void SwitchAnalysisFactory()
         {
-            lock(s_AnalysisFactoryLock)
+            lock(s_FactorySwitchLock)
             {
                 if(m_AnalysisFactory.GetType() == typeof(TimeAnalysiserFactory))
                 {
@@ -177,6 +179,19 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                     m_AnalysisFactory = new TimeAnalysiserFactory();
                 }
             }
+        }
+
+        public Analysis CreateAnalysisUsingFactory(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        {
+            Analysis analysis;
+
+            lock(s_AnalysisFactoryLock)
+            {
+                analysis = m_AnalysisFactory.CreateAnalysis(i_AnalysisDataBasis, LoggedInUser, i_TimeFrame);
+
+            }
+
+            return analysis;
         }
 
         public void OverwriteBoostSettings() // BoostEngine
