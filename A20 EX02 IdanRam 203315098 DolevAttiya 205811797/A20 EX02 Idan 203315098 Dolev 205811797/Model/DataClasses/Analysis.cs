@@ -28,13 +28,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
                 case eAnalysisDataBasis.Combined:
                     analysisCollection = CombinedAnalysisHolders;
                     break;
-                case eAnalysisDataBasis.Photo:
+                case eAnalysisDataBasis.Photos:
                     analysisCollection = PhotosDictionary;
                     break;
                 case eAnalysisDataBasis.Status:
                     analysisCollection = StatusDictionary;
                     break;
-                case eAnalysisDataBasis.Video:
+                case eAnalysisDataBasis.Videos:
                     analysisCollection = VideosDictionary;
                     break;
             }
