@@ -11,9 +11,9 @@ using A20_EX02_Idan_203315098_Dolev_205811797.View;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 {
-    public delegate void BestTimesEventHandler(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis);
+    public delegate void BestTimesEventHandler(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis);
     
-    public delegate void BiggestFansEventHandler(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis);
+    public delegate void BiggestFansEventHandler(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis);
 
     public class AnalyticsViewModel
     {
@@ -26,7 +26,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         private Thread m_Thread1;
         private Thread m_Thread2;
 
-        public void Analyze(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
+        public void Analyze(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
         {
             if(i_SelectedAnalysisButton.Name.Contains("Time"))
             {

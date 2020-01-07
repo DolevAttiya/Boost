@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
@@ -57,12 +58,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             panelAnalytics.GradientColorB = Stylesheet.Color_PanelColorB;
             panelAnalytics.GradientAngle = 90F;
             BestTimesPage.BringToFront();
-            buttonBestTimes.BackColor = Stylesheet.Color_Secondary;
-            buttonBiggestFans.BackColor = Stylesheet.Color_Main;
-            buttonBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
-            buttonBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+            ButtonTabBestTimes.BackColor = Stylesheet.Color_Secondary;
+            ButtonTabBiggestFans.BackColor = Stylesheet.Color_Main;
+            ButtonTabBestTimes.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
+            ButtonTabBiggestFans.FlatAppearance.MouseOverBackColor = Stylesheet.Color_ButtonRollover;
             labelAnalytics.Font = Stylesheet.Font_Header1;
-            m_SelectedAnalysisTab = buttonBestTimes;
+            m_SelectedAnalysisTab = ButtonTabBestTimes;
 
             m_AnalyticsViewModel.m_BestTimesEvent += BestTimesPage.DrawBestTimesGrid;
             m_AnalyticsViewModel.m_BiggestFansEvent += BiggestFansPage.DisplayBiggestFans;
@@ -91,18 +92,28 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             AnalyticsTabButtons = new List<Button>();
             AnalysisBasisButtons = new List<Button>();
             AnalysisTimeFrameButtons = new List<Button>();
-            
-            AnalyticsTabButtons.Add(buttonBestTimes);
-            AnalyticsTabButtons.Add(buttonBiggestFans);
 
-            AnalysisBasisButtons.Add(buttonCombined);
-            AnalysisBasisButtons.Add(buttonStatus);
-            AnalysisBasisButtons.Add(buttonPhotos);
-            AnalysisBasisButtons.Add(buttonVideos);
-            
-            AnalysisTimeFrameButtons.Add(buttonWeek);
-            AnalysisTimeFrameButtons.Add(buttonMonth);
-            AnalysisTimeFrameButtons.Add(buttonYear);
+            foreach(FieldInfo field in this.GetType().GetFields())
+            {
+                if(field.FieldType == typeof(Button))
+                {
+                    if(field.Name.StartsWith("Button"))
+                    {
+                        if (field.Name.Contains("Tab"))
+                        {
+                            AnalyticsTabButtons.Add((Button)field.GetValue(this));
+                        }
+                        else if(field.Name.Contains("Basis"))
+                        {
+                            AnalysisBasisButtons.Add((Button)field.GetValue(this));
+                        }
+                        else if(field.Name.Contains("TimeFrame"))
+                        {
+                            AnalysisTimeFrameButtons.Add((Button)field.GetValue(this));
+                        }
+                    }
+                }
+            }
         }
 
         private void addSubPagesToList()
@@ -161,17 +172,21 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             SelectButton(i_Tab, AnalyticsTabButtons);
 
+            string tabName = i_Tab.Name.Split(new[] { "Tab" }, StringSplitOptions.None)[1];
+
             foreach(UserControl subPage in AnalyticsSubPages)
             {
-                if("button" + subPage.Name == i_Tab.Name + "Page")
+                string subPageName = subPage.Name.Split(new[] { "Page" }, StringSplitOptions.None)[0];
+
+                if (subPageName == tabName)
                 {
                     if(i_Tab.Name.Contains("Time"))
                     {
-                        r_BoostEn.m_AnalysisFactory = new TimeAnalysiserFactory();
+                        r_BoostEn.m_AnalysisFactory = new TimeAnalysisFactory();
                     }
                     else
                     {
-                        r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysiserFactory();
+                        r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysisFactory();
                     }
 
                     subPage.BringToFront();

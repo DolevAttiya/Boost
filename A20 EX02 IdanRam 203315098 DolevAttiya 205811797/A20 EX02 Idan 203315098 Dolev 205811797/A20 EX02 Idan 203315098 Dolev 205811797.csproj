@@ -67,16 +67,17 @@
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
     <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\AnalysisFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\FactorySelector.cs" />
     <Compile Include="Model\Design Patterns\Factory\MethodFactory\CombinedDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\MethodFactory\DictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\IAnalysisFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\PhotosDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\MethodFactory\PhotoDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Factory\MethodFactory\StatusDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\BiggestFanAnalysiserFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\TimeAnalysiserFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\VideosDictionaryFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\BiggestFanAnalysisFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\TimeAnalysisFactory.cs" />
+    <Compile Include="Model\Design Patterns\Factory\MethodFactory\VideoDictionaryFactory.cs" />
     <Compile Include="Model\Design Patterns\Singleton.cs" />
-    <Compile Include="Model\DataClasses\eTimerSelector.cs" />
+    <Compile Include="Model\DataClasses\eTimeFrame.cs" />
     <Compile Include="Model\DataClasses\IAnalysis.cs" />
     <Compile Include="Model\DataClasses\TimeAnalysis.cs" />
     <Compile Include="Model\DataClasses\BiggestFanAnalysis.cs" />
@@ -227,6 +228,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClassDiagrams\GUIClassDiagram.cd" />
+    <None Include="Resources\ClassDiagrams\SingletonClassDiagram.cd" />
     <None Include="Resources\fbLogin.png" />
   </ItemGroup>
   <ItemGroup>

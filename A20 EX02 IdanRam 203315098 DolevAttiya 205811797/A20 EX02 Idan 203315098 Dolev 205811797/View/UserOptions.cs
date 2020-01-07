@@ -15,7 +15,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     {
         private const int k_ButtonWidth = 200;
         private const int k_ButtonHeight = 40;
-        private List<Button> m_UserOptionButtons = new List<Button>(); // TODO read only ?
+        private List<Button> m_UserOptionButtons = new List<Button>();
         public LogoutEventHandler m_LogoutEvent;
         public SettingsEventHandler m_SettingsEvent;
         public OptionClickEventHandler m_OptionClickEvent;

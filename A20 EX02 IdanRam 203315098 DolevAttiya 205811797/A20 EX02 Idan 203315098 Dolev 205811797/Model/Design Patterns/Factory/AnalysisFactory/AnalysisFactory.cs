@@ -7,10 +7,10 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
 {
     internal class AnalysisFactory 
     {
-        public Analysis Analysiser(
+        public Analysis AnalysisCreator(
             eAnalysisDataBasis i_AnalysisDataBasis,
             User i_User,
-            eTimeSelector i_TimeSelector,
+            eTimeFrame i_TimeFrame,
             Type i_AnalysisToCreate)
         {
             Analysis selectedAnalysis = (Analysis)i_AnalysisToCreate.GetConstructors()[0].Invoke(null);
@@ -22,7 +22,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
                 {
                     selectedAnalysis = (Analysis)method.Invoke(
                         selectedAnalysis,
-                        new object[] { i_User, i_TimeSelector });
+                        new object[] { i_User, i_TimeFrame });
                     break;
                 }
             }

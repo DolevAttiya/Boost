@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 
@@ -11,7 +12,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     {
         #region Data Members
 
-        public BoostEngine m_BoostEn;
+        private readonly BoostEngine r_BoostEn;
         private Settings m_SettingsPopup; // default null
         private List<UserControl> m_BoostPages = new List<UserControl>();
         private BoostViewModel m_BoostViewModel = new BoostViewModel();
@@ -27,7 +28,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         #region Ctor
         public Boost()
         {
-            m_BoostEn = BoostEngine.Instance;
+            r_BoostEn = BoostEngine.Instance;
             m_BoostViewModel.PreInitialLogin = true;
             InitializeComponent();
             boostFormInitialSetup();
@@ -80,12 +81,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             //// Adjust UI before login
             // Clear Charts
-            foreach(var series in DashboardPage.ChartEngagement.Series)
+            foreach(Series series in DashboardPage.ChartEngagement.Series)
             {
                 series.Points.Clear();
             }
 
-            foreach (var series in DashboardPage.ChartFriends.Series)
+            foreach (Series series in DashboardPage.ChartFriends.Series)
             {
                 series.Points.Clear();
             }
@@ -115,7 +116,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void initializeSettingsPopUp()
         {
             m_SettingsPopup = new Settings();
-            m_SettingsPopup.BoostSettingsBindingSource.DataSource = m_BoostEn.m_BoostSettings;
+            m_SettingsPopup.BoostSettingsBindingSource.DataSource = r_BoostEn.m_BoostSettings;
         }
 
         private void toggleUserOptionPanel()
@@ -126,7 +127,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void Boost_FormClosing(object sender, FormClosingEventArgs e)
         {
-            m_BoostEn.m_BoostSettings.SaveAppSettingsToFile();
+            r_BoostEn.m_BoostSettings.SaveAppSettingsToFile();
         }
 
         public void NavbarButton_Click(object sender, EventArgs e)
@@ -210,13 +211,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 }
 
                 // Identify Login (Email as ID + First login)
-                m_BoostEn.m_BoostSettings.IsFirstLogin(m_BoostEn.LoggedInUser.Email);
+                r_BoostEn.m_BoostSettings.IsFirstLogin(r_BoostEn.LoggedInUser.Email);
 
                 // Fetch and load data
                 FetchAndDisplayUserData();
                 initializeSettingsPopUp();
                 displayWhatsNewPopup();
-                m_BoostEn.OverwriteBoostSettings();
+                r_BoostEn.OverwriteBoostSettings();
             }
             catch(Exception e)
             {
@@ -226,7 +227,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void displayWhatsNewPopup()
         {
-            if (m_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.sr_CurrentVersion)
+            if (r_BoostEn.m_BoostSettings.LastUsedVersion != BoostEngine.SR_CurrentVersion)
             {
                 WhatsNew whatsNew = new WhatsNew { Visible = true };
             }
@@ -247,7 +248,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            if(!m_BoostEn.m_BoostSettings.RememberUser)
+            if(!r_BoostEn.m_BoostSettings.RememberUser)
             {
                 m_BoostViewModel.FacebookLogout();
             }

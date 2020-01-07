@@ -25,11 +25,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             BiggestFanLeaderboard = new List<BiggestFan>();
         }
 
-        private void createBiggestFanAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        private void createBiggestFanAnalysis(User i_User, eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            if (r_BoostEn.m_AnalysisFactory.GetType() != typeof(BiggestFanAnalysiserFactory))
+            Type analysisFactoryType = typeof(BiggestFanAnalysisFactory);
+
+            if (r_BoostEn.m_AnalysisFactory.GetType() != analysisFactoryType)
             {
-                r_BoostEn.SwitchAnalysisFactory();
+                r_BoostEn.SelectAnalysisFactoryType(analysisFactoryType);
             }
 
             BiggestFanAnalysis =
@@ -42,7 +44,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             AnalysisCollection = BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
         }
 
-        public void CalculateBiggestFans(eTimeSelector i_TimeSelector, eAnalysisDataBasis i_AnalysisDataBasis, ref eTimeSelector io_LastUsedTimeSelector, ref eAnalysisDataBasis io_LastUsedDataBasis)
+        public void CalculateBiggestFans(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, ref eTimeFrame i_IoLastUsedTimeFrame, ref eAnalysisDataBasis io_LastUsedDataBasis)
         {
             int numOfIterations;
 
@@ -52,7 +54,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
                 BiggestFanLeaderboard.Add(biggestFan);
             }
 
-            if (i_TimeSelector == io_LastUsedTimeSelector && m_FirstCalc == false)
+            if (i_TimeFrame == i_IoLastUsedTimeFrame && m_FirstCalc == false)
             {
                 if (i_AnalysisDataBasis != io_LastUsedDataBasis)
                 {
@@ -71,8 +73,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
                     m_FirstCalc = false;
                 }
 
-                createBiggestFanAnalysis(r_BoostEn.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
-                io_LastUsedTimeSelector = i_TimeSelector;
+                createBiggestFanAnalysis(r_BoostEn.LoggedInUser, i_TimeFrame, i_AnalysisDataBasis);
+                i_IoLastUsedTimeFrame = i_TimeFrame;
                 io_LastUsedDataBasis = i_AnalysisDataBasis;
             }
 

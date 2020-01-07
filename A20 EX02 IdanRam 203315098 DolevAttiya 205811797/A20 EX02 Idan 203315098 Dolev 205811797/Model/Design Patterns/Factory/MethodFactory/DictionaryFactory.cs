@@ -10,7 +10,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
     {
         internal  SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
-            eTimeSelector i_TimeFrame,
+            eTimeFrame i_TimeFrame,
             Func<Post.eType?, bool> i_Tester)
         {
             SortedValueDictionary<object, int> o_DictionaryToAnalysis =
@@ -53,7 +53,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
 
         internal SortedValueDictionary<object, int> CreateBiggestFanAnalysisDictionary(
             User i_AnalysisUser,
-            eTimeSelector i_TimeFrame,
+            eTimeFrame i_TimeFrame,
             Func<Post.eType?, bool> i_Tester)
         {
             SortedValueDictionary<object, int> o_DictionaryToAnalysis =

@@ -7,13 +7,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
     {
         #region Properties
 
-        public SortedValueDictionary<object, int> PhotosDictionary { get; protected set; }
+        public SortedValueDictionary<object, int> PhotoDictionary { get; protected set; }
 
-        public SortedValueDictionary<object, int> VideosDictionary { get; protected set; }
+        public SortedValueDictionary<object, int> VideoDictionary { get; protected set; }
 
         public SortedValueDictionary<object, int> StatusDictionary { get; protected set; }
 
-        public SortedValueDictionary<object, int> CombinedAnalysisHolders { get; protected set; }
+        public SortedValueDictionary<object, int> CombinedDataBasisDictionary { get; protected set; }
 
         #endregion
 
@@ -26,16 +26,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
             switch(i_AnalysisDataBasis)
             {
                 case eAnalysisDataBasis.Combined:
-                    analysisCollection = CombinedAnalysisHolders;
+                    analysisCollection = CombinedDataBasisDictionary;
                     break;
                 case eAnalysisDataBasis.Photos:
-                    analysisCollection = PhotosDictionary;
+                    analysisCollection = PhotoDictionary;
                     break;
                 case eAnalysisDataBasis.Status:
                     analysisCollection = StatusDictionary;
                     break;
                 case eAnalysisDataBasis.Videos:
-                    analysisCollection = VideosDictionary;
+                    analysisCollection = VideoDictionary;
                     break;
             }
 
@@ -44,7 +44,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
         public abstract IAnalysis CreateAnalysisByTimeFrame(
             User i_AnalysisUser,
-            eTimeSelector i_TimeFrame = eTimeSelector.Month);
+            eTimeFrame i_TimeFrame = eTimeFrame.Month);
 
         #endregion
     }

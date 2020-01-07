@@ -22,7 +22,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         #region Data Members
 
-        private const int k_CollectionLimit = /*50*/15; // TODO
+        private const int k_CollectionLimit = 20;
 
         public const int k_NumOfBiggestFans = 3;
 
@@ -32,15 +32,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
         public BoostSettings m_BoostSettings; // Default null
 
-        public const string k_PostErrorMessage = "Could not get Post!";
+        public const string k_PostErrorMessage = "Could not get psost!";
 
-        public static readonly string sr_CurrentVersion = "0.2.0";
+        public static readonly string SR_CurrentVersion = "0.2.0";
 
-        public eTimeSelector m_CurrentAnalysisTimeFrame;
+        public eTimeFrame m_CurrentAnalysisTimeFrame;
 
         public eAnalysisDataBasis m_CurrentAnalysisDataBasis;
 
-        public IAnalysisFactory m_AnalysisFactory = new TimeAnalysiserFactory(); // default with TimeAnalysis
+        public IAnalysisFactory m_AnalysisFactory = typeof(TimeAnalysisFactory).CreateFactory(); // default with TimeAnalysis
 
         private static string s_AnalysisFactoryLock = "LockyLockyAnalysisLock";
 
@@ -55,10 +55,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
-
-        public TimeAnalysis TimeAnalysis { get; set; }
-
-        public BiggestFanAnalysis BiggestFanAnalysis { get; set; }
 
         #endregion
 
@@ -79,39 +75,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
                 throw new Exception(e.Message);
             }
 
-            TimeAnalysis = new TimeAnalysis();
-            BiggestFanAnalysis = new BiggestFanAnalysis();
             FriendChange = 0;
         }
 
         #endregion
 
         #region Methods
-
-        public void FacebookLogout()
-        {
-            try
-            {
-                FacebookService.Logout(logoutCallback);
-            }
-            catch(Exception e)
-            {
-                throw new FacebookApiException("Logout failed!", e);
-            }
-        }
-
-        private void logoutCallback()
-        {
-            try
-            {
-                // DO SOMETHING
-            }
-            catch(Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
         public void FacebookLogin(string i_AccessToken, bool i_RememberUser)
         {
             FacebookService.s_CollectionLimit = k_CollectionLimit;
@@ -165,23 +134,52 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             LoggedInUser = o_LoggedInUser;
         }
-
-        public void SwitchAnalysisFactory()
+        
+        public void FacebookLogout()
         {
-            lock(s_FactorySwitchLock)
+            try
             {
-                if(m_AnalysisFactory.GetType() == typeof(TimeAnalysiserFactory))
-                {
-                    m_AnalysisFactory = new BiggestFanAnalysiserFactory();
-                }
-                else
-                {
-                    m_AnalysisFactory = new TimeAnalysiserFactory();
-                }
+                FacebookService.Logout(null);
+            }
+            catch(Exception e)
+            {
+                throw new FacebookApiException("Logout failed!", e);
             }
         }
 
-        public Analysis CreateAnalysisUsingFactory(eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        public void SelectAnalysisFactoryType(Type i_AnalysisFactory)
+        {
+            lock (s_FactorySwitchLock)
+            {
+                m_AnalysisFactory = i_AnalysisFactory.CreateFactory();
+            }
+        }
+
+        public List<eTimeFrame> GetAnalysisTimeFrames()
+        {
+            List<eTimeFrame> analysisTimeFrames = new List<eTimeFrame>();
+
+            foreach(eTimeFrame val in Enum.GetValues(typeof(eTimeFrame)))
+            {
+                analysisTimeFrames.Add(val);
+            }
+
+            return analysisTimeFrames;
+        }
+
+        public List<eAnalysisDataBasis> GetAnalysisDataBases()
+        {
+            List<eAnalysisDataBasis> analysisDataBases = new List<eAnalysisDataBasis>();
+
+            foreach(eAnalysisDataBasis val in Enum.GetValues(typeof(eAnalysisDataBasis)))
+            {
+                analysisDataBases.Add(val);
+            }
+
+            return analysisDataBases;
+        }
+
+        public Analysis CreateAnalysisUsingFactory(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
             Analysis analysis;
 
@@ -192,15 +190,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
 
             return analysis;
         }
-
-        public void OverwriteBoostSettings() // BoostEngine
+        
+        public void SaveAnalysisSettings()
         {
-            m_BoostSettings.LastLoggedInEmail = LoggedInUser.Email;
-            m_BoostSettings.FirstLogin = false;
-            m_BoostSettings.LastAccessToken = LoginResult.AccessToken;
-            m_BoostSettings.LastLogin = DateTime.Now;
-            m_BoostSettings.FirstName = LoggedInUser.FirstName;
-            m_BoostSettings.LastUsedVersion = BoostEngine.sr_CurrentVersion;
+            try
+            {
+                m_BoostSettings.DefaultAnalysisTimeFrame = m_CurrentAnalysisTimeFrame;
+                m_BoostSettings.DefaultAnalysisDataBasis = m_CurrentAnalysisDataBasis;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public Post GetLastStatus()
@@ -221,19 +222,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             }
 
             return o_LastStatus;
-        }
-
-        public void SaveAnalysisSettings()
-        {
-            try
-            {
-                m_BoostSettings.DefaultAnalysisTimeFrame = m_CurrentAnalysisTimeFrame;
-                m_BoostSettings.DefaultAnalysisDataBasis = m_CurrentAnalysisDataBasis;
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
         }
 
         public Post GetTopPost()
@@ -274,28 +262,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             return mostLikedPost;
         }
 
-        public List<eTimeSelector> GetAnalysisTimeFrames()
+        public void OverwriteBoostSettings() // BoostEngine
         {
-            List<eTimeSelector> analysisTimeFrames = new List<eTimeSelector>();
-
-            foreach(eTimeSelector val in Enum.GetValues(typeof(eTimeSelector)))
-            {
-                analysisTimeFrames.Add(val);
-            }
-
-            return analysisTimeFrames;
-        }
-
-        public List<eAnalysisDataBasis> GetAnalysisDataBases()
-        {
-            List<eAnalysisDataBasis> analysisDataBases = new List<eAnalysisDataBasis>();
-
-            foreach(eAnalysisDataBasis val in Enum.GetValues(typeof(eAnalysisDataBasis)))
-            {
-                analysisDataBases.Add(val);
-            }
-
-            return analysisDataBases;
+            m_BoostSettings.LastLoggedInEmail = LoggedInUser.Email;
+            m_BoostSettings.FirstLogin = false;
+            m_BoostSettings.LastAccessToken = LoginResult.AccessToken;
+            m_BoostSettings.LastLogin = DateTime.Now;
+            m_BoostSettings.FirstName = LoggedInUser.FirstName;
+            m_BoostSettings.LastUsedVersion = BoostEngine.SR_CurrentVersion;
         }
 
         #endregion

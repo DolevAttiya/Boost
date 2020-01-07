@@ -20,18 +20,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         private void populateControls()
         {
-            List<eTimeSelector> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
+            List<eTimeFrame> analysisTimeFrames = BoostEngine.Instance.GetAnalysisTimeFrames();
             List<eAnalysisDataBasis> analysisDataBases = BoostEngine.Instance.GetAnalysisDataBases();
 
             DefaultAnalysisTimeFrameComboBox.DataSource = analysisTimeFrames;
             DefaultAnalysisDataBasisComboBox.DataSource = analysisDataBases;
         }
-
-        /*protected override void OnFormClosing(FormClosingEventArgs e)
-        {
-            this.Hide();
-            e.Cancel = true;
-        }*/
 
         private void buttonOK_Click(object sender, EventArgs e)
         {

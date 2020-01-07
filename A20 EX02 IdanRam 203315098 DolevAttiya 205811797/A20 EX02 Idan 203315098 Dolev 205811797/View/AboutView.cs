@@ -15,10 +15,12 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_WebBrowser = initializeAboutPageWebBrowser();
             displayAboutContent();
         }
+        #endregion
 
+        #region Methods
         private void displayAboutContent()
         {
-            labelVersion.Text = $@"Version: {BoostEngine.sr_CurrentVersion}";
+            labelVersion.Text = $@"Version: {BoostEngine.SR_CurrentVersion}";
             UITools.displayHTMLPage(m_WebBrowser, m_ResourceName);
         }
 

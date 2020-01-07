@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms.VisualStyles;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
@@ -18,11 +19,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 
         public int MaxTimeAnalysisValue { get; set; }
 
-        public void CreateTimeAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
+        public void CreateTimeAnalysis(User i_User, eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            if(r_BoostEn.m_AnalysisFactory.GetType() != typeof(TimeAnalysiserFactory))
+            Type analysisFactoryType = typeof(TimeAnalysisFactory);
+
+            if (r_BoostEn.m_AnalysisFactory.GetType() != analysisFactoryType)
             {
-                r_BoostEn.SwitchAnalysisFactory();
+                r_BoostEn.SelectAnalysisFactoryType(analysisFactoryType);
             }
 
             TimeAnalysis = (TimeAnalysis)r_BoostEn.CreateAnalysisUsingFactory(i_TimeFrame, i_AnalysisDataBasis);

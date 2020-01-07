@@ -10,17 +10,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
     public partial class BestTimesView : UserControl
     {
         #region Data Members
-        private static readonly int sk_NumOfDays = 7; // TODO read only / const ?
-        private static readonly int sk_NumOfHours = 24; // TODO read only / const ?
-        private readonly int k_GridAreaHeight; // TODO read only / const ?
-        private readonly int k_GridAreaWidth; // TODO read only / const ?
+        private static readonly int sr_NumOfDays = 7;
+        private static readonly int sr_NumOfHours = 24;
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
-        private int k_CellWidth; // TODO read only / const ?
-        private int k_CellHeight; // TODO read only / const ?
-        public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours]; // TODO 
-        public Label[,] m_BestTimesGrid = new Label[sk_NumOfDays + 1, sk_NumOfHours + 1];
+        private readonly int r_GridAreaHeight;
+        private readonly int r_GridAreaWidth;
+        private int m_CellWidth;
+        private int m_CellHeight;
+        public int[,] m_BestPostTimes = new int[sr_NumOfDays, sr_NumOfHours]; // TODO 
+        public Label[,] m_BestTimesGrid = new Label[sr_NumOfDays + 1, sr_NumOfHours + 1];
         private BestTimesViewModel m_BestTimesViewModel = new BestTimesViewModel();
-        private eTimeSelector m_LastUsedTimeSelector = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
+        private eTimeFrame m_LastUsedTimeFrame = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
         private eAnalysisDataBasis m_LastUsedDataBasis = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisDataBasis;
         private bool m_FirstDrawing = true;
         #endregion
@@ -29,33 +29,33 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         public BestTimesView()
         {
             InitializeComponent();
-            k_GridAreaHeight = Size.Height - 40;
-            k_GridAreaWidth = Size.Width - 100;
+            r_GridAreaHeight = Size.Height - 40;
+            r_GridAreaWidth = Size.Width - 100;
         }
         #endregion
 
         #region Methods
-        public void DrawBestTimesGrid(eTimeSelector i_TimeSelector = eTimeSelector.Month, eAnalysisDataBasis i_AnalysisDataBasis = eAnalysisDataBasis.Combined) 
+        public void DrawBestTimesGrid(eTimeFrame i_TimeFrame = eTimeFrame.Month, eAnalysisDataBasis i_AnalysisDataBasis = eAnalysisDataBasis.Combined) 
         {
-            k_CellHeight = k_GridAreaHeight / (sk_NumOfDays + 1);
-            k_CellWidth = k_GridAreaWidth / (sk_NumOfHours + 1);
+            m_CellHeight = r_GridAreaHeight / (sr_NumOfDays + 1);
+            m_CellWidth = r_GridAreaWidth / (sr_NumOfHours + 1);
             const int k_StartX = 5;
             const int k_StartY = 45;
             int labelX = k_StartX;
             int labelY = k_StartY;
             int lastHeight = 0;
-            int widthExpansion = 35;
+            const int k_WidthExpansion = 35;
             int currentValue = 0;
 
             if(m_FirstDrawing)
             {
-                m_BestTimesViewModel.CreateTimeAnalysis(r_BoostEn.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
-                m_LastUsedTimeSelector = i_TimeSelector;
+                m_BestTimesViewModel.CreateTimeAnalysis(r_BoostEn.LoggedInUser, i_TimeFrame, i_AnalysisDataBasis);
+                m_LastUsedTimeFrame = i_TimeFrame;
                 m_LastUsedDataBasis = i_AnalysisDataBasis;
             }
             else
             {
-                if(i_TimeSelector == m_LastUsedTimeSelector)
+                if(i_TimeFrame == m_LastUsedTimeFrame)
                 {
                     if(i_AnalysisDataBasis != m_LastUsedDataBasis)
                     {
@@ -69,15 +69,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 }
                 else
                 {
-                    m_BestTimesViewModel.CreateTimeAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeSelector, i_AnalysisDataBasis);
-                    m_LastUsedTimeSelector = i_TimeSelector;
+                    m_BestTimesViewModel.CreateTimeAnalysis(BoostEngine.Instance.LoggedInUser, i_TimeFrame, i_AnalysisDataBasis);
+                    m_LastUsedTimeFrame = i_TimeFrame;
                     m_LastUsedDataBasis = i_AnalysisDataBasis;
                 }
             }
 
-            for(int i = 0; i <= sk_NumOfDays; i++)
+            for(int i = 0; i <= sr_NumOfDays; i++)
             {
-                for(int j = 0; j <= sk_NumOfHours; j++)
+                for(int j = 0; j <= sr_NumOfHours; j++)
                 {
                     int dayInt = i;
                     DayAndHour currentDayAndHour = new DayAndHour(
@@ -105,7 +105,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                                         m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
                                         if(j == 0)
                                         {
-                                            m_BestTimesGrid[i, j].Width += widthExpansion;
+                                            m_BestTimesGrid[i, j].Width += k_WidthExpansion;
                                         }
                                         else
                                         {
@@ -117,7 +117,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                                         //// Row titles
                                         if(j == 0)
                                         {
-                                            m_BestTimesGrid[i, j].Width += widthExpansion;
+                                            m_BestTimesGrid[i, j].Width += k_WidthExpansion;
                                             m_BestTimesGrid[i, j].Text = currentDayAndHour.DayOfWeek.ToString();
                                             m_BestTimesGrid[i, j].BackColor = Stylesheet.Color_Secondary;
                                         }
@@ -128,7 +128,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                                     }
 
                                     labelX += m_BestTimesGrid[i, j].Width + 2;
-                                    if(j == sk_NumOfHours)
+                                    if(j == sr_NumOfHours)
                                     {
                                         lastHeight = m_BestTimesGrid[i, j].Height + 2;
                                     }
@@ -175,8 +175,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private Label createBestTimesGridCell(int i_LabelX, int i_LabelY)
         {
             Label label = new Label();
-            label.Width = k_CellWidth;
-            label.Height = k_CellHeight;
+            label.Width = m_CellWidth;
+            label.Height = m_CellHeight;
             label.BorderStyle = BorderStyle.None;
             label.Location = new Point(i_LabelX, i_LabelY);
             label.Text = string.Empty;

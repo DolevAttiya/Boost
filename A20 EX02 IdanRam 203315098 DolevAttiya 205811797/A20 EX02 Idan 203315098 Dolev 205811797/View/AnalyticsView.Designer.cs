@@ -33,17 +33,17 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private void InitializeComponent()
         {
             this.labelAnalytics = new System.Windows.Forms.Label();
-            this.buttonBestTimes = new System.Windows.Forms.Button();
-            this.buttonBiggestFans = new System.Windows.Forms.Button();
+            this.ButtonTabBestTimes = new System.Windows.Forms.Button();
+            this.ButtonTabBiggestFans = new System.Windows.Forms.Button();
             this.LabelError = new System.Windows.Forms.Label();
-            this.buttonSaveToDefaults = new System.Windows.Forms.Button();
-            this.buttonCombined = new System.Windows.Forms.Button();
-            this.buttonStatus = new System.Windows.Forms.Button();
-            this.buttonPhotos = new System.Windows.Forms.Button();
-            this.buttonVideos = new System.Windows.Forms.Button();
-            this.buttonYear = new System.Windows.Forms.Button();
-            this.buttonMonth = new System.Windows.Forms.Button();
-            this.buttonWeek = new System.Windows.Forms.Button();
+            this.ButtonSaveToDefaults = new System.Windows.Forms.Button();
+            this.ButtonBasisCombined = new System.Windows.Forms.Button();
+            this.ButtonBasisStatus = new System.Windows.Forms.Button();
+            this.ButtonBasisPhotos = new System.Windows.Forms.Button();
+            this.ButtonBasisVideos = new System.Windows.Forms.Button();
+            this.ButtonTimeFrameYear = new System.Windows.Forms.Button();
+            this.ButtonTimeFrameMonth = new System.Windows.Forms.Button();
+            this.ButtonTimeFrameWeek = new System.Windows.Forms.Button();
             this.panelAnalytics = new A20_EX02_Idan_203315098_Dolev_205811797.View.UI_Controls.StylizedPanel();
             this.BiggestFansPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BiggestFansView();
             this.BestTimesPage = new A20_EX02_Idan_203315098_Dolev_205811797.View.BestTimesView();
@@ -63,41 +63,41 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             // buttonBestTimes
             // 
-            this.buttonBestTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonBestTimes.FlatAppearance.BorderSize = 0;
-            this.buttonBestTimes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBestTimes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBestTimes.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBestTimes.ForeColor = System.Drawing.Color.White;
-            this.buttonBestTimes.Location = new System.Drawing.Point(9, 43);
-            this.buttonBestTimes.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBestTimes.Name = "buttonBestTimes";
-            this.buttonBestTimes.Size = new System.Drawing.Size(221, 38);
-            this.buttonBestTimes.TabIndex = 2;
-            this.buttonBestTimes.Text = "Best Times to Post";
-            this.buttonBestTimes.UseVisualStyleBackColor = false;
-            this.buttonBestTimes.Click += new System.EventHandler(this.analysisTab_Click);
+            this.ButtonTabBestTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonTabBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonTabBestTimes.FlatAppearance.BorderSize = 0;
+            this.ButtonTabBestTimes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonTabBestTimes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonTabBestTimes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonTabBestTimes.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonTabBestTimes.ForeColor = System.Drawing.Color.White;
+            this.ButtonTabBestTimes.Location = new System.Drawing.Point(9, 43);
+            this.ButtonTabBestTimes.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonTabBestTimes.Name = "ButtonTabBestTimes";
+            this.ButtonTabBestTimes.Size = new System.Drawing.Size(221, 38);
+            this.ButtonTabBestTimes.TabIndex = 2;
+            this.ButtonTabBestTimes.Text = "Best Times to Post";
+            this.ButtonTabBestTimes.UseVisualStyleBackColor = false;
+            this.ButtonTabBestTimes.Click += new System.EventHandler(this.analysisTab_Click);
             // 
             // buttonBiggestFans
             // 
-            this.buttonBiggestFans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonBiggestFans.FlatAppearance.BorderSize = 0;
-            this.buttonBiggestFans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonBiggestFans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBiggestFans.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBiggestFans.ForeColor = System.Drawing.Color.White;
-            this.buttonBiggestFans.Location = new System.Drawing.Point(230, 43);
-            this.buttonBiggestFans.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBiggestFans.Name = "buttonBiggestFans";
-            this.buttonBiggestFans.Size = new System.Drawing.Size(221, 38);
-            this.buttonBiggestFans.TabIndex = 3;
-            this.buttonBiggestFans.Text = "Biggest Fans";
-            this.buttonBiggestFans.UseVisualStyleBackColor = false;
-            this.buttonBiggestFans.Click += new System.EventHandler(this.analysisTab_Click);
+            this.ButtonTabBiggestFans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonTabBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonTabBiggestFans.FlatAppearance.BorderSize = 0;
+            this.ButtonTabBiggestFans.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonTabBiggestFans.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonTabBiggestFans.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonTabBiggestFans.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonTabBiggestFans.ForeColor = System.Drawing.Color.White;
+            this.ButtonTabBiggestFans.Location = new System.Drawing.Point(230, 43);
+            this.ButtonTabBiggestFans.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonTabBiggestFans.Name = "ButtonTabBiggestFans";
+            this.ButtonTabBiggestFans.Size = new System.Drawing.Size(221, 38);
+            this.ButtonTabBiggestFans.TabIndex = 3;
+            this.ButtonTabBiggestFans.Text = "Biggest Fans";
+            this.ButtonTabBiggestFans.UseVisualStyleBackColor = false;
+            this.ButtonTabBiggestFans.Click += new System.EventHandler(this.analysisTab_Click);
             // 
             // LabelError
             // 
@@ -115,155 +115,155 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             // 
             // buttonSaveToDefaults
             // 
-            this.buttonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
-            this.buttonSaveToDefaults.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSaveToDefaults.FlatAppearance.BorderSize = 0;
-            this.buttonSaveToDefaults.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonSaveToDefaults.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonSaveToDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSaveToDefaults.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonSaveToDefaults.ForeColor = System.Drawing.Color.Black;
-            this.buttonSaveToDefaults.Location = new System.Drawing.Point(899, 12);
-            this.buttonSaveToDefaults.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonSaveToDefaults.Name = "buttonSaveToDefaults";
-            this.buttonSaveToDefaults.Size = new System.Drawing.Size(115, 24);
-            this.buttonSaveToDefaults.TabIndex = 20;
-            this.buttonSaveToDefaults.Text = "Save To Defaults";
-            this.buttonSaveToDefaults.UseVisualStyleBackColor = false;
-            this.buttonSaveToDefaults.Click += new System.EventHandler(this.buttonSaveToDefaults_Click);
+            this.ButtonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
+            this.ButtonSaveToDefaults.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonSaveToDefaults.FlatAppearance.BorderSize = 0;
+            this.ButtonSaveToDefaults.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonSaveToDefaults.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonSaveToDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSaveToDefaults.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonSaveToDefaults.ForeColor = System.Drawing.Color.Black;
+            this.ButtonSaveToDefaults.Location = new System.Drawing.Point(899, 12);
+            this.ButtonSaveToDefaults.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonSaveToDefaults.Name = "ButtonSaveToDefaults";
+            this.ButtonSaveToDefaults.Size = new System.Drawing.Size(115, 24);
+            this.ButtonSaveToDefaults.TabIndex = 20;
+            this.ButtonSaveToDefaults.Text = "Save To Defaults";
+            this.ButtonSaveToDefaults.UseVisualStyleBackColor = false;
+            this.ButtonSaveToDefaults.Click += new System.EventHandler(this.buttonSaveToDefaults_Click);
             // 
             // buttonCombined
             // 
-            this.buttonCombined.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
-            this.buttonCombined.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonCombined.FlatAppearance.BorderSize = 0;
-            this.buttonCombined.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonCombined.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonCombined.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCombined.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonCombined.ForeColor = System.Drawing.Color.White;
-            this.buttonCombined.Location = new System.Drawing.Point(533, 44);
-            this.buttonCombined.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonCombined.Name = "buttonCombined";
-            this.buttonCombined.Size = new System.Drawing.Size(115, 24);
-            this.buttonCombined.TabIndex = 21;
-            this.buttonCombined.Text = "Combined";
-            this.buttonCombined.UseVisualStyleBackColor = false;
-            this.buttonCombined.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisCombined.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
+            this.ButtonBasisCombined.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBasisCombined.FlatAppearance.BorderSize = 0;
+            this.ButtonBasisCombined.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonBasisCombined.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonBasisCombined.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBasisCombined.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonBasisCombined.ForeColor = System.Drawing.Color.White;
+            this.ButtonBasisCombined.Location = new System.Drawing.Point(533, 44);
+            this.ButtonBasisCombined.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonBasisCombined.Name = "ButtonBasisCombined";
+            this.ButtonBasisCombined.Size = new System.Drawing.Size(115, 24);
+            this.ButtonBasisCombined.TabIndex = 21;
+            this.ButtonBasisCombined.Text = "Combined";
+            this.ButtonBasisCombined.UseVisualStyleBackColor = false;
+            this.ButtonBasisCombined.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
             // buttonStatus
             // 
-            this.buttonStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonStatus.FlatAppearance.BorderSize = 0;
-            this.buttonStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStatus.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonStatus.ForeColor = System.Drawing.Color.White;
-            this.buttonStatus.Location = new System.Drawing.Point(655, 44);
-            this.buttonStatus.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonStatus.Name = "buttonStatus";
-            this.buttonStatus.Size = new System.Drawing.Size(115, 24);
-            this.buttonStatus.TabIndex = 22;
-            this.buttonStatus.Text = "Status";
-            this.buttonStatus.UseVisualStyleBackColor = false;
-            this.buttonStatus.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonBasisStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBasisStatus.FlatAppearance.BorderSize = 0;
+            this.ButtonBasisStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonBasisStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonBasisStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBasisStatus.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonBasisStatus.ForeColor = System.Drawing.Color.White;
+            this.ButtonBasisStatus.Location = new System.Drawing.Point(655, 44);
+            this.ButtonBasisStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonBasisStatus.Name = "ButtonBasisStatus";
+            this.ButtonBasisStatus.Size = new System.Drawing.Size(115, 24);
+            this.ButtonBasisStatus.TabIndex = 22;
+            this.ButtonBasisStatus.Text = "Status";
+            this.ButtonBasisStatus.UseVisualStyleBackColor = false;
+            this.ButtonBasisStatus.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
             // buttonPhotos
             // 
-            this.buttonPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPhotos.FlatAppearance.BorderSize = 0;
-            this.buttonPhotos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonPhotos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPhotos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonPhotos.ForeColor = System.Drawing.Color.White;
-            this.buttonPhotos.Location = new System.Drawing.Point(777, 44);
-            this.buttonPhotos.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonPhotos.Name = "buttonPhotos";
-            this.buttonPhotos.Size = new System.Drawing.Size(115, 24);
-            this.buttonPhotos.TabIndex = 23;
-            this.buttonPhotos.Text = "Photos";
-            this.buttonPhotos.UseVisualStyleBackColor = false;
-            this.buttonPhotos.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonBasisPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBasisPhotos.FlatAppearance.BorderSize = 0;
+            this.ButtonBasisPhotos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonBasisPhotos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonBasisPhotos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBasisPhotos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonBasisPhotos.ForeColor = System.Drawing.Color.White;
+            this.ButtonBasisPhotos.Location = new System.Drawing.Point(777, 44);
+            this.ButtonBasisPhotos.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonBasisPhotos.Name = "ButtonBasisPhotos";
+            this.ButtonBasisPhotos.Size = new System.Drawing.Size(115, 24);
+            this.ButtonBasisPhotos.TabIndex = 23;
+            this.ButtonBasisPhotos.Text = "Photos";
+            this.ButtonBasisPhotos.UseVisualStyleBackColor = false;
+            this.ButtonBasisPhotos.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
             // buttonVideos
             // 
-            this.buttonVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonVideos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonVideos.FlatAppearance.BorderSize = 0;
-            this.buttonVideos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonVideos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVideos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonVideos.ForeColor = System.Drawing.Color.White;
-            this.buttonVideos.Location = new System.Drawing.Point(899, 44);
-            this.buttonVideos.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonVideos.Name = "buttonVideos";
-            this.buttonVideos.Size = new System.Drawing.Size(115, 24);
-            this.buttonVideos.TabIndex = 24;
-            this.buttonVideos.Text = "Videos";
-            this.buttonVideos.UseVisualStyleBackColor = false;
-            this.buttonVideos.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonBasisVideos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonBasisVideos.FlatAppearance.BorderSize = 0;
+            this.ButtonBasisVideos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonBasisVideos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonBasisVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonBasisVideos.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonBasisVideos.ForeColor = System.Drawing.Color.White;
+            this.ButtonBasisVideos.Location = new System.Drawing.Point(899, 44);
+            this.ButtonBasisVideos.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonBasisVideos.Name = "ButtonBasisVideos";
+            this.ButtonBasisVideos.Size = new System.Drawing.Size(115, 24);
+            this.ButtonBasisVideos.TabIndex = 24;
+            this.ButtonBasisVideos.Text = "Videos";
+            this.ButtonBasisVideos.UseVisualStyleBackColor = false;
+            this.ButtonBasisVideos.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
             // buttonYear
             // 
-            this.buttonYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonYear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonYear.FlatAppearance.BorderSize = 0;
-            this.buttonYear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonYear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonYear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonYear.ForeColor = System.Drawing.Color.White;
-            this.buttonYear.Location = new System.Drawing.Point(777, 12);
-            this.buttonYear.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonYear.Name = "buttonYear";
-            this.buttonYear.Size = new System.Drawing.Size(115, 24);
-            this.buttonYear.TabIndex = 27;
-            this.buttonYear.Text = "Year";
-            this.buttonYear.UseVisualStyleBackColor = false;
-            this.buttonYear.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonTimeFrameYear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonTimeFrameYear.FlatAppearance.BorderSize = 0;
+            this.ButtonTimeFrameYear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonTimeFrameYear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonTimeFrameYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonTimeFrameYear.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonTimeFrameYear.ForeColor = System.Drawing.Color.White;
+            this.ButtonTimeFrameYear.Location = new System.Drawing.Point(777, 12);
+            this.ButtonTimeFrameYear.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonTimeFrameYear.Name = "ButtonTimeFrameYear";
+            this.ButtonTimeFrameYear.Size = new System.Drawing.Size(115, 24);
+            this.ButtonTimeFrameYear.TabIndex = 27;
+            this.ButtonTimeFrameYear.Text = "Year";
+            this.ButtonTimeFrameYear.UseVisualStyleBackColor = false;
+            this.ButtonTimeFrameYear.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
             // buttonMonth
             // 
-            this.buttonMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
-            this.buttonMonth.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMonth.FlatAppearance.BorderSize = 0;
-            this.buttonMonth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMonth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonMonth.ForeColor = System.Drawing.Color.White;
-            this.buttonMonth.Location = new System.Drawing.Point(655, 12);
-            this.buttonMonth.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonMonth.Name = "buttonMonth";
-            this.buttonMonth.Size = new System.Drawing.Size(115, 24);
-            this.buttonMonth.TabIndex = 26;
-            this.buttonMonth.Text = "Month";
-            this.buttonMonth.UseVisualStyleBackColor = false;
-            this.buttonMonth.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
+            this.ButtonTimeFrameMonth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonTimeFrameMonth.FlatAppearance.BorderSize = 0;
+            this.ButtonTimeFrameMonth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonTimeFrameMonth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonTimeFrameMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonTimeFrameMonth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonTimeFrameMonth.ForeColor = System.Drawing.Color.White;
+            this.ButtonTimeFrameMonth.Location = new System.Drawing.Point(655, 12);
+            this.ButtonTimeFrameMonth.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonTimeFrameMonth.Name = "ButtonTimeFrameMonth";
+            this.ButtonTimeFrameMonth.Size = new System.Drawing.Size(115, 24);
+            this.ButtonTimeFrameMonth.TabIndex = 26;
+            this.ButtonTimeFrameMonth.Text = "Month";
+            this.ButtonTimeFrameMonth.UseVisualStyleBackColor = false;
+            this.ButtonTimeFrameMonth.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
             // buttonWeek
             // 
-            this.buttonWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
-            this.buttonWeek.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonWeek.FlatAppearance.BorderSize = 0;
-            this.buttonWeek.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
-            this.buttonWeek.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
-            this.buttonWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWeek.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.buttonWeek.ForeColor = System.Drawing.Color.White;
-            this.buttonWeek.Location = new System.Drawing.Point(533, 12);
-            this.buttonWeek.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonWeek.Name = "buttonWeek";
-            this.buttonWeek.Size = new System.Drawing.Size(115, 24);
-            this.buttonWeek.TabIndex = 25;
-            this.buttonWeek.Text = "Week";
-            this.buttonWeek.UseVisualStyleBackColor = false;
-            this.buttonWeek.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
+            this.ButtonTimeFrameWeek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonTimeFrameWeek.FlatAppearance.BorderSize = 0;
+            this.ButtonTimeFrameWeek.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(178)))));
+            this.ButtonTimeFrameWeek.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(203)))), ((int)(((byte)(220)))));
+            this.ButtonTimeFrameWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonTimeFrameWeek.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ButtonTimeFrameWeek.ForeColor = System.Drawing.Color.White;
+            this.ButtonTimeFrameWeek.Location = new System.Drawing.Point(533, 12);
+            this.ButtonTimeFrameWeek.Margin = new System.Windows.Forms.Padding(0);
+            this.ButtonTimeFrameWeek.Name = "ButtonTimeFrameWeek";
+            this.ButtonTimeFrameWeek.Size = new System.Drawing.Size(115, 24);
+            this.ButtonTimeFrameWeek.TabIndex = 25;
+            this.ButtonTimeFrameWeek.Text = "Week";
+            this.ButtonTimeFrameWeek.UseVisualStyleBackColor = false;
+            this.ButtonTimeFrameWeek.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
             // panelAnalytics
             // 
@@ -302,16 +302,16 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.buttonYear);
-            this.Controls.Add(this.buttonMonth);
-            this.Controls.Add(this.buttonWeek);
-            this.Controls.Add(this.buttonVideos);
-            this.Controls.Add(this.buttonPhotos);
-            this.Controls.Add(this.buttonStatus);
-            this.Controls.Add(this.buttonCombined);
-            this.Controls.Add(this.buttonSaveToDefaults);
-            this.Controls.Add(this.buttonBiggestFans);
-            this.Controls.Add(this.buttonBestTimes);
+            this.Controls.Add(this.ButtonTimeFrameYear);
+            this.Controls.Add(this.ButtonTimeFrameMonth);
+            this.Controls.Add(this.ButtonTimeFrameWeek);
+            this.Controls.Add(this.ButtonBasisVideos);
+            this.Controls.Add(this.ButtonBasisPhotos);
+            this.Controls.Add(this.ButtonBasisStatus);
+            this.Controls.Add(this.ButtonBasisCombined);
+            this.Controls.Add(this.ButtonSaveToDefaults);
+            this.Controls.Add(this.ButtonTabBiggestFans);
+            this.Controls.Add(this.ButtonTabBestTimes);
             this.Controls.Add(this.panelAnalytics);
             this.Controls.Add(this.labelAnalytics);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
@@ -324,20 +324,20 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
         #endregion
 
-        private System.Windows.Forms.Label labelAnalytics;
-        private StylizedPanel panelAnalytics;
-        private System.Windows.Forms.Button buttonBestTimes;
-        private System.Windows.Forms.Button buttonBiggestFans;
         public BestTimesView BestTimesPage;
         public BiggestFansView BiggestFansPage;
         public System.Windows.Forms.Label LabelError;
-        private System.Windows.Forms.Button buttonSaveToDefaults;
-        private System.Windows.Forms.Button buttonCombined;
-        private System.Windows.Forms.Button buttonStatus;
-        private System.Windows.Forms.Button buttonPhotos;
-        private System.Windows.Forms.Button buttonVideos;
-        private System.Windows.Forms.Button buttonYear;
-        private System.Windows.Forms.Button buttonMonth;
-        private System.Windows.Forms.Button buttonWeek;
+        private System.Windows.Forms.Label labelAnalytics;
+        private StylizedPanel panelAnalytics;
+        public System.Windows.Forms.Button ButtonTabBestTimes;
+        public System.Windows.Forms.Button ButtonTabBiggestFans;
+        public System.Windows.Forms.Button ButtonSaveToDefaults;
+        public System.Windows.Forms.Button ButtonBasisCombined;
+        public System.Windows.Forms.Button ButtonBasisStatus;
+        public System.Windows.Forms.Button ButtonBasisPhotos;
+        public System.Windows.Forms.Button ButtonBasisVideos;
+        public System.Windows.Forms.Button ButtonTimeFrameYear;
+        public System.Windows.Forms.Button ButtonTimeFrameMonth;
+        public System.Windows.Forms.Button ButtonTimeFrameWeek;
     }
 }
