@@ -10,7 +10,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 {
     public class BiggestFansViewModel
     {
-
         public SortedValueDictionary<object, int> AnalysisCollection { get; set; }
 
         public List<BiggestFan> BiggestFanLeaderboard { get; set; }
@@ -32,11 +31,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             {
                 r_BoostEn.SwitchAnalysisFactory();
             }
-            BiggestFanAnalysis = (BiggestFanAnalysis) r_BoostEn.CreateAnalysisUsingFactory(i_TimeFrame, i_AnalysisDataBasis);
+
+            BiggestFanAnalysis =
+                (BiggestFanAnalysis)r_BoostEn.CreateAnalysisUsingFactory(i_TimeFrame, i_AnalysisDataBasis);
             selectAnalysisCollection(i_AnalysisDataBasis);
         }
 
-        private void selectAnalysisCollection( eAnalysisDataBasis i_AnalysisDataBasis)
+        private void selectAnalysisCollection(eAnalysisDataBasis i_AnalysisDataBasis)
         {
             AnalysisCollection = BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
         }

@@ -6,7 +6,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
 {
     public static class CombinedDictionaryFactory
     {
-        static readonly DictionaryFactory sr_BasicFactory = new DictionaryFactory();
+        private static readonly DictionaryFactory sr_BasicFactory = new DictionaryFactory();
 
         public static SortedValueDictionary<object, int> CreateCombinedTimeAnalysisDictionary(
             User i_AnalysisUser,

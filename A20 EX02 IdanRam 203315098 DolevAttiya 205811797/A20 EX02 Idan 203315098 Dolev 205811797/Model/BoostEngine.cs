@@ -188,7 +188,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model
             lock(s_AnalysisFactoryLock)
             {
                 analysis = m_AnalysisFactory.CreateAnalysis(i_AnalysisDataBasis, LoggedInUser, i_TimeFrame);
-
             }
 
             return analysis;

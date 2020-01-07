@@ -40,11 +40,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             }
 
             m_Thread1.Priority = ThreadPriority.Highest;
-            //m_Thread1.Priority = ThreadPriority.BelowNormal;
 
             m_Thread1.Start();
             m_Thread2.Start();
         }
-
     }
 }

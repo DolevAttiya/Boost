@@ -167,7 +167,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 {
                     if(i_Tab.Name.Contains("Time"))
                     {
-                        r_BoostEn.m_AnalysisFactory= new TimeAnalysiserFactory();
+                        r_BoostEn.m_AnalysisFactory = new TimeAnalysiserFactory();
                     }
                     else
                     {
@@ -180,7 +180,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                     break;
                 }
             }
-
 
             if(!tabSwitched)
             {
@@ -200,9 +199,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             SelectButton(i_Button, AnalysisTimeFrameButtons);
             Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
             m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
-
         }
-
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)
         {

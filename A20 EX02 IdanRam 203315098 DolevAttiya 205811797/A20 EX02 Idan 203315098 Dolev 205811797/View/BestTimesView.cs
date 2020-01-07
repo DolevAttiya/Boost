@@ -14,6 +14,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private static readonly int sk_NumOfHours = 24; // TODO read only / const ?
         private readonly int k_GridAreaHeight; // TODO read only / const ?
         private readonly int k_GridAreaWidth; // TODO read only / const ?
+        private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         private int k_CellWidth; // TODO read only / const ?
         private int k_CellHeight; // TODO read only / const ?
         public int[,] m_BestPostTimes = new int[sk_NumOfDays, sk_NumOfHours]; // TODO 
@@ -22,7 +23,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private eTimeSelector m_LastUsedTimeSelector = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
         private eAnalysisDataBasis m_LastUsedDataBasis = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisDataBasis;
         private bool m_FirstDrawing = true;
-        private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         #endregion
 
         #region Ctor

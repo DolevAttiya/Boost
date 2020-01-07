@@ -7,7 +7,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
 {
     internal class AnalysisFactory 
     {
-        public  Analysis Analysiser(
+        public Analysis Analysiser(
             eAnalysisDataBasis i_AnalysisDataBasis,
             User i_User,
             eTimeSelector i_TimeSelector,
@@ -23,13 +23,11 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
                     selectedAnalysis = (Analysis)method.Invoke(
                         selectedAnalysis,
                         new object[] { i_User, i_TimeSelector });
-                    ;
                     break;
                 }
             }
 
             return selectedAnalysis;
         }
-
     }
 }
