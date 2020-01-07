@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.AnalysisFactory;
-using FacebookWrapper.ObjectModel;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 {
@@ -28,7 +28,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 
         private void createBiggestFanAnalysis(User i_User, eTimeSelector i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            //BoostEngine.Instance.BiggestFanAnalysis = BoostEngine.Instance.m_AnalysisFactory.CreateAnalysis((Post.eType)i_AnalysisDataBasis, i_User, i_TimeFrame) as BiggestFanAnalysis;
             if (r_BoostEn.m_AnalysisFactory.GetType() != typeof(BiggestFanAnalysiserFactory))
             {
                 r_BoostEn.SwitchAnalysisFactory();
@@ -39,7 +38,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
 
         private void selectAnalysisCollection( eAnalysisDataBasis i_AnalysisDataBasis)
         {
-            //AnalysisCollection = r_BoostEn.BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
             AnalysisCollection = BiggestFanAnalysis.GetSpecificAnalysisCollection(i_AnalysisDataBasis);
         }
 
