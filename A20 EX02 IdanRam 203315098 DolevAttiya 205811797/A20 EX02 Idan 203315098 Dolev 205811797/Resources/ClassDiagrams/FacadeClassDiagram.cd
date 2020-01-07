@@ -51,13 +51,12 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>N0ACECCIEmCAEARARADEAAESAEASAJAAQBAAAAEBAgA=</HashCode>
+      <HashCode>NUACECAIEmCAEARARADEAAESAEASAJAAQBAAAAEBIgA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="m_AnalysisSettingsEvent" />
       <Field Name="r_BoostEn" />
-      <Field Name="m_AnalyticsViewModel" />
       <Field Name="BestTimesPage" />
       <Field Name="BiggestFansPage" />
     </ShowAsAssociation>
