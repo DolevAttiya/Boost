@@ -180,7 +180,8 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
                 if (subPageName == tabName)
                 {
-                    if(i_Tab.Name.Contains("Time"))
+                    // TODO use new method
+                    if (i_Tab.Name.Contains("Time"))
                     {
                         r_BoostEn.m_AnalysisFactory = new TimeAnalysisFactory();
                     }

@@ -8,7 +8,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.
 {
     internal class DictionaryFactory
     {
-        internal  SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
+        internal SortedValueDictionary<object, int> CreateTimeAnalysisDictionary(
             User i_AnalysisUser,
             eTimeFrame i_TimeFrame,
             Func<Post.eType?, bool> i_Tester)

@@ -1,20 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="Instance is of type: Singleton&lt;BoostEngine&gt;">
-    <Position X="12.375" Y="5.438" Height="0.458" Width="1.7" />
+    <Position X="12.502" Y="5.644" Height="0.458" Width="1.7" />
   </Comment>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
     <Position X="10" Y="1.5" Width="2.25" />
     <AssociationLine Name="Instance" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="12.25" Y="4.313" />
-        <Point X="14.365" Y="4.313" />
-        <Point X="14.365" Y="6.25" />
-        <Point X="12.25" Y="6.25" />
+        <Point X="12.25" Y="3.312" />
+        <Point X="14.365" Y="3.312" />
+        <Point X="14.365" Y="5.438" />
+        <Point X="12.25" Y="5.438" />
       </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.664" Y="0.108" />
+      </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AgFgAAECAAAiBAUAEAUAIAAAEAJAAAQBQAAQBEBAEBA=</HashCode>
+      <HashCode>AAFoAAECAAAiBEUAAAUAAAAAEAJAAAQBQAAQBEAAEBA=</HashCode>
       <FileName>Model\BoostEngine.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -22,14 +25,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Singleton&lt;T&gt;">
-    <Position X="14.75" Y="1.5" Width="2.25" />
+    <Position X="14.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAAACA=</HashCode>
       <FileName>Model\Design Patterns\Singleton.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.AnalyticsViewModel" Collapsed="true">
-    <Position X="5.5" Y="6.75" Width="1.5" />
+    <Position X="5.5" Y="6" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAIAAAAAAAAAAQAAEAAAAAAAAAAAAAgAAAA=</HashCode>
       <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
@@ -39,7 +42,12 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BestTimesViewModel" Collapsed="true">
-    <Position X="5.5" Y="9.25" Width="1.75" />
+    <Position X="5.5" Y="8.5" Width="1.75" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.373" Y="0.513" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AAAAEgAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAgAA=</HashCode>
       <FileName>ViewModels\BestTimesViewModel.cs</FileName>
@@ -49,7 +57,15 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BiggestFansViewModel" Collapsed="true">
-    <Position X="5.5" Y="8.5" Width="1.5" />
+    <Position X="5.5" Y="7.75" Width="2" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.5" Y="8.031" />
+        <Point X="7.875" Y="8.031" />
+        <Point X="7.875" Y="7.625" />
+        <Point X="10" Y="7.625" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>AgAAEgAAAAAAAAAAggAAACAAAAAACAAAAAAAAAACAAA=</HashCode>
       <FileName>ViewModels\BiggestFansViewModel.cs</FileName>
@@ -59,7 +75,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BoostViewModel" Collapsed="true">
-    <Position X="5.5" Y="2.5" Width="1.5" />
+    <Position X="5.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEIAAAI=</HashCode>
       <FileName>ViewModels\BoostViewModel.cs</FileName>
@@ -69,7 +85,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.DashboardViewModel" Collapsed="true">
-    <Position X="5.5" Y="5" Width="2" />
+    <Position X="5.5" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAEESAAAAAAAIBAEAQQAAAAACoAEAAgBAAAAgACCAA=</HashCode>
       <FileName>ViewModels\DashboardViewModel.cs</FileName>
@@ -79,7 +95,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.NavbarViewModel" Collapsed="true">
-    <Position X="5.5" Y="4.25" Width="1.5" />
+    <Position X="5.5" Y="3.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
       <FileName>ViewModels\NavbarViewModel.cs</FileName>
@@ -89,9 +105,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.AnalyticsView" Collapsed="true">
-    <Position X="5.5" Y="5.75" Width="1.5" />
+    <Position X="5.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>PkACEACIAmCAEERARADABAIGAEEAAJJAQBAAAAABAgA=</HashCode>
+      <HashCode>N0ACECCIEmCAEARARADEAAESAEASAJAAQBAAAAEBAgA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -99,9 +115,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.BestTimesView" Collapsed="true">
-    <Position X="5.5" Y="7.5" Width="1.5" />
+    <Position X="5.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>QAAAFAwAYCACIgAAAACAAEMCAQgAAABAAAAAQggAAYA=</HashCode>
+      <HashCode>QAAAFAgAACACAgAABQCAAEMCEQgAAABAAAgAQAoAAYI=</HashCode>
       <FileName>View\BestTimesView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -109,14 +125,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.Boost" Collapsed="true">
-    <Position X="5.5" Y="1.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="A20_EX02_Idan_203315098_Dolev_205811797.View.Boost.eBoostPages" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>View\Boost.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
+    <Position X="5.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>FQAAkAAAACADQAAQAQCgAIISAEAgAEEAlEASgAQAgAQ=</HashCode>
       <FileName>View\Boost.cs</FileName>
@@ -126,7 +135,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.View.LoginView" Collapsed="true">
-    <Position X="5.5" Y="3.25" Width="1.5" />
+    <Position X="5.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAEMUEAACQAYAAAQAiBACACAAAAAAAAIAAIAQAIwEA=</HashCode>
       <FileName>View\LoginView.cs</FileName>
