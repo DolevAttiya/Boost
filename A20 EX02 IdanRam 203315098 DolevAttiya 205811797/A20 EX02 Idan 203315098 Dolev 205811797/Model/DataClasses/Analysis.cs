@@ -19,7 +19,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
 
         #region Methods
 
-        public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(eAnalysisDataBasis i_AnalysisDataBasis) // TODO
+        public SortedValueDictionary<object, int> GetSpecificAnalysisCollection(eAnalysisDataBasis i_AnalysisDataBasis)
         {
             SortedValueDictionary<object, int> analysisCollection = null;
 
@@ -38,7 +38,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses
                     analysisCollection = VideoDictionary;
                     break;
             }
-
+            
             return analysisCollection;
         }
 

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
-using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 using A20_EX02_Idan_203315098_Dolev_205811797.ViewModels;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.AnalysisFactory;
 
@@ -68,8 +66,14 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             m_AnalyticsViewModel.m_BestTimesEvent += BestTimesPage.DrawBestTimesGrid;
             m_AnalyticsViewModel.m_BiggestFansEvent += BiggestFansPage.DisplayBiggestFans;
 
+            AnalyticsTabButtons = new List<Button>();
+            AnalysisBasisButtons = new List<Button>();
+            AnalysisTimeFrameButtons = new List<Button>();
+            AnalyticsSubPages = new List<UserControl>();
+
             addButtonsToLists();
-            addSubPagesToList();
+            this.addSubPagesToList(AnalyticsSubPages, 
+                field => !field.FieldType.Name.Contains("View"));
         }
 
         private void analysisTab_Click(object sender, EventArgs e)
@@ -87,42 +91,52 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             switchAnalysisTimeFrame((Button)sender);
         }
 
-        private void addButtonsToLists() // TODO - better way with reflection?
+        private void addButtonsToLists()
         {
-            AnalyticsTabButtons = new List<Button>();
-            AnalysisBasisButtons = new List<Button>();
-            AnalysisTimeFrameButtons = new List<Button>();
-
             foreach(FieldInfo field in this.GetType().GetFields())
             {
-                if(field.FieldType == typeof(Button))
+                if(field.FieldType != typeof(Button))
                 {
-                    if(field.Name.StartsWith("Button"))
-                    {
-                        if (field.Name.Contains("Tab"))
-                        {
-                            AnalyticsTabButtons.Add((Button)field.GetValue(this));
-                        }
-                        else if(field.Name.Contains("Basis"))
-                        {
-                            AnalysisBasisButtons.Add((Button)field.GetValue(this));
-                        }
-                        else if(field.Name.Contains("TimeFrame"))
-                        {
-                            AnalysisTimeFrameButtons.Add((Button)field.GetValue(this));
-                        }
-                    }
+                    continue;
+                }
+
+                if(!field.Name.StartsWith("Button"))
+                {
+                    continue;
+                }
+
+                if (field.Name.Contains("Tab"))
+                {
+                    AnalyticsTabButtons.Add((Button)field.GetValue(this));
+                }
+                else if(field.Name.Contains("Basis"))
+                {
+                    AnalysisBasisButtons.Add((Button)field.GetValue(this));
+                }
+                else if(field.Name.Contains("TimeFrame"))
+                {
+                    AnalysisTimeFrameButtons.Add((Button)field.GetValue(this));
                 }
             }
         }
 
-        private void addSubPagesToList()
+        /*private void addSubPagesToList()
         {
             AnalyticsSubPages = new List<UserControl>();
 
-            AnalyticsSubPages.Add(BestTimesPage);
-            AnalyticsSubPages.Add(BiggestFansPage);
-        }
+            foreach (FieldInfo field in this.GetType().GetFields())
+            {
+                if(field.FieldType != typeof(UserControl))
+                {
+                    continue;
+                }
+
+                if (field.Name.Contains("Page"))
+                {
+                    AnalyticsSubPages.Add((UserControl)field.GetValue(this));
+                }
+            }
+        }*/
 
         public void FetchAndDisplayData()
         {
@@ -180,15 +194,18 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
                 if (subPageName == tabName)
                 {
-                    // TODO use new method
+                    Type analysisType;
+
                     if (i_Tab.Name.Contains("Time"))
                     {
-                        r_BoostEn.m_AnalysisFactory = new TimeAnalysisFactory();
+                        analysisType = typeof(TimeAnalysisFactory);
                     }
                     else
                     {
-                        r_BoostEn.m_AnalysisFactory = new BiggestFanAnalysisFactory();
+                        analysisType = typeof(BiggestFanAnalysisFactory);
                     }
+
+                    r_BoostEn.SelectAnalysisFactoryType(analysisType);
 
                     subPage.BringToFront();
                     tabSwitched = true;

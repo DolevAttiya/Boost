@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
@@ -26,9 +28,25 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             return filePath;
         }
 
-        public static void centerControlHorizontally(Control i_Control, UserControl i_Client)
+        public static void centerControlHorizontally(this Control i_Control, UserControl i_Client)
         {
             i_Control.Left = (i_Client.Width - i_Control.Width) / 2;
+        }
+
+        public static void addSubPagesToList(this Control i_Container, List<UserControl> i_PageList, Func<FieldInfo, bool> i_Tester)
+        {
+            foreach (FieldInfo field in i_Container.GetType().GetFields())
+            {
+                if (i_Tester.Invoke(field))
+                {
+                    continue;
+                }
+
+                if (field.Name.Contains("Page"))
+                {
+                    i_PageList.Add((UserControl)field.GetValue(i_Container));
+                }
+            }
         }
     }
 }

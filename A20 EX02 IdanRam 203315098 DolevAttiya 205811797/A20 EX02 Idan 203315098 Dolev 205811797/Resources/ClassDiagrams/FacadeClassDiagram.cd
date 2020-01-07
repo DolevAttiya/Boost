@@ -17,7 +17,6 @@
       <FileName>View\Boost.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="m_BoostViewModel" />
       <Field Name="DashboardPage" />
       <Field Name="AnalyticsPage" />
       <Field Name="navbar" />
@@ -51,7 +50,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>NUACECAIEmCAEARARADEAAESAEASAJAAQBAAAAEBIgA=</HashCode>
+      <HashCode>N0ACECCIEmCAEARARADEAAESAEASAJAAQBAAAAEBAgA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -89,27 +88,6 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="r_BoostEn" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BoostViewModel">
-    <Position X="20" Y="23.25" Width="1.75" />
-    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine" FixedFromPoint="true">
-      <Path>
-        <Point X="20.875" Y="25.19" />
-        <Point X="20.875" Y="28.75" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.151" Y="3.808" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAEAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEIAAAI=</HashCode>
-      <FileName>ViewModels\BoostViewModel.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="r_BoostEn" />
-      <Field Name="m_PostLoginEvent" />
-      <Field Name="m_LoginErrorEvent" />
     </ShowAsAssociation>
   </Class>
   <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BiggestFansViewModel">
@@ -177,25 +155,28 @@
     <Position X="24.25" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
+  <Class Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.BoostViewModel">
+    <Position X="20" Y="23.25" Width="1.75" />
+    <AssociationLine Name="r_BoostEn" Type="A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.151" Y="3.808" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAEAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEIAAAI=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+      <Field Name="m_PostLoginEvent" />
+      <Field Name="m_LoginErrorEvent" />
+    </ShowAsAssociation>
+  </Class>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.View.SaveAnalysisSettingsEventHandler">
     <Position X="25.75" Y="12.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>View\AnalyticsView.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
-  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.PostLoginEventHandler" Collapsed="true">
-    <Position X="24.25" Y="24.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModels\BoostViewModel.cs</FileName>
-    </TypeIdentifier>
-  </Delegate>
-  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.LoginErrorEventHandler">
-    <Position X="24.25" Y="22.5" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ViewModels\BoostViewModel.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.View.UsernameButtonEventHandler">
@@ -217,6 +198,20 @@
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.PostLoginEventHandler" Collapsed="true">
+    <Position X="24.25" Y="24.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX02_Idan_203315098_Dolev_205811797.ViewModels.LoginErrorEventHandler">
+    <Position X="24.25" Y="22.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />

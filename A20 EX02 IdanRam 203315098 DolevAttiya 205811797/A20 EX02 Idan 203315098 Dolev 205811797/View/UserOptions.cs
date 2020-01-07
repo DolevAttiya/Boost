@@ -117,7 +117,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                         {
                             if(m_LogoutEvent != null)
                             {
-                                m_LogoutEvent.Invoke(); // TODO SINGLETON
+                                m_LogoutEvent.Invoke();
                             }
                         }
 

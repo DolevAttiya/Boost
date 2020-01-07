@@ -91,9 +91,9 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 series.Points.Clear();
             }
 
-            // Sort elements for app startup
+            // Sort elements at app startup
             NavbarSeparator.BringToFront();
-            addBoostPagesToList();
+            this.addSubPagesToList(m_BoostPages, field => !field.FieldType.Name.Contains("View"));
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;
@@ -102,15 +102,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 navbar.BtnUsername.Right - userOptions.Width + navbar.Location.X,
                 navbar.BtnUsername.Bottom);
             LoginPage.UpdateLoginPage();
-            ////
-        }
-
-        private void addBoostPagesToList()
-        {
-            m_BoostPages.Add(DashboardPage);
-            m_BoostPages.Add(AnalyticsPage);
-            m_BoostPages.Add(AboutPage);
-            m_BoostPages.Add(LoginPage);
         }
 
         private void initializeSettingsPopUp()
@@ -213,11 +204,15 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 // Identify Login (Email as ID + First login)
                 r_BoostEn.m_BoostSettings.IsFirstLogin(r_BoostEn.LoggedInUser.Email);
 
-                // Fetch and load data
-                FetchAndDisplayUserData();
-                initializeSettingsPopUp();
-                displayWhatsNewPopup();
-                r_BoostEn.OverwriteBoostSettings();
+                Invoke(new Action(
+                    () =>
+                        {
+                            // Fetch and load data
+                            FetchAndDisplayUserData();
+                            initializeSettingsPopUp();
+                            displayWhatsNewPopup();
+                            r_BoostEn.OverwriteBoostSettings();
+                        }));
             }
             catch(Exception e)
             {

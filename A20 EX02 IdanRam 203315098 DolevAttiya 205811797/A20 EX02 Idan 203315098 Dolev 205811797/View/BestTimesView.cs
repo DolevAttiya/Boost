@@ -17,7 +17,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
         private readonly int r_GridAreaWidth;
         private int m_CellWidth;
         private int m_CellHeight;
-        public int[,] m_BestPostTimes = new int[sr_NumOfDays, sr_NumOfHours]; // TODO 
         public Label[,] m_BestTimesGrid = new Label[sr_NumOfDays + 1, sr_NumOfHours + 1];
         private BestTimesViewModel m_BestTimesViewModel = new BestTimesViewModel();
         private eTimeFrame m_LastUsedTimeFrame = BoostEngine.Instance.m_BoostSettings.DefaultAnalysisTimeFrame;
@@ -91,7 +90,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
                     m_BestTimesGrid[i, j] = createBestTimesGridCell(labelX, labelY);
 
-                    // Multithreading
+                    // Multithreading support
                     Invoke(
                         new Action(
                             () =>

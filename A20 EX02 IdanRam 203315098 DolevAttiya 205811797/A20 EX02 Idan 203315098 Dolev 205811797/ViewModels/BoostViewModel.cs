@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 
@@ -13,6 +14,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         public PostLoginEventHandler m_PostLoginEvent;
         public LoginErrorEventHandler m_LoginErrorEvent;
+        private object m_PostLoginLock = new object();
 
         public bool PreInitialLogin { get; set; }
 
@@ -50,7 +52,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.ViewModels
             bool isTheUserLoggedIn = r_BoostEn.LoggedInUser != null;
             if (isTheUserLoggedIn)
             {
-                m_PostLoginEvent.Invoke();
+                lock(m_PostLoginLock)
+                {
+                    if(isTheUserLoggedIn)
+                    {
+                        new Thread(new ThreadStart(() => m_PostLoginEvent.Invoke())).Start();
+                    }
+                }
             }
         }
     }

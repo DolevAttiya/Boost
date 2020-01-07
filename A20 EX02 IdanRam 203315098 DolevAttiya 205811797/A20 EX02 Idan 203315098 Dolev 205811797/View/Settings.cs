@@ -6,12 +6,8 @@ using A20_EX02_Idan_203315098_Dolev_205811797.Model.DataClasses;
 
 namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 {
-    public delegate void SaveSettingEventHandler();
-    
     public partial class Settings : Form
     {
-        public SaveSettingEventHandler m_SaveSettingEvent;
-
         public Settings()
         {
             InitializeComponent();

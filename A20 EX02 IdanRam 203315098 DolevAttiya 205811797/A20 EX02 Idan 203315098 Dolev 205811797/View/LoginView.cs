@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using A20_EX02_Idan_203315098_Dolev_205811797.Model;
 
@@ -56,12 +57,13 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
                 ButtonSwitchUser.BringToFront();
                 ButtonSwitchUser.Visible = true;
 
-                UITools.centerControlHorizontally(ButtonContinueAs, this);
-                UITools.centerControlHorizontally(ButtonSwitchUser, this);
-                UITools.centerControlHorizontally(PictureBoxFBLogin, this);
-                UITools.centerControlHorizontally(CheckBoxRememberUser, this);
-                UITools.centerControlHorizontally(LabelLoading, this);
-                UITools.centerControlHorizontally(PictureBoxLogo, this);
+                // Extension methods from UITools
+                ButtonContinueAs.centerControlHorizontally(this);
+                ButtonSwitchUser.centerControlHorizontally(this);
+                PictureBoxFBLogin.centerControlHorizontally(this);
+                CheckBoxRememberUser.centerControlHorizontally(this);
+                LabelLoading.centerControlHorizontally(this);
+                PictureBoxLogo.centerControlHorizontally(this);
 
                 PictureBoxFBLogin.Visible = false;
                 CheckBoxRememberUser.Visible = false;
@@ -87,19 +89,19 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             LabelLoading.Visible = true;
             if(m_LoginEvent != null)
             {
-                m_LoginEvent.Invoke();
+                /*new Thread(new ThreadStart(() => */
+                m_LoginEvent.Invoke() /*)).Start()*/;
             }
         }
-        #endregion
 
         public void DisplayLoginErrorMessage()
         {
-            LabelLoginError.Visible = true;
+            Invoke(new Action(() => LabelLoginError.Visible = true));
         }
 
         public void HideLoginPage()
         {
-            Visible = false;
+            Invoke(new Action(() => Visible = false));
         }
 
         private void ButtonContinueAs_Click(object sender, EventArgs e)
@@ -107,7 +109,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             LabelLoading.Visible = true;
             if (m_ContinueAsEvent != null)
             {
-                m_ContinueAsEvent.Invoke();
+                new Thread(new ThreadStart(() => m_ContinueAsEvent.Invoke())).Start();
             }
         }
 
@@ -121,5 +123,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
 
             LoginPageSetup();
         }
+        #endregion
     }
 }
