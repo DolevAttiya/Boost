@@ -120,24 +120,6 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             }
         }
 
-        /*private void addSubPagesToList()
-        {
-            AnalyticsSubPages = new List<UserControl>();
-
-            foreach (FieldInfo field in this.GetType().GetFields())
-            {
-                if(field.FieldType != typeof(UserControl))
-                {
-                    continue;
-                }
-
-                if (field.Name.Contains("Page"))
-                {
-                    AnalyticsSubPages.Add((UserControl)field.GetValue(this));
-                }
-            }
-        }*/
-
         public void FetchAndDisplayData()
         {
             try

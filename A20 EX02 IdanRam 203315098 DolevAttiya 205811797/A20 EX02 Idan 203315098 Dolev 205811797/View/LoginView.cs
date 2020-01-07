@@ -89,8 +89,7 @@ namespace A20_EX02_Idan_203315098_Dolev_205811797.View
             LabelLoading.Visible = true;
             if(m_LoginEvent != null)
             {
-                /*new Thread(new ThreadStart(() => */
-                m_LoginEvent.Invoke() /*)).Start()*/;
+                m_LoginEvent.Invoke();
             }
         }
 
