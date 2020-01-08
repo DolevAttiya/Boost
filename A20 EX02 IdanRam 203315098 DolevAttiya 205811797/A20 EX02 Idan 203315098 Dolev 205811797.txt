@@ -1,12 +1,0 @@
-==========================Exercise Checking Report==========================
-Exercise No...........: 2
-First Student Details.: 205811797 - Dolev Attiya
-Second Student Details: 203315098 - Idan Ram
-Delivery Date.........: 7 - January - 2020
-Delivered In Delay....: No
-Delay Reason..........: Irrelevant
-Visual Studio Version.: 2017 & 2019
-
-Comments..............: Stylecop warning to ignore:
-"SA1409 : CSharp.Maintainability : The constructor should be removed as it is empty."	The empty constructor is crucial for the Singleton implementation.
-=======================End Exercise Checking Report=========================

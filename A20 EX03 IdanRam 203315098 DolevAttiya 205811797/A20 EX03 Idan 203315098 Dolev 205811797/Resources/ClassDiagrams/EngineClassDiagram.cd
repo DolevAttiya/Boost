@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.BoostEngine">
+    <Position X="13.5" Y="0.5" Width="6.25" />
+    <TypeIdentifier>
+      <HashCode>AgEgACEAAAAgAIVAAAEQAAAAAgJEAAQAAAAAAEBAEAA=</HashCode>
+      <FileName>Engine\BoostEngine.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_BoostSettings" />
+      <Property Name="LoggedInUser" />
+      <Property Name="EngagementRecentPostComments" />
+      <Property Name="EngagementRecentPostLikes" />
+      <Property Name="LoginResult" />
+      <Property Name="BiggestFanAnalysis" />
+      <Property Name="TimeAnalysis" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.BoostSettings">
+    <Position X="8.5" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAgACEAAEAgGAAAAAAAgAAAAAGAAAAAAABAAAACAAAA=</HashCode>
+      <FileName>Engine\BoostSettings.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="FriendCounter" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DateAndValue">
+    <Position X="22.25" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgAAAAAAA=</HashCode>
+      <FileName>Engine\DataClasses\DateAndValue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis">
+    <Position X="13.5" Y="7.5" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAQABAAABABAAABAAAAAAAgAAgAkAAA=</HashCode>
+      <FileName>Engine\DataClasses\Analysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.BiggestFanAnalysis">
+    <Position X="8.75" Y="15.5" Width="7" />
+    <InheritanceLine Type="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis" ManuallyRouted="true">
+      <Path>
+        <Point X="16.5" Y="10.853" />
+        <Point X="16.5" Y="11.803" />
+        <Point X="12.25" Y="11.803" />
+        <Point X="12.25" Y="15.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Engine\DataClasses\BiggestFanAnalysis.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.Engagement">
+    <Position X="10.5" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQYAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\DataClasses\Engagement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.TimeAnalysis">
+    <Position X="17.75" Y="15.5" Width="7" />
+    <InheritanceLine Type="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.Analysis" ManuallyRouted="true">
+      <Path>
+        <Point X="16.5" Y="10.853" />
+        <Point X="16.5" Y="11.803" />
+        <Point X="21.25" Y="11.803" />
+        <Point X="21.25" Y="15.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Engine\DataClasses\TimeAnalysis.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.909" />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.User" Collapsed="true">
+    <Position X="23.25" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eGender" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eRelationshipStatus" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+      <Enum Name="FacebookWrapper.ObjectModel.User.eOnlineStatus" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Post" Collapsed="true">
+    <Position X="16" Y="12.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="FacebookWrapper.ObjectModel.Post.eType" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Comment" Collapsed="true">
+    <Position X="16" Y="14.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Video" Collapsed="true">
+    <Position X="18" Y="13.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Photo" Collapsed="true">
+    <Position X="16" Y="13.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Status" Collapsed="true">
+    <Position X="14" Y="13.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.ObjectModel.Location" Collapsed="true">
+    <Position X="23.25" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.LoginResult" Collapsed="true">
+    <Position X="21.5" Y="2" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FacebookWrapper.FacebookService" Collapsed="true">
+    <Position X="20.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Struct Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.DayAndHour">
+    <Position X="21" Y="8.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAAAEAAAACAA=</HashCode>
+      <FileName>Engine\DataClasses\DayAndHour.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.IAnalysis">
+    <Position X="13.25" Y="5.75" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Engine\DataClasses\IAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses.eTimeSelector">
+    <Position X="22.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\DataClasses\eTimerSelector.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
