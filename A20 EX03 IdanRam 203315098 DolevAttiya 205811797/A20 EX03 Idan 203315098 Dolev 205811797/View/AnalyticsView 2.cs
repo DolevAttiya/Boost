@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model;
@@ -66,8 +65,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
             m_AnalyticsViewModel.m_BestTimesEvent += BestTimesPage.DrawBestTimesGrid;
             m_AnalyticsViewModel.m_BiggestFansEvent += BiggestFansPage.DisplayBiggestFans;
-
-            m_AnalyticsViewModel.m_AnalysisFinishedEvent += reanalyzingOverlay.HideReanalyzingPanel;
 
             AnalyticsTabButtons = new List<Button>();
             AnalysisBasisButtons = new List<Button>();
@@ -206,42 +203,16 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
         private void switchAnalysisBasis(Button i_Button)
         {
-            /*SelectButton(i_Button, AnalysisBasisButtons);
+            SelectButton(i_Button, AnalysisBasisButtons);
             Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
-            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);*/
-            switchAnalysisElements(i_Button, AnalysisBasisButtons);
-
+            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
         }
 
         private void switchAnalysisTimeFrame(Button i_Button)
         {
-            /*SelectButton(i_Button, AnalysisTimeFrameButtons);
+            SelectButton(i_Button, AnalysisTimeFrameButtons);
             Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
-            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);*/
-            switchAnalysisElements(i_Button, AnalysisTimeFrameButtons);
-        }
-
-        private void switchAnalysisElements(Button i_Button, List<Button> i_ButtonList)
-        {
-            SelectButton(i_Button, i_ButtonList);
-            if (i_ButtonList.Count > 0)
-            {
-                if (i_ButtonList[0].Name.Contains("Basis"))
-                {
-                    Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
-                }
-                else
-                {
-                    Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
-                }
-                reanalyzingOverlay.BringToFront();
-                reanalyzingOverlay.AnimatePanel();
-                m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
-            }
-            else
-            {
-                throw new Exception("i_ButtonList is empty!");
-            }
+            m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
         }
 
         private void buttonSaveToDefaults_Click(object sender, EventArgs e)

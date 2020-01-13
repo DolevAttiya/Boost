@@ -116,6 +116,12 @@
     <Compile Include="View\BiggestFansView.Designer.cs">
       <DependentUpon>BiggestFansView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ReanalyzingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ReanalyzingView.Designer.cs">
+      <DependentUpon>ReanalyzingView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Navbar.resx">
       <DependentUpon>Navbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReanalyzingView.resx">
+      <DependentUpon>ReanalyzingView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>

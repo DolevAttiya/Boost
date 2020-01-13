@@ -35,6 +35,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.labelAnalytics = new System.Windows.Forms.Label();
             this.ButtonTabBestTimes = new System.Windows.Forms.Button();
             this.ButtonTabBiggestFans = new System.Windows.Forms.Button();
+            this.LabelError = new System.Windows.Forms.Label();
             this.ButtonSaveToDefaults = new System.Windows.Forms.Button();
             this.ButtonBasisCombined = new System.Windows.Forms.Button();
             this.ButtonBasisStatus = new System.Windows.Forms.Button();
@@ -43,11 +44,9 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameYear = new System.Windows.Forms.Button();
             this.ButtonTimeFrameMonth = new System.Windows.Forms.Button();
             this.ButtonTimeFrameWeek = new System.Windows.Forms.Button();
-            this.reanalyzingOverlay = new A20_EX03_Idan_203315098_Dolev_205811797.View.ReanalyzingView();
             this.panelAnalytics = new A20_EX03_Idan_203315098_Dolev_205811797.View.UI_Controls.StylizedPanel();
             this.BiggestFansPage = new A20_EX03_Idan_203315098_Dolev_205811797.View.BiggestFansView();
             this.BestTimesPage = new A20_EX03_Idan_203315098_Dolev_205811797.View.BestTimesView();
-            this.LabelError = new System.Windows.Forms.Label();
             this.panelAnalytics.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +61,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.labelAnalytics.TabIndex = 0;
             this.labelAnalytics.Text = "ANALYTICS";
             // 
-            // ButtonTabBestTimes
+            // buttonBestTimes
             // 
             this.ButtonTabBestTimes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonTabBestTimes.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -81,7 +80,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTabBestTimes.UseVisualStyleBackColor = false;
             this.ButtonTabBestTimes.Click += new System.EventHandler(this.analysisTab_Click);
             // 
-            // ButtonTabBiggestFans
+            // buttonBiggestFans
             // 
             this.ButtonTabBiggestFans.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonTabBiggestFans.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -100,7 +99,21 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTabBiggestFans.UseVisualStyleBackColor = false;
             this.ButtonTabBiggestFans.Click += new System.EventHandler(this.analysisTab_Click);
             // 
-            // ButtonSaveToDefaults
+            // LabelError
+            // 
+            this.LabelError.BackColor = System.Drawing.Color.White;
+            this.LabelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelError.ForeColor = System.Drawing.Color.DarkRed;
+            this.LabelError.Location = new System.Drawing.Point(8, 8);
+            this.LabelError.Name = "LabelError";
+            this.LabelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
+            this.LabelError.Size = new System.Drawing.Size(1001, 434);
+            this.LabelError.TabIndex = 14;
+            this.LabelError.Text = "Could not fetch/analyze user data!";
+            this.LabelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LabelError.Visible = false;
+            // 
+            // buttonSaveToDefaults
             // 
             this.ButtonSaveToDefaults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(170)))), ((int)(((byte)(210)))));
             this.ButtonSaveToDefaults.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -119,7 +132,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonSaveToDefaults.UseVisualStyleBackColor = false;
             this.ButtonSaveToDefaults.Click += new System.EventHandler(this.buttonSaveToDefaults_Click);
             // 
-            // ButtonBasisCombined
+            // buttonCombined
             // 
             this.ButtonBasisCombined.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
             this.ButtonBasisCombined.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -138,7 +151,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisCombined.UseVisualStyleBackColor = false;
             this.ButtonBasisCombined.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
-            // ButtonBasisStatus
+            // buttonStatus
             // 
             this.ButtonBasisStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonBasisStatus.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,7 +170,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisStatus.UseVisualStyleBackColor = false;
             this.ButtonBasisStatus.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
-            // ButtonBasisPhotos
+            // buttonPhotos
             // 
             this.ButtonBasisPhotos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonBasisPhotos.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -176,7 +189,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisPhotos.UseVisualStyleBackColor = false;
             this.ButtonBasisPhotos.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
-            // ButtonBasisVideos
+            // buttonVideos
             // 
             this.ButtonBasisVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonBasisVideos.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -195,7 +208,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisVideos.UseVisualStyleBackColor = false;
             this.ButtonBasisVideos.Click += new System.EventHandler(this.analysisBasis_Click);
             // 
-            // ButtonTimeFrameYear
+            // buttonYear
             // 
             this.ButtonTimeFrameYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonTimeFrameYear.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -214,7 +227,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameYear.UseVisualStyleBackColor = false;
             this.ButtonTimeFrameYear.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
-            // ButtonTimeFrameMonth
+            // buttonMonth
             // 
             this.ButtonTimeFrameMonth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(52)))), ((int)(((byte)(88)))));
             this.ButtonTimeFrameMonth.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -233,7 +246,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameMonth.UseVisualStyleBackColor = false;
             this.ButtonTimeFrameMonth.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
-            // ButtonTimeFrameWeek
+            // buttonWeek
             // 
             this.ButtonTimeFrameWeek.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(103)))), ((int)(((byte)(168)))));
             this.ButtonTimeFrameWeek.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -252,20 +265,9 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameWeek.UseVisualStyleBackColor = false;
             this.ButtonTimeFrameWeek.Click += new System.EventHandler(this.analysisTimeFrame_Click);
             // 
-            // reanalyzingOverlay
-            // 
-            this.reanalyzingOverlay.BackColor = System.Drawing.Color.Transparent;
-            this.reanalyzingOverlay.Location = new System.Drawing.Point(0, 0);
-            this.reanalyzingOverlay.MaximumSize = new System.Drawing.Size(1005, 434);
-            this.reanalyzingOverlay.MinimumSize = new System.Drawing.Size(1005, 434);
-            this.reanalyzingOverlay.Name = "reanalyzingOverlay";
-            this.reanalyzingOverlay.Size = new System.Drawing.Size(1005, 434);
-            this.reanalyzingOverlay.TabIndex = 28;
-            // 
             // panelAnalytics
             // 
             this.panelAnalytics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.panelAnalytics.Controls.Add(this.reanalyzingOverlay);
             this.panelAnalytics.Controls.Add(this.BiggestFansPage);
             this.panelAnalytics.Controls.Add(this.BestTimesPage);
             this.panelAnalytics.Controls.Add(this.LabelError);
@@ -293,20 +295,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.BestTimesPage.Name = "BestTimesPage";
             this.BestTimesPage.Size = new System.Drawing.Size(1000, 430);
             this.BestTimesPage.TabIndex = 0;
-            // 
-            // LabelError
-            // 
-            this.LabelError.BackColor = System.Drawing.Color.White;
-            this.LabelError.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelError.ForeColor = System.Drawing.Color.DarkRed;
-            this.LabelError.Location = new System.Drawing.Point(8, 8);
-            this.LabelError.Name = "LabelError";
-            this.LabelError.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.LabelError.Size = new System.Drawing.Size(1001, 434);
-            this.LabelError.TabIndex = 14;
-            this.LabelError.Text = "Could not fetch/analyze user data!";
-            this.LabelError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LabelError.Visible = false;
             // 
             // AnalyticsView
             // 
@@ -351,6 +339,5 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
         public System.Windows.Forms.Button ButtonTimeFrameYear;
         public System.Windows.Forms.Button ButtonTimeFrameMonth;
         public System.Windows.Forms.Button ButtonTimeFrameWeek;
-        private ReanalyzingView reanalyzingOverlay;
     }
 }

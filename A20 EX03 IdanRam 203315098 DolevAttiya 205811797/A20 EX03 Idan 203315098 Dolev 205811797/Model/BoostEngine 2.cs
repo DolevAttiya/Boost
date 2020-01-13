@@ -22,7 +22,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.Model
 
         #region Data Members
 
-        private const int k_CollectionLimit = /*20*/ 15;
+        private const int k_CollectionLimit = 20;
 
         public const int k_NumOfBiggestFans = 3;
 
@@ -32,7 +32,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.Model
 
         public BoostSettings m_BoostSettings; // Default null
 
-        public const string k_PostErrorMessage = "Could not get post!";
+        public const string k_PostErrorMessage = "Could not get psost!";
 
         public static readonly string SR_CurrentVersion = "0.3.0";
 

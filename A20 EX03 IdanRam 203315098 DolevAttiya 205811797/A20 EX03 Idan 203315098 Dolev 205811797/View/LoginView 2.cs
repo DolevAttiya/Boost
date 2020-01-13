@@ -71,7 +71,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
             BringToFront();
             LabelLoading.Visible = false;
-            this.Visible = false; // true
+            Visible = true; // true
         }
 
         private void PictureBoxFBLogin_MouseLeave(object sender, EventArgs e)
