@@ -26,6 +26,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
         public Button m_SelectedAnalysisBasisButton;
 
+        public Button m_SelectedAnalysisTimeFrameButton;
+
         public Button m_SelectedAnalysisTab;
 
         public SaveAnalysisSettingsEventHandler m_AnalysisSettingsEvent;
@@ -90,16 +92,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             switchAnalysisElements((Button)sender);
         }
 
-        /*
-        private void analysisBasis_Click(object sender, EventArgs e)
-        {
-            switchAnalysisElements((Button)sender);
-        }
-        
-        private void analysisTimeFrame_Click(object sender, EventArgs e)
-        {
-            switchAnalysisElements((Button)sender);
-        }*/
 
         private void addButtonsToLists()
         {
@@ -162,11 +154,20 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             }
         }
 
-        public void SelectButton(Button i_Button, List<Button> i_RelevantButtonList)
+        public void SelectButton(Button i_Button, List<Button> i_ButtonList)
         {
-            foreach(Button button in i_RelevantButtonList)
+            foreach(Button button in i_ButtonList)
             {
                 button.BackColor = Stylesheet.Color_Main;
+            }
+
+            if (i_Button.Name.Contains("Basis"))
+            {
+                m_SelectedAnalysisBasisButton = i_Button;
+            }
+            else
+            {
+                m_SelectedAnalysisTimeFrameButton = i_Button;
             }
             
             i_Button.BackColor = Stylesheet.Color_Secondary;
@@ -212,48 +213,41 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             }
         }
 
-        /*private void switchAnalysisBasis(Button i_Button)
-        {
-            switchAnalysisElements(i_Button);
-        }
-
-        private void switchAnalysisTimeFrame(Button i_Button)
-        {
-            switchAnalysisElements(i_Button);
-        }*/
-
         private void switchAnalysisElements(Button i_Button)
         {
             List<Button> buttonList;
 
-            if(i_Button.Name.Contains("Basis"))
+            if (i_Button != m_SelectedAnalysisTimeFrameButton && i_Button != m_SelectedAnalysisBasisButton)
             {
-                buttonList = AnalysisBasisButtons;
-            }
-            else
-            {
-                buttonList = AnalysisTimeFrameButtons;
-            }
-
-            SelectButton(i_Button, buttonList);
-            reanalyzingOverlay.BringToFront();
-            reanalyzingOverlay.AnimatePanel();
-            if (buttonList.Count > 0)
-            {
-                if (buttonList[0].Name.Contains("Basis"))
+                if(i_Button.Name.Contains("Basis"))
                 {
-                    Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
+                    buttonList = AnalysisBasisButtons;
                 }
                 else
                 {
-                    Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
+                    buttonList = AnalysisTimeFrameButtons;
                 }
 
-                m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
-            }
-            else
-            {
-                throw new Exception("Button list is empty!");
+                SelectButton(i_Button, buttonList);
+                reanalyzingOverlay.BringToFront();
+                reanalyzingOverlay.AnimatePanel();
+                if (buttonList.Count > 0)
+                {
+                    if (buttonList[0].Name.Contains("Basis"))
+                    {
+                        Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisDataBasis);
+                    }
+                    else
+                    {
+                        Enum.TryParse(i_Button.Text, out r_BoostEn.m_CurrentAnalysisTimeFrame);
+                    }
+
+                    m_AnalyticsViewModel.Analyze(r_BoostEn.m_CurrentAnalysisTimeFrame, r_BoostEn.m_CurrentAnalysisDataBasis, m_SelectedAnalysisTab);
+                }
+                else
+                {
+                    throw new Exception("Button list is empty!");
+                }
             }
         }
 

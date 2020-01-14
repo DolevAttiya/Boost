@@ -8,7 +8,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
     public partial class ReanalyzingView : UserControl
     {
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
-        private readonly int r_PixelsPerMs = 60;
+        private readonly int r_PixelsPerMs = 100;
         private bool m_AnimationPhaseOne = false;
         private bool m_AnalysisFinished = false;
 
@@ -77,7 +77,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
                     timerReanalyzing.Stop();
                     setupReanalyzingPanel();
                 }
-                else if (this.panelReanalyzing.Width <= (this.Width)/2)
+                else if (this.panelReanalyzing.Width <= (this.Width)/3)
                 {
                     this.panelReanalyzing.Size = new Size(
                         this.panelReanalyzing.Width - r_PixelsPerMs,
@@ -85,9 +85,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
                 }
                 else
                 {
-                    this.panelReanalyzing.BringToFront();
                     this.panelReanalyzing.Size = new Size(
-                        this.panelReanalyzing.Width - (r_PixelsPerMs / 2),
+                        this.panelReanalyzing.Width - (r_PixelsPerMs / 3),
                         this.panelReanalyzing.Height);
                 }
             }
