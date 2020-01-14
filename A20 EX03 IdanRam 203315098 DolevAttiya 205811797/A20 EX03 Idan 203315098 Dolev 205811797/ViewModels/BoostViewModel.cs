@@ -9,11 +9,14 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
 
     public delegate void LoginErrorEventHandler();
 
+    public delegate void LoginFinishedEventHandler();
+
     public class BoostViewModel
     {
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
         public PostLoginEventHandler m_PostLoginEvent;
         public LoginErrorEventHandler m_LoginErrorEvent;
+        public LoginFinishedEventHandler m_LoginFinishedEvent;
         private object m_PostLoginLock = new object();
 
         public bool PreInitialLogin { get; set; }
@@ -38,27 +41,53 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
             }
         }
 
+
         public void FacebookLogin()
         {
-            try
-            {
-                r_BoostEn.FacebookLogin(r_BoostEn.m_BoostSettings.LastAccessToken, r_BoostEn.m_BoostSettings.RememberUser);
-            }
-            catch (Exception)
-            {
-                m_LoginErrorEvent.Invoke();
-            }
 
+            ThreadStart loginThreadStart = new ThreadStart(() =>
+            {
+                try
+                {
+                    r_BoostEn.FacebookLogin(r_BoostEn.m_BoostSettings.LastAccessToken, r_BoostEn.m_BoostSettings.RememberUser);
+
+                }
+                catch (Exception)
+                {
+                    m_LoginErrorEvent.Invoke();
+                }
+
+            });
+
+            loginThreadStart += initiatePostLoginOperations;
+
+            Thread loginThread = new Thread(loginThreadStart);
+
+            loginThread.SetApartmentState(ApartmentState.STA);
+
+            loginThread.Start();
+
+
+        }
+
+        private void initiatePostLoginOperations()
+        {
             bool isTheUserLoggedIn = r_BoostEn.LoggedInUser != null;
             if (isTheUserLoggedIn)
             {
-                lock(m_PostLoginLock)
+                if (isTheUserLoggedIn)
                 {
-                    if(isTheUserLoggedIn)
-                    {
-                        new Thread(new ThreadStart(() => m_PostLoginEvent.Invoke())).Start();
-                    }
+                    ThreadStart postLoginThreadStart = new ThreadStart(() => m_PostLoginEvent.Invoke());
+
+                    postLoginThreadStart += () => m_LoginFinishedEvent.Invoke();
+
+                    new Thread(postLoginThreadStart).Start();
                 }
+                /*
+                lock (m_PostLoginLock)
+                {
+                }*/
+
             }
         }
     }

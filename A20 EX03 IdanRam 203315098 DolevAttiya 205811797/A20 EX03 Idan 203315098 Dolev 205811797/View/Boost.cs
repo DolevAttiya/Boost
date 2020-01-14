@@ -40,7 +40,9 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             m_BoostViewModel.m_LoginErrorEvent += LoginPage.DisplayLoginErrorMessage;
 
             m_BoostViewModel.m_PostLoginEvent += setupAndLoad;
-            m_BoostViewModel.m_PostLoginEvent += LoginPage.HideLoginPage;
+
+            //m_BoostViewModel.m_PostLoginEvent += LoginPage.HideLoginPage;
+            m_BoostViewModel.m_LoginFinishedEvent += LoginPage.HideLoginPage;
 
             LoginPage.m_LoginEvent += m_BoostViewModel.FacebookLogin;
 

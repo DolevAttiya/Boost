@@ -89,7 +89,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
         private void analysisElementButton_Click(object sender, EventArgs e)
         {
-            switchAnalysisElements((Button)sender);
+            switchAnalysisElement((Button)sender);
         }
 
 
@@ -161,13 +161,16 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
                 button.BackColor = Stylesheet.Color_Main;
             }
 
-            if (i_Button.Name.Contains("Basis"))
+            if (!i_Button.Name.Contains("Tab"))
             {
-                m_SelectedAnalysisBasisButton = i_Button;
-            }
-            else
-            {
-                m_SelectedAnalysisTimeFrameButton = i_Button;
+                if (i_Button.Name.Contains("Basis"))
+                {
+                    m_SelectedAnalysisBasisButton = i_Button;
+                }
+                else
+                {
+                    m_SelectedAnalysisTimeFrameButton = i_Button;
+                }
             }
             
             i_Button.BackColor = Stylesheet.Color_Secondary;
@@ -213,7 +216,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             }
         }
 
-        private void switchAnalysisElements(Button i_Button)
+        private void switchAnalysisElement(Button i_Button)
         {
             List<Button> buttonList;
 
