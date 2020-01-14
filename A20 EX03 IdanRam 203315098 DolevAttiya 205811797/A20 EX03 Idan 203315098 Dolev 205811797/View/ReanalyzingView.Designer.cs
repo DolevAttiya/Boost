@@ -1,6 +1,8 @@
-﻿namespace A20_EX03_Idan_203315098_Dolev_205811797.View
+﻿using System.Drawing;
+
+namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 {
-    partial class ReanalyzingView
+    public partial class ReanalyzingView
     {
         /// <summary> 
         /// Required designer variable.
@@ -17,6 +19,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -31,7 +34,7 @@
             this.components = new System.ComponentModel.Container();
             this.panelReanalyzing = new System.Windows.Forms.Panel();
             this.labelReanalyzing = new System.Windows.Forms.Label();
-            this.timerReanalyzingIn = new System.Windows.Forms.Timer(this.components);
+            this.timerReanalyzing = new System.Windows.Forms.Timer(this.components);
             this.timerReanalyzingOut = new System.Windows.Forms.Timer(this.components);
             this.panelReanalyzing.SuspendLayout();
             this.SuspendLayout();
@@ -64,17 +67,13 @@
             // 
             // timerReanalyzingIn
             // 
-            this.timerReanalyzingIn.Tick += new System.EventHandler(this.timerReanalyzingIn_Tick);
-            // // 
-            // timerReanalyzingOut
-            // 
-            this.timerReanalyzingOut.Tick += new System.EventHandler(this.timerReanalyzingOut_Tick);
-            // 
+            this.timerReanalyzing.Tick += new System.EventHandler(this.timerReanalyzing_Tick);
+            //
             // ReanalyzingView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = Color.Transparent;
             this.Controls.Add(this.panelReanalyzing);
             this.MaximumSize = new System.Drawing.Size(1005, 434);
             this.MinimumSize = new System.Drawing.Size(1005, 434);
@@ -90,7 +89,7 @@
 
         private System.Windows.Forms.Panel panelReanalyzing;
         private System.Windows.Forms.Label labelReanalyzing;
-        private System.Windows.Forms.Timer timerReanalyzingIn;
+        private System.Windows.Forms.Timer timerReanalyzing;
         private System.Windows.Forms.Timer timerReanalyzingOut;
     }
 }

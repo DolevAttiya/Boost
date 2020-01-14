@@ -26,10 +26,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
 
         public void Analyze(eTimeFrame i_TimeFrame, eAnalysisDataBasis i_AnalysisDataBasis, Button i_SelectedAnalysisButton)
         {
-            
             ThreadStart threadStart1;
             ThreadStart threadStart2;
-
 
             if(i_SelectedAnalysisButton.Name.Contains("Time"))
             {
@@ -42,8 +40,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
                 threadStart1 = new ThreadStart(() => m_BiggestFansEvent.Invoke(i_TimeFrame, i_AnalysisDataBasis));
             }
 
-            // Notify subscribers as callback - Obeserver Pattern
-           // threadStart1 += () => { m_AnalysisFinishedEvent.Invoke(); };
+            // Notify subscribers as callback - Observer Pattern
+            threadStart1 += () => { m_AnalysisFinishedEvent.Invoke(); };
 
             m_Thread1 = new Thread(threadStart1);
             m_Thread2 = new Thread(threadStart2);
@@ -52,7 +50,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
 
             m_Thread1.Start();
             m_Thread2.Start();
-
         }
     }
 }

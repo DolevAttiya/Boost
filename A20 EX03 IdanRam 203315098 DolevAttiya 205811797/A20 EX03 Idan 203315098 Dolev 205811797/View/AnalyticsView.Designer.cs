@@ -136,7 +136,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisCombined.TabIndex = 21;
             this.ButtonBasisCombined.Text = "Combined";
             this.ButtonBasisCombined.UseVisualStyleBackColor = false;
-            this.ButtonBasisCombined.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisCombined.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonBasisStatus
             // 
@@ -155,7 +155,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisStatus.TabIndex = 22;
             this.ButtonBasisStatus.Text = "Status";
             this.ButtonBasisStatus.UseVisualStyleBackColor = false;
-            this.ButtonBasisStatus.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisStatus.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonBasisPhotos
             // 
@@ -174,7 +174,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisPhotos.TabIndex = 23;
             this.ButtonBasisPhotos.Text = "Photos";
             this.ButtonBasisPhotos.UseVisualStyleBackColor = false;
-            this.ButtonBasisPhotos.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisPhotos.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonBasisVideos
             // 
@@ -193,7 +193,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonBasisVideos.TabIndex = 24;
             this.ButtonBasisVideos.Text = "Videos";
             this.ButtonBasisVideos.UseVisualStyleBackColor = false;
-            this.ButtonBasisVideos.Click += new System.EventHandler(this.analysisBasis_Click);
+            this.ButtonBasisVideos.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonTimeFrameYear
             // 
@@ -212,7 +212,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameYear.TabIndex = 27;
             this.ButtonTimeFrameYear.Text = "Year";
             this.ButtonTimeFrameYear.UseVisualStyleBackColor = false;
-            this.ButtonTimeFrameYear.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameYear.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonTimeFrameMonth
             // 
@@ -231,7 +231,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameMonth.TabIndex = 26;
             this.ButtonTimeFrameMonth.Text = "Month";
             this.ButtonTimeFrameMonth.UseVisualStyleBackColor = false;
-            this.ButtonTimeFrameMonth.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameMonth.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // ButtonTimeFrameWeek
             // 
@@ -250,7 +250,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             this.ButtonTimeFrameWeek.TabIndex = 25;
             this.ButtonTimeFrameWeek.Text = "Week";
             this.ButtonTimeFrameWeek.UseVisualStyleBackColor = false;
-            this.ButtonTimeFrameWeek.Click += new System.EventHandler(this.analysisTimeFrame_Click);
+            this.ButtonTimeFrameWeek.Click += new System.EventHandler(this.analysisElementButton_Click);
             // 
             // reanalyzingOverlay
             // 

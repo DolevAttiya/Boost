@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model;
 
 namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 {
     public partial class ReanalyzingView : UserControl
     {
-
         private readonly BoostEngine r_BoostEn = BoostEngine.Instance;
-        private readonly int r_PixelsPerMs = 15;
+        private readonly int r_PixelsPerMs = 60;
+        private bool m_AnimationPhaseOne = false;
+        private bool m_AnalysisFinished = false;
 
         public ReanalyzingView()
         {
@@ -25,68 +20,76 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
         private void setupReanalyzingPanel()
         {
+            this.Visible = false;
+            this.panelReanalyzing.SendToBack();
             this.labelReanalyzing.Font = Stylesheet.Font_Header1;
-            this.labelReanalyzing.Visible = false;
-            //this.panelReanalyzing.Visible = false;
             this.panelReanalyzing.BackColor = Stylesheet.Color_Main;
+
             // Set initial position to off-screen left
-            this.panelReanalyzing.Size = new Size(0,this.Size.Height);
+            this.panelReanalyzing.Size = new Size(0, 434);
+            this.panelReanalyzing.Location = new Point(0, 0);
+            m_AnalysisFinished = false;
         }
 
         public void AnimatePanel()
         {
+            this.Visible = true;
             this.BringToFront();
             this.panelReanalyzing.BringToFront();
-            //// TODO - animation
-            // 1. Animate panel in
+            //// 1. Animate panel in
             this.panelReanalyzing.Visible = true;
-            timerReanalyzingIn.Interval = 1;
-            timerReanalyzingIn.Start();
-
-            // 2. After X sec display label
-
-            // 3. Get notified reanalysis is complete
-
-            // 4. Animate out
-            while (!timerReanalyzingIn.Enabled)
-            {
-                labelReanalyzing.Visible = true;
-            }
-            timerReanalyzingOut.Interval = 1;
-            timerReanalyzingOut.Start();
-            // 5. Reset panel
-            setupReanalyzingPanel();
+            timerReanalyzing.Interval = 5;
+            m_AnimationPhaseOne = true;
+            //// TODO - fix transparency issue
+            timerReanalyzing.Start();
         }
-
-        public void HideReanalyzingPanel()
+        
+        public void AnalysisFinishedNotification()
         {
-            Invoke(new Action(() => this.panelReanalyzing.Visible = false));
+            m_AnalysisFinished = true;
         }
-
-        private void timerReanalyzingIn_Tick(object sender, EventArgs e)
+        
+        private void timerReanalyzing_Tick(object sender, EventArgs e)
         {
-            
-            if (this.panelReanalyzing.Width == this.Width)
+            if(m_AnimationPhaseOne)
             {
-                timerReanalyzingIn.Stop();
+                if(this.panelReanalyzing.Width >= this.Width)
+                {
+                    while (!m_AnalysisFinished)
+                    {
+                        // Wait for notification from prioritized analysis thread
+                    }
+
+                    m_AnimationPhaseOne = false;
+                }
+                else
+                {
+                    this.panelReanalyzing.BringToFront();
+                    this.panelReanalyzing.Size = new Size(
+                        this.panelReanalyzing.Width + r_PixelsPerMs,
+                        this.panelReanalyzing.Height);
+                }
             }
             else
             {
-                this.panelReanalyzing.BringToFront();
-                this.panelReanalyzing.Size = new Size(this.panelReanalyzing.Width+r_PixelsPerMs, this.panelReanalyzing.Height);
-            }
-        }
-        private void timerReanalyzingOut_Tick(object sender, EventArgs e)
-        {
-            
-            if (this.panelReanalyzing.Width == 0)
-            {
-                timerReanalyzingIn.Stop();
-            }
-            else
-            {
-                this.panelReanalyzing.BringToFront();
-                this.panelReanalyzing.Size = new Size(this.panelReanalyzing.Width-r_PixelsPerMs, this.panelReanalyzing.Height);
+                if (this.panelReanalyzing.Width <= 0)
+                {
+                    timerReanalyzing.Stop();
+                    setupReanalyzingPanel();
+                }
+                else if (this.panelReanalyzing.Width <= (this.Width)/2)
+                {
+                    this.panelReanalyzing.Size = new Size(
+                        this.panelReanalyzing.Width - r_PixelsPerMs,
+                        this.panelReanalyzing.Height);
+                }
+                else
+                {
+                    this.panelReanalyzing.BringToFront();
+                    this.panelReanalyzing.Size = new Size(
+                        this.panelReanalyzing.Width - (r_PixelsPerMs / 2),
+                        this.panelReanalyzing.Height);
+                }
             }
         }
     }
