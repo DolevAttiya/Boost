@@ -40,7 +40,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
                 threadStart1 = new ThreadStart(() => m_BiggestFansEvent.Invoke(i_TimeFrame, i_AnalysisDataBasis));
             }
 
-            // Notify subscribers when main analysis thread is finished - Observer Pattern
+            // Callback method to notify subscribers when main analysis thread is finished - Observer Pattern
             threadStart1 += () => m_AnalysisFinishedEvent.Invoke();
 
             m_Thread1 = new Thread(threadStart1);

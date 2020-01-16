@@ -77,8 +77,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
                     timerReanalyzing.Stop();
                     setupReanalyzingPanel();
                 }
-                else if (this.panelReanalyzing.Width <= (this.Width)/3)
-                {
+                else if (this.panelReanalyzing.Width <= (this.Width ) / 3)
+                { 
                     this.panelReanalyzing.Size = new Size(
                         this.panelReanalyzing.Width - r_PixelsPerMs,
                         this.panelReanalyzing.Height);
