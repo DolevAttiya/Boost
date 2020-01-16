@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Windows.Forms;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses;
@@ -40,8 +41,18 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
                 threadStart1 = new ThreadStart(() => m_BiggestFansEvent.Invoke(i_TimeFrame, i_AnalysisDataBasis));
             }
 
-            // Callback method to notify subscribers when main analysis thread is finished - Observer Pattern
-            threadStart1 += () => m_AnalysisFinishedEvent.Invoke();
+            //// Observer Pattern - Callback method to notify subscribers when main analysis thread is finished
+            threadStart1 += () =>
+            {
+                try
+                {
+                    m_AnalysisFinishedEvent.Invoke();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            };
 
             m_Thread1 = new Thread(threadStart1);
             m_Thread2 = new Thread(threadStart2);

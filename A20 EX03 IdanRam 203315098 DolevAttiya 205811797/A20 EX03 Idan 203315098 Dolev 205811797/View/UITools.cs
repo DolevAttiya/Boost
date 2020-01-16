@@ -33,11 +33,11 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             i_Control.Left = (i_Client.Width - i_Control.Width) / 2;
         }
 
-        public static void addSubPagesToList(this Control i_Container, List<UserControl> i_PageList, Func<FieldInfo, bool> i_Tester)
+        public static void addSubPagesToList(this Control i_Container, List<UserControl> i_PageList)
         {
             foreach (FieldInfo field in i_Container.GetType().GetFields())
-            {
-                if (i_Tester.Invoke(field))
+            { // TODO - consider removing strategy
+                if (!field.FieldType.Name.Contains("View"))
                 {
                     continue;
                 }

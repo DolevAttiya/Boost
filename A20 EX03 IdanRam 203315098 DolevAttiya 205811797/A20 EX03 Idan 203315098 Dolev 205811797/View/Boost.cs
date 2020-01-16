@@ -41,7 +41,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 
             m_BoostViewModel.m_PostLoginEvent += setupAndLoad;
 
-            //m_BoostViewModel.m_PostLoginEvent += LoginPage.HideLoginPage;
             m_BoostViewModel.m_LoginFinishedEvent += LoginPage.HideLoginPage;
 
             LoginPage.m_LoginEvent += m_BoostViewModel.FacebookLogin;
@@ -93,9 +92,10 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
                 series.Points.Clear();
             }
 
-            // Sort elements at app startup
-            NavbarSeparator.BringToFront();
-            this.addSubPagesToList(m_BoostPages, field => !field.FieldType.Name.Contains("View"));
+            NavbarSeparator.BringToFront(); // Sort elements at app startup
+
+            this.addSubPagesToList(m_BoostPages);  // Extension method
+
             switchPage(navbar.m_NavbarButtons[0]); // Switch to the 1st button's page (App home page)
             navbar.SetButtonStyleToDefault(navbar.BtnUsername);
             userOptions.Visible = false;

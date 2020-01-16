@@ -41,22 +41,18 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
             }
         }
 
-
         public void FacebookLogin()
         {
-
             ThreadStart loginThreadStart = new ThreadStart(() =>
             {
                 try
                 {
                     r_BoostEn.FacebookLogin(r_BoostEn.m_BoostSettings.LastAccessToken, r_BoostEn.m_BoostSettings.RememberUser);
-
                 }
                 catch (Exception)
                 {
                     m_LoginErrorEvent.Invoke();
                 }
-
             });
 
             loginThreadStart += initiatePostLoginOperations;
@@ -66,8 +62,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
             loginThread.SetApartmentState(ApartmentState.STA);
 
             loginThread.Start();
-
-
         }
 
         private void initiatePostLoginOperations()
@@ -83,11 +77,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.ViewModels
 
                     new Thread(postLoginThreadStart).Start();
                 }
-                /*
-                lock (m_PostLoginLock)
-                {
-                }*/
-
             }
         }
     }

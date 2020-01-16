@@ -71,7 +71,7 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             m_AnalyticsViewModel.m_BiggestFansEvent += BiggestFansPage.DisplayBiggestFans;
 
             reanalyzingOverlay.BackColor = Color.Transparent;
-            m_AnalyticsViewModel.m_AnalysisFinishedEvent += reanalyzingOverlay.AnalysisFinishedNotification;
+            m_AnalyticsViewModel.m_AnalysisFinishedEvent += reanalyzingOverlay.AnalysisFinishedNotification; // Subscribe to Observer Pattern event
 
             AnalyticsTabButtons = new List<Button>();
             AnalysisBasisButtons = new List<Button>();
@@ -79,7 +79,8 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
             AnalyticsSubPages = new List<UserControl>();
 
             addButtonsToLists();
-            this.addSubPagesToList(AnalyticsSubPages, field => !field.FieldType.Name.Contains("View"));
+
+            this.addSubPagesToList(AnalyticsSubPages); // Extension method
         }
 
         private void analysisTab_Click(object sender, EventArgs e)
@@ -91,7 +92,6 @@ namespace A20_EX03_Idan_203315098_Dolev_205811797.View
         {
             switchAnalysisElement((Button)sender);
         }
-
 
         private void addButtonsToLists()
         {
