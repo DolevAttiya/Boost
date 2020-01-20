@@ -237,6 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ClassDiagrams\GUIClassDiagram.cd" />
+    <None Include="Resources\ClassDiagrams\ObserverClassDiagram.cd" />
     <None Include="Resources\ClassDiagrams\SingletonClassDiagram.cd" />
     <None Include="Resources\fbLogin.png" />
   </ItemGroup>
@@ -249,7 +250,9 @@
   <ItemGroup>
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\Design Patterns\Observer\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\WhatsNew.html" />
   </ItemGroup>
