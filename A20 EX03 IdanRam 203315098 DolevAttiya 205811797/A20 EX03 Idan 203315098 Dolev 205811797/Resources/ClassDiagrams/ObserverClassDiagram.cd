@@ -1,4 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="m_AnalysisFinishedEvent is being invoked at the end of the thread jobs in the Analyze method (like a callback method) and notifies all of it's subscribers the analysis has finished.&#xD;&#xA;&#xD;&#xA;The method AnalysisFinishedNotification (in Reanalyzing view) is a subscriber to the above-mentioned event and once the analysis is infact finished, changes the boolean value m_AnalysisFinished to true thus initiating the &quot;out&quot; portion of the animation">
+    <Position X="7.755" Y="8.251" Height="1.133" Width="8.336" />
+  </Comment>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.View.AnalyticsView" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>NwASECCIEmCAEARBZADEAAESEEASAJAAQAAAAAEAAAA=</HashCode>
+      <FileName>View\AnalyticsView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="reanalyzingOverlay" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.View.ReanalyzingView">
+    <Position X="6.75" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAiCMAAAAAACBAAQSAAAgJAAAAEAAAAAAAAA=</HashCode>
+      <FileName>View\ReanalyzingView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="A20_EX03_Idan_203315098_Dolev_205811797.ViewModels.AnalyticsViewModel">
+    <Position X="13.25" Y="3.5" Width="2.75" />
+    <AssociationLine Name="m_AnalysisFinishedEvent" Type="A20_EX03_Idan_203315098_Dolev_205811797.ViewModels.AnalysisFinishedEventHandler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.914" Y="0.3" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAkAAAAAIAAAAAAAAAAQAAEAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_AnalysisFinishedEvent" />
+      <Field Name="m_BestTimesEvent" />
+      <Field Name="m_BiggestFansEvent" />
+    </ShowAsAssociation>
+  </Class>
+  <Delegate Name="A20_EX03_Idan_203315098_Dolev_205811797.ViewModels.BestTimesEventHandler">
+    <Position X="18" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX03_Idan_203315098_Dolev_205811797.ViewModels.BiggestFansEventHandler">
+    <Position X="18" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="A20_EX03_Idan_203315098_Dolev_205811797.ViewModels.AnalysisFinishedEventHandler">
+    <Position X="13.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
