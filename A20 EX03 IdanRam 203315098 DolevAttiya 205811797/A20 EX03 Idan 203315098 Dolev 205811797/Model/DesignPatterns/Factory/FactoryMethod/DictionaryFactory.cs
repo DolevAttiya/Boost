@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model.DataClasses;
-using A20_EX03_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator;
+using A20_EX03_Idan_203315098_Dolev_205811797.Model.DesignPatterns.Decorator;
 using FacebookWrapper.ObjectModel;
 
-namespace A20_EX03_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.MethodFactory
+namespace A20_EX03_Idan_203315098_Dolev_205811797.Model.DesignPatterns.Factory.FactoryMethod
 {
     internal class DictionaryFactory
     {

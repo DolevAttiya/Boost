@@ -6,7 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using A20_EX03_Idan_203315098_Dolev_205811797.Model;
 using A20_EX03_Idan_203315098_Dolev_205811797.ViewModels;
-using A20_EX03_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Factory.AnalysisFactory;
+using A20_EX03_Idan_203315098_Dolev_205811797.Model.DesignPatterns.Factory.AnalysisFactory;
 
 namespace A20_EX03_Idan_203315098_Dolev_205811797.View
 {

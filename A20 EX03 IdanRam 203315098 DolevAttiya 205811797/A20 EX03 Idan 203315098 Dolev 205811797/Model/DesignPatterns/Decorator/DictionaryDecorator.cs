@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace A20_EX03_Idan_203315098_Dolev_205811797.Model.Design_Patterns.Decorator
+namespace A20_EX03_Idan_203315098_Dolev_205811797.Model.DesignPatterns.Decorator
 {
     public class DictionaryDecorator<TK, TV> : IDictionary<TK, TV>
     {

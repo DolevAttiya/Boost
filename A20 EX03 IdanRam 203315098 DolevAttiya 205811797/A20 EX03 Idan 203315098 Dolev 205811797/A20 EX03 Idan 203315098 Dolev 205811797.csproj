@@ -66,25 +66,25 @@
     <Compile Include="Model\DataClasses\BiggestFan.cs" />
     <Compile Include="Model\DataClasses\DayAndHour.cs" />
     <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\AnalysisFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\FactorySelector.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\CombinedDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\DictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\IAnalysisFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\PhotoDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\StatusDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\BiggestFanAnalysisFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\AnalysisFactory\TimeAnalysisFactory.cs" />
-    <Compile Include="Model\Design Patterns\Factory\MethodFactory\VideoDictionaryFactory.cs" />
-    <Compile Include="Model\Design Patterns\Singleton.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\AnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\FactorySelector.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\CombinedDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\DictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\IAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\PhotoDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\StatusDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\BiggestFanAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\TimeAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\VideoDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Singleton.cs" />
     <Compile Include="Model\DataClasses\eTimeFrame.cs" />
     <Compile Include="Model\DataClasses\IAnalysis.cs" />
     <Compile Include="Model\DataClasses\TimeAnalysis.cs" />
     <Compile Include="Model\DataClasses\BiggestFanAnalysis.cs" />
     <Compile Include="Model\DataClasses\Engagement.cs" />
     <Compile Include="Model\DataClasses\DateAndValue.cs" />
-    <Compile Include="Model\Design Patterns\Decorator\DictionaryDecorator.cs" />
-    <Compile Include="Model\Design Patterns\Decorator\SortedDictionary.cs" />
+    <Compile Include="Model\DesignPatterns\Decorator\DictionaryDecorator.cs" />
+    <Compile Include="Model\DesignPatterns\Decorator\SortedDictionary.cs" />
     <Compile Include="ViewModels\AnalyticsViewModel.cs" />
     <Compile Include="ViewModels\BestTimesViewModel.cs" />
     <Compile Include="ViewModels\BiggestFansViewModel.cs" />
@@ -250,9 +250,7 @@
   <ItemGroup>
     <None Include="Resources\fbLogin_rollover.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Design Patterns\Observer\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\WhatsNew.html" />
   </ItemGroup>
