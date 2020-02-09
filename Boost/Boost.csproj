@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A844D0B-6DD1-441B-B8F9-E32F4D145588}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Boost</RootNamespace>
+    <AssemblyName>Boost</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>\\Mac\Home\Desktop\Boost\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BoostIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>Resources\Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="FbGraphApiWrapper">
+      <HintPath>Resources\FbGraphApiWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\DataClasses\Analysis.cs" />
+    <Compile Include="Model\BoostEngine.cs" />
+    <Compile Include="Model\DataClasses\BiggestFan.cs" />
+    <Compile Include="Model\DataClasses\DayAndHour.cs" />
+    <Compile Include="Model\DataClasses\eAnalysisDataBasis.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\AnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\FactorySelector.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\CombinedDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\DictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\IAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\PhotoDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\StatusDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\BiggestFanAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\AnalysisFactory\TimeAnalysisFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Factory\FactoryMethod\VideoDictionaryFactory.cs" />
+    <Compile Include="Model\DesignPatterns\Singleton.cs" />
+    <Compile Include="Model\DataClasses\eTimeFrame.cs" />
+    <Compile Include="Model\DataClasses\IAnalysis.cs" />
+    <Compile Include="Model\DataClasses\TimeAnalysis.cs" />
+    <Compile Include="Model\DataClasses\BiggestFanAnalysis.cs" />
+    <Compile Include="Model\DataClasses\Engagement.cs" />
+    <Compile Include="Model\DataClasses\DateAndValue.cs" />
+    <Compile Include="Model\DesignPatterns\Decorator\DictionaryDecorator.cs" />
+    <Compile Include="Model\DesignPatterns\Decorator\SortedDictionary.cs" />
+    <Compile Include="ViewModels\AnalyticsViewModel.cs" />
+    <Compile Include="ViewModels\BestTimesViewModel.cs" />
+    <Compile Include="ViewModels\BiggestFansViewModel.cs" />
+    <Compile Include="ViewModels\BoostViewModel.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
+    <Compile Include="ViewModels\NavbarViewModel.cs" />
+    <Compile Include="View\AboutView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AnalyticsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\AnalyticsView.Designer.cs">
+      <DependentUpon>AnalyticsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BoostSettings.cs" />
+    <Compile Include="View\BestTimesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BestTimesView.Designer.cs">
+      <DependentUpon>BestTimesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BiggestFansView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\BiggestFansView.Designer.cs">
+      <DependentUpon>BiggestFansView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ReanalyzingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ReanalyzingView.Designer.cs">
+      <DependentUpon>ReanalyzingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UITools.cs" />
+    <Compile Include="View\UI_Controls\StylizedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\UI_Controls\StylizedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\DashboardView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\DashboardView.Designer.cs">
+      <DependentUpon>DashboardView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BoostView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BoostView.Designer.cs">
+      <DependentUpon>BoostView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Navbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Navbar.Designer.cs">
+      <DependentUpon>Navbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UserOptions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UserOptions.Designer.cs">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launcher\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Stylesheet.cs" />
+    <Compile Include="View\WhatsNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\WhatsNew.Designer.cs">
+      <DependentUpon>WhatsNew.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AnalyticsView.resx">
+      <DependentUpon>AnalyticsView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BestTimesView.resx">
+      <DependentUpon>BestTimesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BiggestFansView.resx">
+      <DependentUpon>BiggestFansView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DashboardView.resx">
+      <DependentUpon>DashboardView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BoostView.resx">
+      <DependentUpon>BoostView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Navbar.resx">
+      <DependentUpon>Navbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ReanalyzingView.resx">
+      <DependentUpon>ReanalyzingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UserOptions.resx">
+      <DependentUpon>UserOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\WhatsNew.resx">
+      <DependentUpon>WhatsNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\DataSources\A20_EX02_Idan_203315098_Dolev_205811797.Model.BoostSettings.datasource" />
+    <None Include="Resources\ClassDiagrams\FacadeClassDiagram.cd" />
+    <None Include="Resources\ClassDiagrams\EngineClassDiagram.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ClassDiagrams\GUIClassDiagram.cd" />
+    <None Include="Resources\ClassDiagrams\ObserverClassDiagram.cd" />
+    <None Include="Resources\ClassDiagrams\SingletonClassDiagram.cd" />
+    <None Include="Resources\fbLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_navbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fbLogin_rollover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsNew.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\BoostIcon.ico" />
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings.gif" />
+    <Content Include="Resources\htmlResources\WhatNew_UserSettings_small.gif" />
+    <None Include="Resources\LoginBG.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

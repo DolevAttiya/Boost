@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Boost.View.Boost">
+    <Position X="20.5" Y="2.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Boost.View.Boost.eBoostPages" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>View\Boost.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>FQAAkAAAACADQAAQAQCgAIISAEAgAEEAlEASgAQAgAQ=</HashCode>
+      <FileName>View\Boost.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="DashboardPage" />
+      <Field Name="AnalyticsPage" />
+      <Field Name="navbar" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.View.BiggestFansView">
+    <Position X="32.75" Y="16" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAEAACAAQAAAAACAAQCCEAQAAAAAAgIAAQAAAgA=</HashCode>
+      <FileName>View\BiggestFansView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_BiggestFansViewModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.View.BestTimesView">
+    <Position X="27" Y="15.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAFAgAACACAgAABQCAAEMCEQgAAABAAAgAQAoAAYI=</HashCode>
+      <FileName>View\BestTimesView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_BestTimesViewModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.View.AnalyticsView">
+    <Position X="30.25" Y="5.75" Width="2.75" />
+    <AssociationLine Name="r_BoostEn" Type="Boost.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.292" Y="0.217" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>N0ACECCIEmCAEARARADEAAESAEASAJAAQBAAAAEBAgA=</HashCode>
+      <FileName>View\AnalyticsView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_AnalysisSettingsEvent" />
+      <Field Name="r_BoostEn" />
+      <Field Name="BestTimesPage" />
+      <Field Name="BiggestFansPage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.View.DashboardView">
+    <Position X="13.25" Y="9.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AQIxBMACACdAAAUIAA2AQAkDAACAkAiAOAQABACAMAA=</HashCode>
+      <FileName>View\DashboardView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_DashboardViewModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.ViewModels.NavbarViewModel">
+    <Position X="9.5" Y="23.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ViewModels\NavbarViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.ViewModels.DashboardViewModel">
+    <Position X="14.25" Y="23.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEESAAAAAAAIBAEAQQAAAAACoAEAAgBAAAAgACCAA=</HashCode>
+      <FileName>ViewModels\DashboardViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.ViewModels.BiggestFansViewModel">
+    <Position X="33" Y="23.25" Width="2.25" />
+    <AssociationLine Name="r_BoostEn" Type="Boost.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="7.27" Y="0.078" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AgAAEgAAAAAAAAAAggAAACAAAAAACAAAAAAAAAACAAA=</HashCode>
+      <FileName>ViewModels\BiggestFansViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.ViewModels.BestTimesViewModel">
+    <Position X="28" Y="23.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEgAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAABAgAA=</HashCode>
+      <FileName>ViewModels\BestTimesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boost.View.Navbar">
+    <Position X="9.5" Y="9.5" Width="2" />
+    <AssociationLine Name="m_UsernameButtonEvent" Type="Boost.View.UsernameButtonEventHandler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.294" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>BAAggAIAACBAAAAAAAKAAAACAAQAAJAAEADIwCAAAAA=</HashCode>
+      <FileName>View\Navbar.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_UsernameButtonEvent" />
+      <Field Name="m_NavbarViewModel" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.Model.BoostEngine">
+    <Position X="20" Y="28.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAFoAAECAAAiBEUAAAUAAAAAEAJAAAQBQAAQBEAAEBA=</HashCode>
+      <FileName>Model\BoostEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boost.ViewModels.AnalyticsViewModel">
+    <Position X="36.25" Y="20.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAIAAAAAAAAAAQAAEAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+      <Field Name="m_BestTimesEvent" />
+      <Field Name="m_BiggestFansEvent" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.UserControl" Collapsed="true">
+    <Position X="24.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Boost.ViewModels.BoostViewModel">
+    <Position X="20" Y="23.25" Width="1.75" />
+    <AssociationLine Name="r_BoostEn" Type="Boost.Model.BoostEngine">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.151" Y="3.808" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAEAACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAEIAAAI=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="r_BoostEn" />
+      <Field Name="m_PostLoginEvent" />
+      <Field Name="m_LoginErrorEvent" />
+    </ShowAsAssociation>
+  </Class>
+  <Delegate Name="Boost.View.SaveAnalysisSettingsEventHandler">
+    <Position X="25.75" Y="12.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AnalyticsView.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.View.UsernameButtonEventHandler">
+    <Position X="13.25" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\Navbar.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.BiggestFansEventHandler">
+    <Position X="40.25" Y="20.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.BestTimesEventHandler">
+    <Position X="40.25" Y="22" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.PostLoginEventHandler" Collapsed="true">
+    <Position X="24.25" Y="24.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.LoginErrorEventHandler">
+    <Position X="24.25" Y="22.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BoostViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
