@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="m_AnalysisFinishedEvent is being invoked at the end of the thread jobs in the Analyze method (like a callback method) and notifies all of its subscribers the analysis has finished.&#xD;&#xA;&#xD;&#xA;The method AnalysisFinishedNotification (in Reanalyzing view) is a subscriber to the above-mentioned event and once the analysis is infact finished, changes the boolean value m_AnalysisFinished to true thus initiating the &quot;out&quot; portion of the animation">
+    <Position X="9.413" Y="8.87" Height="1.133" Width="5.476" />
+  </Comment>
+  <Class Name="Boost.View.AnalyticsView" Collapsed="true">
+    <Position X="8" Y="1.25" Width="2.75" />
+    <AssociationLine Name="reanalyzingOverlay" Type="Boost.View.ReanalyzingView">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.242" Y="0.966" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>NwASECCIEmCAEARBZADEAAESEEASAJAAQAAAAAEAAAA=</HashCode>
+      <FileName>View\AnalyticsView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="reanalyzingOverlay" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Boost.View.ReanalyzingView">
+    <Position X="8.25" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAiCMAAAAAACBAAQSAAAgJAAAAEAAAAAAAAA=</HashCode>
+      <FileName>View\ReanalyzingView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Boost.ViewModels.AnalyticsViewModel">
+    <Position X="13.25" Y="3.5" Width="2.75" />
+    <AssociationLine Name="m_BestTimesEvent" Type="Boost.ViewModels.BestTimesEventHandler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.47" Y="0.329" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="m_BiggestFansEvent" Type="Boost.ViewModels.BiggestFansEventHandler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.06" Y="0.329" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="m_AnalysisFinishedEvent" Type="Boost.ViewModels.AnalysisFinishedEventHandler">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.914" Y="0.3" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAkAAAAAIAAAAAAAAAAQAAEAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="m_BestTimesEvent" />
+      <Field Name="m_BiggestFansEvent" />
+      <Field Name="m_AnalysisFinishedEvent" />
+    </ShowAsAssociation>
+  </Class>
+  <Delegate Name="Boost.ViewModels.BestTimesEventHandler">
+    <Position X="14.75" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.BiggestFansEventHandler">
+    <Position X="12.5" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="Boost.ViewModels.AnalysisFinishedEventHandler">
+    <Position X="13.5" Y="7" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AnalyticsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
